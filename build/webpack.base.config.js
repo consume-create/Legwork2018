@@ -4,6 +4,9 @@ const vueConfig = require('./vue-loader.config')
 const ExtractTextPlugin = require('extract-text-webpack-plugin')
 const FriendlyErrorsPlugin = require('friendly-errors-webpack-plugin')
 
+const ModernizrWebpackPlugin = require("modernizr-webpack-plugin")
+const modernizr_config = require("modernizr/lib/config-all.json")
+
 const isProd = process.env.NODE_ENV === 'production'
 
 module.exports = {
@@ -23,6 +26,15 @@ module.exports = {
   module: {
     noParse: /es6-promise\.js$/, // avoid webpack shimming process
     rules: [
+      {
+        enforce: "pre",
+        test: /\.js$/,
+        loader: "eslint-loader",
+        query: {
+          configFile: "./.eslintrc.js",
+          fix: true
+        }
+      },
       {
         test: /\.vue$/,
         loader: 'vue-loader',
@@ -64,9 +76,25 @@ module.exports = {
         new webpack.optimize.ModuleConcatenationPlugin(),
         new ExtractTextPlugin({
           filename: 'common.[chunkhash].css'
-        })
+        }),
+        new webpack.ProvidePlugin({
+          "window.jQuery"    : "jquery",
+          "window.$"         : "jquery",
+          "jQuery"           : "jquery",
+          "$"                : "jquery",
+          "_"                : "lodash"
+        }),
+        new ModernizrWebpackPlugin(modernizr_config)
       ]
     : [
-        new FriendlyErrorsPlugin()
+        new FriendlyErrorsPlugin(),
+        new webpack.ProvidePlugin({
+          "window.jQuery"    : "jquery",
+          "window.$"         : "jquery",
+          "jQuery"           : "jquery",
+          "$"                : "jquery",
+          "_"                : "lodash"
+        }),
+        new ModernizrWebpackPlugin(modernizr_config)
       ]
 }
