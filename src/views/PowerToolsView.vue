@@ -1,9 +1,9 @@
 <template>
-	<nav>Nav</nav>
+	<h1>Power Tools</h1>
 </template>
 
 <script>
 export default {
-	name: "header-view"
-}
+  name: 'power-tools-view'
+};
 </script>

@@ -1,9 +1,9 @@
 <template>
-	<h1>Nothing here.</h1>
+	<h1>Biz Widget</h1>
 </template>
 
 <script>
 export default {
-  name: 'four-oh-four'
-};
+	name: 'biz-widget-view'
+}
 </script>

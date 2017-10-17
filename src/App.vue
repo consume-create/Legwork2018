@@ -1,16 +1,24 @@
 <template>
   <div id="app">
     <header-view></header-view>
+    <hero-view></hero-view>
+    <biz-widget-view></biz-widget-view>
+    <power-tools-view></power-tools-view>
     <router-view class="view"></router-view>
+    <footer-view></footer-view>
   </div>
 </template>
 
 <script>
-import HeaderView from './components/HeaderView.vue';
+import HeaderView from './views/HeaderView.vue';
+import HeroView from './views/HeroView.vue';
+import FooterView from './views/FooterView.vue';
+import BizWidgetView from './views/BizWidgetView.vue';
+import PowerToolsView from './views/PowerToolsView.vue';
 
 export default {
   name: 'app',
-  components: { HeaderView }
+  components: { HeaderView, HeroView, FooterView, BizWidgetView, PowerToolsView }
 }
 </script>
 

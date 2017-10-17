@@ -1,9 +1,9 @@
 <template>
-	<h1>Nice Site</h1>
+	<footer>Footer</footer>
 </template>
 
 <script>
 export default {
-  name: 'index-view'
+  name: 'footer-view'
 };
 </script>
