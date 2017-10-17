@@ -1,6 +1,7 @@
 import Vue from 'vue';
 import Router from 'vue-router';
 import IndexView from '../views/IndexView.vue';
+import FourOhFour from '../views/FourOhFour.vue';
 
 // Set Vue to use the Router
 Vue.use(Router);
@@ -12,7 +13,8 @@ export function createRouter () {
     fallback: false,
     scrollBehavior: () => ({ y: 0 }),
     routes: [
-      { path: '/', component: IndexView }
+      { path: '/', component: IndexView },
+      { path: '*', component: FourOhFour }
     ]
   });
 }
