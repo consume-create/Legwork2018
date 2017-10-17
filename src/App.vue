@@ -1,8 +1,18 @@
 <template>
   <div id="app">
+    <header-view></header-view>
     <router-view class="view"></router-view>
   </div>
 </template>
+
+<script>
+import HeaderView from './components/HeaderView.vue';
+
+export default {
+  name: 'app',
+  components: { HeaderView }
+}
+</script>
 
 <style lang="stylus">
 body

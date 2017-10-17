@@ -1,9 +1,9 @@
 <template>
-	<h1>Nice Site</h1>
+	<nav>Nav</nav>
 </template>
 
 <script>
 export default {
-  name: 'index-view'
-};
+	name: "header-view"
+}
 </script>
