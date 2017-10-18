@@ -60,7 +60,7 @@ module.exports = {
               use: 'css-loader?minimize',
               fallback: 'vue-style-loader'
             })
-          : ['vue-style-loader', 'css-loader']
+          : ['vue-style-loader', 'sass-loader', 'css-loader']
       }
     ]
   },

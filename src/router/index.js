@@ -12,7 +12,11 @@ export function createRouter () {
     fallback: false,
     scrollBehavior: () => ({ y: 0 }),
     routes: [
-      { path: '/', component: ContentView }
+      { path: '/search', component: ContentView, props: true },
+      { path: '/search/:project_search', component: ContentView, props: true },
+      { path: '/:discipline', component: ContentView, props: true },
+      { path: '/:discipline/:project', component: ContentView, props: true },
+      { path: '/', component: ContentView, props: true }
     ]
   });
 }
