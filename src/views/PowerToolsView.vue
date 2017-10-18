@@ -11,13 +11,4 @@ export default {
 </script>
 
 <style lang='sass'>
-#power-tools
-	position: fixed
-	width: 125px
-	height: 500px
-	top: 50%
-	right: 0px
-	background:
-		color: #eaeaea
-	transform: translateY(-50%)
 </style>

@@ -11,11 +11,4 @@ export default {
 </script>
 
 <style lang='sass'>
-#biz-widget
-	position: fixed
-	width: 100vw
-	height: 100vh
-	right: -100vw
-	background:
-		color: #eaeaea
 </style>
