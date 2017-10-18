@@ -44,10 +44,8 @@ router.onReady(() => {
       return next();
     }
 
-    bar.start();
     Promise.all(asyncDataHooks.map(hook => hook({ store, route: to })))
       .then(() => {
-        bar.finish();
         next();
       })
       .catch(next);
@@ -56,8 +54,3 @@ router.onReady(() => {
   // actually mount to DOM
   app.$mount('#app');
 });
-
-// service worker
-if ('https:' === location.protocol && navigator.serviceWorker) {
-  navigator.serviceWorker.register('/service-worker.js');
-}

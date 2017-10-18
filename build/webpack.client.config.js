@@ -13,6 +13,19 @@ const config = merge(base, {
       'create-api': './create-api-client.js'
     }
   },
+  module: {
+    rules: [
+      {
+        enforce: "pre",
+        test: /\.js$/,
+        loader: "eslint-loader",
+        query: {
+          configFile: "./.eslintrc.js",
+          fix: true
+        }
+      }
+    ]
+  },
   plugins: [
     // strip dev-only code in Vue source
     new webpack.DefinePlugin({
