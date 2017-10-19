@@ -10,5 +10,6 @@ export default {
 }
 </script>
 
-<style lang='sass'>
+<style lang="sass">
+  @import "src/styles/global"
 </style>
