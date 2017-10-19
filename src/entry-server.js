@@ -16,6 +16,7 @@ export default context => {
     const { fullPath } = router.resolve(url).route;
 
     if (fullPath !== url) {
+      
       return reject({ url: fullPath });
     }
 
