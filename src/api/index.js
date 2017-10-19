@@ -1,6 +1,6 @@
 // this is aliased in webpack config based on server/client build
 import { createAPI } from 'create-api';
-require('dotenv').config();
+
 // const logRequests = !!process.env.DEBUG_API;
 // console.log(process.env.SPACE_ID, process.env.ACCESS_TOKEN);
 
