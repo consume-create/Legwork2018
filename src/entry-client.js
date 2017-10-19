@@ -5,6 +5,7 @@ import { createApp } from './app';
 // a global mixin that calls `asyncData` when a route component's params change
 Vue.mixin({
   beforeRouteUpdate (to, from, next) {
+    console.log(this.$store);
     const { asyncData } = this.$options;
     if (asyncData) {
       asyncData({

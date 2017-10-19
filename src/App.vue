@@ -25,7 +25,7 @@ export default {
   },
   methods: {
     loadItems(){
-      this.$store.dispatch('FETCH_PROJECTS');
+      // this.$store.dispatch('FETCH_PROJECTS');
     }
   }
 }
