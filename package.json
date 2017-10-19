@@ -19,7 +19,6 @@
     "es6-promise": "^4.1.1",
     "express": "^4.15.4",
     "extract-text-webpack-plugin": "^3.0.0",
-    "fs": "0.0.1-security",
     "jquery": "^3.2.1",
     "lodash": "^4.17.4",
     "lru-cache": "^4.1.1",
