@@ -19,7 +19,15 @@ import FooterView from './views/FooterView.vue';
 export default {
   name: 'app',
   components: { HeaderView, HeroView, BizWidgetView, FooterView, PowerToolsView },
-  props: ['discipline']
+  props: ['discipline'],
+  beforeMount () {
+    this.loadItems()
+  },
+  methods: {
+    loadItems(){
+      this.$store.dispatch('FETCH_PROJECTS');
+    }
+  }
 }
 </script>
 

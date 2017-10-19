@@ -6,6 +6,7 @@ const FriendlyErrorsPlugin = require('friendly-errors-webpack-plugin')
 
 const ModernizrWebpackPlugin = require("modernizr-webpack-plugin")
 const modernizr_config = require("modernizr/lib/config-all.json")
+const Dotenv = require('dotenv-webpack')
 
 const isProd = process.env.NODE_ENV === 'production'
 
@@ -22,6 +23,9 @@ module.exports = {
     alias: {
       'public': path.resolve(__dirname, '../public')
     }
+  },
+  node: {
+   fs: "empty"
   },
   module: {
     noParse: /es6-promise\.js$/, // avoid webpack shimming process
@@ -84,7 +88,11 @@ module.exports = {
           "$"                : "jquery",
           "_"                : "lodash"
         }),
-        new ModernizrWebpackPlugin(modernizr_config)
+        new ModernizrWebpackPlugin(modernizr_config),
+        new Dotenv({
+          path: '.env', // Path to .env file (this is the default) 
+          safe: false // load .env.example (defaults to "false" which does not use dotenv-safe) 
+        })
       ]
     : [
         new FriendlyErrorsPlugin(),
@@ -95,6 +103,10 @@ module.exports = {
           "$"                : "jquery",
           "_"                : "lodash"
         }),
-        new ModernizrWebpackPlugin(modernizr_config)
+        new ModernizrWebpackPlugin(modernizr_config),
+        new Dotenv({
+          path: '.env', // Path to .env file (this is the default) 
+          safe: false // load .env.example (defaults to "false" which does not use dotenv-safe) 
+        })
       ]
 }
