@@ -38,8 +38,7 @@ namespace :deploy do
       set :shared_path, "/var/www/#{fetch(:application)}/shared"
       set :current_path, "/var/www/#{fetch(:application)}/current"
 
-      execute "cd /var/www/#{fetch(:application)}/current && npm install"
-      execute "cd /var/www/#{fetch(:application)}/current && npm run build"
+      execute "cd /var/www/#{fetch(:application)}/current && npm install && npm install --only=dev && && npm run build"
 
       execute "forever stopall"
       execute "cd /var/www/#{fetch(:application)}/current && forever start server.js"
