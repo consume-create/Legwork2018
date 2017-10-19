@@ -19,7 +19,7 @@ export function init(){
   return getContentTypes()
     .then(fetchEntries)
     .then((entries) => {
-      return entries;
+      return entries[0];
     })
     .catch((error) => {
       if (error.stack) {

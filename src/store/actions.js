@@ -4,7 +4,10 @@ export default {
     init()
       .then( (entries) => {
         _.each(entries, (entry) => {
-          console.log(entry);
+          // _.each(entry, (project) => {
+          //   console.log(project.fields);
+          // });
+          console.log(entry.fields);
         });
       });
   }

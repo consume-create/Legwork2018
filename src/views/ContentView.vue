@@ -27,7 +27,10 @@ export default {
 	  projects () {
 	  	return this.$store.getters.projects;
 	  }
-	}
+	},
+	asyncData ({ store, route: { params: { id }}}) {
+    return store.dispatch('FETCH_PROJECTS');
+  },
 };
 </script>
 

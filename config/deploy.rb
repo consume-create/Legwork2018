@@ -1,8 +1,8 @@
 # config valid only for current version of Capistrano
 lock "3.9.1"
 
-set :application, 'ssr-test'
-set :repo_url, 'git@github.com:legworkstudio/ssr-test.git'
+set :application, 'legwork2018'
+set :repo_url, 'git@github.com:legworkstudio/Legwork2018.git'
 set :user, "root"
 
 # Default deploy_to directory is /var/www/my_app
@@ -37,9 +37,10 @@ namespace :deploy do
     on roles(:app), in: :sequence, wait: 1 do
       set :shared_path, "/var/www/#{fetch(:application)}/shared"
       set :current_path, "/var/www/#{fetch(:application)}/current"
-      
 
-      execute "cd /var/www/#{fetch(:application)}/current && npm install && npm run build"
+      execute "cd /var/www/#{fetch(:application)}/current && npm install"
+      execute "cd /var/www/#{fetch(:application)}/current && npm run build"
+
       execute "forever stopall"
       execute "cd /var/www/#{fetch(:application)}/current && forever start server.js"
       execute "sudo service nginx restart"
