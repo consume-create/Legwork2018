@@ -7,3 +7,7 @@ export default {
   name: 'footer-view'
 };
 </script>
+
+<style lang="sass">
+  @import "src/styles/global"
+</style>
