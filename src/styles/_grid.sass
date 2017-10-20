@@ -1,1 +1,31 @@
+/* 20 Cols */
+$small-grid-col: 5%
+
+/* 24 Cols */
+$large-grid-col: 4.1667%
+
 /* Grid */
+@mixin grid
+  display: grid
+  grid-template-columns: $small-grid-col
+  grid-template-rows: auto
+  grid-auto-columns: $small-grid-col
+
+  +respond-to($tablet-landscape)
+    grid-template-columns: $large-grid-col
+    grid-auto-columns: $large-grid-col
+
+/* Subgrid */
+@mixin subgrid($cols)
+  display: grid
+  grid-template-columns: ((20 / $cols) * $small-grid-col)
+  grid-template-rows: auto
+  grid-auto-columns: ((20 / $cols) * $small-grid-col)
+
+  +respond-to($tablet-landscape)
+    grid-template-columns: ((24 / $cols) * $large-grid-col)
+    grid-auto-columns: ((24 / $cols) * $large-grid-col)
+
+/* Span */
+@function span($cols, $of)
+  @return percentage($cols / $of)

@@ -1,4 +1,4 @@
 /* Respond Above */
-@mixin respond-above($min-size)
-  @media all and (min-width: $min-size)
+@mixin respond-to($mq)
+  @media all and #{$mq}
     @content

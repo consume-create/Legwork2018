@@ -30,28 +30,27 @@ export default {
 </script>
 
 <style lang="sass">
-  @import "src/styles/fonts"
-  @import "src/styles/reset"
-  @import "src/styles/global"
-  @import "src/styles/animations"
-  @import "src/styles/grid"
-  @import "src/styles/utils"
+@import "src/styles/fonts"
+@import "src/styles/reset"
+@import "src/styles/global"
+@import "src/styles/animations"
+@import "src/styles/utils"
 
-  /* Global Styles */
-  ::selection
-    background: $black
-    text-shadow: none
+/* Global Styles */
+::selection
+  background: $black
+  text-shadow: none
 
-  html, body
-    width: 100%
-    height: 100%
+html, body
+  width: 100%
+  height: 100%
 
-  body
-    background-color: $white
-    //font-family: $something
-    -webkit-font-smoothing: antialiased
-    -webkit-text-size-adjust: none
+body
+  background-color: $white
+  //font-family: $something
+  -webkit-font-smoothing: antialiased
+  -webkit-text-size-adjust: none
 
-  body.locked
-    overflow: hidden
+body.locked
+  overflow: hidden
 </style>
