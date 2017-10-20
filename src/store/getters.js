@@ -8,7 +8,7 @@ export default {
   },
   projects: (state) => {
     let _projects = [];
-
+    
     // If on a discipline
     if( state.route.params.discipline ){
       let _current = _.find(state.pages, {title: state.route.params.discipline});

@@ -18,7 +18,13 @@ import FooterView from './views/FooterView.vue';
 
 export default {
   name: 'app',
-  components: { HeaderView, HeroView, BizWidgetView, FooterView, PowerToolsView },
+  components: { 
+    HeaderView, 
+    HeroView, 
+    BizWidgetView, 
+    FooterView, 
+    PowerToolsView
+},
   props: ['discipline']
 }
 </script>

@@ -1,9 +1,6 @@
 // this is aliased in webpack config based on server/client build
 import { createAPI } from 'create-api';
 
-// const logRequests = !!process.env.DEBUG_API;
-// console.log(process.env.SPACE_ID, process.env.ACCESS_TOKEN);
-
 const api = createAPI({
   SPACE_ID: process.env.SPACE_ID,
   ACCESS_TOKEN: process.env.ACCESS_TOKEN
