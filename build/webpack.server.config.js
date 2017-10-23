@@ -23,6 +23,7 @@ module.exports = merge(base, {
         enforce: "pre",
         test: /\.js$/,
         loader: "eslint-loader",
+        exclude: '/node_modules/',
         query: {
           configFile: "./.eslintrc.js",
           fix: true
