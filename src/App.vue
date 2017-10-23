@@ -18,11 +18,11 @@ import FooterView from './views/FooterView.vue';
 
 export default {
   name: 'app',
-  components: { 
-    HeaderView, 
-    HeroView, 
-    BizWidgetView, 
-    FooterView, 
+  components: {
+    HeaderView,
+    HeroView,
+    BizWidgetView,
+    FooterView,
     PowerToolsView
 },
   props: ['discipline']
@@ -47,10 +47,16 @@ html, body
 
 body
   background-color: $white
-  //font-family: $something
+  // TODO
+  font: normal normal normal 14px/14px $font1
   -webkit-font-smoothing: antialiased
   -webkit-text-size-adjust: none
 
 body.locked
   overflow: hidden
+
+#app
+  width: 100%
+  height: 100%
+  overflow-x: hidden
 </style>
