@@ -17,19 +17,6 @@ module.exports = merge(base, {
       'create-api': './create-api-server.js'
     }
   },
-  module: {
-    rules: [
-      {
-        enforce: "pre",
-        test: /\.js$/,
-        loader: "eslint-loader",
-        query: {
-          configFile: "./.eslintrc.js",
-          fix: true
-        }
-      }
-    ]
-  },
   // https://webpack.js.org/configuration/externals/#externals
   // https://github.com/liady/webpack-node-externals
   externals: nodeExternals({
