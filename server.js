@@ -64,17 +64,10 @@ const serve = (path, cache) => express.static(resolve(path), {
 })
 
 app.use(compression({ threshold: 0 }))
-app.use(favicon('./public/favicon.ico'))
-app.use('/public/browserconfig.xml', serve('./public/browserconfig.xml', true))
-app.use('/public/facebot.jpg', serve('./public/facebot.jpg', true))
-app.use('/public/robots.txt', serve('./public/robots.txt', true))
-app.use('/public/site.webmanifest', serve('./public/site.webmanifest', true))
-app.use('/public/tile.png', serve('./public/tile.png', true))
-app.use('/public/tile-wide.png', serve('./public/tile-wide.png', true))
+app.use(express.static('root'))
 app.use('/dist', serve('./dist', true))
 app.use('/public', serve('./public', true))
 app.use('/manifest.json', serve('./manifest.json', true))
-app.use('/service-worker.js', serve('./dist/service-worker.js'))
 
 // since this app has no user-specific content, every page is micro-cacheable.
 // if your app involves user-specific content, you need to implement custom

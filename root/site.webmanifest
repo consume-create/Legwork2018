@@ -1,6 +1,6 @@
 {
     "icons": [{
-        "src": "icon.png",
+        "src": "tile.png",
         "sizes": "192x192",
         "type": "image/png"
     }],
