@@ -19,6 +19,7 @@ const config = merge(base, {
         enforce: "pre",
         test: /\.js$/,
         loader: "eslint-loader",
+        exclude: /node_modules/,
         query: {
           configFile: "./.eslintrc.js",
           fix: true
@@ -53,36 +54,5 @@ const config = merge(base, {
     new VueSSRClientPlugin()
   ]
 })
-
-if (process.env.NODE_ENV === 'production') {
-  config.plugins.push(
-    // auto generate service worker
-    new SWPrecachePlugin({
-      cacheId: 'vue-hn',
-      filename: 'service-worker.js',
-      minify: true,
-      dontCacheBustUrlsMatching: /./,
-      staticFileGlobsIgnorePatterns: [/\.map$/, /\.json$/],
-      runtimeCaching: [
-        {
-          urlPattern: '/',
-          handler: 'networkFirst'
-        },
-        {
-          urlPattern: /\/(top|new|show|ask|jobs)/,
-          handler: 'networkFirst'
-        },
-        {
-          urlPattern: '/item/:id',
-          handler: 'networkFirst'
-        },
-        {
-          urlPattern: '/user/:id',
-          handler: 'networkFirst'
-        }
-      ]
-    })
-  )
-}
 
 module.exports = config
