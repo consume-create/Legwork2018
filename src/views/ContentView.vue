@@ -28,7 +28,7 @@ export default {
       return this.$store.getters.projects;
     }
   },
-  ssrInit ({ store, route: { params: { id }}}) {
+  ssrInit ({ store, route }) {
     return store.dispatch('FETCH_PROJECTS');
   }
 };

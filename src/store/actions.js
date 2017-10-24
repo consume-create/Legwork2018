@@ -16,14 +16,50 @@ export default {
   | eventually call the api to grab data before
   | rendering the page/site.
   ------------------------------------------ */
-  FETCH_PROJECTS: () => {
-    // init();
-    // .then( (projects) => {
-    //   _.each(projects, (project) => {
-    //     // console.log(project.fields);
-    //   });
-    // });
-    return;
+  FETCH_PROJECTS: ({ commit }) => {
+    let _projects = [
+      {
+        title: 'animation',
+        projects: [
+          {
+            title: 'project-1',
+            hero_image: '../image.jpg'
+          },
+          {
+            title: 'project-2',
+            hero_image: '../image.jpg'
+          },
+          {
+            title: 'project-3',
+            hero_image: '../image.jpg'
+          }
+        ]
+      },
+      {
+        title: 'interactive',
+        projects: [
+          {
+            title: 'project-4',
+            hero_image: '../image.jpg'
+          },
+          {
+            title: 'project-5',
+            hero_image: '../image.jpg'
+          }
+        ]
+      },
+      {
+        title: 'experiential',
+        projects: [
+          {
+            title: 'project-6',
+            hero_image: '../image.jpg'
+          }
+        ]
+      }
+    ];
+
+    commit('PROJECTS', _projects);
   },
 
   SET_BIZ_POSITION: ({ commit }, obj) => {
