@@ -28,9 +28,9 @@ export default {
       return this.$store.getters.projects;
     }
   },
-  asyncData ({ store, route: { params: { id }}}) {
+  ssrInit ({ store, route: { params: { id }}}) {
     return store.dispatch('FETCH_PROJECTS');
-  },
+  }
 };
 </script>
 

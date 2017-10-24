@@ -1,5 +1,5 @@
 <template>
-  <div id="biz-widget">
+  <div id="biz-widget" :class="slideClass">
     <div id="biz-widget-inner">
       <span>Biz Widget</span>
     </div>
@@ -8,7 +8,22 @@
 
 <script>
 export default {
-  name: 'biz-widget-view'
+  name: 'biz-widget-view',
+  computed: {
+    slideClass () {
+      return this.$store.state.bizPosition;
+    }
+  },
+  watch: {
+    '$route.query.slide'() {
+      let pos = typeof this.$route.query.slide === 'undefined' ? '' : this.$route.query.slide;
+      this.$store.dispatch('SET_BIZ_POSITION', { pos: pos, delay: 0 });
+    }
+  },
+  ssrInit ({ store, route }) {
+    let pos = typeof route.query.slide === 'undefined' ? '' : route.query.slide;
+    return store.dispatch('SET_BIZ_POSITION', { pos: pos, delay: 0 });
+  }
 }
 </script>
 

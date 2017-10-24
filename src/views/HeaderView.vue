@@ -16,7 +16,7 @@
         <li><router-link to="/animation">Animation</router-link></li>
         <li><router-link to="/interactive">Interactive</router-link></li>
         <li><router-link to="/experiential">Experiential</router-link></li>
-        <li><router-link to="?studio">Studio</router-link></li>
+        <li><router-link to="?slide=short">Studio</router-link></li>
       </ul>
     </nav>
   </header>

@@ -10,7 +10,7 @@ export default {
   | TODO:
   | - Hook up to final CMS
   | - Mutate the data for our store
-  | 
+  |
   | NOTES:
   | Currently just runs a return but will
   | eventually call the api to grab data before
@@ -24,5 +24,13 @@ export default {
     //   });
     // });
     return;
+  },
+
+  SET_BIZ_POSITION: ({ commit }, obj) => {
+    if(obj.delay === 0) {
+      commit('BIZ_POSITION', obj);
+    } else {
+      setTimeout(() => commit('BIZ_POSITION', obj), obj.delay);
+    }
   }
 };

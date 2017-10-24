@@ -16,7 +16,7 @@ export default context => {
     const { fullPath } = router.resolve(url).route;
 
     if (fullPath !== url) {
-      
+
       return reject({ url: fullPath });
     }
 
@@ -34,7 +34,7 @@ export default context => {
       // A preFetch hook dispatches a store action and returns a Promise,
       // which is resolved when the action is complete and store state has been
       // updated.
-      Promise.all(matchedComponents.map(({ asyncData }) => asyncData && asyncData({
+      Promise.all(matchedComponents.map(({ ssrInit }) => ssrInit && ssrInit({
         store,
         route: router.currentRoute
       }))).then(() => {

@@ -24,7 +24,7 @@ export default {
     BizWidgetView,
     FooterView,
     PowerToolsView
-},
+  },
   props: ['discipline']
 }
 </script>
