@@ -9,25 +9,15 @@ export default {
   ------------------------------------------ */
   FETCH_PROJECTS: ({ commit }) => {
     let _projects = [];
-    let _disciplines = [];
 
     return init()
-      .then( (data) => {
-        _.each(data, (project) => {
-          let _discipline = project.discipline;
-
-          // Check if the discipline exists, if not push it
-          if( _disciplines.indexOf(_discipline) < 0 ){
-            _disciplines.push({
-              title: _discipline,
-              projects: []
-            });
-          }
-          let _dest = _.find(_disciplines, (d) => { return d.title == _discipline; });
-          _dest.projects.push(project);
+      .then( (projects) => {
+        _.each( projects, (projects, key) => {
+          _projects.push({
+            title: key,
+            projects: projects
+          });
         });
-
-        _projects = _disciplines;
         commit('PROJECTS', _projects);
       });
   },
