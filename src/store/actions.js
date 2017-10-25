@@ -1,4 +1,4 @@
-// import { init } from '../api';
+import { init } from '../api';
 export default {
 
   /*
@@ -6,60 +6,30 @@ export default {
   | FETCH_PROJECTS:void (-)
   |
   | Fetches data and projects
-  |
-  | TODO:
-  | - Hook up to final CMS
-  | - Mutate the data for our store
-  |
-  | NOTES:
-  | Currently just runs a return but will
-  | eventually call the api to grab data before
-  | rendering the page/site.
   ------------------------------------------ */
   FETCH_PROJECTS: ({ commit }) => {
-    let _projects = [
-      {
-        title: 'animation',
-        projects: [
-          {
-            title: 'project-1',
-            hero_image: '../image.jpg'
-          },
-          {
-            title: 'project-2',
-            hero_image: '../image.jpg'
-          },
-          {
-            title: 'project-3',
-            hero_image: '../image.jpg'
-          }
-        ]
-      },
-      {
-        title: 'interactive',
-        projects: [
-          {
-            title: 'project-4',
-            hero_image: '../image.jpg'
-          },
-          {
-            title: 'project-5',
-            hero_image: '../image.jpg'
-          }
-        ]
-      },
-      {
-        title: 'experiential',
-        projects: [
-          {
-            title: 'project-6',
-            hero_image: '../image.jpg'
-          }
-        ]
-      }
-    ];
+    let _projects = [];
+    let _disciplines = [];
 
-    commit('PROJECTS', _projects);
+    return init()
+      .then( (data) => {
+        _.each(data, (project) => {
+          let _discipline = project.discipline;
+
+          // Check if the discipline exists, if not push it
+          if( _disciplines.indexOf(_discipline) < 0 ){
+            _disciplines.push({
+              title: _discipline,
+              projects: []
+            });
+          }
+          let _dest = _.find(_disciplines, (d) => { return d.title == _discipline; });
+          _dest.projects.push(project);
+        });
+
+        _projects = _disciplines;
+        commit('PROJECTS', _projects);
+      });
   },
 
   SET_BIZ_POSITION: ({ commit }, obj) => {

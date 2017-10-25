@@ -25,7 +25,10 @@ module.exports = {
     }
   },
   node: {
-   fs: "empty"
+    console: true,
+    fs: 'empty',
+    net: 'empty',
+    tls: 'empty'
   },
   module: {
     noParse: /es6-promise\.js$/, // avoid webpack shimming process
