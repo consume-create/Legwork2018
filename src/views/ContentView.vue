@@ -6,7 +6,7 @@
       <p v-show="project_search">Search: {{ project_search }}</p>
       <ul v-show="projects">
         <li v-for="project in projects">
-          {{ project.title }}
+          {{ project.project_name }}
         </li>
       </ul>
     </div>
@@ -16,8 +16,13 @@
 <script>
 export default {
   name: 'content-view',
-  props: ['discipline','project_search'],
   computed: {
+    project_search () {
+      return this.$route.params.project_search;
+    },
+    discipline () {
+      return this.$route.params.discipline;
+    },
     nextPage () {
       return this.$store.getters.nextPage;
     },
@@ -57,6 +62,9 @@ export default {
         width: span(9, 20)
         height: 0
         padding-bottom: span(9, 20)
-        background-color: $gray
+        background:
+          color: $gray
+          size: cover
+          position: center
         margin-bottom: span(2, 20)
 </style>
