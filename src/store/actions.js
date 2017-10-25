@@ -9,7 +9,7 @@ export default {
   ------------------------------------------ */
   FETCH_PROJECTS: ({ commit }) => {
     let _projects = [];
-
+    
     return init()
       .then( (projects) => {
         _.each( projects, (projects, key) => {
