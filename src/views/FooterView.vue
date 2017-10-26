@@ -19,7 +19,6 @@ export default {
     onScroll(e) {
       window.requestAnimationFrame(() => {
         if( Math.floor(this._$footer.offset().top - $(window).scrollTop()) <= 0 ){
-          console.log(this.$store.getters.nextPage);
           this.$router.push( '/' + this.$store.getters.nextPage );
         }
       });
