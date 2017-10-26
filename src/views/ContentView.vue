@@ -1,8 +1,6 @@
 <template>
   <div id="content" v-show="projects">
     <div id="content-inner">
-      <p>Page: {{ discipline }}</p>
-      <p>Next: <router-link v-bind:to="{ path: nextPageLink }">{{ nextPage }}</router-link></p>
       <p v-show="project_search">Search: {{ project_search }}</p>
       <div id='content-cells'>
         <content-cell-view v-for="content in projects" :key="content.slug" :content="content"></content-cell-view>
