@@ -1,7 +1,6 @@
 <template>
   <div id="content" v-show="projects">
     <div id="content-inner">
-      <p v-show="project_search">Search: {{ project_search }}</p>
       <div id='content-cells'>
         <content-cell-view v-for="content in projects" :key="content.slug" :content="content"></content-cell-view>
       </div>
@@ -11,28 +10,45 @@
 
 <script>
 import ContentCellView from 'components/content-view/ContentCellView.vue';
+
 export default {
   name: 'content-view',
+
+  /*
+  ------------------------------------------
+  | components:void (-)
+  ------------------------------------------ */
   components: {
     ContentCellView
   },
+
+  /*
+  ------------------------------------------
+  | computed:void (-)
+  |
+  | Computed properties
+  ------------------------------------------ */
   computed: {
-    project_search () {
-      return this.$route.params.project_search;
-    },
-    discipline () {
-      return this.$route.params.discipline;
-    },
-    nextPage () {
-      return this.$store.getters.nextPage;
-    },
-    nextPageLink () {
-      return '/' + this.$store.getters.nextPage;
-    },
+
+    /*
+    ------------------------------------------
+    | projects:void (-)
+    |
+    | Get the projects from the store based
+    | on the current page.
+    ------------------------------------------ */
     projects () {
       return this.$store.getters.projects;
     }
   },
+
+  /*
+  ------------------------------------------
+  | ssrInit:void (-)
+  |
+  | Fetch the projects and fill the store
+  | This happens serverside.
+  ------------------------------------------ */
   ssrInit ({ store, route }) {
     return store.dispatch('FETCH_PROJECTS');
   }

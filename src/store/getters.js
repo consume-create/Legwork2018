@@ -23,7 +23,7 @@ export default {
       let _search = state.route.params.project_search.split('+');
       _.each(_search, (term) => {
         _.each( state.pages, (page) => {
-          let _project = _.find(page.projects, {title: term});
+          let _project = _.find(page.projects, {slug: term});
           if( _project ){
             _projects.push(_project);
           }
