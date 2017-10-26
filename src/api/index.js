@@ -1,4 +1,7 @@
 import request from 'request';
+const streams = require('memory-streams');
+
+const writer = new streams.WritableStream();
 
 /*
 ------------------------------------------
@@ -7,16 +10,25 @@ import request from 'request';
 | Method Notes
 ------------------------------------------ */
 export function init(){
-  return new Promise( (resolve, reject) => { 
-    request({
-      url: 'http://assets.legwork.studio/data/project.json',
-      json: true
-    }, function (error, response, body) {
-      if (!error && response.statusCode === 200) {
-        resolve(body);
-      } else {
-        reject(error);
-      }
+
+  if( writer.toString() == '' ){
+    return new Promise( (resolve, reject) => { 
+      request({
+        url: 'http://assets.legwork.studio/data/project.json',
+        json: true
+      }, function (error, response, body) {
+        if (!error && response.statusCode === 200) {
+          writer.write(JSON.stringify(body));
+          resolve(body);
+        } else {
+          reject(error);
+        }
+      });
     });
-  });
+  } else {
+    return new Promise( (resolve) => {
+      const cache = JSON.parse(writer.toString());
+      resolve(cache);
+    });
+  }
 }
