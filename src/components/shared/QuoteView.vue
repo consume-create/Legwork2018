@@ -7,7 +7,16 @@
 <script>
 export default {
 	name: 'quote-view',
-	props: ['quote']
+
+	/*
+	------------------------------------------
+	| props:void (-)
+	|
+	| quote:object
+	------------------------------------------ */
+	props: [
+		'quote'
+	]
 }
 </script>
 

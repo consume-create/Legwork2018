@@ -1,3 +1,4 @@
+<!-- Loop over the content and based on type render the correct view -->
 <template>
 	<job-view v-if="content.type === 'jobs'" :job="content"></job-view>
 	<quote-view v-else-if="content.type === 'quotes'" :quote="content"></quote-view>
@@ -11,12 +12,26 @@ import QuoteView from "components/shared/QuoteView.vue";
 
 export default {
   name: 'content-cell-view',
-  props: ['content'],
+
+  /*
+  ------------------------------------------
+  | components:void (-)
+  ------------------------------------------ */
   components: {
   	ProjectView,
   	JobView,
   	QuoteView
-  }
+  },
+
+  /*
+  ------------------------------------------
+  | props:void (-)
+  |
+  | content:object
+  ------------------------------------------ */
+  props: [
+  	'content'
+  ]
 }
 </script>
 

@@ -7,7 +7,16 @@
 <script>
 export default {
 	name: 'project-view',
-	props: ['project']
+
+	/*
+	------------------------------------------
+	| props:void (-)
+	|
+	| Project:object
+	------------------------------------------ */
+	props: [
+		'project'
+	]
 }
 </script>
 
