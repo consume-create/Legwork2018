@@ -5,7 +5,7 @@
       <p>Next: <router-link v-bind:to="{ path: nextPageLink }">{{ nextPage }}</router-link></p>
       <p v-show="project_search">Search: {{ project_search }}</p>
       <div id='content-cells'>
-        <project-cell-view v-for="project in projects" :key="project.project_name" :project="project"></project-cell-view>
+        <project-cell-view v-for="project in projects" :key="project.slug" :project="project"></project-cell-view>
       </div>
     </div>
   </div>
