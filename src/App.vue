@@ -3,6 +3,7 @@
     <header-view></header-view>
     <hero-view></hero-view>
     <content-view></content-view>
+    <router-view></router-view>
     <biz-widget-view></biz-widget-view>
     <power-tools-view></power-tools-view>
     <footer-view></footer-view>
