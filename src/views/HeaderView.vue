@@ -24,7 +24,65 @@
 
 <script>
 export default {
-  name: 'header-view'
+  name: 'header-view',
+  methods: {
+    /*
+    ------------------------------------------
+    | onScroll:void
+    |
+    | e:object - event object
+    |
+    | Handle scroll.
+    ------------------------------------------ */
+    onScroll(e) {
+      // request animation frame for transforms
+      window.requestAnimationFrame(() => {
+        this._$header.css('transform', `translate3d(0px, ${-window.pageYOffset}px, 0)`);
+      });
+    },
+
+    /*
+    ------------------------------------------
+    | onResize:void
+    |
+    | e:object - event object
+    |
+    | Handle resize.
+    ------------------------------------------ */
+    onResize(e) {
+      // cache header height
+      this._height = this._$header.outerHeight();
+    }
+  },
+
+  /*
+  ------------------------------------------
+  | mounted:void
+  |
+  | Handle mounted.
+  ------------------------------------------ */
+  mounted() {
+    // class vars
+    this._$wn = $(window);
+    this._$header = $('header');
+    this._height = this._$header.outerHeight();
+
+    // events
+    this._$wn
+      .on('resize.header', this.onResize.bind(this))
+      .on('scroll.header', this.onScroll.bind(this));
+  },
+
+  /*
+  ------------------------------------------
+  | beforeDestroy:void
+  |
+  | Handle before destroy.
+  ------------------------------------------ */
+  beforeDestroy() {
+    // clean up events
+    this._$wn.off('scroll.header');
+  }
 }
 </script>
 
@@ -37,8 +95,8 @@ header
   top: 0px
   left: 0px
   width: 100%
-  height: auto
-  padding: span(1, 20) 0%
+  height: 15px
+  padding-top: span(1, 24)
   align-items: center
   z-index: 100
 
@@ -72,7 +130,8 @@ header
 
 +respond-to($tablet-landscape)
   header
-    padding: span(1, 24) 0%
+    height: 24px
+    padding-top: span(2, 24)
 
     #header-logo
       width: 167px
@@ -82,13 +141,21 @@ header
       grid-column: 13 / span 10
 
       ul
-        li
-          padding: 12px 24px
+        transform: translate(50px, 0px)
 
         li:last-child
-          background-color: $black
-          border-radius: 18px
+          position: relative
+          width: 100px
 
           a
+            display: inline-block
+            position: absolute
+            top: 50%
+            width: 100%
+            padding: 12px 0px
+            border-radius: 18px
+            background-color: $black
+            text-align: center
             color: $white
+            transform: translate(0%, -50%)
 </style>
