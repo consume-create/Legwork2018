@@ -31,8 +31,6 @@ export default {
       });
     }
 
-    _projects = _projects.length == 0 ? null : _projects;
-
     return _projects;
   }
 };
