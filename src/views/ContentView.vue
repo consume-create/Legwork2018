@@ -7,6 +7,7 @@
       <ul v-show="projects">
         <li v-for="project in projects">
           {{ project.project_name }}
+          <router-link v-bind:to="{ path: project.path }">View</router-link>
         </li>
       </ul>
     </div>

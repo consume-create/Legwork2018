@@ -1,12 +1,17 @@
 <template>
   <div id="hero">
-    <span>Hero</span>
+    <span>Hero {{ discipline }}</span>
   </div>
 </template>
 
 <script>
 export default {
-  name: 'hero-view'
+  name: 'hero-view',
+  computed: {
+    discipline () {
+      return this.$route.params.discipline;
+    }
+  }
 };
 </script>
 
