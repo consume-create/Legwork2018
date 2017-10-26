@@ -1,9 +1,9 @@
 <template>
-  <div id="app">
+  <div id='app'>
     <header-view></header-view>
     <hero-view></hero-view>
     <content-view></content-view>
-    <router-view v-if="environment == 'development'"></router-view>
+    <router-view v-if='environment == "development"'></router-view>
     <biz-widget-view></biz-widget-view>
     <power-tools-view></power-tools-view>
     <footer-view></footer-view>
@@ -58,12 +58,12 @@ export default {
 }
 </script>
 
-<style lang="sass">
-@import "src/styles/fonts"
-@import "src/styles/reset"
-@import "src/styles/global"
-@import "src/styles/animations"
-@import "src/styles/utils"
+<style lang='sass'>
+@import 'src/styles/fonts'
+@import 'src/styles/reset'
+@import 'src/styles/global'
+@import 'src/styles/animations'
+@import 'src/styles/utils'
 
 /* Global Styles */
 ::selection

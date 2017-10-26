@@ -1,5 +1,5 @@
 <template>
-  <div id="content" v-show="projects">
+  <div id="content" v-if="projects.length > 0">
     <div id="content-inner">
       <div id='content-cells'>
         <content-cell-view v-for="content in projects" :key="content.slug" :content="content"></content-cell-view>
