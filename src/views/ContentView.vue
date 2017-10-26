@@ -5,18 +5,18 @@
       <p>Next: <router-link v-bind:to="{ path: nextPageLink }">{{ nextPage }}</router-link></p>
       <p v-show="project_search">Search: {{ project_search }}</p>
       <div id='content-cells'>
-        <project-cell-view v-for="project in projects" :key="project.slug" :project="project"></project-cell-view>
+        <content-cell-view v-for="content in projects" :key="content.slug" :content="content"></content-cell-view>
       </div>
     </div>
   </div>
 </template>
 
 <script>
-import ProjectCellView from 'components/content-view/ProjectCellView.vue';
+import ContentCellView from 'components/content-view/ContentCellView.vue';
 export default {
   name: 'content-view',
   components: {
-    ProjectCellView
+    ContentCellView
   },
   computed: {
     project_search () {
