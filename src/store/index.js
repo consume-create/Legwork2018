@@ -9,6 +9,15 @@ Vue.use(Vuex);
 export function createStore () {
   return new Vuex.Store({
     state: {
+      appScroll: {
+        win: 0
+      },
+      appSize: {
+        width: 0,
+        height: 0,
+        ratio: '',
+        breakpoint: ''
+      },
       bizPosition: '',
       pages: []
     },
