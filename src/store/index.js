@@ -19,6 +19,7 @@ export function createStore () {
         breakpoint: ''
       },
       bizPosition: '',
+      transitionOrigin: '',
       pages: []
     },
     actions,

@@ -10,5 +10,8 @@ export default {
   },
   PROJECTS: (state, projects) => {
     state.pages = projects;
+  },
+  TRANSITION_ORIGIN: (state, origin) => {
+    state.transitionOrigin = origin;
   }
 };

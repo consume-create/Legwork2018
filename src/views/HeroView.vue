@@ -1,5 +1,5 @@
 <template>
-  <div id="hero">
+  <div id="hero" v-bind:class="discipline">
     <span>Hero {{ discipline }}</span>
   </div>
 </template>
@@ -7,6 +7,7 @@
 <script>
 export default {
   name: 'hero-view',
+  props: ['discipline'],
   computed: {
     discipline () {
       return this.$route.params.discipline;

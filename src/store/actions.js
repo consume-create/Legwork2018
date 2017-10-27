@@ -54,5 +54,15 @@ export default {
     } else {
       setTimeout(() => commit('BIZ_POSITION', obj), obj.delay);
     }
+  },
+
+  /*
+  ------------------------------------------
+  | method_name:void (-)
+  |
+  | Method Notes
+  ------------------------------------------ */
+  TRANSITION: ({commit}, origin) => {
+    commit('TRANSITION_ORIGIN', origin);
   }
 };

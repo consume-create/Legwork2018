@@ -1,14 +1,14 @@
 <!-- Loop over the content and based on type render the correct view -->
 <template>
-	<job-view v-if="content.type === 'jobs'" :job="content"></job-view>
-	<quote-view v-else-if="content.type === 'quotes'" :quote="content"></quote-view>
-	<project-view v-else :project="content"></project-view>
+	<job-cell v-if="content.type === 'jobs'" :job="content"></job-cell>
+	<quote-cell v-else-if="content.type === 'quotes'" :quote="content"></quote-cell>
+	<project-cell v-else :project="content"></project-cell>
 </template>
 
 <script>
-import ProjectView from "./ProjectView.vue";
-import JobView from "components/shared/JobView.vue";
-import QuoteView from "components/shared/QuoteView.vue";
+import ProjectCell from "./ProjectCell.vue";
+import JobCell from "components/shared/JobCell.vue";
+import QuoteCell from "components/shared/QuoteCell.vue";
 
 export default {
   name: 'content-cell-view',
@@ -18,9 +18,9 @@ export default {
   | components:void (-)
   ------------------------------------------ */
   components: {
-  	ProjectView,
-  	JobView,
-  	QuoteView
+  	ProjectCell,
+  	JobCell,
+  	QuoteCell
   },
 
   /*
