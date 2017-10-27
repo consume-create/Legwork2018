@@ -1,9 +1,9 @@
 <template>
-  <div id="app">
+  <div id='app'>
     <header-view></header-view>
     <hero-view></hero-view>
     <content-view></content-view>
-    <router-view></router-view>
+    <router-view v-if='environment == "development"'></router-view>
     <biz-widget-view></biz-widget-view>
     <power-tools-view></power-tools-view>
     <footer-view></footer-view>
@@ -20,6 +20,11 @@ import FooterView from './views/FooterView.vue';
 
 export default {
   name: 'app',
+
+  /*
+  ------------------------------------------
+  | components:void (-)
+  ------------------------------------------ */
   components: {
     HeaderView,
     HeroView,
@@ -28,16 +33,37 @@ export default {
     PowerToolsView,
     ContentView
   },
-  props: ['discipline']
+
+  /*
+  ------------------------------------------
+  | props:void (-)
+  |
+  | discipline:string - based on the route
+  ------------------------------------------ */
+  props: [
+    'discipline'
+  ],
+
+  /*
+  ------------------------------------------
+  | data:object (-)
+  |
+  | environment:string - The curent env
+  ------------------------------------------ */
+  data: function(){
+    return {
+      environment: process.env.NODE_ENV
+    }
+  }
 }
 </script>
 
-<style lang="sass">
-@import "src/styles/fonts"
-@import "src/styles/reset"
-@import "src/styles/global"
-@import "src/styles/animations"
-@import "src/styles/utils"
+<style lang='sass'>
+@import 'src/styles/fonts'
+@import 'src/styles/reset'
+@import 'src/styles/global'
+@import 'src/styles/animations'
+@import 'src/styles/utils'
 
 /* Global Styles */
 ::selection

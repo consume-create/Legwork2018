@@ -6,8 +6,17 @@
 
 <script>
 export default {
-	name: 'project-view',
-	props: ['project']
+	name: 'project-cell',
+
+	/*
+	------------------------------------------
+	| props:void (-)
+	|
+	| Project:object
+	------------------------------------------ */
+	props: [
+		'project'
+	]
 }
 </script>
 

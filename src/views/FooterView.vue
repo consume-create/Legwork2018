@@ -6,7 +6,51 @@
 
 <script>
 export default {
-  name: 'footer-view'
+  name: 'footer-view',
+  methods: {
+    /*
+    ------------------------------------------
+    | onScroll:void
+    |
+    | e:object - event object
+    |
+    | Handle scroll.
+    ------------------------------------------ */
+    onScroll(e) {
+      window.requestAnimationFrame(() => {
+        if( Math.floor(this._$footer.offset().top - $(window).scrollTop()) <= 0 ){
+          this.$router.push( '/' + this.$store.getters.nextPage );
+        }
+      });
+    }
+  },
+
+  /*
+  ------------------------------------------
+  | mounted:void
+  |
+  | Handle mounted.
+  ------------------------------------------ */
+  mounted() {
+    // class vars
+    this._$wn = $(window);
+    this._$footer = $(this.$el);
+
+    // events
+    this._$wn
+      .on('scroll.footer', this.onScroll.bind(this));
+  },
+
+  /*
+  ------------------------------------------
+  | beforeDestroy:void
+  |
+  | Handle before destroy.
+  ------------------------------------------ */
+  beforeDestroy() {
+    // clean up events
+    this._$wn.off('scroll.header');
+  }
 };
 </script>
 

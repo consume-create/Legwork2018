@@ -6,8 +6,17 @@
 
 <script>
 export default {
-	name: 'quote-view',
-	props: ['quote']
+	name: 'quote-cell',
+
+	/*
+	------------------------------------------
+	| props:void (-)
+	|
+	| quote:object
+	------------------------------------------ */
+	props: [
+		'quote'
+	]
 }
 </script>
 

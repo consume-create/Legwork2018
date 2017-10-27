@@ -6,8 +6,17 @@
 
 <script>
 export default {
-	name: 'job-view',
-	props: ['job']
+	name: 'job-cell',
+
+	/*
+	------------------------------------------
+	| props:void (-)
+	|
+	| job:object
+	------------------------------------------ */
+	props: [
+		'job'
+	]
 }
 </script>
 

@@ -26,11 +26,46 @@ export function createRouter () {
 
   // Default routes
   _router.addRoutes([
-    { path: '/search', components: {ContentView, BizWidgetView}, props: true },
-    { path: '/search/:project_search', components: {ContentView, BizWidgetView}, props: true },
-    { path: '/:discipline', components: {ContentView, BizWidgetView}, props: true },
-    { path: '/:discipline/:project', components: {ContentView, BizWidgetView}, props: true },
-    { path: '/', components: {ContentView, BizWidgetView}, props: true }
+    { 
+      path: '/search',
+      components: {
+        ContentView,
+        BizWidgetView
+      },
+      props: true 
+    },
+    { 
+      path: '/search/:project_search',
+      components: {
+        ContentView, 
+        BizWidgetView
+      }, 
+      props: true 
+    },
+    { 
+      path: '/:discipline',
+      components: {
+        ContentView, 
+        BizWidgetView
+      }, 
+      props: true 
+    },
+    { 
+      path: '/:discipline/:project', 
+      components: {
+        ContentView, 
+        BizWidgetView
+      }, 
+      props: true 
+    },
+    { 
+      path: '/', 
+      components: {
+        ContentView, 
+        BizWidgetView
+      }, 
+      props: true 
+    }
   ]);
 
   return _router;
