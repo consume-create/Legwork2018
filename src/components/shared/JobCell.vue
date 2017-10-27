@@ -1,21 +1,21 @@
 <template>
-	<div class='content-cell quote'>
-		{{quote.quote}}
+	<div class='content-cell job'>
+		{{job.job_title}}
 	</div>
 </template>
 
 <script>
 export default {
-	name: 'quote-view',
+	name: 'job-cell',
 
 	/*
 	------------------------------------------
 	| props:void (-)
 	|
-	| quote:object
+	| job:object
 	------------------------------------------ */
 	props: [
-		'quote'
+		'job'
 	]
 }
 </script>

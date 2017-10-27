@@ -6,7 +6,7 @@
 
 <script>
 export default {
-	name: 'project-view',
+	name: 'project-cell',
 
 	/*
 	------------------------------------------
