@@ -22,11 +22,27 @@ export default {
       });
   },
 
+  /*
+  ------------------------------------------
+  | SET_BIZ_POSITION:void (-)
+  |
+  | Sets the biz widget position
+  ------------------------------------------ */
   SET_BIZ_POSITION: ({ commit }, obj) => {
     if(obj.delay === 0) {
       commit('BIZ_POSITION', obj);
     } else {
       setTimeout(() => commit('BIZ_POSITION', obj), obj.delay);
     }
+  },
+
+  /*
+  ------------------------------------------
+  | method_name:void (-)
+  |
+  | Method Notes
+  ------------------------------------------ */
+  TRANSITION: ({commit}, origin) => {
+    commit('TRANSITION_ORIGIN', origin);
   }
 };

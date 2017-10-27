@@ -1,7 +1,7 @@
 <template>
-  <footer>
+  <footer v-bind:class="discipline">
     <span>Up Next ...</span>
-    <div class='cover'></div>
+    <div v-bind:class="discipline + ' fill cover'"></div>
   </footer>
 </template>
 
@@ -11,6 +11,11 @@ export default {
   data: function(){
     return {
       percent: 0
+    }
+  },
+  computed: {
+    discipline () {
+      return this.$route.params.discipline;
     }
   },
   methods: {
@@ -30,6 +35,7 @@ export default {
           this.percent = (offset / this._$footer.height()) * 100;
         }
         if( offset <= 0 ){
+          this.$store.dispatch("TRANSITION", 'footer');
           this.$router.push( '/' + this.$store.getters.nextPage );
         }
 
