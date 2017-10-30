@@ -47,5 +47,14 @@ namespace :deploy do
     end
   end
 
+  desc 'Clear memory on server'
+  task :refresh do
+    on roles(:app), in: :sequence, wait: 1 do
+      set :current_path, "/var/www/#{fetch(:application)}/current"
+      execute "cd #{fetch(:current_path)} && forever stopall && forever start server.js"
+      execute "sudo service nginx restart"
+    end
+  end
+
   after :publishing, :restart
 end
