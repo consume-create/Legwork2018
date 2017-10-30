@@ -1,26 +1,46 @@
 <template>
-  <footer>
+  <footer v-bind:class="discipline">
     <span>Up Next ...</span>
+    <div v-bind:class="discipline + ' fill cover'"></div>
   </footer>
 </template>
 
 <script>
 export default {
   name: 'footer-view',
-  methods: {
+  data: function(){
+    return {
+      percent: 0
+    }
+  },
+  computed: {
+    discipline () {
+      return this.$route.params.discipline;
+    },
+    scroll() {
+      return this.$store.state.appScroll.win;
+    }
+  },
+  watch: {
     /*
     ------------------------------------------
-    | onScroll:void
-    |
-    | e:object - event object
+    | scroll:void
     |
     | Handle scroll.
     ------------------------------------------ */
-    onScroll(e) {
+    scroll() {
       window.requestAnimationFrame(() => {
-        if( Math.floor(this._$footer.offset().top - $(window).scrollTop()) <= 0 ){
+        let offset = Math.floor(this._$footer.offset().top - this.scroll);
+
+        if( offset < this._$footer.height() ){
+          this.percent = (offset / this._$footer.height()) * 100;
+        }
+        if( offset <= 0 ){
+          this.$store.dispatch("TRANSITION", 'footer');
           this.$router.push( '/' + this.$store.getters.nextPage );
         }
+
+        this._$cover.css('transform', `translate(-${this.percent}%, 0)`);
       });
     }
   },
@@ -33,23 +53,8 @@ export default {
   ------------------------------------------ */
   mounted() {
     // class vars
-    this._$wn = $(window);
     this._$footer = $(this.$el);
-
-    // events
-    this._$wn
-      .on('scroll.footer', this.onScroll.bind(this));
-  },
-
-  /*
-  ------------------------------------------
-  | beforeDestroy:void
-  |
-  | Handle before destroy.
-  ------------------------------------------ */
-  beforeDestroy() {
-    // clean up events
-    this._$wn.off('scroll.header');
+    this._$cover = $(".cover", this._$footer);
   }
 };
 </script>
@@ -70,4 +75,12 @@ footer
     top: 50%
     left: 50%
     transform: translate(-50%, -50%)
+
+  .cover
+    position: absolute
+    height: 100%
+    width: 100%
+    transform: translate(-100%, 0px)
+    background:
+      color: $color-bg-yellow
 </style>

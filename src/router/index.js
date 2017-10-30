@@ -2,6 +2,8 @@ import Vue from 'vue';
 import Router from 'vue-router';
 import ContentView from '../views/ContentView.vue';
 import BizWidgetView from '../views/BizWidgetView.vue';
+import FooterView from '../views/FooterView.vue';
+import HeroView from '../views/HeroView.vue';
 import StyleGuide from '../views/StyleGuide.vue';
 
 // Set Vue to use the Router
@@ -30,7 +32,9 @@ export function createRouter () {
       path: '/search',
       components: {
         ContentView,
-        BizWidgetView
+        BizWidgetView,
+        FooterView,
+        HeroView
       },
       props: true 
     },
@@ -38,7 +42,9 @@ export function createRouter () {
       path: '/search/:project_search',
       components: {
         ContentView, 
-        BizWidgetView
+        BizWidgetView,
+        FooterView,
+        HeroView
       }, 
       props: true 
     },
@@ -46,7 +52,9 @@ export function createRouter () {
       path: '/:discipline',
       components: {
         ContentView, 
-        BizWidgetView
+        BizWidgetView,
+        FooterView,
+        HeroView
       }, 
       props: true 
     },
@@ -54,7 +62,9 @@ export function createRouter () {
       path: '/:discipline/:project', 
       components: {
         ContentView, 
-        BizWidgetView
+        BizWidgetView,
+        FooterView,
+        HeroView
       }, 
       props: true 
     },
@@ -62,7 +72,9 @@ export function createRouter () {
       path: '/', 
       components: {
         ContentView, 
-        BizWidgetView
+        BizWidgetView,
+        FooterView,
+        HeroView
       }, 
       props: true 
     }

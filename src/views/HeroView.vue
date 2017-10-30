@@ -1,5 +1,5 @@
 <template>
-  <div id="hero">
+  <div id="hero" v-bind:class="discipline">
     <span>Hero {{ discipline }}</span>
   </div>
 </template>

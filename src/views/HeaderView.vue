@@ -25,34 +25,85 @@
 <script>
 export default {
   name: 'header-view',
-  methods: {
+  computed: {
+    scroll() {
+      return this.$store.state.appScroll;
+    },
+    size() {
+      return this.$store.state.appSize;
+    }
+  },
+  watch: {
     /*
     ------------------------------------------
-    | onScroll:void
-    |
-    | e:object - event object
+    | scroll:void
     |
     | Handle scroll.
     ------------------------------------------ */
-    onScroll(e) {
+    scroll() {
+      // for example
+      console.log(
+        this.$store.state.appScroll.win
+        // this.$store.state.appScroll.otherContainer
+        // ...
+      );
+
+      // TODO: detect event target for other scroll containers
+      let y = Math.max(this.$store.state.appScroll.win, 0),
+          d = y < this._last_scroll ? 'up' : 'down',
+          t = 0;
+
+        // direction change?
+        if(d !== this._last_direction) this._direction_change_y = y;
+
+        // calculate style / position
+        if( y <= 0 ) {
+          this._mode = 'top';
+          t = 0;
+        } else if( y <= this._height ) {
+          this._mode = 'top';
+          t = -y;
+        } else {
+          this._mode = 'minimized';
+          // TODO: calc t
+          //t = -80;
+          t = 0;
+        }
+
       // request animation frame for transforms
       window.requestAnimationFrame(() => {
-        this._$header.css('transform', `translate3d(0px, ${-window.pageYOffset}px, 0)`);
+        if(this._mode === 'top') this._$header.removeClass('minimized');
+        if(this._mode === 'minimized') this._$header.addClass('minimized');
+        this._$header.css('transform', `translate3d(0px, ${t}px, 0)`);
       });
+
+      // TODO: will have to be per target
+      this._last_scroll = y;
+      this._last_direction = d;
     },
 
     /*
     ------------------------------------------
-    | onResize:void
-    |
-    | e:object - event object
+    | size:void
     |
     | Handle resize.
     ------------------------------------------ */
-    onResize(e) {
+    size() {
+      // for example
+      console.log(
+        this.$store.state.appSize.width,
+        this.$store.state.appSize.height,
+        this.$store.state.appSize.ratio,
+        this.$store.state.appSize.breakpoint
+      );
+
       // cache header height
       this._height = this._$header.outerHeight();
     }
+  },
+
+  methods: {
+
   },
 
   /*
@@ -65,23 +116,13 @@ export default {
     // class vars
     this._$wn = $(window);
     this._$header = $('header');
+    this._mode = 'top';
     this._height = this._$header.outerHeight();
+    this._last_scroll = 0;
+    this._last_direction = 'up';
+    this._direction_change_y = 0;
 
     // events
-    this._$wn
-      .on('resize.header', this.onResize.bind(this))
-      .on('scroll.header', this.onScroll.bind(this));
-  },
-
-  /*
-  ------------------------------------------
-  | beforeDestroy:void
-  |
-  | Handle before destroy.
-  ------------------------------------------ */
-  beforeDestroy() {
-    // clean up events
-    this._$wn.off('scroll.header');
   }
 }
 </script>
@@ -96,9 +137,14 @@ header
   left: 0px
   width: 100%
   height: 15px
-  padding-top: span(1, 24)
+  padding-top: span(2, 20)
   align-items: center
   z-index: 100
+
+  &.minimized
+    padding-top: 0px
+    height: 50px
+    background-color: $white
 
   #header-logo
     grid-column: 3
@@ -132,6 +178,9 @@ header
   header
     height: 24px
     padding-top: span(2, 24)
+
+    &.minimized
+      height: 80px
 
     #header-logo
       width: 167px

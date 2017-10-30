@@ -54,11 +54,65 @@ export default {
     return {
       environment: process.env.NODE_ENV
     }
+  },
+
+  /*
+  ------------------------------------------
+  | mounted:void
+  |
+  | Handle mounted.
+  ------------------------------------------ */
+  mounted() {
+    // component vars
+    this._$wn = $(window);
+
+    // events
+    this._$wn
+      .on('scroll.app', this.onScroll.bind(this))
+      .on('resize.app', this.onResize.bind(this)).trigger('resize');
+
+    // TODO: other scroll containers
+  },
+
+  methods: {
+    /*
+    ------------------------------------------
+    | onScroll:void
+    |
+    | e:object - event object
+    |
+    | Handle scroll.
+    ------------------------------------------ */
+    onScroll(e) {
+      // TODO: detect target for other scroll containers
+      // set app scroll in the store
+      this.$store.dispatch('SET_APP_SCROLL', {
+        win: window.pageYOffset
+      });
+    },
+
+    /*
+    ------------------------------------------
+    | onResize:void
+    |
+    | e:object - event object
+    |
+    | Handle resize.
+    ------------------------------------------ */
+    onResize(e) {
+      // set app size in the store
+      this.$store.dispatch('SET_APP_SIZE', {
+        width: this._$wn.width(),
+        height: this._$wn.height(),
+        ratio: this._$wn.height() / this._$wn.width(),
+        breakpoint: (this._$wn.width() >= 768 && this._$wn.width() > this._$wn.height()) ? 'tablet-up' : 'mobile'
+      });
+    }
   }
 }
 </script>
 
-<style lang='sass'>
+<style lang="sass">
 @import 'src/styles/fonts'
 @import 'src/styles/reset'
 @import 'src/styles/global'
