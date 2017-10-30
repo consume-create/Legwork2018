@@ -22,10 +22,11 @@ export default {
 @import "src/styles/global"
 
 .btn
-  color: $color-button-text
+  padding: 12px 8px
+  border-radius: 18px
   background: $color-button-bg
-  padding: 0.5em 0.75em
-  border-radius: 10px
+  text-align: center
+  color: $color-button-text
 
   &[data-variant='bare']
 

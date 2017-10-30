@@ -20,7 +20,7 @@ export default {
   color: $color-link
 
   &[data-variant='arrow']::after
-    content: 'arrow'
+    content: "arrow"
     display: inline-block
 
   &[data-variant='play']::after
