@@ -22,11 +22,14 @@ export default {
 @import "src/styles/global"
 
 .btn
-  padding: 12px 8px
-  border-radius: 18px
+  padding: 18px 20px
+  border-radius: 100px
   background: $color-button-bg
   text-align: center
+  font-size: 14px
   color: $color-button-text
+  text-decoration: none
+  font-weight: bold
 
   &[data-variant='bare']
 

@@ -48,7 +48,7 @@
       <div class="sg-seciton-header"><span>02</span> UI</div>
       <div class="sg-section-body">
         <div class="sg-sub">Buttons & Links</div>
-        Button
+          <button-comp url="http://bla.com" variant="bare" text="Button"></button-comp>
 
         <div class="sg-sub">Icons</div>
         Icons
