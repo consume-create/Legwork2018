@@ -16,20 +16,21 @@ export default {
   computed: {
     discipline () {
       return this.$route.params.discipline;
+    },
+    scroll() {
+      return this.$store.state.appScroll.win;
     }
   },
-  methods: {
+  watch: {
     /*
     ------------------------------------------
-    | onScroll:void
-    |
-    | e:object - event object
+    | scroll:void
     |
     | Handle scroll.
     ------------------------------------------ */
-    onScroll(e) {
+    scroll() {
       window.requestAnimationFrame(() => {
-        let offset = Math.floor(this._$footer.offset().top - $(window).scrollTop());
+        let offset = Math.floor(this._$footer.offset().top - this.scroll);
 
         if( offset < this._$footer.height() ){
           this.percent = (offset / this._$footer.height()) * 100;
@@ -52,24 +53,8 @@ export default {
   ------------------------------------------ */
   mounted() {
     // class vars
-    this._$wn = $(window);
     this._$footer = $(this.$el);
     this._$cover = $(".cover", this._$footer);
-
-    // events
-    this._$wn
-      .on('scroll.footer', this.onScroll.bind(this));
-  },
-
-  /*
-  ------------------------------------------
-  | beforeDestroy:void
-  |
-  | Handle before destroy.
-  ------------------------------------------ */
-  beforeDestroy() {
-    // clean up events
-    this._$wn.off('scroll.header');
   }
 };
 </script>
