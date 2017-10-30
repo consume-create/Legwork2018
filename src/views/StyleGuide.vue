@@ -11,6 +11,7 @@
         <div class="sg-sub">Headers</div>
           <h1>An example of a H1 tag</h1>
           <h2>An example of a H2 tag</h2>
+          <br />
           <h3>An example of a H3 tag</h3>
           <h4>An example of a H4 tag</h4>
           <h5>An example of a H5 tag</h5>
