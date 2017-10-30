@@ -7,7 +7,6 @@
 <script>
 export default {
   name: 'hero-view',
-  props: ['discipline'],
   computed: {
     discipline () {
       return this.$route.params.discipline;
