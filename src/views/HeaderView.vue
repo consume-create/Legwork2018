@@ -11,7 +11,12 @@
         <path d="M184,42.3v11.5c0,0.3,0.3,0.6,0.6,0.6h19.8c0.3,0,0.6,0.3,0.6,0.6v12.6c0,0.2-0.1,0.4-0.3,0.5c-5.7,3.3-11.4,5.1-20,5.1c-5.5,0-10.8-1.8-15.3-5c-1.3-1-2.6-2.2-3.8-3.4c-5.2-5.3-8.4-13-8.4-21.8c0-17.7,12.3-29.6,28.3-29.8c7.7,0,14.8,2.9,19.4,7.8c0.1,0.1,0.2,0.3,0.2,0.4v7c0,0.3,0.3,0.6,0.6,0.6h12.8c0.3,0,0.6-0.3,0.6-0.6V16c0-0.6-0.2-1.1-0.6-1.6c-6.6-7.7-15.6-12.6-26.6-14c-0.3,0-0.6-0.1-0.9-0.1c-0.1,0-0.2,0-0.3,0c-1.4-0.2-2.9-0.3-4.4-0.3c-0.2,0-0.4,0-0.6,0c-0.1,0-0.1,0-0.2,0c-25.4,0-43.2,18.7-43.2,43c0,0,0,0.1,0,0.1c0,0,0,0.1,0,0.1c0,26.6,19.5,42.7,40.1,42.7c8.9,0,16.1-2.8,21.8-7c0.4-0.3,0.9,0,0.9,0.5v5.4c0,0.3,0.3,0.6,0.6,0.6h12.8c0.3,0,0.6-0.3,0.6-0.6V42.3c0-0.3-0.3-0.6-0.6-0.6h-33.7C184.3,41.7,184,41.9,184,42.3z"/>
       </svg>
     </router-link>
-    <nav id="header-nav">
+    <div id="bacon-double-che" v-if="size.breakpoint === 'mobile'">
+      <span id="burg-meat"></span>
+    </div>
+    <div id="mobile-menu" v-if="size.breakpoint === 'mobile'">
+    </div>
+    <nav id="header-nav" v-if="size.breakpoint === 'tablet-up'">
       <ul>
         <li><router-link to="/animation">Animation</router-link></li>
         <li><router-link to="/interactive">Interactive</router-link></li>
@@ -41,45 +46,60 @@ export default {
     | Handle scroll.
     ------------------------------------------ */
     scroll() {
-      // for example
-      console.log(
-        this.$store.state.appScroll.win
-        // this.$store.state.appScroll.otherContainer
-        // ...
-      );
-
       // TODO: detect event target for other scroll containers
-      let y = Math.max(this.$store.state.appScroll.win, 0),
+      let m = '',
+          y = Math.max(this.$store.state.appScroll.win, 0),
           d = y < this._last_scroll ? 'up' : 'down',
           t = 0;
 
-        // direction change?
-        if(d !== this._last_direction) this._direction_change_y = y;
+      // direction change?
+      if(d !== this._last_direction) {
+        this._direction_change_y = y;
+        this._direction_change_t = this._last_t;
+      }
 
-        // calculate style / position
-        if( y <= 0 ) {
-          this._mode = 'top';
-          t = 0;
-        } else if( y <= this._height ) {
-          this._mode = 'top';
-          t = -y;
+      // calculate style / position
+      if( y <= 0 ) {
+        m = 'top';
+        t = 0;
+      } else {
+        if( y <= this._height ) {
+          m = 'transitioning';
         } else {
-          this._mode = 'minimized';
-          // TODO: calc t
-          //t = -80;
-          t = 0;
+          m = 'minimized';
         }
+
+        let scroll = d === 'up' ? this._direction_change_y - y : y - this._direction_change_y,
+            reveal = d === 'up' ? this._direction_change_t + scroll : this._direction_change_t - scroll;
+
+        t = Math.min(0, Math.max(reveal, -this._height));
+      }
 
       // request animation frame for transforms
       window.requestAnimationFrame(() => {
-        if(this._mode === 'top') this._$header.removeClass('minimized');
-        if(this._mode === 'minimized') this._$header.addClass('minimized');
+        // unminimize
+        if(m === 'top' && this._mode === 'transitioning') {
+          this._$header.removeClass('minimized');
+          this._height = this._$header.outerHeight();
+        }
+
+        // minimize
+        if(m === 'minimized' && this._mode === 'transitioning') {
+          this._$header.addClass('minimized');
+          this._height = this._$header.outerHeight();
+        }
+
+        // transform
         this._$header.css('transform', `translate3d(0px, ${t}px, 0)`);
+
+        // current mode
+        this._mode = m;
       });
 
       // TODO: will have to be per target
       this._last_scroll = y;
       this._last_direction = d;
+      this._last_t = t;
     },
 
     /*
@@ -89,14 +109,6 @@ export default {
     | Handle resize.
     ------------------------------------------ */
     size() {
-      // for example
-      console.log(
-        this.$store.state.appSize.width,
-        this.$store.state.appSize.height,
-        this.$store.state.appSize.ratio,
-        this.$store.state.appSize.breakpoint
-      );
-
       // cache header height
       this._height = this._$header.outerHeight();
     }
@@ -121,6 +133,7 @@ export default {
     this._last_scroll = 0;
     this._last_direction = 'up';
     this._direction_change_y = 0;
+    this._last_t = 0;
 
     // events
   }
@@ -136,51 +149,88 @@ header
   top: 0px
   left: 0px
   width: 100%
-  height: 15px
-  padding-top: span(2, 20)
+  height: 16px
+  padding: 36px 0px
   align-items: center
   z-index: 100
 
   &.minimized
-    padding-top: 0px
-    height: 50px
     background-color: $white
 
   #header-logo
     grid-column: 3
     grid-row: 1
     display: block
-    width: 100px
-    height: 15px
+    width: 107px
+    height: 16px
 
     svg
       width: 100%
       height: 100%
 
-  #header-nav
-    grid-column: 11 / span 8
+  #bacon-double-che
+    grid-column: 18
     grid-row: 1
+    justify-self: end
+    position: relative
+    width: 50px
+    height: 16px
+    transform: translate3d(6px, 0px, 0)
 
-    ul
-      display: flex
-      flex-direction: row
-      justify-content: space-between
-      width: 100%
+    &:before,
+    &:after
+      content: ""
+      position: absolute
+      top: 50%
+      left: 50%
+      transform: translate3d(-50%, -50%, 0)
 
-      li
-        display: inline-block
+    &:before
+      width: 50px
+      height: 50px
 
-        a
-          color: $black
-          text-decoration: none
+    &:after
+      width: 38px
+      height: 38px
+      border-radius: 100%
+      background-color: $black
+      z-index: -1
+
+    #burg-meat
+      position: absolute
+      top: 7px
+      left: 19px
+      width: 12px
+      height: 2px
+      background-color: $white
+
+      &:before,
+      &:after
+        content: ""
+        position: absolute
+        top: 0px
+        left: 0px
+        height: 2px
+        background-color: $white
+
+      &:before
+        width: 12px
+        transform: translate3d(0px, -6px, 0)
+
+      &:after
+        width: 8px
+        transform: translate3d(0px, 6px, 0)
+
+  #mobile-menu
+    visibility: hidden
 
 +respond-to($tablet-landscape)
   header
     height: 24px
-    padding-top: span(2, 24)
+    padding: span(2, 24) 0 24px
 
     &.minimized
-      height: 80px
+      padding: 24px 0
 
     #header-logo
       width: 167px
@@ -188,9 +238,23 @@ header
 
     #header-nav
       grid-column: 13 / span 10
+      grid-row: 1
 
       ul
+        display: flex
+        flex-direction: row
+        justify-content: space-between
+        width: 100%
+
+        // NOTE: hang 'studio' button halfway over last grid col
         transform: translate(50px, 0px)
+
+        li
+          display: inline-block
+
+          a
+            color: $black
+            text-decoration: none
 
         li:last-child
           position: relative
