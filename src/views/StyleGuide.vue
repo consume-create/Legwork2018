@@ -6,7 +6,13 @@
       <div class="sg-seciton-header"><span>01</span> Typography</div>
       <div class="sg-section-body">
         <div class="sg-sub">Font Family</div>
-          <p>Font Family: </p>
+          <p>Font Family: Neuzeit Grotesk, serif </p>
+          <p>Weights: </p>
+          <ul>
+            <li>Regular: 400</li>
+            <li>Bold: 700</li>
+            <li>Heavy: 900</li>
+          </ul>
 
         <div class="sg-sub">Headers</div>
           <h1>An example of a H1 tag</h1>
@@ -49,6 +55,12 @@
       <div class="sg-section-body">
         <div class="sg-sub">Buttons & Links</div>
           <button-comp url="http://bla.com" variant="bare" text="Button"></button-comp>
+          <br />
+          <link-comp url="http://bla.com" variant="arrow" text="Apply"></link-comp>
+          <br />
+          <link-comp url="http://bla.com" variant="play" text="Watch Video"></link-comp>
+
+
 
         <div class="sg-sub">Icons</div>
         Icons

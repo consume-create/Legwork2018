@@ -29,9 +29,11 @@ export default {
   font-size: 14px
   color: $color-button-text
   text-decoration: none
-  font-weight: bold
+  font-weight: $bold
+  display: inline-block
 
   &[data-variant='bare']
+
 
   &[data-variant='icon']
 
