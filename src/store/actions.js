@@ -58,9 +58,9 @@ export default {
 
   /*
   ------------------------------------------
-  | method_name:void (-)
+  | TRANSITION:void (-)
   |
-  | Method Notes
+  | Sets transition origin ( where a transition is triggered from )
   ------------------------------------------ */
   TRANSITION: ({commit}, origin) => {
     commit('TRANSITION_ORIGIN', origin);

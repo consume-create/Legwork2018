@@ -10,7 +10,6 @@
 <script>
 export default {
   name: 'hero-view',
-  props: ['discipline'],
   computed: {
     abbrev() {
       return _.startCase(this.$route.params.discipline.slice(0, 2));
