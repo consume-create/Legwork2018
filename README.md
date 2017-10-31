@@ -22,3 +22,37 @@ We are using Server Side Rendering and prefetching all data to ensure speedy del
 - `router` - The router
 - `components` - These are sub components and are reused in multiple primary views.
 - `api` - The API for the server and pre-rendering.
+
+## Server Side
+For the SSR we have a JSON file that is cached in production coming from our CMS. On initial load after a deployment is run the server will cache the data from this JSON file and use to render pages serverside before the app initializes. 
+
+Our store and app state are already setup when the site renders and Vue takes over on the frontend. You can see more of this in the following areas:
+- `src/api/index.js`
+	- Fetches the data from s3 and returns as a promise.
+- `src/store/actions.js:10`
+	- Makes the call to api index to fetch data and commits to the store.
+- `src/store/mutations.js:11`
+	- Makes the change to the store from `actions.js`
+- `src/entry-server.js`
+	- Calles `ssrInit()` on components listed in the routes which initializes on the serverside.
+	- This is where the initial fetch projects is called from.
+
+On top of SSR we have implemented http2 for all network requests which reduces the number of HTTP requests and bumps overall speed of the app.
+
+The environments are all the same as Docker:
+- Ubuntu NodeJS 6.11.2 on 16.04
+- Nginx
+
+## Deployments
+For deployments we are using capistrano. This allows us to build the app on the server at deploy. Also allows us to set our deployment target `staging` or `production`.
+
+To deploy you must have your ssh key added to the server otherwise you will be denied access.
+
+- staging:
+	- run `cap staging deploy` ( full deploy )
+	- run `cap staging deploy:refresh` ( clear memory on the server )
+- production
+	- run `cap production deploy` ( full deploy )
+	- run `cap staging deploy:refresh` ( clear memory on the server )
+
+

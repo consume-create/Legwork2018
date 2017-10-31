@@ -131,8 +131,7 @@ html, body
 body
   background-color: $color-bg-body
   color: $color-text
-  // TODO
-  font: normal normal normal 14px/14px $font1
+  font-family: $base-font
   -webkit-font-smoothing: antialiased
   -webkit-text-size-adjust: none
 
