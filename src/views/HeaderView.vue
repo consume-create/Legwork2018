@@ -46,6 +46,31 @@ export default {
     | Handle scroll.
     ------------------------------------------ */
     scroll() {
+      this.onScroll();
+    },
+
+    /*
+    ------------------------------------------
+    | size:void
+    |
+    | Handle resize.
+    ------------------------------------------ */
+    size() {
+      // cache minimized / header height
+      // 72px = minimized desktop height
+      this._height = this._$header.outerHeight();
+      this._minimized_height = (this._height - 72);
+    }
+  },
+
+  methods: {
+    /*
+    ------------------------------------------
+    | onScroll:void
+    |
+    | Handle scroll.
+    ------------------------------------------ */
+    onScroll() {
       // TODO: detect event target for other scroll containers
       let m = '',
           y = Math.max(this.$store.state.appScroll.win, 0),
@@ -54,12 +79,12 @@ export default {
 
       // direction change?
       if(d !== this._last_direction) {
-        this._direction_change_y = y;
+        this._direction_change_y = this._initial ? 0 : y;
         this._direction_change_t = this._last_t;
       }
 
       // calculate style / position
-      if(y <= 0) {
+      if(y <= 0 && this._initial === false) {
         m = 'top';
         t = 0;
       } else {
@@ -95,7 +120,7 @@ export default {
       }
 
       // minimize
-      if(m === 'minimized' && this._last_mode === 'transitioning') {
+      if(m === 'minimized' && (this._last_mode === 'transitioning' || this._initial === true)) {
         _.defer(() => this._$header.addClass('minimized'));
       }
 
@@ -109,24 +134,10 @@ export default {
       this._last_scroll = y;
       this._last_direction = d;
       this._last_t = t;
-    },
 
-    /*
-    ------------------------------------------
-    | size:void
-    |
-    | Handle resize.
-    ------------------------------------------ */
-    size() {
-      // cache minimized / header height
-      // 72px = minimized desktop height
-      this._height = this._$header.outerHeight();
-      this._minimized_height = (this._height - 72);
+      // initial flag
+      this._initial = false;
     }
-  },
-
-  methods: {
-
   },
 
   /*
@@ -140,13 +151,12 @@ export default {
     this._$wn = $(window);
     this._$header = $('header');
     this._height = this._$header.outerHeight();
+    this._initial = true;
     this._last_mode = 'top';
     this._last_scroll = 0;
     this._last_direction = 'up';
     this._direction_change_y = 0;
     this._last_t = 0;
-
-    // events
   }
 }
 </script>

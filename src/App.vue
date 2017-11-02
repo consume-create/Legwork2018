@@ -58,20 +58,32 @@ export default {
 
   /*
   ------------------------------------------
+  | beforeMount:void
+  |
+  | Handle before mount.
+  ------------------------------------------ */
+  beforeMount() {
+
+  },
+
+  /*
+  ------------------------------------------
   | mounted:void
   |
   | Handle mounted.
   ------------------------------------------ */
   mounted() {
-    // component vars
+    // window
     this._$wn = $(window);
-
-    // events
     this._$wn
       .on('scroll.app', this.onScroll.bind(this))
-      .on('resize.app', this.onResize.bind(this)).trigger('resize');
+      .on('resize.app', this.onResize.bind(this))
+      .trigger('resize');
 
-    // TODO: other scroll containers
+    // ensure initial scroll is triggered after resize
+    _.defer(() => this._$wn.trigger('scroll'));
+
+    // TODO: other scroll containers?
   },
 
   methods: {
