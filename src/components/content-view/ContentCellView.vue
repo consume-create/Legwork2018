@@ -49,4 +49,20 @@ export default {
 	  position: center
 	margin-bottom: span(2, 20)
 
+
+.cell-title
+  font-size: 18px
+  color: $black
+  letter-spacing: 0
+  line-height: 14px
+
+  &:after
+    content: ''
+    display: block
+    margin-top: 24px
+    width: 26px
+    height: 4px
+    background: #000
+
+
 </style>
