@@ -63,7 +63,10 @@
 
 
         <div class="sg-sub">Icons</div>
-        Icons
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 73.7 73"><defs><style>.cls-1{fill:none;stroke:#000;stroke-width:5px;}</style></defs><title>circle-arrow</title><g id="Layer_2" data-name="Layer 2"><g id="circle-group"><g id="circle-arrow"><path id="arrow" d="M43.3 25.9l-3.5 3.6 4.3 4.3H22v5h22.1l-4.4 4.4 3.5 3.5 10.4-10.4-10.3-10.4z"/><path id="oval_arrow" data-name="oval arrow" class="cls-1" d="M71.2 36.5c0-18.8-16-34-34.7-34a34 34 0 0 0 0 68c18.8 0 34.7-15.2 34.7-34z"/></g></g></g></svg>
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 73.7 73"><defs><style>.cls-1{fill:none;stroke:#000;stroke-width:5px;}</style></defs><title>circle-info (2)</title><g id="Layer_2" data-name="Layer 2"><g id="circle-group"><g id="circle-info"><path d="M36.4 28.6a3.6 3.6 0 0 0 3.6-3.5 3.5 3.5 0 0 0-3.5-3.5 3.6 3.6 0 0 0-3.6 3.5 3.5 3.5 0 0 0 3.5 3.5zM39.7 47.2V32.5h-8.4v4.9h2.8v9.7h-2.8V52h11.1v-4.8h-2.7z"/><path id="oval-info" class="cls-1" d="M71.2 36.5c0-18.8-16-34-34.7-34a34 34 0 0 0 0 68c18.8 0 34.7-15.2 34.7-34z"/></g></g></g></svg>        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 73.7 73"><defs><style>.cls-1{fill:none;stroke:#000;stroke-width:5px;}</style></defs><title>circle-play</title><g id="Layer_2" data-name="Layer 2"><g id="circle-group"><g id="circle-play"><path id="play" d="M45.4 36.6l-12 9.2V27.5l12 9.1z"/><path id="oval-play" class="cls-1" d="M71.2 36.5c0-18.8-16-34-34.7-34a34 34 0 0 0 0 68c18.8 0 34.7-15.2 34.7-34z"/></g></g></g></svg>
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 73.7 73"><defs><style>.cls-1{fill:none;stroke:#000;stroke-width:5px;}</style></defs><title>circle-plus</title><g id="Layer_2" data-name="Layer 2"><g id="circle-group"><g id="circle-plus"><path id="plus" d="M46.4 34.1h-8.3v-8.5h-5v8.5h-8.3v5h8.3v8.1h5v-8.1h8.3v-5z"/><path id="oval-plus" class="cls-1" d="M71.2 36.5c0-18.8-16-34-34.7-34a34 34 0 0 0 0 68c18.8 0 34.7-15.2 34.7-34z"/></g></g></g></svg>
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 73.7 73"><defs><style>.cls-1{fill:none;stroke:#000;stroke-width:5px;}</style></defs><title>circle-x</title><g id="Layer_2" data-name="Layer 2"><g id="circle-group"><g id="circle-x"><path id="x" d="M46 42.2l-5.9-5.9 5.4-5.4-3.5-3.5-5.4 5.4-5.9-5.9-3.5 3.6 5.8 5.8-6.3 6.3 3.6 3.6 6.3-6.3 5.8 5.8 3.6-3.5z"/><path id="oval-x" class="cls-1" d="M71.2 36.5c0-18.8-16-34-34.7-34a34 34 0 0 0 0 68c18.8 0 34.7-15.2 34.7-34z"/></g></g></g></svg>
 
         <div class="sg-sub">Indicators</div>
         Indicators
@@ -129,4 +132,8 @@ export default {
       border-bottom: 2px solid rgba($gray, 0.2)
       margin-bottom: 10px
       margin-top: 20px
+
+    svg
+      width: 50px
+      margin-right: 10px
 </style>
