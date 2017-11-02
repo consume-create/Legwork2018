@@ -59,42 +59,51 @@ export default {
       }
 
       // calculate style / position
-      if( y <= 0 ) {
+      if(y <= 0) {
         m = 'top';
         t = 0;
       } else {
-        if( y <= this._height ) {
+        if((y <= this._height && d === 'down') || (y <= this._minimized_height && d === 'up')) {
           m = 'transitioning';
         } else {
           m = 'minimized';
         }
 
-        let scroll = d === 'up' ? this._direction_change_y - y : y - this._direction_change_y,
-            reveal = d === 'up' ? this._direction_change_t + scroll : this._direction_change_t - scroll;
+        // on the way up, at the top, on desktop
+        if(this.size.breakpoint === 'tablet-up' && m === 'transitioning' && this._last_mode === 'minimized') {
+          this._direction_change_y = this._minimized_height;
+          this._direction_change_t = -this._minimized_height;
+        }
 
-        t = Math.min(0, Math.max(reveal, -this._height));
+        // calculate reveal
+        let scroll = this._direction_change_y - y,
+            reveal = this._direction_change_t + scroll;
+
+        // limit desktop reveal when minimized
+        if(this.size.breakpoint === 'tablet-up' && m === 'minimized') {
+          reveal = Math.min(reveal, -this._minimized_height);
+        }
+
+        // limit transform
+        t = Math.ceil(Math.min(0, Math.max(reveal, -(this._height + 1))));
       }
 
-      // request animation frame for transforms
-      window.requestAnimationFrame(() => {
-        // unminimize
-        if(m === 'top' && this._mode === 'transitioning') {
-          this._$header.removeClass('minimized');
-          this._height = this._$header.outerHeight();
-        }
+      // set mode
+      // unminimize
+      if(m === 'top' && this._last_mode === 'transitioning') {
+        this._$header.removeClass('minimized');
+      }
 
-        // minimize
-        if(m === 'minimized' && this._mode === 'transitioning') {
-          this._$header.addClass('minimized');
-          this._height = this._$header.outerHeight();
-        }
+      // minimize
+      if(m === 'minimized' && this._last_mode === 'transitioning') {
+        _.defer(() => this._$header.addClass('minimized'));
+      }
 
-        // transform
-        this._$header.css('transform', `translate3d(0px, ${t}px, 0)`);
+      // current mode
+      this._last_mode = m;
 
-        // current mode
-        this._mode = m;
-      });
+      // transform
+      window.requestAnimationFrame(() => this._$header.css('transform', `translate3d(0px, ${t}px, 0)`));
 
       // TODO: will have to be per target
       this._last_scroll = y;
@@ -109,8 +118,10 @@ export default {
     | Handle resize.
     ------------------------------------------ */
     size() {
-      // cache header height
+      // cache minimized / header height
+      // 72px = minimized desktop height
       this._height = this._$header.outerHeight();
+      this._minimized_height = (this._height - 72);
     }
   },
 
@@ -128,8 +139,8 @@ export default {
     // class vars
     this._$wn = $(window);
     this._$header = $('header');
-    this._mode = 'top';
     this._height = this._$header.outerHeight();
+    this._last_mode = 'top';
     this._last_scroll = 0;
     this._last_direction = 'up';
     this._direction_change_y = 0;
@@ -230,7 +241,7 @@ header
     padding: span(2, 24) 0 24px
 
     &.minimized
-      padding: 24px 0
+      //padding: 24px 0
 
     #header-logo
       width: 167px
