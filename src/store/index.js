@@ -18,6 +18,11 @@ export function createStore () {
         ratio: '',
         breakpoint: ''
       },
+      header: {
+        mode: '',
+        transform: 0,
+        mobileMenuMode: ''
+      },
       bizPosition: '',
       transitionOrigin: '',
       pages: []

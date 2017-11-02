@@ -5,6 +5,9 @@ export default {
   APP_SIZE: (state, obj) => {
     state.appSize = obj;
   },
+  HEADER: (state, { settings }) => {
+    Object.assign(state.header, settings);
+  },
   BIZ_POSITION: (state, { pos }) => {
     state.bizPosition = pos;
   },

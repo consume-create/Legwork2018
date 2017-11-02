@@ -44,6 +44,20 @@ export default {
 
   /*
   ------------------------------------------
+  | SET_HEADER:void
+  |
+  | Sets the header state.
+  ------------------------------------------ */
+  SET_HEADER: ({ commit }, obj) => {
+    if(obj.delay === 0) {
+      commit('HEADER', obj);
+    } else {
+      setTimeout(() => commit('HEADER', obj), obj.delay);
+    }
+  },
+
+  /*
+  ------------------------------------------
   | SET_BIZ_POSITION:void
   |
   | Sets the biz widget position.
