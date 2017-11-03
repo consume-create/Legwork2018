@@ -34,6 +34,36 @@ export default {
 
   /*
   ------------------------------------------
+  | SET_MOBILE_MENU_SCROLL:void
+  |
+  | Sets mobileMenu scroll in appScroll.
+  ------------------------------------------ */
+  SET_MOBILE_MENU_SCROLL: ({ commit }, obj) => {
+    commit('MOBILE_MENU_SCROLL', obj);
+  },
+
+  /*
+  ------------------------------------------
+  | SET_BIZ_WIDGET_SCROLL:void
+  |
+  | Sets bizWidget scroll in appScroll.
+  ------------------------------------------ */
+  SET_BIZ_WIDGET_SCROLL: ({ commit }, obj) => {
+    commit('BIZ_WIDGET_SCROLL', obj);
+  },
+
+  /*
+  ------------------------------------------
+  | SET_ACTIVE_SCROLL:void
+  |
+  | Sets active scroll.
+  ------------------------------------------ */
+  SET_ACTIVE_SCROLL: ({ commit }, str) => {
+    commit('ACTIVE_SCROLL', str);
+  },
+
+  /*
+  ------------------------------------------
   | SET_APP_SIZE:void
   |
   | Sets the global app size.

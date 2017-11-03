@@ -13,8 +13,17 @@ export function createStore () {
         win: {
           offset: 0,
           locked: false
+        },
+        mobileMenu: {
+          offset: 0,
+          locked: false
+        },
+        bizWidget: {
+          offset: 0,
+          locked: false
         }
       },
+      activeScroll: 'win',
       appSize: {
         width: 0,
         height: 0,
@@ -23,6 +32,7 @@ export function createStore () {
       },
       header: {
         mode: '',
+        theme: 'dark',
         transform: 0,
         mobileMenuMode: ''
       },
