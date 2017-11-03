@@ -1,6 +1,6 @@
 export default {
-  APP_SCROLL: (state, obj) => {
-    state.appScroll = obj;
+  WIN_SCROLL: (state, obj) => {
+    Object.assign(state.appScroll.win, obj);
   },
   APP_SIZE: (state, obj) => {
     state.appSize = obj;

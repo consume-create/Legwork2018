@@ -24,12 +24,12 @@ export default {
 
   /*
   ------------------------------------------
-  | SET_APP_SCROLL:void
+  | SET_WIN_SCROLL:void
   |
-  | Sets the global app scroll.
+  | Sets win scroll in appScroll.
   ------------------------------------------ */
-  SET_APP_SCROLL: ({ commit }, obj) => {
-    commit('APP_SCROLL', obj);
+  SET_WIN_SCROLL: ({ commit }, obj) => {
+    commit('WIN_SCROLL', obj);
   },
 
   /*

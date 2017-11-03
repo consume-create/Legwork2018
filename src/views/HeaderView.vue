@@ -1,5 +1,5 @@
 <template>
-  <header :style="headerTranslate" :class="headerMode">
+  <header :class="headerMode">
     <div id="header-inner">
       <div id="mobile-menu" v-if="size.breakpoint === 'mobile'">
         <nav id="mobile-nav">
@@ -12,7 +12,7 @@
         <div id="mobile-studio-wrap">
         </div>
       </div>
-      <div id="header-bar">
+      <div id="header-bar" :style="headerTranslate">
         <router-link to="/" id="header-logo">
           <svg id="logo" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 600 86">
             <path d="M0.6,71.8H9c0.3,0,0.6-0.3,0.6-0.6V14.8c0-0.3-0.3-0.6-0.6-0.6H0.6C0.3,14.2,0,14,0,13.7V2.1c0-0.3,0.3-0.6,0.6-0.6h33.8c0.3,0,0.6,0.3,0.6,0.6v11.6c0,0.3-0.3,0.6-0.6,0.6h-9.9c-0.3,0-0.6,0.3-0.6,0.6v56.5c0,0.3,0.3,0.6,0.6,0.6h21.9c0.3,0,0.6-0.3,0.6-0.6V60.7c0-0.3,0.3-0.6,0.6-0.6h12.7c0.3,0,0.6,0.3,0.6,0.6v23.2c0,0.3-0.3,0.6-0.6,0.6H0.6c-0.3,0-0.6-0.3-0.6-0.6V72.3C0,72,0.3,71.8,0.6,71.8z"/>
@@ -64,8 +64,9 @@ export default {
     |
     | Handle scroll.
     ------------------------------------------ */
-    scroll() {
-      this.onScroll();
+    scroll: {
+      handler: 'onScroll',
+      deep: true
     },
 
     /*
@@ -92,7 +93,7 @@ export default {
     onScroll() {
       // TODO: detect event target for other scroll containers
       let mode = '',
-          y = Math.max(this.$store.state.appScroll.win, 0),
+          y = Math.max(this.scroll.win.offset, 0),
           direction = y < this._last_scroll ? 'up' : 'down',
           transform = 0;
 
@@ -158,6 +159,12 @@ export default {
     ------------------------------------------ */
     onBurgerClick(e) {
       let mobileMenuMode = this.$store.state.header.mobileMenuMode === 'mobile-menu-open' ? '' : 'mobile-menu-open';
+
+      // scroll lock
+      let locked = mobileMenuMode === 'mobile-menu-open';
+      this.$store.dispatch('SET_WIN_SCROLL', {locked});
+
+      // header
       this.$store.dispatch('SET_HEADER', {
         settings: {mobileMenuMode},
         delay: 0
@@ -197,7 +204,8 @@ header
   z-index: 100
 
   &.minimized
-    background-color: $white
+    #header-bar
+      background-color: $white
 
   &.mobile-menu-open
     height: 100%
@@ -383,4 +391,7 @@ header
               text-align: center
               color: $white
               transform: translate(0%, -50%)
+
+              &.router-link-exact-active:after
+                display: none
 </style>

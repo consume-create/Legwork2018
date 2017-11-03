@@ -1,12 +1,12 @@
 <template>
-  <div id='app'>
+  <div id="app">
     <header-view></header-view>
     <hero-view></hero-view>
     <content-view></content-view>
-    <router-view v-if='environment == "development"'></router-view>
+    <router-view v-if="environment == 'development'"></router-view>
+    <footer-view></footer-view>
     <biz-widget-view></biz-widget-view>
     <power-tools-view></power-tools-view>
-    <footer-view></footer-view>
   </div>
 </template>
 
@@ -56,6 +56,12 @@ export default {
     }
   },
 
+  computed: {
+    scrollLock() {
+      return this.$store.state.appScroll.win.locked;
+    }
+  },
+
   /*
   ------------------------------------------
   | beforeMount:void
@@ -63,7 +69,11 @@ export default {
   | Handle before mount.
   ------------------------------------------ */
   beforeMount() {
+    this._$wn = $(window);
+    this._$body = $('body');
 
+    // body initial lock
+    if(this.$store.state.appScroll.win.locked) this._$body.addClass('locked');
   },
 
   /*
@@ -74,9 +84,8 @@ export default {
   ------------------------------------------ */
   mounted() {
     // window
-    this._$wn = $(window);
     this._$wn
-      .on('scroll.app', this.onScroll.bind(this))
+      .on('scroll.app', this.onWinScroll.bind(this))
       .on('resize.app', this.onResize.bind(this))
       .trigger('resize');
 
@@ -86,21 +95,32 @@ export default {
     // TODO: other scroll containers?
   },
 
+  watch: {
+    /*
+    ------------------------------------------
+    | scrollLock:void
+    |
+    | Watch scroll lock and set body class.
+    ------------------------------------------ */
+    scrollLock() {
+      if(this.$store.state.appScroll.win.locked) this._$body.addClass('locked');
+      else this._$body.removeClass('locked');
+    }
+  },
+
   methods: {
     /*
     ------------------------------------------
-    | onScroll:void
+    | onWinScroll:void
     |
     | e:object - event object
     |
     | Handle scroll.
     ------------------------------------------ */
-    onScroll(e) {
-      // TODO: detect target for other scroll containers
-      // set app scroll in the store
-      this.$store.dispatch('SET_APP_SCROLL', {
-        win: window.pageYOffset
-      });
+    onWinScroll(e) {
+      // set win scroll in the store
+      let offset = window.pageYOffset;
+      this.$store.dispatch('SET_WIN_SCROLL', {offset});
     },
 
     /*

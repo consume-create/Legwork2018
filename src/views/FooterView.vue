@@ -18,7 +18,7 @@ export default {
       return this.$route.params.discipline;
     },
     scroll() {
-      return this.$store.state.appScroll.win;
+      return this.$store.state.appScroll;
     }
   },
   watch: {
@@ -28,9 +28,22 @@ export default {
     |
     | Handle scroll.
     ------------------------------------------ */
-    scroll() {
+    scroll: {
+      handler: 'onScroll',
+      deep: true
+    },
+  },
+
+  methods: {
+    /*
+    ------------------------------------------
+    | onScroll:void
+    |
+    | Handle scroll.
+    ------------------------------------------ */
+    onScroll() {
       window.requestAnimationFrame(() => {
-        let offset = Math.floor(this._$footer.offset().top - this.scroll);
+        let offset = Math.floor(this._$footer.offset().top - this.scroll.win.offset);
 
         if( offset < this._$footer.height() ){
           this.percent = (offset / this._$footer.height()) * 100;
