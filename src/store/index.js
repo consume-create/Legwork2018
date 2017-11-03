@@ -10,7 +10,10 @@ export function createStore () {
   return new Vuex.Store({
     state: {
       appScroll: {
-        win: 0
+        win: {
+          offset: 0,
+          locked: false
+        }
       },
       appSize: {
         width: 0,
