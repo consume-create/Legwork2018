@@ -2,6 +2,15 @@
   <header :style="headerTranslate" :class="headerMode">
     <div id="header-inner">
       <div id="mobile-menu" v-if="size.breakpoint === 'mobile'">
+        <nav id="mobile-nav">
+          <ul>
+            <li><router-link to="/animation">Animation</router-link></li>
+            <li><router-link to="/interactive">Interactive</router-link></li>
+            <li><router-link to="/experiential">Experiential</router-link></li>
+          </ul>
+        </nav>
+        <div id="mobile-studio-wrap">
+        </div>
       </div>
       <div id="header-bar">
         <router-link to="/" id="header-logo">
@@ -67,9 +76,9 @@ export default {
     ------------------------------------------ */
     size() {
       // cache minimized / header height
-      // 72px = minimized desktop height
+      // 86px = minimized desktop height
       this._height = this._$header.outerHeight();
-      this._minimized_height = (this._height - 72);
+      this._minimized_height = (this._height - 86);
     }
   },
 
@@ -209,6 +218,43 @@ header
       background-color: $white
       visibility: hidden
 
+      #mobile-nav
+        position: relative
+        width: 100%
+        height: 66%
+
+        ul
+          position: absolute
+          top: 50%
+          width: 100%
+          transform: translate(0%, -50%)
+
+          li
+            width: 100%
+            text-align: center
+
+            a
+              display: inline-block
+              position: relative
+              padding: 26px 0
+              font: normal normal $bold 18px/18px $base-font
+              color: $black
+              text-decoration: none
+
+              &.router-link-exact-active:after
+                content: ""
+                position: absolute
+                top: 50px
+                left: 0px
+                width: 100%
+                height: 4px
+                background-color: $black
+
+      #mobile-studio-wrap
+        width: 100%
+        min-height: 34%
+        background-color: $black
+
   #header-bar
     +grid
     position: relative
@@ -284,12 +330,12 @@ header
 +respond-to($tablet-landscape)
   header
     #header-bar
-      height: 24px
-      padding: span(2, 24) 0 24px
+      height: 26px
+      padding: span(2, 24) 0 30px
 
       #header-logo
-        width: 167px
-        height: 24px
+        width: 190px
+        height: 26px
 
       #header-nav
         grid-column: 13 / span 10
@@ -308,8 +354,19 @@ header
             display: inline-block
 
             a
+              position: relative
+              font: normal normal $bold 18px/18px $base-font
               color: $black
               text-decoration: none
+
+              &.router-link-exact-active:after
+                content: ""
+                position: absolute
+                top: 32px
+                left: 0px
+                width: 100%
+                height: 4px
+                background-color: $black
 
           li:last-child
             position: relative
@@ -320,8 +377,8 @@ header
               position: absolute
               top: 50%
               width: 100%
-              padding: 12px 0px
-              border-radius: 18px
+              padding: 16px 0px
+              border-radius: 25px
               background-color: $black
               text-align: center
               color: $white
