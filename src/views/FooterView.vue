@@ -1,7 +1,7 @@
 <template>
-  <footer v-bind:class="discipline">
+  <footer v-bind:class="discipline + ' fill'">
     <span>Up Next ...</span>
-    <div v-bind:class="discipline + ' fill cover'"></div>
+    <div v-bind:class="next + ' fill cover'"></div>
   </footer>
 </template>
 
@@ -19,6 +19,9 @@ export default {
     },
     scroll() {
       return this.$store.state.appScroll.win;
+    },
+    next() {
+      return this.$store.getters.nextPage;
     }
   },
   watch: {
