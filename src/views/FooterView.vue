@@ -1,7 +1,7 @@
 <template>
-  <footer v-bind:class="discipline">
+  <footer v-bind:class="discipline + ' fill'">
     <span>Up Next ...</span>
-    <div v-bind:class="discipline + ' fill cover'"></div>
+    <div v-bind:class="next + ' fill cover'"></div>
   </footer>
 </template>
 
@@ -18,7 +18,10 @@ export default {
       return this.$route.params.discipline;
     },
     scroll() {
-      return this.$store.state.appScroll;
+      return this.$store.state.appScroll.win;
+    },
+    next() {
+      return this.$store.getters.nextPage;
     }
   },
   watch: {
@@ -43,7 +46,7 @@ export default {
     ------------------------------------------ */
     onScroll() {
       window.requestAnimationFrame(() => {
-        let offset = Math.floor(this._$footer.offset().top - this.scroll.win.offset);
+        let offset = Math.floor(this._$footer.offset().top - this.scroll.offset);
 
         if( offset < this._$footer.height() ){
           this.percent = (offset / this._$footer.height()) * 100;

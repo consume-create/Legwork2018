@@ -1,8 +1,8 @@
 <template>
-  <div id="hero" :class="title">
-    <div id="hero-inner" v-if="typeof title !== 'undefined'">
+  <div id="hero" v-bind:class="discipline + ' fill'">
+    <div id="hero-inner" v-if="typeof discipline !== 'undefined'">
       <span id="big-test">{{ abbrev }}</span>
-      <span id="little-test">Hero {{ title }}</span>
+      <span id="little-test">Hero {{ discipline }}</span>
     </div>
   </div>
 </template>
@@ -14,7 +14,7 @@ export default {
     abbrev() {
       return _.startCase(this.$route.params.discipline.slice(0, 2));
     },
-    title () {
+    discipline () {
       return this.$route.params.discipline;
     }
   }
@@ -29,7 +29,6 @@ export default {
   position: relative
   width: 100%
   height: 100%
-  background-color: $color-bg-yellow
 
   #hero-inner
     display: inline-block
