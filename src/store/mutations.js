@@ -2,6 +2,15 @@ export default {
   WIN_SCROLL: (state, obj) => {
     Object.assign(state.appScroll.win, obj);
   },
+  MOBILE_MENU_SCROLL: (state, obj) => {
+    Object.assign(state.appScroll.mobileMenu, obj);
+  },
+  BIZ_WIDGET_SCROLL: (state, obj) => {
+    Object.assign(state.appScroll.bizWidget, obj);
+  },
+  ACTIVE_SCROLL: (state, str) => {
+    state.activeScroll = str;
+  },
   APP_SIZE: (state, obj) => {
     state.appSize = obj;
   },

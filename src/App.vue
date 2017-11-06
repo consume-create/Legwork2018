@@ -91,8 +91,6 @@ export default {
 
     // ensure initial scroll is triggered after resize
     _.defer(() => this._$wn.trigger('scroll'));
-
-    // TODO: other scroll containers?
   },
 
   watch: {
@@ -103,8 +101,12 @@ export default {
     | Watch scroll lock and set body class.
     ------------------------------------------ */
     scrollLock() {
-      if(this.$store.state.appScroll.win.locked) this._$body.addClass('locked');
-      else this._$body.removeClass('locked');
+      if(this.$store.state.appScroll.win.locked) {
+        this._$body.addClass('locked');
+      } else {
+        this.$store.dispatch('SET_ACTIVE_SCROLL', 'win');
+        this._$body.removeClass('locked');
+      }
     }
   },
 

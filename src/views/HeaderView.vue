@@ -1,7 +1,7 @@
 <template>
   <header :class="headerMode">
     <div id="header-inner">
-      <div id="mobile-menu" v-if="size.breakpoint === 'mobile'">
+      <div id="mobile-menu" v-if="size.breakpoint === 'mobile'" @scroll="onMobileMenuScroll">
         <nav id="mobile-nav">
           <ul>
             <li><router-link to="/animation">Animation</router-link></li>
@@ -51,7 +51,7 @@ export default {
       return this.$store.state.appSize;
     },
     headerMode() {
-      return `${this.$store.state.header.mode} ${this.$store.state.header.mobileMenuMode}`;
+      return `${this.$store.state.header.mode} ${this.$store.state.header.mobileMenuMode} ${this.$store.state.header.theme}`;
     },
     headerTranslate() {
       return `transform: translate3d(0px, ${this.$store.state.header.transform}px, 0)`;
@@ -86,6 +86,20 @@ export default {
   methods: {
     /*
     ------------------------------------------
+    | onMobileMenuScroll:void
+    |
+    | e:object - event object
+    |
+    | Handle mobile menu scroll.
+    ------------------------------------------ */
+    onMobileMenuScroll(e) {
+      // set mobile menu scroll in the store
+      let offset = e.srcElement.scrollTop;
+      this.$store.dispatch('SET_MOBILE_MENU_SCROLL', {offset});
+    },
+
+    /*
+    ------------------------------------------
     | onScroll:void
     |
     | Handle scroll.
@@ -93,7 +107,7 @@ export default {
     onScroll() {
       // TODO: detect event target for other scroll containers
       let mode = '',
-          y = Math.max(this.scroll.win.offset, 0),
+          y = Math.max(this.scroll[this.$store.state.activeScroll].offset, 0),
           direction = y < this._last_scroll ? 'up' : 'down',
           transform = 0;
 
@@ -164,6 +178,9 @@ export default {
       let locked = mobileMenuMode === 'mobile-menu-open';
       this.$store.dispatch('SET_WIN_SCROLL', {locked});
 
+      // active scroll
+      this.$store.dispatch('SET_ACTIVE_SCROLL', 'mobileMenu');
+
       // header
       this.$store.dispatch('SET_HEADER', {
         settings: {mobileMenuMode},
@@ -207,6 +224,15 @@ header
     #header-bar
       background-color: $white
 
+  &.light
+    #header-bar
+      #header-logo
+        fill: $white
+
+  &.light.minimized
+    #header-bar
+      background-color: $black
+
   &.mobile-menu-open
     height: 100%
 
@@ -225,6 +251,7 @@ header
       height: 100%
       background-color: $white
       visibility: hidden
+      overflow: scroll
 
       #mobile-nav
         position: relative
@@ -260,7 +287,7 @@ header
 
       #mobile-studio-wrap
         width: 100%
-        min-height: 34%
+        height: 3000px
         background-color: $black
 
   #header-bar
@@ -337,6 +364,16 @@ header
 
 +respond-to($tablet-landscape)
   header
+    &.light
+      #header-bar
+        #header-nav
+          ul
+            li
+              visibility: hidden
+
+            li:last-child
+              visibility: visible
+
     #header-bar
       height: 26px
       padding: span(2, 24) 0 30px
