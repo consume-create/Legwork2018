@@ -7,6 +7,7 @@
     <footer-view></footer-view>
     <biz-widget-view></biz-widget-view>
     <power-tools-view></power-tools-view>
+    <case-study-view></case-study-view>
   </div>
 </template>
 
@@ -17,6 +18,7 @@ import HeroView from './views/HeroView.vue';
 import BizWidgetView from './views/BizWidgetView.vue';
 import PowerToolsView from './views/PowerToolsView.vue';
 import FooterView from './views/FooterView.vue';
+import CaseStudyView from './views/CaseStudyView.vue';
 
 export default {
   name: 'app',
@@ -31,7 +33,8 @@ export default {
     BizWidgetView,
     FooterView,
     PowerToolsView,
-    ContentView
+    ContentView,
+    CaseStudyView
   },
 
   /*

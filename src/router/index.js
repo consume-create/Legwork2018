@@ -5,6 +5,7 @@ import BizWidgetView from '../views/BizWidgetView.vue';
 import FooterView from '../views/FooterView.vue';
 import HeroView from '../views/HeroView.vue';
 import StyleGuide from '../views/StyleGuide.vue';
+import CaseStudyView from '../views/CaseStudyView.vue';
 
 // Set Vue to use the Router
 Vue.use(Router);
@@ -64,7 +65,8 @@ export function createRouter () {
         ContentView, 
         BizWidgetView,
         FooterView,
-        HeroView
+        HeroView,
+        CaseStudyView
       }, 
       props: true 
     },
