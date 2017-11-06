@@ -53,6 +53,10 @@ export default {
         }
         if( offset <= 0 ){
           this.$store.dispatch("TRANSITION", 'footer');
+
+          let locked = true;
+          this.$store.dispatch('SET_WIN_SCROLL', {locked});
+
           this.$router.push( '/' + this.$store.getters.nextPage );
         }
 
