@@ -1,6 +1,11 @@
 <template>
+<<<<<<< Updated upstream
   <div id="case-study" v-bind:class="discipline" v-if="project">
   	{{ project.project_name }}
+=======
+  <div id="case-study">
+    <h1>Case Study</h1>
+>>>>>>> Stashed changes
   </div>
 </template>
 
