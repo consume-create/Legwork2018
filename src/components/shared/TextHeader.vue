@@ -1,7 +1,7 @@
 <template>
-	<div class='text-header'>
+	<h1 class='text-header'>
 		{{project.project_name}}
-	</div>
+	</h1>
 </template>
 
 <script>

@@ -1,14 +1,22 @@
 <template>
   <div id="case-study" v-bind:class="discipline" v-if="project" @scroll="onCaseStudyScroll">
-  	<div id="case-study-content">
-	  	{{ project.project_name }}
+  	<div id="case-study-content" >
+      <case-study-hero></case-study-hero>
+      <case-study-overview :project="project"></case-study-overview>
 	  </div>
   </div>
 </template>
 
 <script>
+import CaseStudyHero from "components/editorial/CaseStudyHero.vue";
+import CaseStudyOverview from "components/editorial/CaseStudyOverview.vue";
+
 export default {
   name: 'case-study-view',
+  components: {
+    CaseStudyHero,
+    CaseStudyOverview
+  },
   computed: {
   	discipline () {
       return this.$route.params.discipline;
