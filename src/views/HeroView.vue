@@ -20,11 +20,14 @@ export default {
   },
   watch: {
     '$route': function(){
-      if(!this.$route.params.project){
-        setTimeout( () => {
-          let locked = false;
-          this.$store.dispatch('SET_WIN_SCROLL', {locked})
-        },1500)
+      let _origin = this.$store.getters.transitionOrigin;
+      switch( _origin ){
+        case "footer":
+          setTimeout( () => {
+            let locked = false;
+            this.$store.dispatch('SET_WIN_SCROLL', {locked})
+          },1500)
+        break;
       }
     }
   },
