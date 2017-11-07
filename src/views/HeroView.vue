@@ -17,6 +17,22 @@ export default {
     discipline () {
       return this.$route.params.discipline;
     }
+  },
+  watch: {
+    '$route': function(){
+      let _origin = this.$store.getters.transitionOrigin;
+      switch( _origin ){
+        case "footer":
+          setTimeout( () => {
+            let locked = false;
+            this.$store.dispatch('SET_WIN_SCROLL', {locked})
+          },1500)
+        break;
+      }
+    }
+  },
+  methods: {
+
   }
 };
 </script>

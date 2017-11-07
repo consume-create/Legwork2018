@@ -21,6 +21,10 @@ export function createStore () {
         bizWidget: {
           offset: 0,
           locked: false
+        },
+        caseStudy: {
+          offset: 0,
+          locked: false
         }
       },
       activeScroll: 'win',
@@ -39,7 +43,7 @@ export function createStore () {
       },
       bizPosition: '',
       transitionOrigin: '',
-      pages: []
+      pages: [],
     },
     actions,
     mutations,
