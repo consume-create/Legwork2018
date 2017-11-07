@@ -76,10 +76,16 @@ export default {
     | Handle resize.
     ------------------------------------------ */
     size() {
-      // cache minimized / header height
+      // set header height in the store
+      let height = this._$header.outerHeight();
+      this.$store.dispatch('SET_HEADER', {
+        settings: {height},
+        delay: 0
+      });
+
+      // cache minimized height
       // 86px = minimized desktop height
-      this._height = this._$header.outerHeight();
-      this._minimized_height = (this._height - 86);
+      this._minimized_height = (this.$store.state.header.height - 86);
     }
   },
 
@@ -122,7 +128,7 @@ export default {
         mode = 'top';
         transform = 0;
       } else {
-        if((y <= this._height && direction === 'down') || (y <= this._minimized_height && direction === 'up')) {
+        if(((y <= (this.$store.state.header.height + 1)) && direction === 'down') || (y <= this._minimized_height && direction === 'up')) {
           mode = 'transitioning';
         } else {
           mode = 'minimized';
@@ -144,7 +150,7 @@ export default {
         }
 
         // limit transform
-        transform = Math.ceil(Math.min(0, Math.max(reveal, -(this._height + 1))));
+        transform = Math.ceil(Math.min(0, Math.max(reveal, -(this.$store.state.header.height + 1))));
       }
 
       // set it
@@ -198,7 +204,6 @@ export default {
   mounted() {
     // class vars
     this._$header = $('header');
-    this._height = 0;
     this._minimized_height = 0;
     this._initial = true;
     this._last_mode = 'top';
