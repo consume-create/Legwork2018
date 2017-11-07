@@ -30,16 +30,6 @@ export function createRouter () {
   // Default routes
   _router.addRoutes([
     { 
-      path: '/search',
-      components: {
-        ContentView,
-        BizWidgetView,
-        FooterView,
-        HeroView
-      },
-      props: true 
-    },
-    { 
       path: '/search/:project_search',
       components: {
         ContentView, 
@@ -50,13 +40,13 @@ export function createRouter () {
       props: true 
     },
     { 
-      path: '/:discipline',
+      path: '/search',
       components: {
-        ContentView, 
+        ContentView,
         BizWidgetView,
         FooterView,
         HeroView
-      }, 
+      },
       props: true 
     },
     { 
@@ -67,6 +57,16 @@ export function createRouter () {
         FooterView,
         HeroView,
         CaseStudyView
+      }, 
+      props: true 
+    },
+    { 
+      path: '/:discipline',
+      components: {
+        ContentView, 
+        BizWidgetView,
+        FooterView,
+        HeroView
       }, 
       props: true 
     },
