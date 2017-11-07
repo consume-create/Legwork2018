@@ -1,6 +1,6 @@
 <template>
   <div class="text-list">
-    <h3>Services Provided</h3>
+    <h3 class="list-header">Services Provided</h3>
     <ul>
       <li>Strategy</li>
       <li>UI</li>
@@ -27,4 +27,16 @@ export default {
 
 <style lang='sass' scoped>
 @import "src/styles/global"
+
+.text-list
+
+  .list-header
+    margin-bottom: span(2,24)
+
+  ul li
+    opacity: 0.3
+    letter-spacing: 1.29px
+    line-height: 25px
+
+
 </style>

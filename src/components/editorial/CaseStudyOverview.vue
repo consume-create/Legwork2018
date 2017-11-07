@@ -49,23 +49,33 @@ export default {
 
   .overview-header
     grid-column: 2 / span 18
-    margin-bottom: span(2,24)
-    +respond-to($tablet-landscape)
-      grid-column: 6 / span 18
+    margin-bottom: span(3,24)
 
   .link
     grid-column: 2 / span 18
-    +respond-to($tablet-landscape)
-      grid-column: 2 / span 3
+    margin-bottom: span(4,24)
 
   .text-list
     grid-column: 2 / span 18
-    +respond-to($tablet-landscape)
-      grid-column: 6 / span 6
+    margin-bottom: span(4,24)
 
   .text-body
     grid-column: 2 / span 18
-    +respond-to($tablet-landscape)
+
+
++respond-to($tablet-landscape)
+  .case-study-overview
+
+    .overview-header
+      grid-column: 6 / span 18
+
+    .link
+      grid-column: 2 / span 3
+
+    .text-list
+      grid-column: 6 / span 6
+
+    .text-body
       grid-column: 12 / span 12
 
 </style>

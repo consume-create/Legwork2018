@@ -13,11 +13,15 @@ body
 // Global Typography Settings
 
 h1
-  font-size: 76px
-  font-weight: $bold
-  color: $color-headers
-  letter-spacing: 0
-  line-height: 66px
+  font-size: 55px
+  letter-spacing: 2.24px
+  line-height: 60px
+  +respond-to($tablet-landscape)
+    font-size: 76px
+    font-weight: $bold
+    color: $color-headers
+    letter-spacing: 0
+    line-height: 66px
 
 h2
   font-size: 14px
@@ -27,5 +31,5 @@ h2
   line-height: 14px
 
 p
-  letter-spacing: 0.47px
-  line-height: 35px
+  letter-spacing: 0.82px
+  line-height: 32px
