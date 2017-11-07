@@ -60,16 +60,26 @@ export default {
 
 #content
   +grid
-  padding-top: span(2, 24)
+  padding-top: span(2, 20)
 
   #content-inner
-    grid-column: 3 / span 20
+    grid-column: 3 / span 16
     grid-row: 1
+
+    // NOTE: for power tools
+    padding-top: 40px
 
     #content-cells
       display: flex
       flex-direction: row
       justify-content: space-between
       flex-wrap: wrap
-      margin-top: span(1, 20)
+
++respond-to($tablet-landscape)
+  #content
+    padding-top: span(2, 24)
+
+    #content-inner
+      grid-column: 3 / span 18
+      padding-top: 0px
 </style>
