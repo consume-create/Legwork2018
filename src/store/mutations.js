@@ -8,6 +8,9 @@ export default {
   BIZ_WIDGET_SCROLL: (state, obj) => {
     Object.assign(state.appScroll.bizWidget, obj);
   },
+  CASE_STUDY_SCROLL: (state, obj) => {
+    Object.assign(state.appScroll.caseStudy, obj);
+  },
   ACTIVE_SCROLL: (state, str) => {
     state.activeScroll = str;
   },

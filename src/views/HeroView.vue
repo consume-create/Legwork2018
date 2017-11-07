@@ -20,10 +20,12 @@ export default {
   },
   watch: {
     '$route': function(){
-      setTimeout( () => {
-        let locked = false;
-        this.$store.dispatch('SET_WIN_SCROLL', {locked})
-      },1500)
+      if(!this.$route.params.project){
+        setTimeout( () => {
+          let locked = false;
+          this.$store.dispatch('SET_WIN_SCROLL', {locked})
+        },1500)
+      }
     }
   },
   methods: {

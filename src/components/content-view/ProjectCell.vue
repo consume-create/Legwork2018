@@ -1,6 +1,7 @@
 <template>
 	<div class='content-cell project'>
-		{{project.project_name}}
+		
+		<router-link :to="project.path">{{project.project_name}}</router-link>
 	</div>
 </template>
 
