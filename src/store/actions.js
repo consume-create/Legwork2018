@@ -54,6 +54,16 @@ export default {
 
   /*
   ------------------------------------------
+  | SET_CASE_STUDY_SCROLL:void
+  |
+  | Sets bizWidget scroll in appScroll.
+  ------------------------------------------ */
+  SET_CASE_STUDY_SCROLL: ({ commit }, obj) => {
+    commit('CASE_STUDY_SCROLL', obj);
+  },
+
+  /*
+  ------------------------------------------
   | SET_ACTIVE_SCROLL:void
   |
   | Sets active scroll.
