@@ -32,7 +32,7 @@ export default {
 
   		// active scroll
   		if( locked ){
-		    store.dispatch('SET_ACTIVE_SCROLL', 'caseStudy');
+		    this.$store.dispatch('SET_ACTIVE_SCROLL', 'caseStudy');
 		  }
   	}
   },

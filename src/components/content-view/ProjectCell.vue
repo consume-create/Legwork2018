@@ -1,7 +1,9 @@
 <template>
 	<div class='content-cell project'>
 		
-		<router-link :to="project.path">{{project.project_name}}</router-link>
+		<router-link :to="project.path" >
+			<span @click="onProjectClick">{{project.project_name}}</span>
+		</router-link>
 	</div>
 </template>
 
@@ -17,7 +19,13 @@ export default {
 	------------------------------------------ */
 	props: [
 		'project'
-	]
+	],
+
+	methods: {
+		onProjectClick () {
+			this.$store.dispatch("TRANSITION", "project-grid");
+		}
+	}
 }
 </script>
 
