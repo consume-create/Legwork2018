@@ -129,10 +129,10 @@ export default {
 
     &[data-position="right"]
       .media-copy
-        grid-column: 16 / span 6
+        grid-column: 19 / span 6
 
       .media
-        grid-column: 1 / span 14
+        grid-column: 1 / span 17
 
     &[data-fullscreen="true"]
       max-width: 100%
