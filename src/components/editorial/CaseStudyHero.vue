@@ -35,6 +35,7 @@ export default {
   background: $gray
   height: 60vh
   width: 100%
+  margin-bottom: span(3,24)
   +respond-to($tablet-landscape)
     height: 100vh
 

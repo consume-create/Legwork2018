@@ -3,6 +3,7 @@
   	<div id="case-study-content" >
       <case-study-hero></case-study-hero>
       <case-study-overview :project="project"></case-study-overview>
+      <media-object></media-object>
 	  </div>
   </div>
 </template>
@@ -10,12 +11,14 @@
 <script>
 import CaseStudyHero from "components/editorial/CaseStudyHero.vue";
 import CaseStudyOverview from "components/editorial/CaseStudyOverview.vue";
+import MediaObject from "components/editorial/MediaObject.vue";
 
 export default {
   name: 'case-study-view',
   components: {
     CaseStudyHero,
-    CaseStudyOverview
+    CaseStudyOverview,
+    MediaObject
   },
   computed: {
   	discipline () {
