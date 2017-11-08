@@ -97,7 +97,6 @@ export default {
     p
       margin-bottom: span(2,24)
 
-
   .media
     grid-column: 2 / span 18
 
