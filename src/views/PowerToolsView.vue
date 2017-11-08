@@ -1,11 +1,53 @@
 <template>
-  <div id="power-tools">
+  <div id="power-tools" :style="translate" :class="[pos, mode]">
+    <div id="power-inner" v-if="this.breakpoint === 'mobile'"></div>
+    <ul v-else></ul>
   </div>
 </template>
 
 <script>
 export default {
-  name: 'power-tools-view'
+  name: 'power-tools-view',
+  computed: {
+    scroll() {
+      return this.$store.state.appScroll;
+    },
+    breakpoint() {
+      return this.$store.state.appSize.breakpoint;
+    },
+    pos() {
+      return this.breakpoint === 'mobile' && this.scroll.win.offset >= this.$store.state.appSize.height - (this.$store.state.header.transform + this.$store.state.header.height) ? 'attached' : '';
+    },
+    mode() {
+      return this.breakpoint === 'tablet-up' && this.$store.state.header.mode === 'minimized' ? 'enabled' : '';
+    },
+    translate() {
+      return this.breakpoint === 'mobile' && this.pos === 'attached' ? `transform: translate3d(0px, ${this.$store.state.header.transform + this.$store.state.header.height}px, 0)` : '';
+    }
+  },
+  watch: {
+    /*
+    ------------------------------------------
+    | scroll:void
+    |
+    | Watch scroll.
+    ------------------------------------------ */
+    scroll: {
+      handler: 'onScroll',
+      deep: true
+    }
+  },
+  methods: {
+    /*
+    ------------------------------------------
+    | onScroll:void
+    |
+    | Handle scroll.
+    ------------------------------------------ */
+    onScroll() {
+      // TODO: theme
+    }
+  }
 };
 </script>
 
@@ -13,12 +55,42 @@ export default {
 @import "src/styles/global"
 
 #power-tools
-  position: fixed
-  top: 50%
-  right: 0px
-  width: span(1, 24)
-  hieght: 0
-  padding-bottom: span(4, 24)
-  background-color: $gray
-  transform: translate3d(100%, -50%, 0)
+  position: absolute
+  top: 100%
+  left: 0px
+  width: 100%
+  height: 40px
+
+  // NOTE: closes the gap between power tools
+  // and the bottom of the header
+  margin-top: -1px
+
+  &.attached
+    position: fixed
+    top: 0px
+
+  #power-inner
+    width: 100%
+    height: 100%
+    background-color: $gray
+
++respond-to($tablet-landscape)
+  #power-tools
+    position: fixed
+    top: 50%
+    right: span(2, 24)
+    left: auto
+    width: 0px
+    height: 320px
+    transform: translate3d(0%, -50%, 0)
+    visibility: hidden
+
+    &.enabled
+      visibility: visible
+
+    ul
+      width: 80px
+      height: 100%
+      background-color: $gray
+      transform: translate3d(-50%, 0%, 0)
 </style>

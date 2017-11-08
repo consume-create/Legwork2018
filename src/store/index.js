@@ -35,6 +35,7 @@ export function createStore () {
         breakpoint: ''
       },
       header: {
+        hieght: 0,
         mode: '',
         theme: 'dark',
         transform: 0,
