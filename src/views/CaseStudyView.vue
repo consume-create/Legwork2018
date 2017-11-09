@@ -72,7 +72,7 @@ export default {
 		color: white
 	height: 100vh
 	width: 100vw
-	z-index: 50
+	z-index: 1
 	overflow: scroll
 
 	#case-study-content

@@ -1,5 +1,5 @@
 <template>
-  <div id="power-tools" :style="translate" :class="[pos, mode]">
+  <div id="power-tools" :style="translate" :class="[active, pos, mode]">
     <div id="power-inner" v-if="this.breakpoint === 'mobile'"></div>
     <ul v-else></ul>
   </div>
@@ -15,11 +15,14 @@ export default {
     breakpoint() {
       return this.$store.state.appSize.breakpoint;
     },
+    active() {
+      return (/^(animation|interactive|experiential)$/i).test(this.$store.getters.whereTheHellAreWe) ? 'enabled' : 'disabled';
+    },
     pos() {
       return this.breakpoint === 'mobile' && this.scroll.win.offset >= this.$store.state.appSize.height - (this.$store.state.header.transform + this.$store.state.header.height) ? 'attached' : '';
     },
     mode() {
-      return this.breakpoint === 'tablet-up' && this.$store.state.header.mode === 'minimized' ? 'enabled' : '';
+      return this.breakpoint === 'tablet-up' && this.$store.state.header.mode === 'minimized' ? 'shown' : '';
     },
     translate() {
       return this.breakpoint === 'mobile' && this.pos === 'attached' ? `transform: translate3d(0px, ${this.$store.state.header.transform + this.$store.state.header.height}px, 0)` : '';
@@ -60,6 +63,7 @@ export default {
   left: 0px
   width: 100%
   height: 40px
+  z-index: 100
 
   // NOTE: closes the gap between power tools
   // and the bottom of the header
@@ -84,8 +88,12 @@ export default {
     height: 320px
     transform: translate3d(0%, -50%, 0)
     visibility: hidden
+    display: none
 
     &.enabled
+      display: block
+
+    &.shown
       visibility: visible
 
     ul
