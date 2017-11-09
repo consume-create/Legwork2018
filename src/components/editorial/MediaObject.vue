@@ -85,7 +85,7 @@ export default {
       grid-column: 1 / span 20
 
   .media-copy
-    grid-column: 2 / span 18
+    grid-column: 3 / span 16
 
     h3
       font-size: 34px
@@ -97,7 +97,7 @@ export default {
       margin-bottom: 50px
 
   .media
-    grid-column: 2 / span 18
+    grid-column: 3 / span 16
 
     img
       width: 100%

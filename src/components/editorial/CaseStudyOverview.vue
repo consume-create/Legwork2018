@@ -48,19 +48,19 @@ export default {
   margin-bottom: span(3,24)
 
   .overview-header
-    grid-column: 2 / span 18
-    margin-bottom: span(3,24)
+    grid-column: 3 / span 16
+    margin-bottom: 45px
 
   .link
-    grid-column: 2 / span 18
-    margin-bottom: span(4,24)
+    grid-column: 3 / span 16
+    margin-bottom: 75px
 
   .text-list
-    grid-column: 2 / span 18
-    margin-bottom: span(4,24)
+    grid-column: 3 / span 16
+    margin-bottom: 65px
 
   .text-body
-    grid-column: 2 / span 18
+    grid-column: 3 / span 16
 
 
 +respond-to($tablet-landscape)
@@ -68,14 +68,18 @@ export default {
 
     .overview-header
       grid-column: 6 / span 15
+      margin-bottom: 115px
 
     .link
       grid-column: 2 / span 3
+      margin-bottom: 0
 
     .text-list
       grid-column: 6 / span 3
+      margin-bottom: 0
 
     .text-body
       grid-column: 10 / span 11
+      margin-bottom: 0
 
 </style>

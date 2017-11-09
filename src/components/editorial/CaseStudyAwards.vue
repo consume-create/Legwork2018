@@ -44,12 +44,12 @@ export default {
     margin-bottom: 34px
 
   .case-study-impact
-    grid-column: 2 / span 18
-    margin-bottom: span(3,24)
+    grid-column: 3 / span 16
+    margin-bottom: 75px
 
   .case-study-recognition
-    grid-column: 2 / span 18
-    margin-bottom: span(4,24)
+    grid-column: 3 / span 16
+    margin-bottom: 75px
 
     .awards-box
       background: $gray
@@ -65,13 +65,14 @@ export default {
 
       p
         margin-bottom: 0
+
     .case-study-impact
       grid-column: 10 / span 11
-      margin-bottom: span(3,24)
+      margin-bottom: 0
 
     .case-study-recognition
       grid-column: 2 / span 6
-      margin-bottom: span(4,24)
+      margin-bottom: 0
 
 
 
