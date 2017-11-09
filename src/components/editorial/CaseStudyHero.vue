@@ -33,10 +33,10 @@ export default {
 
 .case-study-hero
   background: $gray
-  height: 60vh
+  padding-bottom: 100%
   width: 100%
   margin-bottom: span(3,24)
   +respond-to($tablet-landscape)
-    height: 100vh
+    padding-bottom: 50%
 
 </style>
