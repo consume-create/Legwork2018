@@ -45,8 +45,7 @@ export default {
 
 .case-study-overview
   +grid
-  max-width: 1113px
-  margin: 0 auto span(3,24) auto
+  margin-bottom: span(3,24)
 
   .overview-header
     grid-column: 2 / span 18
@@ -68,15 +67,15 @@ export default {
   .case-study-overview
 
     .overview-header
-      grid-column: 6 / span 18
+      grid-column: 6 / span 15
 
     .link
       grid-column: 2 / span 3
 
     .text-list
-      grid-column: 6 / span 6
+      grid-column: 6 / span 3
 
     .text-body
-      grid-column: 12 / span 12
+      grid-column: 10 / span 11
 
 </style>

@@ -76,8 +76,7 @@ export default {
 @import "src/styles/global"
 
 .media-wrapper
-  max-width: 1113px
-  margin: 0 auto span(4,24) auto
+  margin-bottom: span(3,24)
   grid-auto-flow: dense
   +grid
 
@@ -109,7 +108,7 @@ export default {
   .media-wrapper
 
     .media
-      grid-column: 1 / span 24
+      grid-column: 2 / span 19
 
     .media-copy
       display: flex
@@ -124,14 +123,14 @@ export default {
         grid-column: 2 / span 6
 
       .media
-        grid-column: 9 / span 16
+        grid-column: 9 / span 12
 
     &[data-position="right"]
       .media-copy
-        grid-column: 19 / span 6
+        grid-column: 15 / span 6
 
       .media
-        grid-column: 1 / span 17
+        grid-column: 2 / span 12
 
     &[data-fullscreen="true"]
       max-width: 100%

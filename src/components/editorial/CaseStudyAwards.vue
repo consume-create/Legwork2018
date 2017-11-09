@@ -1,0 +1,70 @@
+<template>
+  <div class="case-study-awards">
+    <div class="case-study-impact">
+      <h3>Impact</h3>
+      <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Doloribus, ex magni nesciunt consequuntur voluptate, nulla quam impedit illo eius nihil aliquid incidunt reiciendis voluptatem numquam iure esse? Aliquid, vero officiis.</p>
+    </div>
+    <div class="case-study-recognition">
+      <h3>Recognition</h3>
+      <div class="awards-box"></div>
+    </div>
+  </div>
+</template>
+
+<script>
+export default {
+	name: 'case-study-awards',
+
+	/*
+	------------------------------------------
+	| props:void (-)
+	|
+	| hero:object
+	------------------------------------------ */
+	props: [
+    ],
+}
+</script>
+
+<style lang='sass' scoped>
+@import "src/styles/global"
+
+.case-study-awards
+  +grid
+  margin-bottom: span(3,24)
+  grid-auto-flow: dense
+
+  h3
+    font-size: 34px
+    letter-spacing: 2.07px
+    line-height: 36px
+    margin-bottom: span(2,24)
+
+  p
+    margin-bottom: span(2,24)
+
+  .case-study-impact
+    grid-column: 2 / span 18
+    margin-bottom: span(3,24)
+
+  .case-study-recognition
+    grid-column: 2 / span 18
+    margin-bottom: span(4,24)
+
+    .awards-box
+      background: $gray
+      width: 100%
+      height: 100px
+
+  +respond-to($tablet-landscape)
+    .case-study-impact
+      grid-column: 10 / span 11
+      margin-bottom: span(3,24)
+
+    .case-study-recognition
+      grid-column: 2 / span 6
+      margin-bottom: span(4,24)
+
+
+
+</style>
