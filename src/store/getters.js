@@ -43,5 +43,25 @@ export default {
   },
   transitionOrigin: (state) => {
     return state.transitionOrigin;
+  },
+  whereTheHellAreWe: (state) => {
+    let section = '', project = '', studio = '', modal = '', drawer = '';
+
+    // base section
+    if(typeof state.route.params.discipline !== 'undefined') section = state.route.params.discipline;
+    else if(typeof state.route.params.project_search !== 'undefined') section = 'collection';
+    else section = 'home';
+
+    // if case study
+    if(typeof state.route.params.project !== 'undefined') project = '-project';
+
+    // if studio is open
+    if(state.bizPosition !== '') studio = '-studio';
+
+    // TODO: if modal is open
+
+    // TODO: if lightbox drawer is open
+
+    return section + project + studio + modal + drawer;
   }
 };
