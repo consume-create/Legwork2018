@@ -91,10 +91,10 @@ export default {
       font-size: 34px
       letter-spacing: 2.07px
       line-height: 36px
-      margin-bottom: span(2,24)
+      margin-bottom: 34px
 
     p
-      margin-bottom: span(2,24)
+      margin-bottom: 50px
 
   .media
     grid-column: 2 / span 18
@@ -114,6 +114,9 @@ export default {
       display: flex
       flex-direction: column
       justify-content: flex-end
+
+      h3
+         margin-bottom: 50px
 
       p
         margin-bottom: 0

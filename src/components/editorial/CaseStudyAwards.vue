@@ -38,10 +38,10 @@ export default {
     font-size: 34px
     letter-spacing: 2.07px
     line-height: 36px
-    margin-bottom: span(2,24)
+    margin-bottom: 34px
 
   p
-    margin-bottom: span(2,24)
+    margin-bottom: 34px
 
   .case-study-impact
     grid-column: 2 / span 18
@@ -57,6 +57,14 @@ export default {
       height: 100px
 
   +respond-to($tablet-landscape)
+    .case-study-awards
+      margin-bottom: 0
+
+      h3
+        margin-bottom: 50px
+
+      p
+        margin-bottom: 0
     .case-study-impact
       grid-column: 10 / span 11
       margin-bottom: span(3,24)
