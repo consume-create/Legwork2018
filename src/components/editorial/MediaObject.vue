@@ -49,6 +49,14 @@
       </div>
     </div>
 
+    <div class="media-wrapper" data-position="center" data-fullscreen="">
+      <div class="media">
+        <div class="image">
+          <img src="https://placeimg.com/1024/648/animals" />
+        </div>
+      </div>
+    </div>
+
   </div>
 </template>
 
@@ -134,6 +142,11 @@ export default {
 
       .media
         grid-column: 3 / span 12
+
+    &[data-position="center"]
+      max-width: 100%
+      .media
+        grid-column: 7 / span 14
 
     &[data-fullscreen="true"]
       max-width: 100%
