@@ -29,9 +29,9 @@ export default {
         this.$store.dispatch('SET_ACTIVE_SCROLL', 'bizWidget');
 
         // header theme
-        let theme = 'light';
+        let theme = 'light', section='studio';
         this.$store.dispatch('SET_HEADER', {
-          settings: {theme},
+          settings: {theme, section},
           delay: 0
         });
       } else {
@@ -41,9 +41,9 @@ export default {
         this.$store.dispatch('SET_WIN_SCROLL', {locked});
 
         // header theme
-        let theme = 'dark';
+        let theme = 'dark', section='';
         this.$store.dispatch('SET_HEADER', {
-          settings: {theme},
+          settings: {theme, section},
           delay: 0
         });
       }
@@ -80,9 +80,9 @@ export default {
       store.dispatch('SET_ACTIVE_SCROLL', 'bizWidget');
 
       // header theme
-      let theme = 'light';
+      let theme = 'light', section='studio';
       store.dispatch('SET_HEADER', {
-        settings: {theme},
+        settings: {theme, section},
         delay: 0
       });
     }

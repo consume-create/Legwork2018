@@ -36,10 +36,11 @@ export function createStore () {
       },
       header: {
         hieght: 0,
+        transform: 0,
         mode: '',
         theme: 'dark',
-        transform: 0,
-        mobileMenuMode: ''
+        menu: '',
+        section: ''
       },
       bizPosition: '',
       transitionOrigin: '',
