@@ -53,8 +53,9 @@ export default {
 
     .awards-box
       background: $gray
-      width: 100%
+      width: 225%
       height: 100px
+      margin-left: -125%
 
   +respond-to($tablet-landscape)
     .case-study-awards
@@ -67,11 +68,11 @@ export default {
         margin-bottom: 0
 
     .case-study-impact
-      grid-column: 10 / span 11
+      grid-column: 9 / span 12
       margin-bottom: 0
 
     .case-study-recognition
-      grid-column: 2 / span 6
+      grid-column: 3 / span 4
       margin-bottom: 0
 
 
