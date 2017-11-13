@@ -32,7 +32,7 @@
             <li><router-link to="/animation">Animation</router-link></li>
             <li><router-link to="/interactive">Interactive</router-link></li>
             <li><router-link to="/experiential">Experiential</router-link></li>
-            <li><router-link to="?slide=short">Studio</router-link></li>
+            <li><router-link :to="utilBtnUrl">{{ utilBtnLabel }}</router-link></li>
           </ul>
         </nav>
       </div>
@@ -64,6 +64,13 @@ export default {
     },
     headerTranslate() {
       return `transform: translate3d(0px, ${this.$store.state.header.transform}px, 0)`;
+    },
+    utilBtnUrl() {
+      let closeUrl = typeof this.$route.params.discipline === 'undefined' ? '/' : `/${this.$route.params.discipline}`;
+      return (/^(studio|project|overlay)$/i).test(this.section) ? closeUrl : '?slide=short';
+    },
+    utilBtnLabel() {
+      return (/^(studio|project|overlay)$/i).test(this.section) ? 'Close' : 'Studio';
     }
   },
   watch: {
