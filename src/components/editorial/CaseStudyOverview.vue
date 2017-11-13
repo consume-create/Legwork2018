@@ -67,19 +67,19 @@ export default {
   .case-study-overview
 
     .overview-header
-      grid-column: 6 / span 15
+      grid-column: 7 / span 15
       margin-bottom: 115px
 
     .link
-      grid-column: 2 / span 3
+      grid-column: 3 / span 3
       margin-bottom: 0
 
     .text-list
-      grid-column: 6 / span 3
+      grid-column: 7 / span 3
       margin-bottom: 0
 
     .text-body
-      grid-column: 10 / span 11
+      grid-column: 11 / span 10
       margin-bottom: 0
 
 </style>
