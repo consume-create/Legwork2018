@@ -1,5 +1,5 @@
 <template>
-  <header :class="headerMode">
+  <header :class="[mode, theme, menu, section]">
     <div id="header-inner">
       <div id="mobile-menu" v-if="size.breakpoint === 'mobile'" @scroll="onMobileMenuScroll">
         <nav id="mobile-nav">
@@ -50,8 +50,17 @@ export default {
     size() {
       return this.$store.state.appSize;
     },
-    headerMode() {
-      return `${this.$store.state.header.mode} ${this.$store.state.header.mobileMenuMode} ${this.$store.state.header.theme}`;
+    mode() {
+      return this.$store.state.header.mode;
+    },
+    theme() {
+      return this.$store.state.header.theme;
+    },
+    menu() {
+      return this.$store.state.header.menu;
+    },
+    section() {
+      return this.$store.state.header.section;
     },
     headerTranslate() {
       return `transform: translate3d(0px, ${this.$store.state.header.transform}px, 0)`;
@@ -178,10 +187,10 @@ export default {
     | Handle burger click.
     ------------------------------------------ */
     onBurgerClick(e) {
-      let mobileMenuMode = this.$store.state.header.mobileMenuMode === 'mobile-menu-open' ? '' : 'mobile-menu-open';
+      let menu = this.$store.state.header.menu === 'open' ? '' : 'open';
 
       // scroll lock
-      let locked = mobileMenuMode === 'mobile-menu-open';
+      let locked = menu === 'open';
       this.$store.dispatch('SET_WIN_SCROLL', {locked});
 
       // active scroll
@@ -189,7 +198,7 @@ export default {
 
       // header
       this.$store.dispatch('SET_HEADER', {
-        settings: {mobileMenuMode},
+        settings: {menu},
         delay: 0
       });
     }
@@ -238,7 +247,7 @@ header
     #header-bar
       background-color: $black
 
-  &.mobile-menu-open
+  &.open
     height: 100%
 
     #header-inner
@@ -369,7 +378,7 @@ header
 
 +respond-to($tablet-landscape)
   header
-    &.light
+    &.studio
       #header-bar
         #header-nav
           ul
