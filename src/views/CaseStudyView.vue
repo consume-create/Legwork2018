@@ -4,6 +4,7 @@
       <case-study-hero></case-study-hero>
       <case-study-overview :project="project"></case-study-overview>
       <media-object></media-object>
+      <case-study-awards></case-study-awards>
 	  </div>
   </div>
 </template>
@@ -12,13 +13,16 @@
 import CaseStudyHero from "components/editorial/CaseStudyHero.vue";
 import CaseStudyOverview from "components/editorial/CaseStudyOverview.vue";
 import MediaObject from "components/editorial/MediaObject.vue";
+import CaseStudyAwards from "components/editorial/CaseStudyAwards.vue";
 
 export default {
   name: 'case-study-view',
   components: {
     CaseStudyHero,
     CaseStudyOverview,
-    MediaObject
+    MediaObject,
+    CaseStudyAwards
+
   },
   computed: {
   	discipline () {
@@ -74,4 +78,6 @@ export default {
 	#case-study-content
 		position: relative
 		min-height: 200vh
+
+
 </style>

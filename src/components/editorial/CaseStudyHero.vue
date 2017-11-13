@@ -1,6 +1,7 @@
 <template>
   <div class="case-study-hero">
     <!-- if video-id use vimdeo video embed -->
+    <div class="hero-image"></div>
 
     <!-- else load up an image -->
   </div>
@@ -32,11 +33,13 @@ export default {
 @import "src/styles/global"
 
 .case-study-hero
-  background: $gray
-  padding-bottom: 100%
+  +grid
   width: 100%
   margin-bottom: span(3,24)
-  +respond-to($tablet-landscape)
-    padding-bottom: 50%
+
+  .hero-image
+    grid-column: 1 / span 20
+    background: $gray
+    padding-bottom: 100%
 
 </style>
