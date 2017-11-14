@@ -1,4 +1,4 @@
-FROM node
+FROM node:8.7.0
 
 RUN apt-get update -qq && apt-get install -y build-essential
 
