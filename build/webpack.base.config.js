@@ -7,7 +7,6 @@ const FriendlyErrorsPlugin = require('friendly-errors-webpack-plugin')
 const ModernizrWebpackPlugin = require("modernizr-webpack-plugin")
 const modernizr_config = require("modernizr/lib/config-all.json")
 const Dotenv = require('dotenv-webpack')
-
 const isProd = process.env.NODE_ENV === 'production'
 
 module.exports = {
@@ -85,8 +84,8 @@ module.exports = {
         }),
         new ModernizrWebpackPlugin(modernizr_config),
         new Dotenv({
-          path: '.env', // Path to .env file (this is the default) 
-          safe: false // load .env.example (defaults to "false" which does not use dotenv-safe) 
+          path: '.env', // Path to .env file (this is the default)
+          safe: false // load .env.example (defaults to "false" which does not use dotenv-safe)
         })
       ]
     : [
@@ -100,8 +99,8 @@ module.exports = {
         }),
         new ModernizrWebpackPlugin(modernizr_config),
         new Dotenv({
-          path: '.env', // Path to .env file (this is the default) 
-          safe: false // load .env.example (defaults to "false" which does not use dotenv-safe) 
+          path: '.env', // Path to .env file (this is the default)
+          safe: false // load .env.example (defaults to "false" which does not use dotenv-safe)
         })
       ]
 }
