@@ -1,5 +1,5 @@
 <template>
-	<div class='content-cell job'>
+	<div class='content-cell job' data-type='job'>
 		{{job.job_title}}
 	</div>
 </template>
@@ -22,4 +22,10 @@ export default {
 
 <style lang='sass' scoped>
 @import "src/styles/global"
+@import "src/styles/content-cell"
+
+.job
+	@extend .content-cell
+	z-index: 0
+
 </style>

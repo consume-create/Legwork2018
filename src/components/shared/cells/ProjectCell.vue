@@ -1,8 +1,8 @@
 <template>
-	<div class='content-cell project'>
-		
+	<div class='content-cell project' data-type='project'>
+		<div class='project-background' :style="{ 'background-image': 'url(' + project.hero_image.url + ')' }"></div>
 		<router-link :to="project.path" >
-			<span @click="onProjectClick">{{project.project_name}}</span>
+			<span @click="onProjectClick"></span>
 		</router-link>
 	</div>
 </template>
@@ -31,4 +31,25 @@ export default {
 
 <style lang='sass' scoped>
 @import "src/styles/global"
+@import "src/styles/content-cell"
+
+.project
+	z-index: 1
+
+.project-background
+	position: absolute
+	height: 100%
+	width: 100%
+	background:
+		size: cover
+		position: center
+
+a,
+span
+	position: absolute
+	top: 0px
+	left: 0px
+	height: 100%
+	width: 100%
+
 </style>

@@ -82,4 +82,5 @@ export default {
     #content-inner
       grid-column: 3 / span 18
       padding-top: 0px
+      
 </style>
