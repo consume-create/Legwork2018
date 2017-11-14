@@ -8,7 +8,10 @@
 </template>
 
 <script>
+import BaseCell from './BaseCell.js';
+
 export default {
+	extends: BaseCell,
 	name: 'project-cell',
 
 	/*
@@ -20,7 +23,9 @@ export default {
 	props: [
 		'project'
 	],
-
+	mounted () {
+		this.init();
+	},
 	methods: {
 		onProjectClick () {
 			this.$store.dispatch("TRANSITION", "project-grid");
