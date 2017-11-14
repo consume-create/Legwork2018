@@ -215,6 +215,7 @@ export default {
     ------------------------------------------ */
     onBurgerClick(e) {
       // TODO: case study close
+      // TODO: overlay close
 
       // menu
       let menu = this.$store.state.header.menu === 'open' ? '' : 'open';
