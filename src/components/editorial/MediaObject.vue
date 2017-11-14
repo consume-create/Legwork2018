@@ -53,6 +53,15 @@
       <div class="media">
         <div class="image">
           <img src="https://placeimg.com/1024/648/animals" />
+          <no-ssr>
+            <vue-flickity ref="flickity" :options="flickityOptions" >
+                <div class="carousel-cell">1</div>
+                <div class="carousel-cell">2</div>
+                <div class="carousel-cell">3</div>
+                <div class="carousel-cell">4</div>
+                <div class="carousel-cell">5</div>
+            </vue-flickity>
+          </no-ssr>
         </div>
       </div>
     </div>
@@ -61,8 +70,17 @@
 </template>
 
 <script>
+import NoSSR from 'vue-no-ssr';
+import VueFlickity from 'components/shared/VueFlickity.vue';
+
 export default {
-	name: 'media-object',
+
+  name: 'media-object',
+
+  components: {
+      'no-ssr': NoSSR,
+      VueFlickity
+    },
 
 	/*
 	------------------------------------------
@@ -72,11 +90,18 @@ export default {
 	------------------------------------------ */
 	props: [
     ],
-  data: function() {
-    return {
+  data () {
+        return {
+            flickityOptions: {
+                initialIndex: 3,
+                prevNextButtons: false,
+                pageDots: false,
+                wrapAround: true
 
-    }
-  }
+                // any options from Flickity can be used
+            }
+        }
+    },
 }
 </script>
 
