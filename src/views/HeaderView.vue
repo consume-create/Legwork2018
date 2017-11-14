@@ -102,6 +102,26 @@ export default {
       // cache minimized height
       // 86px = minimized desktop height
       this._minimized_height = (this.$store.state.header.height - 86);
+    },
+
+    /*
+    ------------------------------------------
+    | $route.query.slide:void
+    |
+    | Watch the biz widget for theme / section.
+    ------------------------------------------ */
+    '$route.query.slide': {
+      handler: 'onSectionOrThemeChange'
+    },
+
+    /*
+    ------------------------------------------
+    | $route.params.project:void
+    |
+    | Watch the case study for theme / section.
+    ------------------------------------------ */
+    '$route.params.project': {
+      handler: 'onSectionOrThemeChange'
     }
   },
 
@@ -208,6 +228,36 @@ export default {
         settings: {menu},
         delay: 0
       });
+    },
+
+    /*
+    ------------------------------------------
+    | onSectionOrThemeChange:void
+    |
+    | Handle section or theme change.
+    ------------------------------------------ */
+    onSectionOrThemeChange() {
+      let theme = 'dark', section = '';
+
+      // studio
+      if(typeof this.$route.query.slide !== 'undefined') {
+        theme = 'dark';
+        section = 'studio';
+      }
+
+      // project
+      if(typeof this.$route.params.project !== 'undefined') {
+        theme = 'light';
+        section = 'project';
+      }
+
+      // TODO: overlay
+
+      // set it
+      this.$store.dispatch('SET_HEADER', {
+        settings: {theme, section},
+        delay: 0
+      });
     }
   },
 
@@ -227,6 +277,36 @@ export default {
     this._last_direction = 'up';
     this._direction_change_y = 0;
     this._last_t = 0;
+  },
+
+  /*
+  ------------------------------------------
+  | ssrInit:void
+  |
+  | Handle server side init.
+  ------------------------------------------ */
+  ssrInit ({ store, route }) {
+    let theme = 'dark', section = '';
+
+    // studio
+    if(typeof route.query.slide !== 'undefined') {
+      theme = 'dark';
+      section = 'studio';
+    }
+
+    // project
+    if(typeof route.params.project !== 'undefined') {
+      theme = 'light';
+      section = 'project';
+    }
+
+    // TODO: overlay
+
+    // set it
+    return store.dispatch('SET_HEADER', {
+      settings: {theme, section},
+      delay: 0
+    });
   }
 }
 </script>
@@ -385,7 +465,7 @@ header
 
 +respond-to($tablet-landscape)
   header
-    &.studio
+    &.studio, &.project
       #header-bar
         #header-nav
           ul

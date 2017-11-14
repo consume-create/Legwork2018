@@ -27,25 +27,11 @@ export default {
 
         // active scroll
         this.$store.dispatch('SET_ACTIVE_SCROLL', 'bizWidget');
-
-        // header theme
-        let theme = 'light', section='studio';
-        this.$store.dispatch('SET_HEADER', {
-          settings: {theme, section},
-          delay: 0
-        });
       } else {
         // TODO: somewhere else / cleanup?
         // scroll lock
         let locked = false;
         this.$store.dispatch('SET_WIN_SCROLL', {locked});
-
-        // header theme
-        let theme = 'dark', section='';
-        this.$store.dispatch('SET_HEADER', {
-          settings: {theme, section},
-          delay: 0
-        });
       }
 
       // biz position
@@ -78,13 +64,6 @@ export default {
 
       // active scroll
       store.dispatch('SET_ACTIVE_SCROLL', 'bizWidget');
-
-      // header theme
-      let theme = 'light', section='studio';
-      store.dispatch('SET_HEADER', {
-        settings: {theme, section},
-        delay: 0
-      });
     }
 
     // biz position
