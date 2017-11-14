@@ -137,7 +137,7 @@ export default {
     onMobileMenuScroll(e) {
       // set mobile menu scroll in the store
       let offset = e.srcElement.scrollTop;
-      this.$store.dispatch('SET_MOBILE_MENU_SCROLL', {offset});
+      this.$store.dispatch('SET_MENU_SCROLL', {offset});
     },
 
     /*
@@ -214,16 +214,12 @@ export default {
     | Handle burger click.
     ------------------------------------------ */
     onBurgerClick(e) {
+      // TODO: case study close
+
+      // menu
       let menu = this.$store.state.header.menu === 'open' ? '' : 'open';
 
-      // scroll lock
-      let locked = menu === 'open';
-      this.$store.dispatch('SET_WIN_SCROLL', {locked});
-
-      // active scroll
-      this.$store.dispatch('SET_ACTIVE_SCROLL', 'mobileMenu');
-
-      // header
+      // set it
       this.$store.dispatch('SET_HEADER', {
         settings: {menu},
         delay: 0

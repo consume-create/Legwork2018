@@ -62,6 +62,9 @@ export default {
   computed: {
     scrollLock() {
       return this.$store.state.appScroll.win.locked;
+    },
+    menu() {
+      return this.$store.state.header.menu;
     }
   },
 
@@ -75,8 +78,9 @@ export default {
     this._$wn = $(window);
     this._$body = $('body');
 
-    // body initial lock
-    if(this.$store.state.appScroll.win.locked) this._$body.addClass('locked');
+    // initial scroll settings
+    // TODO: could be done on ssrInit
+    this.onActiveScrollChange();
   },
 
   /*
@@ -99,17 +103,43 @@ export default {
   watch: {
     /*
     ------------------------------------------
+    | $route.query.slide:void
+    |
+    | Watch the biz widget for active scroll.
+    ------------------------------------------ */
+    '$route.query.slide': {
+      handler: 'onActiveScrollChange'
+    },
+
+    /*
+    ------------------------------------------
+    | $route.params.project:void
+    |
+    | Watch the case study for active scroll.
+    ------------------------------------------ */
+    '$route.params.project': {
+      handler: 'onActiveScrollChange'
+    },
+
+    /*
+    ------------------------------------------
+    | menu:void
+    |
+    | Watch the menu for active scroll.
+    ------------------------------------------ */
+    'menu': {
+      handler: 'onActiveScrollChange'
+    },
+
+    /*
+    ------------------------------------------
     | scrollLock:void
     |
     | Watch scroll lock and set body class.
     ------------------------------------------ */
     scrollLock() {
-      if(this.$store.state.appScroll.win.locked) {
-        this._$body.addClass('locked');
-      } else {
-        this.$store.dispatch('SET_ACTIVE_SCROLL', 'win');
-        this._$body.removeClass('locked');
-      }
+      if(this.$store.state.appScroll.win.locked) this._$body.addClass('locked');
+      else this._$body.removeClass('locked');
     }
   },
 
@@ -144,6 +174,38 @@ export default {
         ratio: this._$wn.height() / this._$wn.width(),
         breakpoint: (this._$wn.width() >= 768 && this._$wn.width() > this._$wn.height()) ? 'tablet-up' : 'mobile'
       });
+    },
+
+    /*
+    ------------------------------------------
+    | onActiveScrollChange:void
+    |
+    | Handle active scroll change.
+    ------------------------------------------ */
+    onActiveScrollChange() {
+      let locked = false, activeScroll = 'win';
+
+      // studio
+      if(typeof this.$route.query.slide !== 'undefined') {
+        locked = true;
+        activeScroll = 'studio';
+      }
+
+      // project
+      if(typeof this.$route.params.project !== 'undefined') {
+        locked = true;
+        activeScroll = 'project';
+      }
+
+      // mobile menu
+      if(this.$store.state.header.menu === 'open') {
+        locked = true;
+        activeScroll = 'menu';
+      }
+
+      // set it
+      this.$store.dispatch('SET_WIN_SCROLL', {locked});
+      this.$store.dispatch('SET_ACTIVE_SCROLL', activeScroll);
     }
   }
 }
