@@ -2,7 +2,7 @@
   <div id="content" v-if="projects.length > 0">
     <div id="content-inner">
       <div id='content-cells'>
-        <content-cell-view v-for="content in projects" :key="content.slug" :content="content"></content-cell-view>
+        <content-cell-view v-for="content in projects" :key="content.slug" :discipline="discipline" :content="content"></content-cell-view>
       </div>
     </div>
   </div>
@@ -39,6 +39,10 @@ export default {
     ------------------------------------------ */
     projects () {
       return this.$store.getters.projects;
+    },
+
+    discipline () {
+      return this.$route.params.discipline;
     }
   },
 
@@ -82,4 +86,5 @@ export default {
     #content-inner
       grid-column: 3 / span 18
       padding-top: 0px
+      
 </style>

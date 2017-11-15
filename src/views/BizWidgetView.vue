@@ -17,38 +17,8 @@ export default {
   },
   watch: {
     '$route.query.slide'() {
-      let pos = typeof this.$route.query.slide === 'undefined' ? '' : this.$route.query.slide;
-
-      // setup if open
-      if(pos !== '') {
-        // scroll lock
-        let locked = true;
-        this.$store.dispatch('SET_WIN_SCROLL', {locked});
-
-        // active scroll
-        this.$store.dispatch('SET_ACTIVE_SCROLL', 'bizWidget');
-
-        // header theme
-        let theme = 'light', section='studio';
-        this.$store.dispatch('SET_HEADER', {
-          settings: {theme, section},
-          delay: 0
-        });
-      } else {
-        // TODO: somewhere else / cleanup?
-        // scroll lock
-        let locked = false;
-        this.$store.dispatch('SET_WIN_SCROLL', {locked});
-
-        // header theme
-        let theme = 'dark', section='';
-        this.$store.dispatch('SET_HEADER', {
-          settings: {theme, section},
-          delay: 0
-        });
-      }
-
       // biz position
+      let pos = typeof this.$route.query.slide === 'undefined' ? '' : this.$route.query.slide;
       this.$store.dispatch('SET_BIZ_POSITION', { pos: pos, delay: 0 });
     }
   },
@@ -64,30 +34,12 @@ export default {
     onBizWidgetScroll(e) {
       // set biz widget scroll in the store
       let offset = e.srcElement.scrollTop;
-      this.$store.dispatch('SET_BIZ_WIDGET_SCROLL', {offset});
+      this.$store.dispatch('SET_STUDIO_SCROLL', {offset});
     }
   },
   ssrInit ({ store, route }) {
-    let pos = typeof route.query.slide === 'undefined' ? '' : route.query.slide;
-
-    // setup if open
-    if(pos !== '') {
-      // scroll lock
-      let locked = true;
-      store.dispatch('SET_WIN_SCROLL', {locked});
-
-      // active scroll
-      store.dispatch('SET_ACTIVE_SCROLL', 'bizWidget');
-
-      // header theme
-      let theme = 'light', section='studio';
-      store.dispatch('SET_HEADER', {
-        settings: {theme, section},
-        delay: 0
-      });
-    }
-
     // biz position
+    let pos = typeof route.query.slide === 'undefined' ? '' : route.query.slide;
     return store.dispatch('SET_BIZ_POSITION', { pos: pos, delay: 0 });
   }
 }

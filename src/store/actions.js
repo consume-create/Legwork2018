@@ -34,32 +34,32 @@ export default {
 
   /*
   ------------------------------------------
-  | SET_MOBILE_MENU_SCROLL:void
+  | SET_MENU_SCROLL:void
   |
-  | Sets mobileMenu scroll in appScroll.
+  | Sets menu scroll.
   ------------------------------------------ */
-  SET_MOBILE_MENU_SCROLL: ({ commit }, obj) => {
-    commit('MOBILE_MENU_SCROLL', obj);
+  SET_MENU_SCROLL: ({ commit }, obj) => {
+    commit('MENU_SCROLL', obj);
   },
 
   /*
   ------------------------------------------
-  | SET_BIZ_WIDGET_SCROLL:void
+  | SET_STUDIO_SCROLL:void
   |
-  | Sets bizWidget scroll in appScroll.
+  | Sets studio scroll.
   ------------------------------------------ */
-  SET_BIZ_WIDGET_SCROLL: ({ commit }, obj) => {
-    commit('BIZ_WIDGET_SCROLL', obj);
+  SET_STUDIO_SCROLL: ({ commit }, obj) => {
+    commit('STUDIO_SCROLL', obj);
   },
 
   /*
   ------------------------------------------
-  | SET_CASE_STUDY_SCROLL:void
+  | SET_PROJECT_SCROLL:void
   |
-  | Sets bizWidget scroll in appScroll.
+  | Sets project.
   ------------------------------------------ */
-  SET_CASE_STUDY_SCROLL: ({ commit }, obj) => {
-    commit('CASE_STUDY_SCROLL', obj);
+  SET_PROJECT_SCROLL: ({ commit }, obj) => {
+    commit('PROJECT_SCROLL', obj);
   },
 
   /*
@@ -118,5 +118,25 @@ export default {
   ------------------------------------------ */
   TRANSITION: ({commit}, origin) => {
     commit('TRANSITION_ORIGIN', origin);
+  },
+
+  /*
+  ------------------------------------------
+  | ADD_COMPONENT_TO_RENDER_QUEUE:void (-)
+  |
+  | Add a component to the render queue
+  ------------------------------------------ */
+  ADD_COMPONENT_TO_RENDER_QUEUE({commit}, component){
+    commit('ADD_TO_RENDERER', component);
+  },
+
+  /*
+  ------------------------------------------
+  | REMOVE_COMONENT_FROM_RENDER_QUEUE:void (-)
+  |
+  | Remove a component from the render queue
+  ------------------------------------------ */
+  REMOVE_COMONENT_FROM_RENDER_QUEUE({ commit}, component){
+    commit('REMOVE_FROM_RENDERER', component);
   }
 };

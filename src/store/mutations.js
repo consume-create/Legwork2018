@@ -2,14 +2,14 @@ export default {
   WIN_SCROLL: (state, obj) => {
     Object.assign(state.appScroll.win, obj);
   },
-  MOBILE_MENU_SCROLL: (state, obj) => {
-    Object.assign(state.appScroll.mobileMenu, obj);
+  MENU_SCROLL: (state, obj) => {
+    Object.assign(state.appScroll.menu, obj);
   },
-  BIZ_WIDGET_SCROLL: (state, obj) => {
-    Object.assign(state.appScroll.bizWidget, obj);
+  STUDIO_SCROLL: (state, obj) => {
+    Object.assign(state.appScroll.studio, obj);
   },
-  CASE_STUDY_SCROLL: (state, obj) => {
-    Object.assign(state.appScroll.caseStudy, obj);
+  PROJECT_SCROLL: (state, obj) => {
+    Object.assign(state.appScroll.project, obj);
   },
   ACTIVE_SCROLL: (state, str) => {
     state.activeScroll = str;
@@ -28,5 +28,13 @@ export default {
   },
   TRANSITION_ORIGIN: (state, origin) => {
     state.transitionOrigin = origin;
+  },
+  ADD_TO_RENDERER: (state, component) => {
+    state.animationQueue.push( component );
+  },
+  REMOVE_FROM_RENDERER: (state, component) => {
+    _.remove(state.animationQueue, (c) => {
+      c._uid = component._uid;
+    });
   }
 };

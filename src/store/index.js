@@ -14,19 +14,17 @@ export function createStore () {
           offset: 0,
           locked: false
         },
-        mobileMenu: {
-          offset: 0,
-          locked: false
+        menu: {
+          offset: 0
         },
-        bizWidget: {
-          offset: 0,
-          locked: false
+        studio: {
+          offset: 0
         },
-        caseStudy: {
-          offset: 0,
-          locked: false
+        project: {
+          offset: 0
         }
       },
+      animationQueue: [],
       activeScroll: 'win',
       appSize: {
         width: 0,

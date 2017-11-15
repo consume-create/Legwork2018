@@ -1,5 +1,6 @@
 import Vue from 'vue';
 import Router from 'vue-router';
+import HeaderView from '../views/HeaderView.vue';
 import ContentView from '../views/ContentView.vue';
 import BizWidgetView from '../views/BizWidgetView.vue';
 import FooterView from '../views/FooterView.vue';
@@ -29,56 +30,61 @@ export function createRouter () {
 
   // Default routes
   _router.addRoutes([
-    { 
+    {
       path: '/search/:project_search',
       components: {
-        ContentView, 
-        BizWidgetView,
-        FooterView,
-        HeroView
-      }, 
-      props: true 
-    },
-    { 
-      path: '/search',
-      components: {
+        HeaderView,
         ContentView,
         BizWidgetView,
         FooterView,
         HeroView
       },
-      props: true 
+      props: true
     },
-    { 
-      path: '/:discipline/:project', 
+    {
+      path: '/search',
       components: {
-        ContentView, 
+        HeaderView,
+        ContentView,
+        BizWidgetView,
+        FooterView,
+        HeroView
+      },
+      props: true
+    },
+    {
+      path: '/:discipline/:project',
+      components: {
+        HeaderView,
+        ContentView,
         BizWidgetView,
         FooterView,
         HeroView,
         CaseStudyView
-      }, 
-      props: true 
+      },
+      props: true
     },
-    { 
+    {
       path: '/:discipline',
       components: {
-        ContentView, 
+        HeaderView,
+        ContentView,
         BizWidgetView,
         FooterView,
         HeroView
-      }, 
-      props: true 
+      },
+      props: true
     },
-    { 
-      path: '/', 
+    {
+      path: '/',
       components: {
-        ContentView, 
+        HeaderView,
+        ContentView,
         BizWidgetView,
         FooterView,
         HeroView
-      }, 
-      props: true 
+      },
+      props: true
     }
   ]);
 
