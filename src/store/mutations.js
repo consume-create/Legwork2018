@@ -28,5 +28,15 @@ export default {
   },
   TRANSITION_ORIGIN: (state, origin) => {
     state.transitionOrigin = origin;
+  },
+  ADD_TO_RENDERER: (state, component) => {
+    console.log('added', component._uid);
+    state.animationQueue.push( component );
+  },
+  REMOVE_FROM_RENDERER: (state, component) => {
+    let queue = _.remove(state.animationQueue, (c) => {
+      c._uid = component._uid;
+    });
+    state.animationQueue = queue;
   }
 };

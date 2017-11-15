@@ -34,7 +34,6 @@ export default {
     return _projects;
   },
   project: (state) => {
-
     if( state.route.params.discipline ){
       let _discipline = _.find( state.pages, {title: state.route.params.discipline});
       let _project = _.find( _discipline.projects, { slug: state.route.params.project });
