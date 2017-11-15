@@ -29,8 +29,30 @@ export default {
 		'quote'
 	],
 	methods: {
+		/*
+		------------------------------------------
+		| init:void (-)
+		------------------------------------------ */
 		init() {
 			this.$store.dispatch('ADD_COMPONENT_TO_RENDER_QUEUE', this);
+		},
+
+		/*
+		------------------------------------------
+		| update:void (-)
+		------------------------------------------ */
+		update() {
+			this.updateProps();
+
+			// If it's in view
+			if( this.position < this.$wn.height() && this.position > 0 ){
+				$(this.$el).addClass('visible').removeClass('down');
+			}
+
+			// If it's out of view
+			if( this.position < 0 ){
+				$(this.$el).removeClass('visible').addClass('down');
+			}
 		}
 	}
 }
