@@ -4,8 +4,8 @@
     <ul v-else>
       <li id="power-search-btn" @click="onPowerClick">
         <svg version="1.1" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 32 32">
-          <circle display="inline" stroke-width="4" stroke-miterlimit="10" cx="13.5" cy="13.5" r="11.5"/>
-          <line display="inline" stroke-width="4" stroke-linecap="round" stroke-miterlimit="10" x1="26" y1="26" x2="30" y2="30"/>
+          <circle display="inline" stroke-width="4" stroke-miterlimit="10" cx="13" cy="13" r="11"/>
+          <line display="inline" stroke-width="4" stroke-linecap="round" stroke-miterlimit="10" x1="25" y1="25" x2="30" y2="30"/>
         </svg>
       </li>
       <li id="power-play-btn" @click="onPowerClick">
@@ -17,8 +17,8 @@
       <li id="power-list-btn" @click="onPowerClick">
         <svg version="1.1" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 32 32">
           <rect x="2" y="2" display="inline" stroke-width="4" stroke-linejoin="round" stroke-miterlimit="10" width="28" height="12"/>
-          <polyline display="inline" stroke-width="4" stroke-linejoin="round" stroke-miterlimit="10" points="28,18 28,22 4,22 4,18"/>
-          <polyline display="inline" stroke-width="4" stroke-linejoin="round" stroke-miterlimit="10" points="26,26 26,30 6,30 6,26"/>
+          <polyline display="inline" stroke-width="4" stroke-linejoin="round" stroke-miterlimit="10" points="28,17 28,22 4,22 4,17"/>
+          <polyline display="inline" stroke-width="4" stroke-linejoin="round" stroke-miterlimit="10" points="26,25 26,30 6,30 6,25"/>
         </svg>
       </li>
       <li id="power-grid-btn" @click="onPowerClick" style="display: none">
@@ -32,8 +32,8 @@
       <li id="power-case-btn" @click="onPowerClick">
         <svg version="1.1" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 32 32">
           <rect x="2" y="8" stroke-width="4" stroke-linejoin="round" stroke-miterlimit="10" width="28" height="12"/>
-          <polyline stroke-width="4" stroke-linejoin="round" stroke-miterlimit="10" points="28,24 28,30 4,30 4,24"/>
-          <rect x="14.5" y="18.5" stroke-width="4" stroke-linejoin="round" stroke-miterlimit="10" width="3" height="3"/>
+          <polyline stroke-width="4" stroke-linejoin="round" stroke-miterlimit="10" points="28,23 28,30 4,30 4,23"/>
+          <rect x="14" y="18" stroke-width="4" stroke-linejoin="round" stroke-miterlimit="10" width="4" height="4"/>
           <polyline stroke-width="4" stroke-linejoin="round" stroke-miterlimit="10" points="6,8 11,2 21,2 26,8"/>
         </svg>
       </li>
