@@ -183,6 +183,7 @@ export default {
   user-select: none
   tap-highlight-color: transparent
   -webkit-tap-highlight-color: transparent
+  outline: none
 
 .carousel-cell
   width: 100%

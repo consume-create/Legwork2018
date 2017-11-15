@@ -46,7 +46,7 @@ export default {
 <style lang="sass" scoped>
 @import "src/styles/global"
 #case-study
-  position: fixed
+  position: absolute
   top: 0px
   left: 0px
   background:
