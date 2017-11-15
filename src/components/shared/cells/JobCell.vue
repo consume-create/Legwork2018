@@ -5,7 +5,10 @@
 </template>
 
 <script>
+import BaseCell from './BaseCell';
+
 export default {
+	extends: BaseCell,
 	name: 'job-cell',
 
 	/*

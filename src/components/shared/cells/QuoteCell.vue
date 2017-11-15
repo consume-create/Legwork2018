@@ -13,7 +13,10 @@
 </template>
 
 <script>
+import BaseCell from './BaseCell';
+
 export default {
+	extends: BaseCell,
 	name: 'quote-cell',
 
 	/*
