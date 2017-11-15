@@ -50,7 +50,7 @@ export default {
   top: 0px
   left: 0px
   background:
-    color: white
+    color: $color-bg-body
   height: 100vh
   width: 100vw
   z-index: 1
