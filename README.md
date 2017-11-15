@@ -59,10 +59,14 @@ To deploy you must have your ssh key added to the server otherwise you will be d
 There is one primary renderer in the app. This acts as a central source of truth for memory leaks that may happen and also allows us to toggle which components are rendering when and where.
 
 To add a component to the renderer call: 
-```this.$store.dispatch('ADD_COMPONENT_TO_RENDER_QUEUE', this);```
+```javascript
+this.$store.dispatch('ADD_COMPONENT_TO_RENDER_QUEUE', this);
+```
 
 To remove a component from the renderer call: 
-```this.$store.dispatch('REMOVE_COMONENT_FROM_RENDER_QUEUE', this);```
+```javascript
+this.$store.dispatch('REMOVE_COMONENT_FROM_RENDER_QUEUE', this);
+```
 
 Something to ensure that a component is out of the renderer is to always have the `beforeDestroy` call the `REMOVE_COMONENT_FROM_RENDER_QUEUE` dispatch.
 
