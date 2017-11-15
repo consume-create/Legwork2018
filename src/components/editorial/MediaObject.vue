@@ -1,19 +1,17 @@
 <template>
   <div> <!-- wrapping in a root for build out sake -->
 
-   <!-- <div class="media-wrapper" data-position="" data-fullscreen="false">
-      <div class="media"> -->
-        <!-- <div class="image">  -->
-          <vue-flickity ref="flickity" :options="flickityOptions" >
-                <div class="carousel-cell"><div class="slide-inner">Slide 1</div></div>
-                <div class="carousel-cell"><div class="slide-inner">Slide 2</div></div>
-                <div class="carousel-cell"><div class="slide-inner">Slide 3</div></div>
-                <div class="carousel-cell"><div class="slide-inner">Slide 4</div></div>
-                <div class="carousel-cell"><div class="slide-inner">Slide 5</div></div>
-            </vue-flickity>
-        <!-- </div> -->
-      <!-- </div>
-    </div> -->
+   <div class="media-wrapper" data-position="" data-fullscreen="false">
+    <div class="media">
+      <vue-flickity ref="flickity" :options="flickityOptions" >
+        <div class="carousel-cell"><div class="slide-inner">Slide 1</div></div>
+        <div class="carousel-cell"><div class="slide-inner">Slide 2</div></div>
+        <div class="carousel-cell"><div class="slide-inner">Slide 3</div></div>
+        <div class="carousel-cell"><div class="slide-inner">Slide 4</div></div>
+        <div class="carousel-cell"><div class="slide-inner">Slide 5</div></div>
+      </vue-flickity>
+     </div>
+    </div>
 
     <div class="media-wrapper" data-position="" data-fullscreen="false">
       <div class="media">
@@ -179,31 +177,50 @@ export default {
 
 .flickity-enabled
   margin: 40px 0
-  overflow: hidden
   user-select: none
   tap-highlight-color: transparent
   -webkit-tap-highlight-color: transparent
   outline: none
+  position: relative
+  overflow: hidden
+  height: 450px
+
+  /deep/ .flickity-page-dots
+    position: absolute
+    width: 100%
+    bottom: 0px
+    padding: 0
+    margin: 0
+    list-style: none
+    text-align: center
+    line-height: 1
+
+  /deep/ .flickity-rtl .flickity-page-dots
+    direction: rtl
+
+  /deep/ .flickity-page-dots .dot
+    display: inline-block
+    width: 10px
+    height: 10px
+    margin: 0 8px
+    background: #333
+    border-radius: 50%
+    opacity: 0.25
+    cursor: pointer
+
+
+  /deep/ .flickity-page-dots .dot.is-selected
+    opacity: 1
+
 
 .carousel-cell
   width: 100%
   height: 400px
   margin-right: 10px
 
-.flickity-page-dots
-  bottom: 0px
 
-/* white circles */
-.flickity-page-dots .dot
-  width: 12px
-  height: 12px
-  opacity: 1
-  background: transparent
-  border: 2px solid black
 
-/* fill-in selected dot */
-.flickity-page-dots .dot.is-selected
-  background: black
+
 
 
 .slide-inner
