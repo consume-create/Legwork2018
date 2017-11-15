@@ -198,15 +198,10 @@ export default {
     ------------------------------------------ */
     animate() {
       _.each( this.animationLoop, (component) => {
-        // if( this.$route[component])
-        // console.log(component.render)
         component.update();
       });
 
-      setTimeout( () => {
-        this.animate();
-      }, 1500)
-      // requestAnimationFrame( () => { this.animate() });
+      requestAnimationFrame( () => { this.animate() });
     },
 
     /*
@@ -217,7 +212,6 @@ export default {
     ------------------------------------------ */
     onAnimationQueueUpdate(){
       this.animationLoop = this.$store.state.animationQueue;
-      console.log(this.$store.state.animationQueue)
     },
 
     /*

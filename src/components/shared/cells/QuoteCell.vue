@@ -27,7 +27,12 @@ export default {
 	------------------------------------------ */
 	props: [
 		'quote'
-	]
+	],
+	methods: {
+		init() {
+			this.$store.dispatch('ADD_COMPONENT_TO_RENDER_QUEUE', this);
+		}
+	}
 }
 </script>
 
