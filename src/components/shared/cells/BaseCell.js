@@ -33,8 +33,8 @@ export default {
     this.$wn = $(window);  
     this.type = $(this.$el).data('type');
 
-		this.init();
-	},
+    this.init();
+  },
   methods: {
 
     /*
