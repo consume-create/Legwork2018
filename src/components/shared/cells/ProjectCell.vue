@@ -9,7 +9,7 @@
 		<div class='project-info'>
 			<div class='project-background'></div>
 			<div class='info'>
-				<h2 class='client'>{{ project.client }}</h2>
+				<h1 class='client'>{{ project.client }}</h1>
 				<div class='project-name'>{{ project.project_name }}</div>
 			</div>
 		</div>
