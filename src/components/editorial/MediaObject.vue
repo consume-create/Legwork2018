@@ -173,8 +173,8 @@ export default {
       .media
         grid-column: 1 / span 24
 
-  ///
-
+///
+// Flickity specific styles
 .flickity-enabled
   margin: 40px 0
   user-select: none
@@ -208,7 +208,6 @@ export default {
     opacity: 0.25
     cursor: pointer
 
-
   /deep/ .flickity-page-dots .dot.is-selected
     opacity: 1
 
@@ -217,10 +216,6 @@ export default {
   width: 100%
   height: 400px
   margin-right: 10px
-
-
-
-
 
 
 .slide-inner
@@ -234,6 +229,4 @@ export default {
   color: #fff
   font-size: 40px
   font-weight: bold
-
-
 </style>
