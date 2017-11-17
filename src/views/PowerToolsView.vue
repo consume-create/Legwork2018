@@ -2,26 +2,32 @@
   <div id="power-tools" :style="translate" :class="[active, pos, mode]">
     <div id="power-inner" v-if="this.breakpoint === 'mobile'"></div>
     <ul v-else>
-      <li id="power-search-btn" @click="onPowerClick">
-        <svg version="1.1" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 32 32">
-          <circle display="inline" stroke-width="4" stroke-miterlimit="10" cx="13" cy="13" r="11"/>
-          <line display="inline" stroke-width="4" stroke-linecap="round" stroke-miterlimit="10" x1="25" y1="25" x2="30" y2="30"/>
-        </svg>
+      <li id="power-search-btn">
+        <router-link to="?overlay=search">
+          <svg version="1.1" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 32 32">
+            <circle display="inline" stroke-width="4" stroke-miterlimit="10" cx="13" cy="13" r="11"/>
+            <line display="inline" stroke-width="4" stroke-linecap="round" stroke-miterlimit="10" x1="25" y1="25" x2="30" y2="30"/>
+          </svg>
+        </router-link>
       </li>
-      <li id="power-play-btn" @click="onPowerClick">
-        <svg version="1.1" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 32 32">
-          <circle display="inline" stroke-width="4" stroke-miterlimit="10" cx="16" cy="16" r="14"/>
-          <polygon display="inline" stroke-width="4" stroke-miterlimit="10" points="16.4,16 15.6,16.5 15.6,15.5"/>
-        </svg>
+      <li id="power-play-btn">
+        <router-link to="?overlay=vimeo">
+          <svg version="1.1" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 32 32">
+            <circle display="inline" stroke-width="4" stroke-miterlimit="10" cx="16" cy="16" r="14"/>
+            <polygon display="inline" stroke-width="4" stroke-miterlimit="10" points="16.4,16 15.6,16.5 15.6,15.5"/>
+          </svg>
+        </router-link>
       </li>
-      <li id="power-list-btn" @click="onPowerClick">
-        <svg version="1.1" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 32 32">
-          <rect x="2" y="2" display="inline" stroke-width="4" stroke-linejoin="round" stroke-miterlimit="10" width="28" height="12"/>
-          <polyline display="inline" stroke-width="4" stroke-linejoin="round" stroke-miterlimit="10" points="28,17 28,22 4,22 4,17"/>
-          <polyline display="inline" stroke-width="4" stroke-linejoin="round" stroke-miterlimit="10" points="26,25 26,30 6,30 6,25"/>
-        </svg>
+      <li id="power-list-btn">
+        <router-link to="?mode=list">
+          <svg version="1.1" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 32 32">
+            <rect x="2" y="2" display="inline" stroke-width="4" stroke-linejoin="round" stroke-miterlimit="10" width="28" height="12"/>
+            <polyline display="inline" stroke-width="4" stroke-linejoin="round" stroke-miterlimit="10" points="28,17 28,22 4,22 4,17"/>
+            <polyline display="inline" stroke-width="4" stroke-linejoin="round" stroke-miterlimit="10" points="26,25 26,30 6,30 6,25"/>
+          </svg>
+        </router-link>
       </li>
-      <li id="power-grid-btn" @click="onPowerClick" style="display: none">
+      <li id="power-grid-btn" style="display: none">
         <svg version="1.1" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 32 32">
           <rect x="2" y="2" display="inline" stroke-width="4" stroke-linejoin="round" stroke-miterlimit="10" width="10" height="10"/>
           <rect x="20" y="2" display="inline" stroke-width="4" stroke-linejoin="round" stroke-miterlimit="10" width="10" height="10"/>
@@ -29,13 +35,15 @@
           <rect x="20" y="20" display="inline" stroke-width="4" stroke-linejoin="round" stroke-miterlimit="10" width="10" height="10"/>
         </svg>
       </li>
-      <li id="power-case-btn" @click="onPowerClick">
-        <svg version="1.1" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 32 32">
-          <rect x="2" y="8" stroke-width="4" stroke-linejoin="round" stroke-miterlimit="10" width="28" height="12"/>
-          <polyline stroke-width="4" stroke-linejoin="round" stroke-miterlimit="10" points="28,23 28,30 4,30 4,23"/>
-          <rect x="14" y="18" stroke-width="4" stroke-linejoin="round" stroke-miterlimit="10" width="4" height="4"/>
-          <polyline stroke-width="4" stroke-linejoin="round" stroke-miterlimit="10" points="6,8 11,2 21,2 26,8"/>
-        </svg>
+      <li id="power-case-btn">
+        <router-link to="?overlay=lightbox">
+          <svg version="1.1" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 32 32">
+            <rect x="2" y="8" stroke-width="4" stroke-linejoin="round" stroke-miterlimit="10" width="28" height="12"/>
+            <polyline stroke-width="4" stroke-linejoin="round" stroke-miterlimit="10" points="28,23 28,30 4,30 4,23"/>
+            <rect x="14" y="18" stroke-width="4" stroke-linejoin="round" stroke-miterlimit="10" width="4" height="4"/>
+            <polyline stroke-width="4" stroke-linejoin="round" stroke-miterlimit="10" points="6,8 11,2 21,2 26,8"/>
+          </svg>
+        </router-link>
       </li>
     </ul>
   </div>
@@ -85,18 +93,6 @@ export default {
     ------------------------------------------ */
     onScroll() {
       // TODO: theme
-    },
-
-    /*
-    ------------------------------------------
-    | onPowerClick:void
-    |
-    | e:object - event object
-    |
-    | Handle power click.
-    ------------------------------------------ */
-    onPowerClick(e) {
-      console.log(e.currentTarget);
     }
   }
 };
