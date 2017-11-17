@@ -8,6 +8,7 @@
     <biz-widget-view></biz-widget-view>
     <power-tools-view></power-tools-view>
     <case-study-view></case-study-view>
+    <overlay-view></overlay-view>
   </div>
 </template>
 
@@ -19,6 +20,7 @@ import BizWidgetView from './views/BizWidgetView.vue';
 import PowerToolsView from './views/PowerToolsView.vue';
 import FooterView from './views/FooterView.vue';
 import CaseStudyView from './views/CaseStudyView.vue';
+import OverlayView from './views/OverlayView.vue';
 
 export default {
   name: 'app',
@@ -34,7 +36,8 @@ export default {
     FooterView,
     PowerToolsView,
     ContentView,
-    CaseStudyView
+    CaseStudyView,
+    OverlayView
   },
 
   /*
@@ -66,6 +69,9 @@ export default {
     },
     menu() {
       return this.$store.state.header.menu;
+    },
+    overlay() {
+      return this.$store.state.overlay.shown;
     }
   },
 
@@ -132,6 +138,16 @@ export default {
     | Watch the menu for active scroll.
     ------------------------------------------ */
     'menu': {
+      handler: 'onActiveScrollChange'
+    },
+
+    /*
+    ------------------------------------------
+    | overlay:void
+    |
+    | Watch the overlay for active scroll.
+    ------------------------------------------ */
+    'overlay': {
       handler: 'onActiveScrollChange'
     },
 
@@ -239,6 +255,11 @@ export default {
       if(this.$store.state.header.menu === 'open') {
         locked = true;
         activeScroll = 'menu';
+      }
+
+      // overlay
+      if(this.$store.state.overlay.shown === true) {
+        locked = true;
       }
 
       // set it

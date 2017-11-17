@@ -112,6 +112,20 @@ export default {
 
   /*
   ------------------------------------------
+  | SET_OVERLAY:void
+  |
+  | Sets the overlay state.
+  ------------------------------------------ */
+  SET_OVERLAY: ({ commit }, obj) => {
+    if(obj.delay === 0) {
+      commit('OVERLAY', obj);
+    } else {
+      setTimeout(() => commit('OVERLAY', obj), obj.delay);
+    }
+  },
+
+  /*
+  ------------------------------------------
   | TRANSITION:void (-)
   |
   | Sets transition origin ( where a transition is triggered from )

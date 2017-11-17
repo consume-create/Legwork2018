@@ -13,7 +13,7 @@
         </div>
       </div>
       <div id="header-bar" :style="headerTranslate">
-        <router-link to="/" id="header-logo">
+        <router-link to="/" id="header-logo" :event="section === 'overlay' ? '' : 'click'">
           <svg id="logo" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 600 86">
             <path d="M0.6,71.8H9c0.3,0,0.6-0.3,0.6-0.6V14.8c0-0.3-0.3-0.6-0.6-0.6H0.6C0.3,14.2,0,14,0,13.7V2.1c0-0.3,0.3-0.6,0.6-0.6h33.8c0.3,0,0.6,0.3,0.6,0.6v11.6c0,0.3-0.3,0.6-0.6,0.6h-9.9c-0.3,0-0.6,0.3-0.6,0.6v56.5c0,0.3,0.3,0.6,0.6,0.6h21.9c0.3,0,0.6-0.3,0.6-0.6V60.7c0-0.3,0.3-0.6,0.6-0.6h12.7c0.3,0,0.6,0.3,0.6,0.6v23.2c0,0.3-0.3,0.6-0.6,0.6H0.6c-0.3,0-0.6-0.3-0.6-0.6V72.3C0,72,0.3,71.8,0.6,71.8z"/>
             <path d="M71.1,71.8h8.4c0.3,0,0.6-0.3,0.6-0.6V14.8c0-0.3-0.3-0.6-0.6-0.6h-8.4c-0.3,0-0.6-0.3-0.6-0.6V2.1c0-0.3,0.3-0.6,0.6-0.6h61.3c0.3,0,0.6,0.3,0.6,0.6v22.6c0,0.3-0.3,0.6-0.6,0.6h-12.6c-0.3,0-0.6-0.3-0.6-0.6v-9.9c0-0.3-0.3-0.6-0.6-0.6H95c-0.3,0-0.6,0.3-0.6,0.6v21c0,0.3,0.3,0.6,0.6,0.6h24.1c0.3,0,0.6,0.3,0.6,0.6v11c0,0.3-0.3,0.6-0.6,0.6H95c-0.3,0-0.6,0.3-0.6,0.6v22.3c0,0.3,0.3,0.6,0.6,0.6h23.8c0.3,0,0.6-0.3,0.6-0.6v-9.9c0-0.3,0.3-0.6,0.6-0.6h12.6c0.3,0,0.6,0.3,0.6,0.6v22.6c0,0.3-0.3,0.6-0.6,0.6H71.1c-0.3,0-0.6-0.3-0.6-0.6V72.3C70.5,72,70.8,71.8,71.1,71.8z"/>
@@ -66,8 +66,29 @@ export default {
       return `transform: translate3d(0px, ${this.$store.state.header.transform}px, 0)`;
     },
     utilBtnUrl() {
-      let closeUrl = typeof this.$route.params.discipline === 'undefined' ? '/' : `/${this.$route.params.discipline}`;
-      return (/^(studio|project|overlay)$/i).test(this.section) ? closeUrl : '?slide=short';
+      let url = '?slide=short';
+
+      switch(this.$store.getters.whereTheHellAreWe) {
+        case 'home-studio':
+          url = '/';
+          break;
+        case 'animation-studio':
+        case 'interactive-studio':
+        case 'experiential-studio':
+        case 'animation-project':
+        case 'interactive-project':
+        case 'experiential-project':
+        case 'animation-overlay':
+        case 'interactive-overlay':
+        case 'experiential-overlay':
+          url = `/${this.$route.params.discipline}`;
+          break;
+        case 'collection-studio':
+          url = `/search/${this.$route.params.project_search}`;
+          break;
+      }
+
+      return url;
     },
     utilBtnLabel() {
       return (/^(studio|project|overlay)$/i).test(this.section) ? 'Close' : 'Studio';
@@ -121,6 +142,16 @@ export default {
     | Watch the case study for theme / section.
     ------------------------------------------ */
     '$route.params.project': {
+      handler: 'onSectionOrThemeChange'
+    },
+
+    /*
+    ------------------------------------------
+    | overlay:void
+    |
+    | Watch the overlay for active scroll.
+    ------------------------------------------ */
+    '$route.query.overlay': {
       handler: 'onSectionOrThemeChange'
     }
   },
@@ -248,7 +279,11 @@ export default {
         section = 'project';
       }
 
-      // TODO: overlay
+      // overlay
+      if(typeof this.$route.query.overlay !== 'undefined') {
+        theme = 'light';
+        section = 'overlay';
+      }
 
       // set it
       this.$store.dispatch('SET_HEADER', {
@@ -296,8 +331,6 @@ export default {
       theme = 'light';
       section = 'project';
     }
-
-    // TODO: overlay
 
     // set it
     return store.dispatch('SET_HEADER', {
@@ -462,7 +495,7 @@ header
 
 +respond-to($tablet-landscape)
   header
-    &.studio, &.project
+    &.studio, &.project, &.overlay
       #header-bar
         #header-nav
           ul
@@ -514,6 +547,7 @@ header
           li:last-child
             position: relative
             width: 100px
+            cursor: pointer
 
             a
               display: inline-block

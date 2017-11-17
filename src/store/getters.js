@@ -44,7 +44,7 @@ export default {
     return state.transitionOrigin;
   },
   whereTheHellAreWe: (state) => {
-    let section = '', project = '', studio = '', modal = '', drawer = '';
+    let section = '', project = '', studio = '', overlay = '', drawer = '';
 
     // base section
     if(typeof state.route.params.discipline !== 'undefined') section = state.route.params.discipline;
@@ -57,10 +57,11 @@ export default {
     // if studio is open
     if(state.bizPosition !== '') studio = '-studio';
 
-    // TODO: if modal is open
+    // if overlay is open
+    if(state.overlay.shown) overlay = '-overlay';
 
     // TODO: if lightbox drawer is open
 
-    return section + project + studio + modal + drawer;
+    return section + project + studio + overlay + drawer;
   }
 };
