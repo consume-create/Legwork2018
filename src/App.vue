@@ -69,9 +69,6 @@ export default {
     },
     menu() {
       return this.$store.state.header.menu;
-    },
-    overlay() {
-      return this.$store.state.overlay.shown;
     }
   },
 
@@ -147,7 +144,7 @@ export default {
     |
     | Watch the overlay for active scroll.
     ------------------------------------------ */
-    'overlay': {
+    '$route.query.overlay': {
       handler: 'onActiveScrollChange'
     },
 
@@ -258,7 +255,7 @@ export default {
       }
 
       // overlay
-      if(this.$store.state.overlay.shown === true) {
+      if(typeof this.$route.query.overlay !== 'undefined') {
         locked = true;
       }
 
