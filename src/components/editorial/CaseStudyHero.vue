@@ -2,7 +2,6 @@
   <div class="case-study-hero">
     <!-- if video-id use vimdeo video embed -->
     <div class="hero-image"></div>
-
     <!-- else load up an image -->
   </div>
 </template>
@@ -10,7 +9,6 @@
 <script>
 export default {
 	name: 'case-study-hero',
-
 	/*
 	------------------------------------------
 	| props:void (-)
