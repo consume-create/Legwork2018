@@ -19,7 +19,7 @@ export default {
     }
   },
   watch: {
-    '$route': function(){
+    '$route.params.discipline': function(){
       let _origin = this.$store.getters.transitionOrigin;
       switch( _origin ){
         case "footer":
