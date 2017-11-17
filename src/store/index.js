@@ -40,6 +40,11 @@ export function createStore () {
         section: ''
       },
       bizPosition: '',
+      overlay: {
+        shown: false,
+        kind: '',
+        vimeoId: ''
+      },
       transitionOrigin: '',
       pages: [],
     },
