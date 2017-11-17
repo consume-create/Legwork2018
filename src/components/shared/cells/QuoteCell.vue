@@ -1,7 +1,6 @@
 <template>
 	<div class='content-cell quote' data-type='quote'>
-		<div class='quote-svg'>
-			<svg v-html="quote.svg_image"></svg>
+		<div class='quote-svg' v-html="quote.svg_image">
 		</div>
     <div class="cell-title">
       What they're saying
@@ -79,10 +78,10 @@ export default {
 	left: 0px
 	top: 0px
 
-svg
-	position: absolute
-	height: 100%
-	right: 0px
+	/deep/ svg
+		position: absolute
+		height: 100%
+		right: 0px
 
 .cell-title
   font-size: 18px
