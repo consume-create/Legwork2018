@@ -18,6 +18,7 @@ import CaseStudyAwards from "components/editorial/CaseStudyAwards.vue";
 export default {
   name: 'case-study-view',
   components: {
+    
     CaseStudyHero,
     CaseStudyOverview,
     MediaObject,
