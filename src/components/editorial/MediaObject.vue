@@ -4,11 +4,11 @@
    <div class="media-wrapper" data-position="" data-fullscreen="false">
     <div class="media">
       <vue-flickity ref="flickity" :options="flickityOptions" >
-        <div class="carousel-cell"><div class="slide-inner">Slide 1</div></div>
-        <div class="carousel-cell"><div class="slide-inner">Slide 2</div></div>
-        <div class="carousel-cell"><div class="slide-inner">Slide 3</div></div>
-        <div class="carousel-cell"><div class="slide-inner">Slide 4</div></div>
-        <div class="carousel-cell"><div class="slide-inner">Slide 5</div></div>
+        <div class="carousel-cell"><img src="https://placeimg.com/1024/576/nature/grayscale" /></div>
+        <div class="carousel-cell"><video-component></video-component></div>
+        <div class="carousel-cell"><img src="https://placeimg.com/1024/576/nature/grayscale" /></div>
+        <div class="carousel-cell"><img src="https://placeimg.com/1024/576/nature/grayscale" /></div>
+        <div class="carousel-cell"><img src="https://placeimg.com/1024/576/nature/grayscale" /></div>
       </vue-flickity>
      </div>
     </div>
@@ -16,7 +16,7 @@
     <div class="media-wrapper" data-position="" data-fullscreen="false">
       <div class="media">
         <div class="video">
-          <img src="https://placeimg.com/640/480/animals" />
+          <video-component></video-component>
         </div>
       </div>
     </div>
@@ -28,7 +28,7 @@
       </div>
       <div class="media">
         <div class="image">
-          <img src="https://placeimg.com/640/480/animals" />
+          <img src="https://placeimg.com/1024/576/nature/grayscale" />
         </div>
       </div>
     </div>
@@ -40,7 +40,7 @@
       </div>
       <div class="media">
         <div class="image">
-          <img src="https://placeimg.com/640/480/animals" />
+          <img src="https://placeimg.com/1024/576/nature/grayscale" />
         </div>
       </div>
     </div>
@@ -48,7 +48,7 @@
     <div class="media-wrapper" data-position="" data-fullscreen="true">
       <div class="media">
         <div class="image">
-          <img src="https://placeimg.com/1024/1024/animals" />
+          <img src="https://placeimg.com/1024/576/nature/grayscale" />
         </div>
       </div>
     </div>
@@ -56,7 +56,7 @@
     <div class="media-wrapper" data-position="center" data-fullscreen="">
       <div class="media">
         <div class="image">
-          <img src="https://placeimg.com/1024/648/animals" />
+          <img src="https://placeimg.com/1024/576/nature/grayscale" />
         </div>
       </div>
     </div>
@@ -66,13 +66,16 @@
 
 <script>
 import VueFlickity from 'components/shared/VueFlickity.vue';
+import VideoComponent from 'components/shared/VideoComponent.vue';
+
 
 export default {
 
   name: 'media-object',
 
   components: {
-      VueFlickity
+      VueFlickity,
+      VideoComponent
     },
 
 	/*
@@ -91,9 +94,7 @@ export default {
                 pageDots: true,
                 wrapAround: true,
                 resize: true,
-                dragThreshold: 30
-
-                // any options from Flickity can be used
+                dragThreshold: 30,
             }
         }
     },
@@ -172,61 +173,4 @@ export default {
       max-width: 100%
       .media
         grid-column: 1 / span 24
-
-///
-// Flickity specific styles
-.flickity-enabled
-  margin: 40px 0
-  user-select: none
-  tap-highlight-color: transparent
-  -webkit-tap-highlight-color: transparent
-  outline: none
-  position: relative
-  overflow: hidden
-  height: 450px
-
-  /deep/ .flickity-page-dots
-    position: absolute
-    width: 100%
-    bottom: 0px
-    padding: 0
-    margin: 0
-    list-style: none
-    text-align: center
-    line-height: 1
-
-  /deep/ .flickity-rtl .flickity-page-dots
-    direction: rtl
-
-  /deep/ .flickity-page-dots .dot
-    display: inline-block
-    width: 10px
-    height: 10px
-    margin: 0 8px
-    background: #333
-    border-radius: 50%
-    opacity: 0.25
-    cursor: pointer
-
-  /deep/ .flickity-page-dots .dot.is-selected
-    opacity: 1
-
-
-.carousel-cell
-  width: 100%
-  height: 400px
-  margin-right: 10px
-
-
-.slide-inner
-  width: 100%
-  height: 400px
-  background: gray
-  display: flex
-  justify-content: center
-  text-align: center
-  align-items: center
-  color: #fff
-  font-size: 40px
-  font-weight: bold
 </style>
