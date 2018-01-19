@@ -1,7 +1,5 @@
 <template>
-	<h1 class='text-header'>
-		{{project.project_name}}
-	</h1>
+	<h1 class='text-header'>{{text}}</h1>
 </template>
 
 <script>
@@ -15,8 +13,8 @@ export default {
 	| Project:object
 	------------------------------------------ */
 	props: [
-		'project'
-	]
+    'text'
+  ]
 }
 </script>
 

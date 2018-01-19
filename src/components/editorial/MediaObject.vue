@@ -137,7 +137,7 @@ export default {
   .media-wrapper
 
     .media
-      grid-column: 3 / span 19
+      grid-column: 3 / span 18
 
     .media-copy
       display: flex
@@ -155,19 +155,19 @@ export default {
         grid-column: 3 / span 6
 
       .media
-        grid-column: 10 / span 12
+        grid-column: 10 / span 11
 
     &[data-position="right"]
       .media-copy
-        grid-column: 16 / span 6
+        grid-column: 15 / span 6
 
       .media
-        grid-column: 3 / span 12
+        grid-column: 3 / span 11
 
     &[data-position="center"]
       max-width: 100%
       .media
-        grid-column: 7 / span 14
+        grid-column: 7 / span 13
 
     &[data-fullscreen="true"]
       max-width: 100%

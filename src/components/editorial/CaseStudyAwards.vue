@@ -68,7 +68,7 @@ export default {
         margin-bottom: 0
 
     .case-study-impact
-      grid-column: 9 / span 12
+      grid-column: 9 / span 11
       margin-bottom: 0
 
     .case-study-recognition

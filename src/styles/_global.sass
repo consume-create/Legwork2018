@@ -10,6 +10,9 @@ body
   font-size: 18px
   color: $color-text
 
+  +respond-to($average-desktop)
+    font-size: 22px
+
 // Global Typography Settings
 
 h1
@@ -22,6 +25,9 @@ h1
     font-weight: $bold
     color: $color-headers
 
+  +respond-to($desktop)
+    font-size: 70px
+
 h2
   font-size: 34px
   font-weight: $bold
@@ -29,3 +35,5 @@ h2
 
 p
    line-height: 32px
+
+
