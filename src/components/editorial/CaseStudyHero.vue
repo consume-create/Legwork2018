@@ -36,7 +36,7 @@ export default {
   margin-bottom: span(3,24)
 
   .hero-image
-    grid-column: 1 / span 21
+    grid-column: 1 / span 20
     background: $gray
     padding-bottom: 100%
 

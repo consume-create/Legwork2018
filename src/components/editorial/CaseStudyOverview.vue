@@ -1,13 +1,13 @@
 <template>
   <div class="case-study-overview">
     <div class="overview-header">
-      <text-header :project="project"></text-header>
+      <text-header :text="project_name"></text-header>
     </div>
     <div class="link">
-      <link-comp url="http://bla.com" variant="play" text="Watch Video"></link-comp>
+      <link-comp :href="link_url" :class="link_variant" v-html="link_text"></link-comp>
     </div>
-    <text-list></text-list>
-    <text-body></text-body>
+    <text-list :services="services"></text-list>
+    <text-body v-html="overview_description"></text-body>
   </div>
 </template>
 
@@ -20,6 +20,22 @@ import TextBody from "components/shared/TextBody.vue";
 
 export default {
   name: 'case-study-overview',
+
+  data: function() {
+    return {
+      'project_name': 'Project Title',
+      'link_url': 'http://google.com',
+      'link_variant': 'link-play',
+      'link_text': 'Watch Video',
+      services: [
+        { type: 'Strategy' },
+        { type: 'UX' },
+        { type: 'Design' },
+        { type: 'Development' }
+      ],
+      'overview_description': '<p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Phasellus tincidunt magna nec bibendum sagittis. Aliquam ligula quam, aliquam nec sodales non, sagittis sit amet sapien. Suspendisse ut velit at lorem vulputate sodales in sit amet eros. Fusce sagittis odio vel lacus aliquet, vel sagittis metus aliquam. Sed non pellentesque mauris. Donec accumsan ut tellus ut vestibulum.</p>'
+    }
+  },
 
   components: {
     TextHeader,
@@ -35,8 +51,7 @@ export default {
 	| overview:object
 	------------------------------------------ */
 	props: [
-      'project'
-    ],
+  ],
 }
 </script>
 
@@ -49,11 +64,12 @@ export default {
 
   .overview-header
     grid-column: 3 / span 16
-    margin-bottom: 45px
+    margin-bottom: 50px
+    margin-left: -4px
 
   .link
     grid-column: 3 / span 16
-    margin-bottom: 75px
+    margin-bottom: 70px
 
   .text-list
     grid-column: 3 / span 16
@@ -67,7 +83,7 @@ export default {
   .case-study-overview
 
     .overview-header
-      grid-column: 7 / span 15
+      grid-column: 7 / span 14
       margin-bottom: 115px
 
     .link
@@ -79,7 +95,14 @@ export default {
       margin-bottom: 0
 
     .text-body
-      grid-column: 11 / span 10
+      grid-column: 11 / span 9
+      margin-top: -6px
       margin-bottom: 0
+
++respond-to($largest-screens)
+  .case-study-overview
+
+    .text-body
+      grid-column: 11 / span 6
 
 </style>

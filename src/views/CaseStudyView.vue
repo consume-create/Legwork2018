@@ -1,8 +1,8 @@
 <template>
   <div id="case-study" v-bind:class="discipline" v-if="project" @scroll="onCaseStudyScroll">
-    <div id="case-study-content" >
+    <div id="case-study-content">
       <case-study-hero></case-study-hero>
-      <case-study-overview :project="project"></case-study-overview>
+      <case-study-overview></case-study-overview>
       <media-object></media-object>
       <case-study-awards></case-study-awards>
     </div>
@@ -17,13 +17,14 @@ import CaseStudyAwards from "components/editorial/CaseStudyAwards.vue";
 
 export default {
   name: 'case-study-view',
+
   components: {
-    
     CaseStudyHero,
     CaseStudyOverview,
     MediaObject,
     CaseStudyAwards
   },
+
   computed: {
     discipline () {
       return this.$route.params.discipline;
