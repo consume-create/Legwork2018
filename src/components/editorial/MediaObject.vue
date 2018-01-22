@@ -105,7 +105,7 @@ export default {
 @import "src/styles/global"
 
 .media-wrapper
-  margin-bottom: span(3,24)
+  margin-bottom: 75px
   grid-auto-flow: dense
   +grid
 
@@ -120,10 +120,10 @@ export default {
       font-size: 34px
       letter-spacing: 2.07px
       line-height: 36px
-      margin-bottom: 34px
+      margin-bottom: 25px
 
     p
-      margin-bottom: 50px
+      margin-bottom: 40px
 
   .media
     grid-column: 3 / span 16
@@ -135,6 +135,7 @@ export default {
 
 +respond-to($tablet-landscape)
   .media-wrapper
+    margin-bottom: 195px 
 
     .media
       grid-column: 3 / span 18
@@ -173,4 +174,17 @@ export default {
       max-width: 100%
       .media
         grid-column: 1 / span 24
+
++respond-to($largest-screens)
+  .media-wrapper
+    margin-bottom: 300px
+
+    &[data-position="left"]
+        .media-copy
+          grid-column: 3 / span 4
+
+    &[data-position="right"]
+        .media-copy
+          grid-column: 15 / span 4
+
 </style>
