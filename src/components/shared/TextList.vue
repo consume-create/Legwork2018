@@ -1,8 +1,8 @@
 <template>
   <div class="text-list">
-    <h3 class="list-header">Services Provided</h3>
+    <h3 class="list-header">Services</h3>
     <ul >
-      <li v-for="service in services">{{ service.type }}</li>
+      <li v-for="service in services">{{ service }}</li>
     </ul>
   </div>
 </template>
