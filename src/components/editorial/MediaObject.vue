@@ -21,14 +21,14 @@
       </div>
     </div>
 
-    <div class="media-wrapper" data-position="left" data-fullscreen="false">
+    <div :data-position="project[0].position" :data-fullscreen="project[0].fullscreen" class="media-wrapper">
       <div class="media-copy">
-        <h3>Media Title</h3>
-        <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Veniam odio voluptas accusantium magni enim necessitatibus, officia impedit? Non fugiat totam unde vel veritatis, quis tempore accusamus iusto, illo perspiciatis facilis.</p>
+        <h3>{{project[0].title}}</h3>
+        <p>{{project[0].copy}}</p>
       </div>
       <div class="media">
         <div class="image">
-          <img src="https://placeimg.com/1024/576/nature/grayscale" />
+            <picture-comp :srcPath="project[0].media[0].image.sizes.large"></picture-comp>
         </div>
       </div>
     </div>
@@ -67,6 +67,7 @@
 <script>
 import VueFlickity from 'components/shared/VueFlickity.vue';
 import VideoComponent from 'components/shared/VideoComponent.vue';
+import PictureComp from 'components/shared/PictureComp.vue';
 
 
 export default {
@@ -75,7 +76,8 @@ export default {
 
   components: {
       VueFlickity,
-      VideoComponent
+      VideoComponent,
+      PictureComp
     },
 
 	/*
@@ -86,7 +88,7 @@ export default {
 	------------------------------------------ */
 	props: [
     ],
-  data () {
+  data() {
         return {
             flickityOptions: {
                 initialIndex: 0,
@@ -95,7 +97,39 @@ export default {
                 wrapAround: true,
                 resize: true,
                 dragThreshold: 30,
-            }
+            },
+            'project': [
+                {
+                  'acf_fc_layout': 'media_gallery_with_copy',
+                  'title': 'Sample Gallery',
+                  'copy': 'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Phasellus tincidunt magna nec bibendum sagittis. Aliquam ligula quam, aliquam nec sodales non, sagittis sit amet sapien. Suspendisse ut velit at lorem vulputate sodales in sit amet eros. Fusce sagittis odio vel lacus aliquet, vel sagittis metus aliquam. Sed non pellentesque mauris. Donec accumsan ut tellus ut vestibulum. ',
+                  'position': 'left',
+                  'fullscreen': 'false',
+                  'media': [
+                    {
+                      'type': 'image',
+                      'image': {
+                        'tile': 'main-1',
+                        'caption': '',
+                        'sizes': {
+                          'thumbnail': 'https://assets.legwork.studio/20171106224501/main-1-150x150.jpg',
+                          'thumbnail-width': 150,
+                          'thumbnail-height': 150,
+                          'medium': 'https://assets.legwork.studio/20171106224501/main-1-300x169.jpg',
+                          'medium-width': 300,
+                          'medium-height': 169,
+                          'medium_large': 'https://assets.legwork.studio/20171106224501/main-1-768x432.jpg',
+                          'medium_large-width': 768,
+                          'medium_large-height': 432,
+                          'large': 'https://assets.legwork.studio/20171106224501/main-1-1024x576.jpg',
+                          'large-width': 1024,
+                          'large-height': 576
+                        }
+                      }
+                    }
+                  ],
+                },
+              ],
         }
     },
 }

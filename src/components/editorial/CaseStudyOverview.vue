@@ -1,21 +1,21 @@
 <template>
-  <div class="case-study-overview">
-    <div class="overview-header">
-      <text-header :text="project_name"></text-header>
+  <div class='case-study-overview'>
+    <div class='overview-header'>
+      <text-header :text='project_name'></text-header>
     </div>
-    <div class="link">
-      <link-comp :href="link_url" :class="link_variant" v-html="link_text"></link-comp>
+    <div class='link'>
+      <link-comp :href='link_url' :class='link_variant'>{{link_text}}</link-comp>
     </div>
-    <text-list :services="services"></text-list>
-    <text-body v-html="overview_description"></text-body>
+    <text-list :services='services'></text-list>
+    <text-body v-html='overview_description'></text-body>
   </div>
 </template>
 
 <script>
-import TextHeader from "components/shared/TextHeader.vue";
-import LinkComp from "components/shared/LinkComp.vue";
-import TextList from "components/shared/TextList.vue";
-import TextBody from "components/shared/TextBody.vue";
+import TextHeader from 'components/shared/TextHeader.vue';
+import LinkComp from 'components/shared/LinkComp.vue';
+import TextList from 'components/shared/TextList.vue';
+import TextBody from 'components/shared/TextBody.vue';
 
 
 export default {
@@ -27,13 +27,13 @@ export default {
       'link_url': 'http://google.com',
       'link_variant': 'link-play',
       'link_text': 'Watch Video',
-      services: [
+      'services': [
         'Strategy',
         'UX',
         'Design', 
         'Development'
       ],
-      'overview_description': '<p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Phasellus tincidunt magna nec bibendum sagittis. Aliquam ligula quam, aliquam nec sodales non, sagittis sit amet sapien. Suspendisse ut velit at lorem vulputate sodales in sit amet eros. Fusce sagittis odio vel lacus aliquet, vel sagittis metus aliquam. Sed non pellentesque mauris. Donec accumsan ut tellus ut vestibulum.</p>'
+      'overview_description': '<p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Phasellus tincidunt magna nec bibendum sagittis. Aliquam ligula quam, aliquam nec sodales non, sagittis sit amet sapien. Suspendisse ut velit at lorem vulputate sodales in sit amet eros. Fusce sagittis odio vel lacus aliquet, vel sagittis metus aliquam. Sed non pellentesque mauris. Donec accumsan ut tellus ut vestibulum.</p>',
     }
   },
 
@@ -56,7 +56,7 @@ export default {
 </script>
 
 <style lang='sass' scoped>
-@import "src/styles/global"
+@import 'src/styles/global'
 
 .case-study-overview
   +grid
