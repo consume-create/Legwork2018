@@ -1,14 +1,12 @@
 <template>
-	<a :href="link_url" class="link" >{{link_text}}</a>
+	<a :href="link_url" class="link"><slot></slot></a>
 </template>
 
 <script>
 export default {
 	name: 'link-comp',
   props: [
-    'link_url',
-    'link_variant',
-    'link_text'
+    'link_url'
     ]
 }
 </script>

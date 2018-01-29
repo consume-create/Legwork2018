@@ -4,6 +4,7 @@ import { createApp } from './app';
 
 // Client side plugins
 import vueVimeoPlayer from 'vue-vimeo-player';
+import picturefill from 'picturefill';
 Vue.use(vueVimeoPlayer);
 
 // a global mixin that calls `ssrInit` when a route component's params change
