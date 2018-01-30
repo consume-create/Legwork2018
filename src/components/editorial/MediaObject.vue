@@ -4,11 +4,11 @@
    <div class="media-wrapper" data-position="" data-fullscreen="false">
     <div class="media">
       <vue-flickity ref="flickity" :options="flickityOptions" >
-        <div class="carousel-cell"><img src="https://placeimg.com/1024/576/nature/grayscale" /></div>
+        <div class="carousel-cell"><picture-comp :srcPath="project[0].media[0].image.sizes"></picture-comp></div>
         <div class="carousel-cell"><video-component></video-component></div>
-        <div class="carousel-cell"><img src="https://placeimg.com/1024/576/nature/grayscale" /></div>
-        <div class="carousel-cell"><img src="https://placeimg.com/1024/576/nature/grayscale" /></div>
-        <div class="carousel-cell"><img src="https://placeimg.com/1024/576/nature/grayscale" /></div>
+        <div class="carousel-cell"><picture-comp :srcPath="project[0].media[0].image.sizes"></picture-comp></div>
+        <div class="carousel-cell"><picture-comp :srcPath="project[0].media[0].image.sizes"></picture-comp></div>
+        <div class="carousel-cell"><picture-comp :srcPath="project[0].media[0].image.sizes"></picture-comp></div>
       </vue-flickity>
      </div>
     </div>
@@ -28,7 +28,7 @@
       </div>
       <div class="media">
         <div class="image">
-            <picture-comp :srcPath="project[0].media[0].image.sizes.large"></picture-comp>
+            <picture-comp :srcPath="project[0].media[0].image.sizes"></picture-comp>
         </div>
       </div>
     </div>
@@ -40,7 +40,7 @@
       </div>
       <div class="media">
         <div class="image">
-          <img src="https://placeimg.com/1024/576/nature/grayscale" />
+          <picture-comp :srcPath="project[0].media[0].image.sizes"></picture-comp>
         </div>
       </div>
     </div>
@@ -48,7 +48,7 @@
     <div class="media-wrapper" data-position="" data-fullscreen="true">
       <div class="media">
         <div class="image">
-          <img src="https://placeimg.com/1024/576/nature/grayscale" />
+          <picture-comp :srcPath="project[0].media[0].image.sizes"></picture-comp>
         </div>
       </div>
     </div>
@@ -56,7 +56,7 @@
     <div class="media-wrapper" data-position="center" data-fullscreen="">
       <div class="media">
         <div class="image">
-          <img src="https://placeimg.com/1024/576/nature/grayscale" />
+          <picture-comp :srcPath="project[0].media[0].image.sizes"></picture-comp>
         </div>
       </div>
     </div>
@@ -170,7 +170,7 @@ export default {
 
 +respond-to($tablet-landscape)
   .media-wrapper
-    margin-bottom: 195px 
+    margin-bottom: 195px
 
     .media
       grid-column: 3 / span 18
