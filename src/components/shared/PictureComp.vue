@@ -26,13 +26,13 @@ export default {
   ],
   computed: {
     srcImageSmall () {
-      return this.srcPath.thumbnail + ', ' + this.srcPath.thumbnail.replace(/(\.[\w\d_-]+)$/i, '_2x$1') + " 2x";
+      return this.srcPath.thumbnail + ', ' + this.srcPath.thumbnail.replace(/(\.[\w\d_-]+)$/i, 'x$1') + " 2x";
     },
     srcImageMed () {
-      return this.srcPath.medium + ', ' + this.srcPath.medium.replace(/(\.[\w\d_-]+)$/i, '_2x$1') + " 2x";
+      return this.srcPath.medium + ', ' + this.srcPath.medium.replace(/(\.[\w\d_-]+)$/i, 'x$1') + " 2x";
     },
     srcImageLarge () {
-      return this.srcPath.large + ', ' + this.srcPath.large.replace(/(\.[\w\d_-]+)$/i, '_2x$1') + " 2x";
+      return this.srcPath.large + ', ' + this.srcPath.large.replace(/(\.[\w\d_-]+)$/i, 'x$1') + " 2x";
     }
   },
 }
