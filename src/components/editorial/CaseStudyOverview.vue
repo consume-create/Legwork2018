@@ -30,7 +30,7 @@ export default {
       'services': [
         'Strategy',
         'UX',
-        'Design', 
+        'Design',
         'Development'
       ],
       'overview_description': '<p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Phasellus tincidunt magna nec bibendum sagittis. Aliquam ligula quam, aliquam nec sodales non, sagittis sit amet sapien. Suspendisse ut velit at lorem vulputate sodales in sit amet eros. Fusce sagittis odio vel lacus aliquet, vel sagittis metus aliquam. Sed non pellentesque mauris. Donec accumsan ut tellus ut vestibulum.</p>',

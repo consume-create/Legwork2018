@@ -1,23 +1,23 @@
 <template>
   <div> <!-- wrapping in a root for build out sake -->
 
-   <div class="media-wrapper" data-position="" data-fullscreen="false">
-    <div class="media">
-      <vue-flickity ref="flickity" :options="flickityOptions" >
-        <div class="carousel-cell"><picture-comp :srcPath="project[0].media[0].image.sizes"></picture-comp></div>
-        <div class="carousel-cell"><video-component></video-component></div>
-        <div class="carousel-cell"><picture-comp :srcPath="project[0].media[0].image.sizes"></picture-comp></div>
-        <div class="carousel-cell"><picture-comp :srcPath="project[0].media[0].image.sizes"></picture-comp></div>
-        <div class="carousel-cell"><picture-comp :srcPath="project[0].media[0].image.sizes"></picture-comp></div>
-      </vue-flickity>
-     </div>
-    </div>
-
     <div class="media-wrapper" data-position="" data-fullscreen="false">
       <div class="media">
         <div class="video">
           <video-component></video-component>
         </div>
+      </div>
+    </div>
+
+    <div class="media-wrapper" data-position="" data-fullscreen="false">
+      <div class="media">
+        <vue-flickity ref="flickity" :options="flickityOptions" >
+          <div class="carousel-cell"><picture-comp :srcPath="project[0].media[0].image.sizes"></picture-comp></div>
+          <div class="carousel-cell"><video-component></video-component></div>
+          <div class="carousel-cell"><picture-comp :srcPath="project[0].media[0].image.sizes"></picture-comp></div>
+          <div class="carousel-cell"><picture-comp :srcPath="project[0].media[0].image.sizes"></picture-comp></div>
+          <div class="carousel-cell"><picture-comp :srcPath="project[0].media[0].image.sizes"></picture-comp></div>
+        </vue-flickity>
       </div>
     </div>
 
