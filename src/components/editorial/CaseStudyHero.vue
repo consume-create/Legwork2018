@@ -8,14 +8,14 @@
 
 <script>
 export default {
-	name: 'case-study-hero',
-	/*
-	------------------------------------------
-	| props:void (-)
-	|
-	| hero:object
-	------------------------------------------ */
-	props: [
+  name: 'case-study-hero',
+  /*
+  ------------------------------------------
+  | props:void (-)
+  |
+  | hero:object
+  ------------------------------------------ */
+  props: [
     ],
   data: function() {
     return {

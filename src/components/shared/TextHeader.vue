@@ -1,18 +1,18 @@
 <template>
-	<h1 class='text-header'>{{text}}</h1>
+  <h1 class='text-header'>{{text}}</h1>
 </template>
 
 <script>
 export default {
-	name: 'text-header',
+  name: 'text-header',
 
-	/*
-	------------------------------------------
-	| props:void (-)
-	|
-	| Project:object
-	------------------------------------------ */
-	props: [
+  /*
+  ------------------------------------------
+  | props:void (-)
+  |
+  | Project:object
+  ------------------------------------------ */
+  props: [
     'text'
   ]
 }

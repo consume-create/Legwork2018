@@ -9,17 +9,17 @@
 
 <script>
 export default {
-	name: 'text-list',
+  name: 'text-list',
 
-	/*
-	------------------------------------------
-	| props:void (-)
-	|
-	| Project:object
-	------------------------------------------ */
-	props: [
+  /*
+  ------------------------------------------
+  | props:void (-)
+  |
+  | Project:object
+  ------------------------------------------ */
+  props: [
     'services'
-	]
+  ]
 }
 </script>
 

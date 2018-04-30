@@ -13,15 +13,15 @@
 
 <script>
 export default {
-	name: 'picture-comp',
+  name: 'picture-comp',
 
-	/*
-	------------------------------------------
-	| props:void (-)
-	|
-	| Project:object
-	------------------------------------------ */
-	props: [
+  /*
+  ------------------------------------------
+  | props:void (-)
+  |
+  | Project:object
+  ------------------------------------------ */
+  props: [
     'srcPath'
   ],
   computed: {

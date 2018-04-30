@@ -1,10 +1,10 @@
 <template>
-	<a :href="[url]" :data-icon="[icon]" :data-variant="[variant]" class="btn">{{text}}</a>
+  <a :href="[url]" :data-icon="[icon]" :data-variant="[variant]" class="btn">{{text}}</a>
 </template>
 
 <script>
 export default {
-	name: 'button-comp',
+  name: 'button-comp',
   props: [
     'icon',
     'variant',

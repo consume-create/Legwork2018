@@ -30,7 +30,7 @@ export default {
     }
   },
   mounted () {
-    this.$wn = $(window);  
+    this.$wn = $(window);
     this.type = $(this.$el).data('type');
 
     this.init();
