@@ -35,7 +35,7 @@ export default {
   },
   methods: {
     onCaseStudyScroll(e){
-      let offset = e.target.scrollTop;
+      let offset = e.srcElement.scrollTop;
       this.$store.dispatch('SET_PROJECT_SCROLL', {offset});
     }
   },
