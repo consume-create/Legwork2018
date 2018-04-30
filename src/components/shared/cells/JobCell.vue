@@ -71,6 +71,7 @@ export default {
   font-weight: bold
   letter-spacing: 0.31px
   line-height: 91px
+  max-width: 460px
 
   .arrow
     display: inline-block
