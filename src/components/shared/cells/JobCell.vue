@@ -1,7 +1,5 @@
 <template>
   <div class='content-cell job' data-type='job'>
-    <div class='job-svg'>
-    </div>
     <div class="cell-title">
       Job Opening
     </div>
@@ -61,10 +59,6 @@ export default {
 <style lang='sass' scoped>
 @import "src/styles/global"
 @import "src/styles/content-cell"
-
-.job
-  z-index: 0
-
 .copy
   position: relative
   font-size: 300%
