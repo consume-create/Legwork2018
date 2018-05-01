@@ -2,7 +2,7 @@
   <div class='case-study-related-projects'>
     <div class="project-header">Similar Projects</div>
     <ul>
-      <li v-for="project in projects">{{ project }}</li>
+      <li v-for="project in projects" :key="project.id" >{{ project }}</li>
     </ul>
     <div class="gallery-link">Back to Gallery</div>
   </div>
