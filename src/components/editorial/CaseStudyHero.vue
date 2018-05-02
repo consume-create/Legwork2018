@@ -38,6 +38,6 @@ export default {
   .hero-image
     grid-column: 1 / span 20
     background: $gray
-    padding-bottom: 100%
+    // padding-bottom: 100%
 
 </style>
