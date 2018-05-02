@@ -8,14 +8,14 @@
 
 <script>
 export default {
-	name: 'case-study-hero',
-	/*
-	------------------------------------------
-	| props:void (-)
-	|
-	| hero:object
-	------------------------------------------ */
-	props: [
+  name: 'case-study-hero',
+  /*
+  ------------------------------------------
+  | props:void (-)
+  |
+  | hero:object
+  ------------------------------------------ */
+  props: [
     ],
   data: function() {
     return {
@@ -38,6 +38,6 @@ export default {
   .hero-image
     grid-column: 1 / span 20
     background: $gray
-    padding-bottom: 100%
+    // padding-bottom: 100%
 
 </style>

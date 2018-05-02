@@ -13,15 +13,15 @@
 
 <script>
 export default {
-	name: 'case-study-awards',
+  name: 'case-study-awards',
 
-	/*
-	------------------------------------------
-	| props:void (-)
-	|
-	| hero:object
-	------------------------------------------ */
-	props: [
+  /*
+  ------------------------------------------
+  | props:void (-)
+  |
+  | hero:object
+  ------------------------------------------ */
+  props: [
     ],
 }
 </script>

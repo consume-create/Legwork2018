@@ -11,17 +11,17 @@ import Vue from "vue";
 import NoSSR from 'vue-no-ssr';
 
 export default {
-	name: 'video-component',
+  name: 'video-component',
   components: {
     'no-ssr': NoSSR
   },
-	/*
-	------------------------------------------
-	| props:void (-)
-	|
-	| hero:object
-	------------------------------------------ */
-	props: [],
+  /*
+  ------------------------------------------
+  | props:void (-)
+  |
+  | hero:object
+  ------------------------------------------ */
+  props: [],
   data: function() {
     return {
       'hero_type': '',

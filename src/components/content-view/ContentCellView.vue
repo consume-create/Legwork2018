@@ -1,8 +1,8 @@
 <!-- Loop over the content and based on type render the correct view -->
 <template>
-	<job-cell v-if="content.type === 'jobs'" :job="content"></job-cell>
-	<quote-cell v-else-if="content.type === 'quotes'" :quote="content"></quote-cell>
-	<project-cell v-else :project="content"></project-cell>
+  <job-cell v-if="content.type === 'jobs'" :job="content"></job-cell>
+  <quote-cell v-else-if="content.type === 'quotes'" :quote="content"></quote-cell>
+  <project-cell v-else :project="content"></project-cell>
 </template>
 
 <script>
@@ -18,9 +18,9 @@ export default {
   | components:void (-)
   ------------------------------------------ */
   components: {
-  	ProjectCell,
-  	JobCell,
-  	QuoteCell
+    ProjectCell,
+    JobCell,
+    QuoteCell
   },
 
   /*
@@ -30,7 +30,7 @@ export default {
   | content:object
   ------------------------------------------ */
   props: [
-  	'content',
+    'content',
     'discipline'
   ]
 }

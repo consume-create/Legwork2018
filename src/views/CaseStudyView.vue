@@ -5,6 +5,7 @@
       <case-study-overview></case-study-overview>
       <media-object></media-object>
       <case-study-awards></case-study-awards>
+      <case-study-related-projects></case-study-related-projects>
     </div>
   </div>
 </template>
@@ -14,6 +15,7 @@ import CaseStudyHero from "components/editorial/CaseStudyHero.vue";
 import CaseStudyOverview from "components/editorial/CaseStudyOverview.vue";
 import MediaObject from "components/editorial/MediaObject.vue";
 import CaseStudyAwards from "components/editorial/CaseStudyAwards.vue";
+import CaseStudyRelatedProjects from "components/editorial/CaseStudyRelatedProjects.vue";
 
 export default {
   name: 'case-study-view',
@@ -22,7 +24,8 @@ export default {
     CaseStudyHero,
     CaseStudyOverview,
     MediaObject,
-    CaseStudyAwards
+    CaseStudyAwards,
+    CaseStudyRelatedProjects
   },
 
   computed: {
@@ -35,7 +38,7 @@ export default {
   },
   methods: {
     onCaseStudyScroll(e){
-      let offset = e.srcElement.scrollTop;
+      let offset = e.target.scrollTop;
       this.$store.dispatch('SET_PROJECT_SCROLL', {offset});
     }
   },
