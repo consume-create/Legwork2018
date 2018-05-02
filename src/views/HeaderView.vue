@@ -6,7 +6,6 @@
           <ul>
             <li><router-link to="/animation">Animation</router-link></li>
             <li><router-link to="/interactive">Interactive</router-link></li>
-            <li><router-link to="/experiential">Experiential</router-link></li>
           </ul>
         </nav>
         <div id="mobile-studio-wrap">
@@ -31,7 +30,6 @@
           <ul>
             <li><router-link to="/animation">Animation</router-link></li>
             <li><router-link to="/interactive">Interactive</router-link></li>
-            <li><router-link to="/experiential">Experiential</router-link></li>
             <li><router-link :to="utilBtnUrl">{{ utilBtnLabel }}</router-link></li>
           </ul>
         </nav>
@@ -74,13 +72,10 @@ export default {
           break;
         case 'animation-studio':
         case 'interactive-studio':
-        case 'experiential-studio':
         case 'animation-project':
         case 'interactive-project':
-        case 'experiential-project':
         case 'animation-overlay':
         case 'interactive-overlay':
-        case 'experiential-overlay':
           url = `/${this.$route.params.discipline}`;
           break;
         case 'collection-studio':
@@ -506,12 +501,14 @@ header
               visibility: visible
 
     #header-bar
-      height: 26px
-      padding: span(2, 24) 0 30px
+      position: relative
+      height: 24px
+      padding: span(1, 24) 0 30px
 
       #header-logo
-        width: 190px
-        height: 26px
+        grid-column: 2
+        width: 175px
+        height: 24px
 
       #header-nav
         grid-column: 13 / span 10
@@ -520,7 +517,7 @@ header
         ul
           display: flex
           flex-direction: row
-          justify-content: space-between
+          justify-content: flex-end
           width: 100%
 
           // NOTE: hang 'studio' button halfway over last grid col
@@ -528,21 +525,16 @@ header
 
           li
             display: inline-block
+            margin-left: 50px
 
             a
               position: relative
               font: normal normal $bold 18px/18px $base-font
-              color: $black
+              color: $gray
               text-decoration: none
 
-              &.router-link-exact-active:after
-                content: ""
-                position: absolute
-                top: 32px
-                left: 0px
-                width: 100%
-                height: 4px
-                background-color: $black
+              &.router-link-exact-active
+                color: $black
 
           li:last-child
             position: relative
@@ -554,13 +546,13 @@ header
               position: absolute
               top: 50%
               width: 100%
-              padding: 16px 0px
+              padding: 12px 0px
               border-radius: 25px
               background-color: $black
               text-align: center
               color: $white
               transform: translate(0%, -50%)
 
-              &.router-link-exact-active:after
-                display: none
+              &.router-link-exact-active
+                color: $white
 </style>
