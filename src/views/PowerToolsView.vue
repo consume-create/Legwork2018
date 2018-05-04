@@ -4,46 +4,33 @@
     <ul v-else>
       <li id="power-search-btn">
         <router-link to="?overlay=search">
-          <svg version="1.1" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 32 32">
-            <circle display="inline" stroke-width="4" stroke-miterlimit="10" cx="13" cy="13" r="11"/>
-            <line display="inline" stroke-width="4" stroke-linecap="round" stroke-miterlimit="10" x1="25" y1="25" x2="30" y2="30"/>
+          <svg version="1.1" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 25 25">
+            <circle stroke-width="3" stroke-miterlimit="10" cx="10" cy="10" r="8"/>
+            <line stroke-width="3" stroke-linecap="round" stroke-miterlimit="10" x1="19" y1="19" x2="23" y2="23"/>
           </svg>
         </router-link>
       </li>
       <li id="power-play-btn">
         <router-link to="?overlay=vimeo">
-          <svg version="1.1" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 32 32">
-            <circle display="inline" stroke-width="4" stroke-miterlimit="10" cx="16" cy="16" r="14"/>
-            <polygon display="inline" stroke-width="4" stroke-miterlimit="10" points="16.4,16 15.6,16.5 15.6,15.5"/>
+          <svg version="1.1" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 25 25">
+            <circle stroke-width="3" stroke-miterlimit="10" cx="12.5" cy="12.5" r="10.5"/>
+            <polygon stroke-width="4" stroke-miterlimit="10" points="12.9,12.5 12.1,13 12.1,12"/>
           </svg>
         </router-link>
       </li>
       <li id="power-list-btn">
-        <router-link to="?mode=list">
-          <svg version="1.1" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 32 32">
-            <rect x="2" y="2" display="inline" stroke-width="4" stroke-linejoin="round" stroke-miterlimit="10" width="28" height="12"/>
-            <polyline display="inline" stroke-width="4" stroke-linejoin="round" stroke-miterlimit="10" points="28,17 28,22 4,22 4,17"/>
-            <polyline display="inline" stroke-width="4" stroke-linejoin="round" stroke-miterlimit="10" points="26,25 26,30 6,30 6,25"/>
-          </svg>
-        </router-link>
-      </li>
-      <li id="power-grid-btn" style="display: none">
-        <svg version="1.1" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 32 32">
-          <rect x="2" y="2" display="inline" stroke-width="4" stroke-linejoin="round" stroke-miterlimit="10" width="10" height="10"/>
-          <rect x="20" y="2" display="inline" stroke-width="4" stroke-linejoin="round" stroke-miterlimit="10" width="10" height="10"/>
-          <rect x="2" y="20" display="inline" stroke-width="4" stroke-linejoin="round" stroke-miterlimit="10" width="10" height="10"/>
-          <rect x="20" y="20" display="inline" stroke-width="4" stroke-linejoin="round" stroke-miterlimit="10" width="10" height="10"/>
-        </svg>
-      </li>
-      <li id="power-case-btn">
         <router-link to="?overlay=lightbox">
-          <svg version="1.1" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 32 32">
-            <rect x="2" y="8" stroke-width="4" stroke-linejoin="round" stroke-miterlimit="10" width="28" height="12"/>
-            <polyline stroke-width="4" stroke-linejoin="round" stroke-miterlimit="10" points="28,23 28,30 4,30 4,23"/>
-            <rect x="14" y="18" stroke-width="4" stroke-linejoin="round" stroke-miterlimit="10" width="4" height="4"/>
-            <polyline stroke-width="4" stroke-linejoin="round" stroke-miterlimit="10" points="6,8 11,2 21,2 26,8"/>
+          <svg version="1.1" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 25 25">
+            <polygon points="13,1 17,1 13,10 17,10 9,25 11,14 8,14 	"/>
+            <path d="M3.5,10c-1.1,0-2,0.9-2,2s0.9,2,2,2h1.8l1.5-4H3.5z"/>
+            <path d="M21.5,14c1.1,0,2-0.9,2-2s-0.9-2-2-2h-1.7l-2.1,4H21.5z"/>
+            <path d="M21.5,21c1.1,0,2-0.9,2-2s-0.9-2-2-2h-5.4L14,21H21.5z"/>
+            <path d="M3.5,17c-1.1,0-2,0.9-2,2s0.9,2,2,2h3.7l0.7-4H3.5z"/>
+            <path d="M3.5,3c-1.1,0-2,0.9-2,2s0.9,2,2,2H8l1.5-4H3.5z"/>
+            <path d="M21.5,7c1.1,0,2-0.9,2-2s-0.9-2-2-2h-2.7l-1.8,4H21.5z"/>
           </svg>
         </router-link>
+        <span id="power-list-count">3</span>
       </li>
     </ul>
   </div>
@@ -125,12 +112,11 @@ export default {
 +respond-to($tablet-landscape)
   #power-tools
     position: fixed
-    top: 50%
+    top: 25%
     right: span(2, 24)
     left: auto
     width: 0px
-    height: 320px
-    transform: translate3d(0%, -50%, 0)
+    height: 200px
     visibility: hidden
     display: none
 
@@ -144,19 +130,43 @@ export default {
       display: flex
       flex-direction: column
       justify-content: space-between
-      width: 40px
+      width: 35px
       height: 100%
       transform: translate3d(-50%, 0%, 0)
 
       li
-        width: 32px
-        height: 32px
-        padding: 4px
+        width: 25px
+        height: 25px
+        padding: 5px
         cursor: pointer
 
         svg
-          width: 32px
-          height: 32px
+          width: 25px
+          height: 25px
           fill: none
           stroke: $black
+
+      li#power-list-btn
+        position: relative
+
+        svg
+          fill: $black
+          stroke: none
+
+        #power-list-count
+          position: absolute
+          display: block
+          width: 16px
+          height: 16px
+          top: 0px
+          right: 0px
+          border-radius: 8px
+          background-color: $burn_out
+          color: $slight_white
+          font-size: 11px
+          line-height: 17px
+          font-weight: $bold
+          text-align: center
+          transform: translate(25%, -25%)
+
 </style>
