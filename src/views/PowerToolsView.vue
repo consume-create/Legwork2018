@@ -112,11 +112,12 @@ export default {
 +respond-to($tablet-landscape)
   #power-tools
     position: fixed
-    top: 25%
+    top: 50%
     right: span(2, 24)
     left: auto
     width: 0px
     height: 200px
+    margin-top: -100px
     visibility: hidden
     display: none
 
