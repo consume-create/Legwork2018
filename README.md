@@ -12,6 +12,11 @@ docker-compose up
 ## Under the hood
 We are using Server Side Rendering and prefetching all data to ensure speedy delivery of the site and content.
 
+## Branches
+- Day-to-day dev work should happen on the `dev` branch or a feature branch that is merged into dev.
+- The `staging` branch should be kept up to date with staging.
+- The `master` branch should be kept up to date with production.
+
 ## Structure
 - `app.vue` - The main App root
 - `views` - Holds all components that are only used once ( if it's on every page it goes here. )
@@ -24,7 +29,7 @@ We are using Server Side Rendering and prefetching all data to ensure speedy del
 - `api` - The API for the server and pre-rendering.
 
 ## Server Side
-For the SSR we have a JSON file that is cached in production coming from our CMS. On initial load after a deployment is run the server will cache the data from this JSON file and use to render pages serverside before the app initializes. 
+For the SSR we have a JSON file that is cached in production coming from our CMS. On initial load after a deployment is run the server will cache the data from this JSON file and use to render pages serverside before the app initializes.
 
 Our store and app state are already setup when the site renders and Vue takes over on the frontend. You can see more of this in the following areas:
 - `src/api/index.js`
@@ -58,17 +63,14 @@ To deploy you must have your ssh key added to the server otherwise you will be d
 ## Render Loop
 There is one primary renderer in the app. This acts as a central source of truth for memory leaks that may happen and also allows us to toggle which components are rendering when and where.
 
-To add a component to the renderer call: 
+To add a component to the renderer call:
 ```javascript
 this.$store.dispatch('ADD_COMPONENT_TO_RENDER_QUEUE', this);
 ```
 
-To remove a component from the renderer call: 
+To remove a component from the renderer call:
 ```javascript
 this.$store.dispatch('REMOVE_COMONENT_FROM_RENDER_QUEUE', this);
 ```
 
 Something to ensure that a component is out of the renderer is to always have the `beforeDestroy` call the `REMOVE_COMONENT_FROM_RENDER_QUEUE` dispatch.
-
-
-
