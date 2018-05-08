@@ -45,23 +45,23 @@ export default {
     | Handle scroll.
     ------------------------------------------ */
     onScroll() {
-      window.requestAnimationFrame(() => {
-        let offset = Math.floor(this._$footer.offset().top - this.scroll.offset);
-
-        if( offset < this._$footer.height() ){
-          this.percent = (offset / this._$footer.height()) * 100;
-        }
-        if( offset <= 0 ){
-          this.$store.dispatch("TRANSITION", 'footer');
-
-          let locked = true;
-          this.$store.dispatch('SET_WIN_SCROLL', {locked});
-
-          this.$router.push( '/' + this.$store.getters.nextPage );
-        }
-
-        this._$cover.css('transform', `translate(-${this.percent}%, 0)`);
-      });
+      // window.requestAnimationFrame(() => {
+      //   let offset = Math.floor(this._$footer.offset().top - this.scroll.offset);
+      //
+      //   if( offset < this._$footer.height() ){
+      //     this.percent = (offset / this._$footer.height()) * 100;
+      //   }
+      //   if( offset <= 0 ){
+      //     this.$store.dispatch("TRANSITION", 'footer');
+      //
+      //     let locked = true;
+      //     this.$store.dispatch('SET_WIN_SCROLL', {locked});
+      //
+      //     this.$router.push( '/' + this.$store.getters.nextPage );
+      //   }
+      //
+      //   this._$cover.css('transform', `translate(-${this.percent}%, 0)`);
+      // });
     }
   },
 
