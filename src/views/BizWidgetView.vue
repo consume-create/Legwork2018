@@ -70,6 +70,7 @@ export default {
   &.short
     visibility: visible
     transform: translate3d(66%, 0%, 0)
+    overflow: hidden
 
   &.wide
     visibility: visible
