@@ -18,7 +18,11 @@ export function createRouter () {
   const _router = new Router({
     mode: 'history',
     fallback: false,
-    scrollBehavior: () => ({ y: 0 })
+    scrollBehavior: (to, from, savedPostion) => {
+      // scroll to 0 on main route changes,
+      // not on querystring route changes
+      if(to.fullPath.indexOf('?') === -1 && from.fullPath.indexOf('?') === -1) return {y: 0};
+    }
   });
 
   // Based on environment special routes

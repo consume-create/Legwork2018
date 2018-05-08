@@ -25,12 +25,12 @@ export default {
           case 'search':
             kind = 'search';
             break;
-          case 'vimeo':
-            kind = 'vimeo';
+          case 'watch':
+            kind = 'watch';
             vimeoId = ''; // TODO
             break;
-          case 'lightbox':
-            kind = 'lightbox';
+          case 'powerlist':
+            kind = 'powerlist';
             break;
         }
       }

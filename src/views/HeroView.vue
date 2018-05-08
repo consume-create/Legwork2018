@@ -1,9 +1,6 @@
 <template>
   <div id="hero" v-bind:class="discipline + ' fill'">
-    <div id="hero-inner" v-if="typeof discipline !== 'undefined'">
-      <span id="big-test">{{ abbrev }}</span>
-      <span id="little-test">Hero {{ discipline }}</span>
-    </div>
+    <div id="hero-inner" v-if="typeof discipline !== 'undefined'"></div>
   </div>
 </template>
 
@@ -41,24 +38,22 @@ export default {
 @import "src/styles/global"
 
 #hero
-  +grid
-  position: relative
   width: 100%
   height: 100%
 
+  &.animation
+    #hero-inner
+      background-image: url(/images/hero-animation-test.png)
+
+  &.interactive
+    #hero-inner
+      background-image: url(/images/hero-interactive-test.png)
+
   #hero-inner
-    display: inline-block
-    position: absolute
-    top: 50%
-    left: 50%
-    transform: translate(-50%, -50%)
-
-    span
-      display: block
-
-    span#big-test
-      font: normal normal $heavy 120px/120px $base-font
-
-    span#little-test
-      font: normal normal $regular 14px/14px $base-font
+    +grid
+    width: 100%
+    height: 100%
+    background-position: 50% 50%
+    background-repeat: no-repeat
+    background-size: contain
 </style>
