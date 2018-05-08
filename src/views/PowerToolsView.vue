@@ -8,7 +8,6 @@
               <circle stroke-width="3" stroke-miterlimit="10" cx="10" cy="10" r="8"/>
               <line stroke-width="3" stroke-linecap="round" stroke-miterlimit="10" x1="19" y1="19" x2="23" y2="23"/>
             </svg>
-            <span>Search</span>
           </router-link>
         </li>
         <li id="power-play-btn">
@@ -17,7 +16,6 @@
               <circle stroke-width="3" stroke-miterlimit="10" cx="12.5" cy="12.5" r="10.5"/>
               <polygon stroke-width="4" stroke-miterlimit="10" points="12.9,12.5 12.1,13 12.1,12"/>
             </svg>
-            <span>View Reel</span>
           </router-link>
         </li>
         <li id="power-list-btn">
@@ -129,7 +127,7 @@ export default {
   top: 100%
   left: 0px
   width: 100%
-  height: 40px
+  height: 48px
   z-index: 100
 
   // NOTE: closes the gap between power tools
@@ -147,53 +145,53 @@ export default {
     background-color: $darkGray
 
     ul
+      display: flex
       grid-column: 3 / span 16
       grid-row: 1
-      display: flex
-      flex-direction: row
-      justify-content: space-between
       width: 100%
-      padding-top: 10px
+      padding-top: 14px
 
       li
         display: inline-block
+        width: 20px
+        height: 20px
+        margin-right: 24px
 
         a
-          display: inline-block
-          position: relative
           text-decoration: none
-          padding-left: 27px
+
+          svg
+            width: 20px
+            hieght: 20px
+            fill: none
+            stroke: $slight_white
+
+      li#power-list-btn
+        position: relative
+        width: auto
+        margin-right: 0px
+
+        a
+          padding: 0px 23px 0px 27px
 
           svg
             position: absolute
             top: 0px
             left: 0px
-            width: 20px
-            hieght: 20px
-            fill: none
-            stroke: $slight_white
+            fill: $slight_white
+            stroke: none
 
           span
             font-size: 14px
             line-height: 20px
             color: $slight_white
 
-      li#power-list-btn
-        position: relative
-
-        a
-          padding-right: 23px
-
-          svg
-            fill: $slight_white
-            stroke: none
-
         #power-list-count
           position: absolute
           display: block
           width: 16px
           height: 16px
-          top: 1px
+          top: 2px
           right: 0px
           border-radius: 8px
           background-color: $burn_out
