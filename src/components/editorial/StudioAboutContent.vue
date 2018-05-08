@@ -106,7 +106,8 @@ export default {
       margin-bottom: 0
 
     .studio-narrow-sticky
-      +respond-to($tablet-landscape)
+      .wide &
+        +respond-to($tablet-landscape)
         position: sticky
         top: 20px
 
