@@ -3,9 +3,6 @@
     <div id="studio-inner">
       <div class="studio-narrow-col">
         <div class="studio-narrow-sticky">
-          <router-link to="?slide=wide" v-if="slideClass === 'short'">Learn More &rarr;</router-link>
-          <router-link to="?slide=short" v-if="slideClass === 'wide'">&larr; Learn Less</router-link>
-
           <div class="studio-narrow-block">
             <h3>Locate</h3>
             <ul>
