@@ -79,6 +79,9 @@ export default {
       justify-content: space-between
       flex-wrap: wrap
 
+      .content-cell
+        overflow: hidden
+
 +respond-to($tablet-landscape)
   #content
     padding-top: span(2, 24)
@@ -86,5 +89,5 @@ export default {
     #content-inner
       grid-column: 3 / span 18
       padding-top: 0px
-      
+
 </style>
