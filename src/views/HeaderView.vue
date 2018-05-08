@@ -420,7 +420,6 @@ header
 
       #mobile-studio-wrap
         width: 100%
-        height: 3000px
         background-color: $white
 
   #header-bar
