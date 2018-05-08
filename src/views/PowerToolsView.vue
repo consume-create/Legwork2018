@@ -11,7 +11,7 @@
           </router-link>
         </li>
         <li id="power-play-btn">
-          <router-link to="?overlay=vimeo">
+          <router-link to="?overlay=watch">
             <svg version="1.1" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 25 25">
               <circle stroke-width="3" stroke-miterlimit="10" cx="12.5" cy="12.5" r="10.5"/>
               <polygon stroke-width="4" stroke-miterlimit="10" points="12.9,12.5 12.1,13 12.1,12"/>
@@ -19,7 +19,7 @@
           </router-link>
         </li>
         <li id="power-list-btn">
-          <router-link to="?overlay=lightbox">
+          <router-link to="?overlay=powerlist">
             <svg version="1.1" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 25 25">
               <polygon points="13,1 17,1 13,10 17,10 9,25 11,14 8,14 	"/>
               <path d="M3.5,10c-1.1,0-2,0.9-2,2s0.9,2,2,2h1.8l1.5-4H3.5z"/>
@@ -45,7 +45,7 @@
         </router-link>
       </li>
       <li id="power-play-btn">
-        <router-link to="?overlay=vimeo">
+        <router-link to="?overlay=watch">
           <svg version="1.1" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 25 25">
             <circle stroke-width="3" stroke-miterlimit="10" cx="12.5" cy="12.5" r="10.5"/>
             <polygon stroke-width="4" stroke-miterlimit="10" points="12.9,12.5 12.1,13 12.1,12"/>
@@ -53,7 +53,7 @@
         </router-link>
       </li>
       <li id="power-list-btn">
-        <router-link to="?overlay=lightbox">
+        <router-link to="?overlay=powerlist">
           <svg version="1.1" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 25 25">
             <polygon points="13,1 17,1 13,10 17,10 9,25 11,14 8,14 	"/>
             <path d="M3.5,10c-1.1,0-2,0.9-2,2s0.9,2,2,2h1.8l1.5-4H3.5z"/>
@@ -128,7 +128,7 @@ export default {
   left: 0px
   width: 100%
   height: 48px
-  z-index: 100
+  z-index: 80
 
   // NOTE: closes the gap between power tools
   // and the bottom of the header
