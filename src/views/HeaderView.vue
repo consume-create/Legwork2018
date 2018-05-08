@@ -422,12 +422,10 @@ header
     width: 100%
     height: 16px
     padding: 36px 0px
-    align-items: center
 
     #header-logo
       grid-column: 3
-      grid-row: 1
-      display: block
+      display: inline-block
       width: 107px
       height: 16px
 
@@ -437,7 +435,6 @@ header
 
     #bacon-double-che
       grid-column: 18
-      grid-row: 1
       justify-self: end
       position: relative
       width: 50px
