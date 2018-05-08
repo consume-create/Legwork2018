@@ -9,6 +9,7 @@
           </ul>
         </nav>
         <div id="mobile-studio-wrap">
+          <studio-about></studio-about>
         </div>
       </div>
       <div id="header-bar" :style="headerTranslate">
@@ -39,8 +40,14 @@
 </template>
 
 <script>
+import StudioAbout from 'components/editorial/StudioAboutContent.vue';
+
+
 export default {
   name: 'header-view',
+  components: {
+    StudioAbout
+  },
   computed: {
     scroll() {
       return this.$store.state.appScroll;
@@ -414,7 +421,7 @@ header
       #mobile-studio-wrap
         width: 100%
         height: 3000px
-        background-color: $black
+        background-color: $white
 
   #header-bar
     +grid
