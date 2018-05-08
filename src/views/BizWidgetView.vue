@@ -83,5 +83,4 @@ export default {
 
   .studio-about
     padding-top: 11em
-    height: 500%
 </style>
