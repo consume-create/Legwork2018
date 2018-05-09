@@ -60,6 +60,7 @@ export default {
   width: 100vw
   z-index: 1
   overflow: scroll
+  -webkit-overflow-scrolling: touch
 
   #case-study-content
     position: relative

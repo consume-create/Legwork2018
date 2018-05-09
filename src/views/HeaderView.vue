@@ -291,8 +291,6 @@ export default {
     onSectionOrThemeChange() {
       let theme = 'dark', menu = '', section = '';
 
-      console.log('close menu?');
-
       // studio
       if(typeof this.$route.query.slide !== 'undefined') {
         theme = 'dark';
@@ -421,6 +419,7 @@ header
       background-color: $white
       visibility: hidden
       overflow: scroll
+      -webkit-overflow-scrolling: touch
 
       #mobile-nav
         position: relative
