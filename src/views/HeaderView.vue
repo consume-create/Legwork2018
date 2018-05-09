@@ -131,6 +131,16 @@ export default {
     ------------------------------------------
     | $route.query.slide:void
     |
+    | Watch the main route for theme / section.
+    ------------------------------------------ */
+    '$route.params.discipline': {
+      handler: 'onSectionOrThemeChange'
+    },
+
+    /*
+    ------------------------------------------
+    | $route.query.slide:void
+    |
     | Watch the biz widget for theme / section.
     ------------------------------------------ */
     '$route.query.slide': {
@@ -247,17 +257,29 @@ export default {
     | Handle burger click.
     ------------------------------------------ */
     onBurgerClick(e) {
-      // TODO: case study close
-      // TODO: overlay close
+      let url = '';
 
-      // menu
-      let menu = this.$store.state.header.menu === 'open' ? '' : 'open';
+      switch(this.$store.getters.whereTheHellAreWe) {
+        case 'animation-project':
+        case 'interactive-project':
+        case 'animation-overlay':
+        case 'interactive-overlay':
+          url = `/${this.$route.params.discipline}`;
+          break;
+      }
 
-      // set it
-      this.$store.dispatch('SET_HEADER', {
-        settings: {menu},
-        delay: 0
-      });
+      if(url !== '') {
+        this.$router.push(url);
+      } else {
+        // menu
+        let menu = this.$store.state.header.menu === 'open' ? '' : 'open';
+
+        // set it
+        this.$store.dispatch('SET_HEADER', {
+          settings: {menu},
+          delay: 0
+        });
+      }
     },
 
     /*
@@ -267,7 +289,9 @@ export default {
     | Handle section or theme change.
     ------------------------------------------ */
     onSectionOrThemeChange() {
-      let theme = 'dark', section = '';
+      let theme = 'dark', menu = '', section = '';
+
+      console.log('close menu?');
 
       // studio
       if(typeof this.$route.query.slide !== 'undefined') {
@@ -289,7 +313,7 @@ export default {
 
       // set it
       this.$store.dispatch('SET_HEADER', {
-        settings: {theme, section},
+        settings: {theme, menu, section},
         delay: 0
       });
     }
