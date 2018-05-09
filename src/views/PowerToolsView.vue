@@ -87,7 +87,7 @@ export default {
       return this.breakpoint === 'mobile' && this.scroll.win.offset >= this.$store.state.appSize.height - (this.$store.state.header.transform + this.$store.state.header.height) ? 'attached' : '';
     },
     mode() {
-      return this.breakpoint === 'tablet-up' && this.$store.state.header.mode === 'minimized' ? 'shown' : '';
+      return this.breakpoint === 'tablet-up' && this.$store.state.header.mode !== 'minimized' ? '' : 'shown';
     },
     translate() {
       return this.breakpoint === 'mobile' && this.pos === 'attached' ? `transform: translate3d(0px, ${this.$store.state.header.transform + this.$store.state.header.height}px, 0)` : '';
@@ -129,10 +129,14 @@ export default {
   width: 100%
   height: 48px
   z-index: 80
+  visibility: hidden
+  display: none
 
-  // NOTE: closes the gap between power tools
-  // and the bottom of the header
-  //margin-top: -1px
+  &.enabled
+    display: block
+
+  &.shown
+    visibility: visible
 
   &.attached
     position: fixed
@@ -210,14 +214,6 @@ export default {
     width: 0px
     height: 200px
     margin-top: -100px
-    visibility: hidden
-    display: none
-
-    &.enabled
-      display: block
-
-    &.shown
-      visibility: visible
 
     ul
       display: flex

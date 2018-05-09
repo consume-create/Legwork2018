@@ -8,9 +8,6 @@
 export default {
   name: 'hero-view',
   computed: {
-    abbrev() {
-      return _.startCase(this.$route.params.discipline.slice(0, 2));
-    },
     discipline () {
       return this.$route.params.discipline;
     }
@@ -19,11 +16,11 @@ export default {
     '$route.params.discipline': function(){
       let _origin = this.$store.getters.transitionOrigin;
       switch( _origin ){
-        case "footer":
+        case 'footer':
           setTimeout( () => {
             let locked = false;
-            this.$store.dispatch('SET_WIN_SCROLL', {locked})
-          },1500)
+            this.$store.dispatch('SET_WIN_SCROLL', {locked});
+          }, 666)
         break;
       }
     }

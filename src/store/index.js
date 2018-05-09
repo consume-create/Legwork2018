@@ -19,6 +19,9 @@ export function createStore () {
         studio: {
           offset: 0
         },
+        overlay: {
+          offset: 0
+        },
         project: {
           offset: 0
         }

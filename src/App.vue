@@ -257,6 +257,7 @@ export default {
       // overlay
       if(typeof this.$route.query.overlay !== 'undefined') {
         locked = true;
+        activeScroll = 'overlay';
       }
 
       // set it

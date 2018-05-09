@@ -1,5 +1,5 @@
 <template>
-  <div id="overlay" :class="[shown, kind]">
+  <div id="overlay" :class="[shown, kind]" @scroll="onOverlayScroll">
   </div>
 </template>
 
@@ -40,7 +40,22 @@ export default {
         delay: 0
       });
     }
-  }
+  },
+  methods: {
+    /*
+    ------------------------------------------
+    | onOverlayScroll:void
+    |
+    | e:object - event object
+    |
+    | Handle overlay scroll.
+    ------------------------------------------ */
+    onOverlayScroll(e) {
+      // set overlay scroll in the store
+      let offset = e.srcElement.scrollTop;
+      this.$store.dispatch('SET_OVERLAY_SCROLL', {offset});
+    }
+  },
 };
 </script>
 
