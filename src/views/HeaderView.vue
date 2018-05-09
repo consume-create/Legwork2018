@@ -31,7 +31,7 @@
           <ul>
             <li><router-link to="/animation">Animation</router-link></li>
             <li><router-link to="/interactive">Interactive</router-link></li>
-            <li><router-link :to="utilBtnUrl">{{ utilBtnLabel }}</router-link></li>
+            <li><router-link :to="utilBtnUrl"></router-link></li>
           </ul>
         </nav>
       </div>
@@ -397,6 +397,18 @@ header
       #mobile-menu
         visibility: visible
 
+  &.open, &.project, &.overlay
+    #header-bar
+      #bacon-double-che
+        transform: translate3d(6px, 0px, 0) rotate(45deg)
+
+        #burg-meat
+          &:before
+            transform: translate3d(0px, 0px, 0) rotate(90deg)
+
+          &:after
+            visibility: hidden
+
   #header-inner
     height: 100%
 
@@ -527,6 +539,10 @@ header
             li:last-child
               visibility: visible
 
+              a
+                &:after
+                  content: "Close"
+
     #header-bar
       position: relative
       height: 24px
@@ -579,6 +595,10 @@ header
               text-align: center
               color: $white
               transform: translate(0%, -50%)
+
+              &:after
+                content: "Studio"
+                display: inline
 
               &.router-link-exact-active
                 color: $white
