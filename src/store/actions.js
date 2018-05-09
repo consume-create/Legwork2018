@@ -54,9 +54,19 @@ export default {
 
   /*
   ------------------------------------------
+  | SET_OVERLAY_SCROLL:void
+  |
+  | Sets overlay scroll.
+  ------------------------------------------ */
+  SET_OVERLAY_SCROLL: ({ commit }, obj) => {
+    commit('OVERLAY_SCROLL', obj);
+  },
+
+  /*
+  ------------------------------------------
   | SET_PROJECT_SCROLL:void
   |
-  | Sets project.
+  | Sets project scroll.
   ------------------------------------------ */
   SET_PROJECT_SCROLL: ({ commit }, obj) => {
     commit('PROJECT_SCROLL', obj);

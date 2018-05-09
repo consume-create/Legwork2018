@@ -8,6 +8,9 @@ export default {
   STUDIO_SCROLL: (state, obj) => {
     Object.assign(state.appScroll.studio, obj);
   },
+  OVERLAY_SCROLL: (state, obj) => {
+    Object.assign(state.appScroll.overlay, obj);
+  },
   PROJECT_SCROLL: (state, obj) => {
     Object.assign(state.appScroll.project, obj);
   },
