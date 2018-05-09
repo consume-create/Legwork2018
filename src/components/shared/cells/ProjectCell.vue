@@ -83,9 +83,9 @@ export default {
     | translateCell:void (-)
     ------------------------------------------ */
     translateCell() {
-      $(this.$el).css({
-        'transform': 'translate3d(0, '+this.y+'px, 0)'
-      });
+      // $(this.$el).css({
+      //   'transform': 'translate3d(0, '+this.y+'px, 0)'
+      // });
     }
   }
 }

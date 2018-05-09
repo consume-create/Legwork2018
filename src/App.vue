@@ -80,6 +80,8 @@ export default {
   ------------------------------------------ */
   beforeMount() {
     this._$wn = $(window);
+    this._$doc = $(document);
+    this._$html = $('body');
     this._$body = $('body');
 
     // initial scroll settings
@@ -165,8 +167,16 @@ export default {
     | Watch scroll lock and set body class.
     ------------------------------------------ */
     scrollLock() {
-      if(this.$store.state.appScroll.win.locked) this._$body.addClass('locked');
-      else this._$body.removeClass('locked');
+      if(this.$store.state.appScroll.win.locked) {
+        this._$body.addClass('locked');
+        this._$body.off('touchmove').on('touchmove', (e) => {
+          e.preventDefault();
+          console.log('fuck!');
+        });
+      } else {
+        this._$body.removeClass('locked');
+        this._$body.off('touchmove');
+      }
     }
   },
 
