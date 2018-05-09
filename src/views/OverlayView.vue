@@ -55,7 +55,7 @@ export default {
       let offset = e.srcElement.scrollTop;
       this.$store.dispatch('SET_OVERLAY_SCROLL', {offset});
     }
-  },
+  }
 };
 </script>
 
