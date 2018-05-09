@@ -50,7 +50,7 @@
 
         <div class="studio-wide-block">
           <h3>Animation</h3>
-          <div class="block-sub-serivces">
+          <div class="block-sub-services">
             <ul>
               <li>2D</li>
               <li>3D / CG</li>
@@ -112,7 +112,7 @@ export default {
         top: 20px
 
       .studio-narrow-block
-        margin-bottom: 54px
+        margin-bottom: 50px
         font-size: 12px
         line-height: 22px
 
@@ -121,7 +121,7 @@ export default {
 
         h3
           font-size: 18px
-          margin-bottom: 6px
+          margin-bottom: 15px
 
         .social-icon
           display: inline-block
@@ -151,7 +151,7 @@ export default {
           font-size: 45px
           line-height: 36px
 
-      .block-sub-serivces
+      .block-sub-services
         grid-column: 1 / span 12
         margin-bottom: 24px
         +respond-to($tablet-landscape)
@@ -161,6 +161,8 @@ export default {
       .block-sub-copy
         grid-column: 1 / span 12
         +respond-to($tablet-landscape)
+          grid-column: 3 / span 8
+        +respond-to($average-desktop)
           grid-column: 3 / span 6
 
 
@@ -171,6 +173,7 @@ export default {
         +respond-to($tablet-landscape)
           font-size: 45px
           line-height: 80px
+          margin-top: -20px
 
       .studio-img
         background: #ddd
@@ -193,5 +196,7 @@ export default {
 
       .block-sub-copy
         +respond-to($tablet-landscape)
+          grid-column: 6 / span 8
+        +respond-to($average-desktop)
           grid-column: 6 / span 6
 </style>
