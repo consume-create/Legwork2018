@@ -62,7 +62,8 @@ export default {
   left: 0px
   width: 100%
   height: 100%
-  background-color: #ccc
+  background-color: $color-bg-body
+  color: $color-text
   transform: translate3d(100%, 0%, 0)
   visibility: hidden
   overflow: scroll
