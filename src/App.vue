@@ -13,6 +13,7 @@
 </template>
 
 <script>
+import { disableBodyScroll, enableBodyScroll, clearAllBodyScrollLocks } from 'body-scroll-lock';
 import HeaderView from './views/HeaderView.vue';
 import ContentView from './views/ContentView.vue';
 import HeroView from './views/HeroView.vue';
@@ -168,14 +169,23 @@ export default {
     ------------------------------------------ */
     scrollLock() {
       if(this.$store.state.appScroll.win.locked) {
-        this._$body.addClass('locked');
-        this._$body.off('touchmove').on('touchmove', (e) => {
-          e.preventDefault();
-          console.log('fuck!');
-        });
+        let container;
+
+        switch(this.$store.state.activeScroll) {
+          case 'overlay':
+            container = document.getElementById('overlay');
+            break;
+          case 'menu':
+            container = document.getElementById('mobile-menu');
+            break;
+          case 'project':
+            container = document.getElementById('case-study');
+            break;
+        }
+
+        disableBodyScroll(container);
       } else {
-        this._$body.removeClass('locked');
-        this._$body.off('touchmove');
+        clearAllBodyScrollLocks();
       }
     }
   },
