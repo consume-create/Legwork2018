@@ -81,7 +81,7 @@ export default {
       return this.$store.state.appSize.breakpoint;
     },
     active() {
-      return (/^(animation|interactive|experiential)$/i).test(this.$store.getters.whereTheHellAreWe) ? 'enabled' : 'disabled';
+      return (/^(animation|interactive)$/i).test(this.$store.getters.whereTheHellAreWe) && this.$store.state.header.menu !== 'open' ? 'enabled' : 'disabled';
     },
     pos() {
       return this.breakpoint === 'mobile' && this.scroll.win.offset >= this.$store.state.appSize.height - (this.$store.state.header.transform + this.$store.state.header.height) ? 'attached' : '';
@@ -128,7 +128,7 @@ export default {
   left: 0px
   width: 100%
   height: 48px
-  z-index: 80
+  z-index: 100
   visibility: hidden
   display: none
 
