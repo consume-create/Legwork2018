@@ -62,7 +62,7 @@ export default {
   left: 0px
   width: 100%
   height: 100%
-  background-color: $color-bg-body
+  background-color: $tender-belly
   color: $color-text
   transform: translate3d(100%, 0%, 0)
   visibility: hidden

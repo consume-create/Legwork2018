@@ -1,6 +1,6 @@
 <template>
-  <div id="hero" v-bind:class="discipline + ' fill'">
-    <div id="hero-inner" v-if="typeof discipline !== 'undefined'"></div>
+  <div id="hero">
+    <div id="hero-inner"></div>
   </div>
 </template>
 
@@ -8,8 +8,11 @@
 export default {
   name: 'hero-view',
   computed: {
-    discipline () {
-      return this.$route.params.discipline;
+    zone () {
+      let p = this.$route.path.split('/')[1],
+          zone = p === '' ? 'home' : p;
+
+      return zone;
     }
   },
   watch: {
@@ -38,13 +41,23 @@ export default {
   width: 100%
   height: 100%
 
-  &.animation
+  .home &
+    background-color: $crunchy-mustard
+
+  .animation &
+    background-color: $grandpas-office
+
     #hero-inner
       background-image: url(/images/hero-animation-test.png)
 
-  &.interactive
+  .interactive &
+    background-color: $grandpas-office
+
     #hero-inner
       background-image: url(/images/hero-interactive-test.png)
+
+  .search &
+    background-color: $grandpas-office
 
   #hero-inner
     +grid
