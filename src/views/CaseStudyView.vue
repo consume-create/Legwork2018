@@ -55,7 +55,7 @@ export default {
   top: 0px
   left: 0px
   background:
-    color: $color-bg-body
+    color: $grandpas-office
   height: 100vh
   width: 100vw
   z-index: 1

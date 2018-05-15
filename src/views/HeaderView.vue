@@ -299,7 +299,7 @@ export default {
 
       // project
       if(typeof this.$route.params.project !== 'undefined') {
-        theme = 'light';
+        theme = 'dark';
         section = 'project';
       }
 
@@ -407,6 +407,15 @@ header
           &:after
             visibility: hidden
 
+  &.minimized, &.open, &.overlay
+    #header-bar
+      #bacon-double-che
+        #burg-meat
+          background-color: $white !important
+
+          &:before
+            background-color: $white !important
+
   #header-inner
     height: 100%
 
@@ -507,7 +516,14 @@ header
         left: 19px
         width: 12px
         height: 2px
-        background-color: $white
+        background-color: $grandpas-office
+
+        .home &
+          background-color: $crunchy-mustard
+
+          &:before,
+          &:after
+            background-color: $crunchy-mustard
 
         &:before,
         &:after
@@ -516,7 +532,7 @@ header
           top: 0px
           left: 0px
           height: 2px
-          background-color: $white
+          background-color: $grandpas-office
 
         &:before
           width: 12px
@@ -541,6 +557,20 @@ header
               a
                 &:after
                   content: "Close"
+
+    &.studio
+      #header-bar
+        #header-nav
+          li:last-child
+            a
+              color: $tender-belly !important
+
+    &.minimized
+      #header-bar
+        #header-nav
+          li:last-child
+            a
+              color: $white !important
 
     #header-bar
       position: relative
@@ -572,11 +602,12 @@ header
             a
               position: relative
               font: normal normal $bold 18px/18px $base-font
-              color: $gray
+              color: $black
               text-decoration: none
+              opacity: 0.6
 
               &.router-link-exact-active
-                color: $black
+                opacity: 1
 
           li:last-child
             position: relative
@@ -591,9 +622,13 @@ header
               padding: 12px 0px
               border-radius: 25px
               background-color: $black
+              color: $grandpas-office
               text-align: center
-              color: $white
               transform: translate(0%, -50%)
+              opacity: 1
+
+              .home &
+                color: $crunchy-mustard
 
               &:after
                 content: "Studio"

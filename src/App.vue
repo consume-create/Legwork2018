@@ -1,9 +1,9 @@
 <template>
-  <div id="app">
+  <div id="app" v-bind:class="zone">
     <header-view></header-view>
     <hero-view></hero-view>
     <content-view></content-view>
-    <router-view v-if="environment == 'development'"></router-view>
+    <router-view v-if="environment === 'development'"></router-view>
     <footer-view></footer-view>
     <biz-widget-view></biz-widget-view>
     <power-tools-view></power-tools-view>
@@ -70,6 +70,12 @@ export default {
     },
     menu() {
       return this.$store.state.header.menu;
+    },
+    zone () {
+      let p = this.$route.path.split('/')[1],
+          zone = p === '' ? 'home' : p;
+
+      return zone;
     }
   },
 
@@ -305,7 +311,7 @@ html, body
   height: 100%
 
 body
-  background-color: $color-bg-body
+  background-color: $grandpas-office
   color: $color-text
   font-family: $base-font
   -webkit-font-smoothing: antialiased
