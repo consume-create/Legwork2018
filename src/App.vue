@@ -87,9 +87,10 @@ export default {
   ------------------------------------------ */
   beforeMount() {
     this._$wn = $(window);
-    this._$doc = $(document);
-    this._$html = $('body');
     this._$body = $('body');
+
+    // TODO: is this test good enough?
+    this._ios = /iPad|iPhone|iPod/.test(navigator.userAgent) && !window.MSStream;
 
     // initial scroll settings
     // TODO: could be done on ssrInit
@@ -189,9 +190,11 @@ export default {
             break;
         }
 
-        disableBodyScroll(container);
+        if(this._ios === true) disableBodyScroll(container);
+        else this._$body.addClass('locked');
       } else {
-        clearAllBodyScrollLocks();
+        if(this._ios === true) clearAllBodyScrollLocks();
+        else this._$body.removeClass('locked');
       }
     }
   },
