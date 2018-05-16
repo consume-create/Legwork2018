@@ -19,9 +19,9 @@ export function createRouter () {
     mode: 'history',
     fallback: false,
     scrollBehavior: (to, from, savedPostion) => {
-      // scroll to 0 on main route changes,
-      // not on querystring route changes
-      if(to.fullPath.indexOf('?') === -1 && from.fullPath.indexOf('?') === -1) return {y: 0};
+      if((to.fullPath.indexOf('?') === -1 && from.fullPath.indexOf('?') === -1)) return {x: 0, y: 0};
+      else if (savedPostion !== null) return savedPostion;
+      else return false;
     }
   });
 

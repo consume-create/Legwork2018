@@ -71,7 +71,7 @@ export default {
       return `transform: translate3d(0px, ${this.$store.state.header.transform}px, 0)`;
     },
     utilBtnUrl() {
-      let url = '?slide=short';
+      let url = '?slide=wide';
 
       switch(this.$store.getters.whereTheHellAreWe) {
         case 'home-studio':
@@ -190,7 +190,6 @@ export default {
     | Handle scroll.
     ------------------------------------------ */
     onScroll() {
-      // TODO: detect event target for other scroll containers
       let mode = '',
           y = Math.max(this.scroll[this.$store.state.activeScroll].offset, 0),
           direction = y < this._last_scroll ? 'up' : 'down',
@@ -238,7 +237,6 @@ export default {
         delay: 0
       });
 
-      // TODO: will have to be per target
       this._last_scroll = y;
       this._last_direction = direction;
       this._last_t = transform;
@@ -352,8 +350,14 @@ export default {
 
     // project
     if(typeof route.params.project !== 'undefined') {
-      theme = 'light';
+      theme = 'dark';
       section = 'project';
+    }
+
+    // overlay
+    if(typeof route.query.overlay !== 'undefined') {
+      theme = 'light';
+      section = 'overlay';
     }
 
     // set it
@@ -375,18 +379,22 @@ header
   width: 100%
   z-index: 100
 
+  .state-change
+    #header-bar
+      transition: transform $fast $evil-ease
+
   &.minimized
     #header-bar
-      background-color: $white
+      &:after
+        transition: opacity $time-travel linear, visibility 0ms linear 0ms
+        visibility: visible
+        opacity: 1
 
   &.light
     #header-bar
       #header-logo
-        fill: $white
-
-  &.light.minimized
-    #header-bar
-      background-color: $black
+        svg
+          fill: $white
 
   &.open
     height: 100%
@@ -413,8 +421,15 @@ header
         #burg-meat
           background-color: $white !important
 
-          &:before
+          &:before,
+          &:after
             background-color: $white !important
+
+  &.overlay
+    #header-bar
+      &:after
+        transition: opacity $time-travel linear, visibility 0ms linear 0ms
+        visibility: hidden
 
   #header-inner
     height: 100%
@@ -472,6 +487,20 @@ header
     width: 100%
     height: 16px
     padding: 36px 0px
+    transform: translate3d(0px, 0px, 0)
+
+    &:after
+      content: ""
+      position: absolute
+      top: 0px
+      right: 0px
+      bottom: 0px
+      left: 0px
+      background-color: $white
+      z-index: -1
+      opacity: 0
+      visibility: hidden
+      transition: opacity $time-travel linear, visibility 0ms linear $time-travel
 
     #header-logo
       grid-column: 3
@@ -482,6 +511,7 @@ header
       svg
         width: 100%
         height: 100%
+        transition: fill $fast linear
 
     #bacon-double-che
       grid-column: 18
