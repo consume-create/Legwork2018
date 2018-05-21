@@ -28,6 +28,12 @@ We are using Server Side Rendering and prefetching all data to ensure speedy del
 - `components` - These are sub components and are reused in multiple primary views.
 - `api` - The API for the server and pre-rendering.
 
+## Adding an NPM Module
+- Add the module to `package.json`
+- Take docker down `crtl+c` and `docker-compose down`
+- Run `docker-compose build builder`
+- Run `docker-compose up`
+
 ## Server Side
 For the SSR we have a JSON file that is cached in production coming from our CMS. On initial load after a deployment is run the server will cache the data from this JSON file and use to render pages serverside before the app initializes.
 
