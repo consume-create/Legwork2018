@@ -40,7 +40,8 @@ export function createStore () {
         mode: '',
         theme: 'dark',
         menu: '',
-        section: ''
+        section: '',
+        transformMode: ''
       },
       bizPosition: '',
       overlay: {

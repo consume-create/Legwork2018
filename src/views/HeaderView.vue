@@ -1,5 +1,5 @@
 <template>
-  <header :class="[mode, theme, menu, section]">
+  <header :class="[mode, theme, menu, section, transformMode]">
     <div id="header-inner">
       <div id="mobile-menu" v-if="size.breakpoint === 'mobile'" @scroll="onMobileMenuScroll">
         <nav id="mobile-nav">
@@ -66,6 +66,9 @@ export default {
     },
     section() {
       return this.$store.state.header.section;
+    },
+    transformMode() {
+      return this.$store.state.header.transformMode;
     },
     headerTranslate() {
       return `transform: translate3d(0px, ${this.$store.state.header.transform}px, 0)`;
@@ -287,7 +290,7 @@ export default {
     | Handle section or theme change.
     ------------------------------------------ */
     onSectionOrThemeChange() {
-      let theme = 'dark', menu = '', section = '';
+      let theme = 'dark', menu = '', section = '', transformMode = 'transform-fast';
 
       // studio
       if(typeof this.$route.query.slide !== 'undefined') {
@@ -307,9 +310,20 @@ export default {
         section = 'overlay';
       }
 
+      // transformMode
+      clearTimeout(this._transform_to);
+      this._transform_to = setTimeout(() => {
+        let transformMode = '';
+
+        this.$store.dispatch('SET_HEADER', {
+          settings: {transformMode},
+          delay: 0
+        });
+      }, 333);
+
       // set it
       this.$store.dispatch('SET_HEADER', {
-        settings: {theme, menu, section},
+        settings: {theme, menu, section, transformMode},
         delay: 0
       });
     }
@@ -331,6 +345,7 @@ export default {
     this._last_direction = 'up';
     this._direction_change_y = 0;
     this._last_t = 0;
+    this._transform_to = 0;
   },
 
   /*
@@ -379,9 +394,13 @@ header
   width: 100%
   z-index: 100
 
-  .state-change
+  &.transform-fast
     #header-bar
-      transition: transform $fast $evil-ease
+      transition: transform 333ms $evil-ease
+
+  &.transform-evil
+    #header-bar
+      transition: transform 666ms $evil-ease
 
   &.minimized
     #header-bar

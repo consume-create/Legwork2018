@@ -1,9 +1,5 @@
 <template>
   <div id="biz-widget" :class="slideClass" @scroll="onBizWidgetScroll">
-    <div class="biz-widget-toggle">
-      <router-link to="?slide=wide" v-if="slideClass === 'short'">Learn More &rarr;</router-link>
-      <router-link to="?slide=short" v-if="slideClass === 'wide'">&larr; Learn Less</router-link>
-    </div>
     <studio-about></studio-about>
   </div>
 </template>
@@ -68,20 +64,9 @@ export default {
   visibility: hidden
   overflow: scroll
 
-  &.short
-    visibility: visible
-    transform: translate3d(66%, 0%, 0)
-    overflow: hidden
-
   &.wide
     visibility: visible
     transform: translate3d(0%, 0%, 0)
-
-  .biz-widget-toggle
-    position: absolute
-    top: 8em
-    left: 2em
-    z-index: 10
 
   .studio-about
     padding-top: 11em
