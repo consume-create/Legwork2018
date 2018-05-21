@@ -294,7 +294,7 @@ export default {
 
       // studio
       if(typeof this.$route.query.slide !== 'undefined') {
-        theme = 'dark';
+        theme = 'light';
         section = 'studio';
       }
 
@@ -359,7 +359,7 @@ export default {
 
     // studio
     if(typeof route.query.slide !== 'undefined') {
-      theme = 'dark';
+      theme = 'light';
       section = 'studio';
     }
 
@@ -411,6 +411,8 @@ header
 
   &.light
     #header-bar
+      &:after
+        background: $darkerGray
       #header-logo
         svg
           fill: $white
@@ -607,19 +609,27 @@ header
                 &:after
                   content: "Close"
 
-    &.studio
-      #header-bar
-        #header-nav
-          li:last-child
-            a
-              color: $tender-belly !important
-
     &.minimized
       #header-bar
         #header-nav
           li:last-child
             a
-              color: $white !important
+              color: $white
+
+    &.studio
+      #header-bar
+        #header-nav
+          li:last-child
+            a
+              color: $black
+              background: $white
+        .minimized &
+          #header-nav
+            li:last-child
+              a
+                color: $white
+                background: $black
+
 
     #header-bar
       position: relative

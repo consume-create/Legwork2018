@@ -77,7 +77,7 @@
       </div>
     </section>
 
-     <section>
+    <section>
       <div class="sg-seciton-header"><span>03</span> Image Treatment</div>
       <div class="sg-section-body">
         <div class="sg-sub">Images</div>
