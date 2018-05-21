@@ -129,14 +129,10 @@ export default {
   width: 100%
   height: 48px
   z-index: 100
-  visibility: hidden
   display: none
 
   &.enabled
     display: block
-
-  &.shown
-    visibility: visible
 
   &.attached
     position: fixed
@@ -215,6 +211,22 @@ export default {
     height: 200px
     margin-top: -100px
 
+    &.shown
+      ul
+        li
+          visibility: visible
+          opacity: 1
+          transform: translate3d(0px, 0px, 0)
+
+          &:nth-child(1)
+            transition: visibility 0ms linear 0ms, opacity 366ms $evil-ease, transform $fast $evil-ease
+
+          &:nth-child(2)
+            transition: visibility 0ms linear 0ms, opacity 366ms $evil-ease 100ms, transform $fast $evil-ease 100ms
+
+          &:nth-child(3)
+            transition: visibility 0ms linear 0ms, opacity 366ms $evil-ease 200ms, transform $fast $evil-ease 200ms
+
     ul
       display: flex
       flex-direction: column
@@ -228,6 +240,18 @@ export default {
         height: 25px
         padding: 5px
         cursor: pointer
+        visibility: hidden
+        opacity: 0
+        transform: translate3d(36px, 0px, 0px)
+
+        &:nth-child(1)
+          transition: visibility 0ms linear $fast + 200ms, opacity 300ms $evil-ease 200ms, transform $fast $evil-ease 200ms
+
+        &:nth-child(2)
+          transition: visibility 0ms linear $fast + 100ms, opacity 300ms $evil-ease 100ms, transform $fast $evil-ease 100ms
+
+        &:nth-child(3)
+          transition: visibility 0ms linear $fast, opacity 300ms $evil-ease, transform $fast $evil-ease
 
         svg
           width: 25px
