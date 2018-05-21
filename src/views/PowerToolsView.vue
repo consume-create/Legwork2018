@@ -74,13 +74,11 @@
 export default {
   name: 'power-tools-view',
   computed: {
-    scroll() {
-      return this.$store.state.appScroll;
-    },
     breakpoint() {
       return this.$store.state.appSize.breakpoint;
     },
     active() {
+      // TODO: transition?
       return (/^(animation|interactive)$/i).test(this.$store.getters.whereTheHellAreWe) && this.$store.state.header.menu !== 'open' ? 'enabled' : 'disabled';
     },
     pos() {
@@ -91,29 +89,6 @@ export default {
     },
     translate() {
       return this.breakpoint === 'mobile' && this.pos === 'attached' ? `transform: translate3d(0px, ${this.$store.state.header.transform + this.$store.state.header.height}px, 0)` : '';
-    }
-  },
-  watch: {
-    /*
-    ------------------------------------------
-    | scroll:void
-    |
-    | Watch scroll.
-    ------------------------------------------ */
-    scroll: {
-      handler: 'onScroll',
-      deep: true
-    }
-  },
-  methods: {
-    /*
-    ------------------------------------------
-    | onScroll:void
-    |
-    | Handle scroll.
-    ------------------------------------------ */
-    onScroll() {
-      // TODO: theme
     }
   }
 };
