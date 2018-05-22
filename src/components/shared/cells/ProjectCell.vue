@@ -1,9 +1,6 @@
 <template>
   <div class='content-cell project' data-type='project' :data-primary='project.project_primary_color' :data-secondary='project.project_secondary_color'>
     <div class='project-background' :style="{ 'background-image': 'url(' + project.hero_image.url + ')' }"></div>
-    <router-link :to="project.path" >
-      <span @click="onProjectClick"></span>
-    </router-link>
 
     <!-- Project Info -->
     <div class='project-info'>
@@ -14,6 +11,10 @@
       </div>
     </div>
     <!-- / Project Info -->
+
+    <router-link :to="project.path" >
+      <span @click="onProjectClick"></span>
+    </router-link>
   </div>
 </template>
 
@@ -94,10 +95,6 @@ export default {
 <style lang='sass' scoped>
 @import "src/styles/global"
 @import "src/styles/content-cell"
-
-.project
-  z-index: 1
-
 .project-background
   position: absolute
   height: 100%
@@ -113,7 +110,6 @@ span
   left: 0px
   height: 100%
   width: 100%
-  z-index: 1
 
 .project-info
   position: absolute
@@ -121,7 +117,6 @@ span
   left: 0px
   height: 100%
   width: 100%
-  z-index: 0
 
   .project-background
     opacity: .85

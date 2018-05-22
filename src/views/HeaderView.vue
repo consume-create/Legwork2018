@@ -412,7 +412,8 @@ header
   &.light
     #header-bar
       &:after
-        background: $darkerGray
+        background: $black
+
       #header-logo
         svg
           fill: $white
@@ -606,30 +607,25 @@ header
               visibility: visible
 
               a
+                animation: util-btn-close 400ms steps(7) normal forwards
+
                 &:after
-                  content: "Close"
+                  content: " "
+                  white-space: pre
 
     &.minimized
       #header-bar
         #header-nav
           li:last-child
             a
-              color: $white
+              color: $white !important
 
-    &.studio
+    &.light
       #header-bar
         #header-nav
           li:last-child
             a
-              color: $black
-              background: $white
-        .minimized &
-          #header-nav
-            li:last-child
-              a
-                color: $white
-                background: $black
-
+              color: $black !important
 
     #header-bar
       position: relative
@@ -679,12 +675,14 @@ header
               top: 50%
               width: 100%
               padding: 12px 0px
-              border-radius: 25px
-              background-color: $black
               color: $grandpas-office
               text-align: center
               transform: translate(0%, -50%)
               opacity: 1
+              background-image: url(/images/shitty-test.png)
+              background-repeat: no-repeat
+              background-size: 100px 336px
+              animation: util-btn-normal 400ms steps(7) normal forwards
 
               .home &
                 color: $crunchy-mustard
@@ -695,4 +693,17 @@ header
 
               &.router-link-exact-active
                 color: $white
+
+@keyframes util-btn-normal
+  0%
+    background-position: 0px -294px
+  100%
+    background-position: 0px 0px
+
+@keyframes util-btn-close
+  0%
+    background-position: 0px 0px
+  100%
+    background-position: 0px -294px
+
 </style>
