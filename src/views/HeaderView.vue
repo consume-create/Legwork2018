@@ -416,7 +416,7 @@ header
 
       #header-logo
         svg
-          fill: $white
+          fill: $grandpas-office
 
   &.open
     height: 100%
@@ -691,7 +691,7 @@ header
               animation: util-btn-normal 400ms steps(7) normal forwards
 
               .home &
-                color: $crunchy-mustard
+                color: $grandpas-office
 
               &:after
                 content: "Studio"
