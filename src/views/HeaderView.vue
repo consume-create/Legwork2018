@@ -629,6 +629,7 @@ header
           li:last-child
             a
               color: $black !important
+              background-position-x: 0px
 
     #header-bar
       position: relative
@@ -685,7 +686,8 @@ header
               opacity: 1
               background-image: url(/images/shitty-test.png)
               background-repeat: no-repeat
-              background-size: 100px 336px
+              background-size: 200px 336px
+              background-position-x: -100px
               animation: util-btn-normal 400ms steps(7) normal forwards
 
               .home &
@@ -700,14 +702,14 @@ header
 
 @keyframes util-btn-normal
   0%
-    background-position: 0px -294px
+    background-position-y: -294px
   100%
-    background-position: 0px 0px
+    background-position-y: 0px
 
 @keyframes util-btn-close
   0%
-    background-position: 0px 0px
+    background-position-y: 0px
   100%
-    background-position: 0px -294px
+    background-position-y: -294px
 
 </style>
