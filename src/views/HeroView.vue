@@ -42,7 +42,10 @@ export default {
   height: 100%
 
   .home &
-    background-color: $crunchy-mustard
+    background-color: $grandpas-office
+
+    #hero-inner
+      background-image: url(/images/landing-test.png)
 
   .animation &
     background-color: $grandpas-office
@@ -65,5 +68,5 @@ export default {
     height: 100%
     background-position: 50% 50%
     background-repeat: no-repeat
-    background-size: contain
+    background-size: inherit
 </style>

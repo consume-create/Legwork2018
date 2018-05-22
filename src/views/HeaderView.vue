@@ -416,7 +416,7 @@ header
 
       #header-logo
         svg
-          fill: $white
+          fill: $grandpas-office
 
   &.open
     height: 100%
@@ -629,6 +629,14 @@ header
           li:last-child
             a
               color: $black !important
+              // background: $grandpas-office
+        .minimized &
+          #header-nav
+            li:last-child
+              a
+              color: $grandpas-office
+                background: $black
+
 
     #header-bar
       position: relative
@@ -689,7 +697,7 @@ header
               animation: util-btn-normal 400ms steps(7) normal forwards
 
               .home &
-                color: $crunchy-mustard
+                color: $grandpas-office
 
               &:after
                 content: "Studio"
