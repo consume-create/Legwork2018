@@ -59,13 +59,13 @@ export default {
   width: 100%
   height: 100%
   background-color: $darkerGray
-  color: $white
+  color: $grandpas-office
   transform: translate3d(100%, 0%, 0)
   visibility: hidden
   overflow: scroll
 
   h2
-    color: $white
+    color: $grandpas-office
 
   &.wide
     visibility: visible
