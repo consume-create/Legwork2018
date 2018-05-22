@@ -571,11 +571,11 @@ header
         background-color: $grandpas-office
 
         .home &
-          background-color: $crunchy-mustard
+          background-color: $grandpas-office
 
           &:before,
           &:after
-            background-color: $crunchy-mustard
+            background-color: $grandpas-office
 
         &:before,
         &:after
@@ -689,9 +689,6 @@ header
               background-size: 200px 336px
               background-position-x: -100px
               animation: util-btn-normal 400ms steps(7) normal forwards
-
-              .home &
-                color: $grandpas-office
 
               &:after
                 content: "Studio"
