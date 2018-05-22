@@ -11,7 +11,7 @@ const writer = new streams.WritableStream();
 ------------------------------------------ */
 export function init(){
   if( writer.toString() == '' || process.env.NODE_ENV == 'development'){
-    let _url = process.env.NODE_ENV == 'development' ? 'staging_project.json' : 'project.json';
+    let _url = process.env.NODE_ENV == 'development' ? 'staging_project.json' : 'production_project.json';
 
     return new Promise( (resolve, reject) => {
       request({
