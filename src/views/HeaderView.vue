@@ -601,9 +601,12 @@ header
         #header-nav
           ul
             li
+              transition: opacity $fast linear, visibility 0ms linear $fast
+              opacity: 0
               visibility: hidden
 
             li:last-child
+              opacity: 1
               visibility: visible
 
               a
@@ -653,6 +656,7 @@ header
           li
             display: inline-block
             margin-left: 50px
+            transition: opacity $fast linear, visibility 0ms linear 0ms
 
             a
               position: relative
