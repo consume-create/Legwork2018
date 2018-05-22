@@ -45,7 +45,7 @@ export default {
     background-color: $grandpas-office
 
     #hero-inner
-      background-image: url(/images/landing-test.png)
+      background-image: url(/images/hero-home-test.png)
 
   .animation &
     background-color: $grandpas-office
@@ -68,5 +68,5 @@ export default {
     height: 100%
     background-position: 50% 50%
     background-repeat: no-repeat
-    background-size: inherit
+    background-size: contain
 </style>
