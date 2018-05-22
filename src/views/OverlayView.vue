@@ -69,10 +69,14 @@ export default {
   width: 100%
   height: 100%
   background-color: $semi-opaque-black
-  visibility: hidden
   z-index: 90
+  opacity: 0
+  visibility: hidden
+  transition: opacity $fast linear, visibility 0ms linear $fast
 
   &.shown
+    transition: opacity $fast linear, visibility 0ms linear 0ms
+    opacity: 1
     visibility: visible
 
 +respond-to($tablet-landscape)
