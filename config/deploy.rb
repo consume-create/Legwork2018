@@ -1,5 +1,5 @@
 # config valid only for current version of Capistrano
-lock "3.10.0"
+# lock "3.10.0"
 
 set :application, 'legwork2018'
 set :repo_url, 'git@github.com:legworkstudio/Legwork2018.git'
