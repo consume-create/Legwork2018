@@ -412,7 +412,7 @@ header
   &.light
     #header-bar
       &:after
-        background: $black
+        background-color: $black
 
       #header-logo
         svg
@@ -522,7 +522,7 @@ header
       z-index: -1
       opacity: 0
       visibility: hidden
-      transition: opacity $time-travel linear, visibility 0ms linear $time-travel
+      transition: opacity $time-travel linear, visibility 0ms linear $time-travel, background-color 0ms linear $fast
 
     #header-logo
       grid-column: 3
