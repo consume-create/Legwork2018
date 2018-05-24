@@ -151,9 +151,6 @@ export default {
     grid-column: 3 / span 16
 
     h3
-      font-size: 34px
-      letter-spacing: 2.07px
-      line-height: 36px
       margin-bottom: 25px
 
     p
@@ -181,7 +178,7 @@ export default {
       justify-content: flex-end
 
       h3
-         margin-bottom: 50px
+        margin-bottom: 50px
 
       p
         margin-bottom: 0
