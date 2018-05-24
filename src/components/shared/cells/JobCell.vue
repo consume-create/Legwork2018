@@ -56,7 +56,7 @@ export default {
 }
 </script>
 
-<style lang='sass'>
+<style lang='sass'scoped>
 @import "src/styles/global"
 @import "src/styles/content-cell"
 .copy
