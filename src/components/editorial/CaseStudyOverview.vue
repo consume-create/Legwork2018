@@ -55,7 +55,7 @@ export default {
 }
 </script>
 
-<style lang='sass' scoped>
+<style lang='sass'>
 @import 'src/styles/global'
 
 .case-study-overview
@@ -96,7 +96,6 @@ export default {
 
     .text-body
       grid-column: 11 / span 9
-      margin-top: -6px
       margin-bottom: 0
 
 +respond-to($largest-screens)

@@ -4,7 +4,7 @@
       <div class="studio-narrow-col">
         <div class="studio-narrow-sticky">
           <div class="studio-narrow-block">
-            <h3>Locate</h3>
+            <h3 class="list-header">Locate</h3>
             <ul>
               <li>2854 Larimer St</li>
               <li>Denver, CO 80205</li>
@@ -12,7 +12,7 @@
           </div>
 
           <div class="studio-narrow-block">
-            <h3>New Business</h3>
+            <h3 class="list-header">New Business</h3>
             <ul>
               <li>303.333.3333</li>
               <li>hotleads@LegworkStudio.com</li>
@@ -20,7 +20,7 @@
           </div>
 
           <div class="studio-narrow-block">
-            <h3>Careers</h3>
+            <h3 class="list-header">Careers</h3>
             <ul>
               <li>303.333.3333</li>
               <li>jobs@LegworkStudio.com</li>
@@ -40,7 +40,7 @@
       <div class="studio-wide-col">
 
         <div class="studio-wide-block">
-          <h2 class="studio-big-blurb">We are an independent creative studio creating animated and interactive work for brands and agencies around the world</h2>
+          <h2 class="studio-big-blurb med-type">We are an independent creative studio creating animated and interactive work for brands and agencies around the world</h2>
         </div>
 
         <div class="studio-wide-block block-stagger-right">
@@ -88,7 +88,7 @@ export default {
 }
 </script>
 
-<style lang='sass' scoped>
+<style lang='sass'>
 @import "src/styles/global"
 
 #studio-inner
@@ -113,18 +113,11 @@ export default {
 
       .studio-narrow-block
         margin-bottom: 50px
-        font-size: 18px
-        line-height: 22px
 
         &:last-of-type
           margin-bottom: 0
 
-        ul
-          li
-            margin-bottom: 18px
-
         h3
-          font-size: 18px
           margin-bottom: 28px
 
         .social-icon
@@ -146,19 +139,13 @@ export default {
     .studio-wide-block
       +subgrid(12)
       margin-bottom: 80px
-      font-size: 14px
-      line-height: 27px
 
       h3
         grid-column: 1 / span 12
         margin-bottom: 15px
-        font-size: 22px
-        line-height: 30px
         +respond-to($tablet-landscape)
           grid-column: 1 / span 11
           margin-bottom: 45px
-          font-size: 45px
-          line-height: 36px
 
       .block-sub-services
         grid-column: 1 / span 12
@@ -176,12 +163,8 @@ export default {
 
 
       .studio-big-blurb
-        font-size: 22px
-        line-height: 46px
         grid-column: 1 / span 12
         +respond-to($tablet-landscape)
-          font-size: 45px
-          line-height: 80px
           margin-top: -20px
 
       .studio-img

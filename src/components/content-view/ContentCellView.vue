@@ -36,7 +36,4 @@ export default {
 }
 </script>
 
-<style lang="sass">
-@import "src/styles/global"
-
-</style>
+<style lang="sass"></style>

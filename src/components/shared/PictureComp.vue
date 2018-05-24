@@ -39,8 +39,6 @@ export default {
 </script>
 
 <style lang='sass' scoped>
-@import "src/styles/global"
-
 picture img
   width: 100%
 </style>
