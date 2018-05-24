@@ -316,9 +316,9 @@ html, body
 body
   background-color: $grandpas-office
   color: $color-text
-  font-family: $base-font
   -webkit-font-smoothing: antialiased
   -webkit-text-size-adjust: none
+  font: normal normal 18px/1.8 "neuzeit-grotesk", san-serif
 
 body.locked
   overflow: hidden
@@ -326,4 +326,31 @@ body.locked
 #app
   width: 100%
   height: 100%
+
+// Global Typography Settings
+h1,
+.h1,
+.big-type
+  font-size: 60px
+  letter-spacing: 1.6px
+
+h2,
+.h2,
+.med-type
+  font-size: 45px
+  font-weight: 700
+  letter-spacing: 3.4px
+
+h3,
+.h3,
+.section-header
+  font-size: 34px
+  letter-spacing: 2.0px
+
+h4,
+.h4,
+.list-header
+  font-size: 18px
+  font-weight: 700
+
 </style>

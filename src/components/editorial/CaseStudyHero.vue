@@ -27,7 +27,7 @@ export default {
 }
 </script>
 
-<style lang='sass' scoped>
+<style lang='sass'>
 @import "src/styles/global"
 
 .case-study-hero
@@ -38,6 +38,5 @@ export default {
   .hero-image
     grid-column: 1 / span 20
     background: $gray
-    // padding-bottom: 100%
 
 </style>

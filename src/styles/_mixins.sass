@@ -2,3 +2,17 @@
 @mixin respond-to($mq)
   @media all and #{$mq}
     @content
+
+
+/* Fonts */
+
+@mixin font-NeuzeitGrot($size: false, $color: false, $weight: false,  $lh: false)
+  font-family: $base-font
+  @if $size
+    font-size: $size
+  @if $color
+    color: $color
+  @if $weight
+    font-weight: $weight
+  @if $lh
+    line-height: $lh

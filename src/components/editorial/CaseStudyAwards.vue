@@ -26,7 +26,7 @@ export default {
 }
 </script>
 
-<style lang='sass' scoped>
+<style lang='sass'>
 @import "src/styles/global"
 
 .case-study-awards
@@ -35,9 +35,6 @@ export default {
   grid-auto-flow: dense
 
   h3
-    font-size: 34px
-    letter-spacing: 2.07px
-    line-height: 36px
     margin-bottom: 34px
 
   p

@@ -1,5 +1,5 @@
 <template>
-  <h1 class='text-header'>{{text}}</h1>
+  <h1 class='big-type'>{{text}}</h1>
 </template>
 
 <script>
@@ -18,6 +18,4 @@ export default {
 }
 </script>
 
-<style lang='sass' scoped>
-@import "src/styles/global"
-</style>
+<style lang='sass'></style>
