@@ -26,7 +26,7 @@ export default {
 }
 </script>
 
-<style lang='sass' scoped>
+<style lang='sass'>
 @import "src/styles/global"
 
 .case-study-awards

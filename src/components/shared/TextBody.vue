@@ -18,6 +18,4 @@ export default {
 }
 </script>
 
-<style lang='sass' scoped>
-@import "src/styles/global"
-</style>
+<style lang='sass'></style>
