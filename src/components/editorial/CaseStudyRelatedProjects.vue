@@ -2,7 +2,7 @@
   <div class='case-study-related-projects'>
     <div class="project-header">Similar Projects</div>
     <ul>
-      <li v-for="project in projects" :key="project.id" >{{ project }}</li>
+      <li v-for="project in projects" :key="project.id" class="section-header">{{ project }}</li>
     </ul>
     <div class="gallery-link">Back to Gallery</div>
   </div>
@@ -53,8 +53,6 @@ export default {
     margin-bottom: span(2, 20)
 
     li
-      font-size: 36px
-      line-height: 42px
       padding-bottom: 32px
 
       &:last-of-type
