@@ -77,6 +77,12 @@
             In addition to our content creators, we have a team of UI designers and progressive developers who build everything from micro-sites and installations, to mobile games and brand platforms.
           </div>
         </div>
+
+
+        <div class="studio-wide-block">
+          <h3>Location</h3>
+          <div class="studio-map"></div>
+        </div>
       </div>
     </div>
   </div>
@@ -106,10 +112,10 @@ export default {
       margin-bottom: 0
 
     .studio-narrow-sticky
-      .wide &
-        +respond-to($tablet-landscape)
-        position: sticky
-        top: 20px
+      // .wide &
+      //   +respond-to($tablet-landscape)
+      //   position: sticky
+      //   top: 20px
 
       .studio-narrow-block
         margin-bottom: 50px
@@ -168,17 +174,20 @@ export default {
         +respond-to($tablet-landscape)
           margin-top: -20px
 
-      .studio-img
+      .studio-img,
+      .studio-map
         background: #ddd
         width: 100%
         padding-bottom: 75%
 
-    .block-stagger-right
+      .studio-map
+        +respond-to($tablet-landscape)
+          grid-column: 1 / span 12
 
+    .block-stagger-right
       .studio-img
         +respond-to($tablet-landscape)
           grid-column: 3 / span 9
-
       h3
         +respond-to($tablet-landscape)
           grid-column: 4 / span 8
