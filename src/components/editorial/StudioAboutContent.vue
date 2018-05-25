@@ -78,10 +78,27 @@
           </div>
         </div>
 
+        <div class="studio-wide-block">
+          <h3>Careers</h3>
+          <div class="block-sub-career-list">
+            <ul>
+              <li>Motion Designer</li>
+              <li>Interactive Designer</li>
+              <li>Interactive Designer</li>
+              <li>Junior Animatior</li>
+              <li>3D Modeler</li>
+            </ul>
+          </div>
+        </div>
+
 
         <div class="studio-wide-block">
-          <h3>Location</h3>
+          <h3>Locate</h3>
           <div class="studio-map"></div>
+        </div>
+
+        <div class="studio-wide-block">
+          <h3>Money goes in awards come out.</h3>
         </div>
       </div>
     </div>
@@ -112,11 +129,6 @@ export default {
       margin-bottom: 0
 
     .studio-narrow-sticky
-      // .wide &
-      //   +respond-to($tablet-landscape)
-      //   position: sticky
-      //   top: 20px
-
       .studio-narrow-block
         margin-bottom: 50px
 
@@ -173,6 +185,28 @@ export default {
         grid-column: 1 / span 12
         +respond-to($tablet-landscape)
           margin-top: -20px
+
+      .block-sub-career-list
+        grid-column: 1 / span 12
+
+        ul
+          display: flex
+          flex-wrap: wrap
+
+          li
+            box-sizing: border-box
+            font-size: 30px
+            font-weight: bold
+            line-height: 40px
+            padding: 0 20px 30px 0
+            width: 100%
+
+            +respond-to($tablet-landscape)
+              font-size: 30px
+              font-weight: bold
+              line-height: 40px
+              padding: 0 40px 80px 0
+              width: 33%
 
       .studio-img,
       .studio-map
