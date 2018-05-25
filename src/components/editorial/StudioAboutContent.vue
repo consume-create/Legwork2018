@@ -49,7 +49,7 @@
 
 
         <div class="studio-wide-block">
-          <h3>Animation</h3>
+          <h3 class="med-type">Animation</h3>
           <div class="block-sub-services">
             <ul>
               <li>2D</li>
@@ -64,7 +64,7 @@
         </div>
 
         <div class="studio-wide-block block-stagger-right">
-          <h3>Interactive</h3>
+          <h3 class="med-type">Interactive</h3>
           <div class="block-sub-services">
             <ul>
               <li>Website</li>
@@ -79,7 +79,7 @@
         </div>
 
         <div class="studio-wide-block">
-          <h3>Careers</h3>
+          <h3 class="med-type">Careers</h3>
           <div class="block-sub-career-list">
             <ul>
               <li>Motion Designer</li>
@@ -93,12 +93,12 @@
 
 
         <div class="studio-wide-block">
-          <h3>Locate</h3>
+          <h3 class="med-type">Locate</h3>
           <div class="studio-map"></div>
         </div>
 
         <div class="studio-wide-block">
-          <h3>Money goes in awards come out.</h3>
+          <h3 class="med-type">Money goes in awards come out.</h3>
         </div>
       </div>
     </div>
