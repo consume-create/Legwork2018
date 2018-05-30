@@ -1,13 +1,13 @@
 <template>
   <picture>
-    <source :srcset="srcImageSmall"
+    <!-- <source :srcset="srcImageSmall"
       media="(max-width: 639px)">
     <source :srcset="srcImageMed"
       media="(min-width: 640px) and (max-width: 1023px)">
     <source :srcset="srcImageLarge"
-      media="(min-width: 1024px)">
-    <img :src="srcPath" alt="alt text"
-        :srcset="srcImageLarge">
+      media="(min-width: 1024px)"> -->
+    <img :src="imageProps.url" alt="alt text"
+        >
   </picture>
 </template>
 
@@ -22,18 +22,20 @@ export default {
   | Project:object
   ------------------------------------------ */
   props: [
-    'srcPath'
+    'imageProps'
   ],
   computed: {
-    srcImageSmall () {
-      return this.srcPath.thumbnail + ', ' + this.srcPath.thumbnail.replace(/(\.[\w\d_-]+)$/i, 'x$1') + " 2x";
-    },
-    srcImageMed () {
-      return this.srcPath.medium + ', ' + this.srcPath.medium.replace(/(\.[\w\d_-]+)$/i, 'x$1') + " 2x";
-    },
-    srcImageLarge () {
-      return this.srcPath.large + ', ' + this.srcPath.large.replace(/(\.[\w\d_-]+)$/i, 'x$1') + " 2x";
-    }
+    // srcImageSmall () {
+    //   console.log(imageProps.sizes.thumbnail);
+    //   return imageProps.sizes.thumbnail + ', ' + imageProps.sizes.thumbnail.replace(/(\.[\w\d_-]+)$/i, 'x$1') + " 2x";
+    // },
+    // srcImageMed () {
+    //   return imageProps.sizes.medium + ', ' + imageProps.sizes.medium.replace(/(\.[\w\d_-]+)$/i, 'x$1') + " 2x";
+    // },
+    // srcImageLarge () {
+    //   // console.log(imageProps);
+    //   // return imageProps.sizes.large + ', ' + imageProps.sizes.large.replace(/(\.[\w\d_-]+)$/i, 'x$1') + " 2x";
+    // }
   },
 }
 </script>

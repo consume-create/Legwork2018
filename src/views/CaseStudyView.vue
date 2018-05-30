@@ -1,11 +1,11 @@
 <template>
   <div id="case-study" v-bind:class="discipline" v-if="project" @scroll="onCaseStudyScroll">
     <div id="case-study-content">
-      <case-study-hero></case-study-hero>
-      <case-study-overview></case-study-overview>
-      <media-object></media-object>
-      <case-study-awards></case-study-awards>
-      <case-study-related-projects></case-study-related-projects>
+      <case-study-hero :project="project"></case-study-hero>
+      <case-study-overview :project="project"></case-study-overview>
+      <project-block :block="block" v-for="block in project.project_blocks"></project-block>
+      <case-study-awards :project="project"></case-study-awards>
+      <case-study-related-projects :project="project"></case-study-related-projects>
     </div>
   </div>
 </template>
@@ -13,7 +13,7 @@
 <script>
 import CaseStudyHero from "components/editorial/CaseStudyHero.vue";
 import CaseStudyOverview from "components/editorial/CaseStudyOverview.vue";
-import MediaObject from "components/editorial/MediaObject.vue";
+import ProjectBlock from "components/editorial/ProjectBlock.vue";
 import CaseStudyAwards from "components/editorial/CaseStudyAwards.vue";
 import CaseStudyRelatedProjects from "components/editorial/CaseStudyRelatedProjects.vue";
 
@@ -23,17 +23,16 @@ export default {
   components: {
     CaseStudyHero,
     CaseStudyOverview,
-    MediaObject,
+    ProjectBlock,
     CaseStudyAwards,
     CaseStudyRelatedProjects
   },
-
   computed: {
     discipline () {
       return this.$route.params.discipline;
     },
     project () {
-      return this.$route.params.project;
+      return this.$store.getters.project;
     }
   },
   methods: {

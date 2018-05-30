@@ -49,7 +49,7 @@
 
 
         <div class="studio-wide-block">
-          <h3>Animation</h3>
+          <h3 class="med-type">Animation</h3>
           <div class="block-sub-services">
             <ul>
               <li>2D</li>
@@ -64,7 +64,7 @@
         </div>
 
         <div class="studio-wide-block block-stagger-right">
-          <h3>Interactive</h3>
+          <h3 class="med-type">Interactive</h3>
           <div class="block-sub-services">
             <ul>
               <li>Website</li>
@@ -76,6 +76,29 @@
           <div class="block-sub-copy">
             In addition to our content creators, we have a team of UI designers and progressive developers who build everything from micro-sites and installations, to mobile games and brand platforms.
           </div>
+        </div>
+
+        <div class="studio-wide-block">
+          <h3 class="med-type">Careers</h3>
+          <div class="block-sub-career-list">
+            <ul>
+              <li>Motion Designer</li>
+              <li>Interactive Designer</li>
+              <li>Interactive Designer</li>
+              <li>Junior Animatior</li>
+              <li>3D Modeler</li>
+            </ul>
+          </div>
+        </div>
+
+
+        <div class="studio-wide-block">
+          <h3 class="med-type">Locate</h3>
+          <div class="studio-map"></div>
+        </div>
+
+        <div class="studio-wide-block">
+          <h3 class="med-type">Money goes in awards come out.</h3>
         </div>
       </div>
     </div>
@@ -106,11 +129,6 @@ export default {
       margin-bottom: 0
 
     .studio-narrow-sticky
-      .wide &
-        +respond-to($tablet-landscape)
-        position: sticky
-        top: 20px
-
       .studio-narrow-block
         margin-bottom: 50px
 
@@ -168,17 +186,42 @@ export default {
         +respond-to($tablet-landscape)
           margin-top: -20px
 
-      .studio-img
+      .block-sub-career-list
+        grid-column: 1 / span 12
+
+        ul
+          display: flex
+          flex-wrap: wrap
+
+          li
+            box-sizing: border-box
+            font-size: 30px
+            font-weight: bold
+            line-height: 40px
+            padding: 0 20px 30px 0
+            width: 100%
+
+            +respond-to($tablet-landscape)
+              font-size: 30px
+              font-weight: bold
+              line-height: 40px
+              padding: 0 40px 80px 0
+              width: 33%
+
+      .studio-img,
+      .studio-map
         background: #ddd
         width: 100%
         padding-bottom: 75%
 
-    .block-stagger-right
+      .studio-map
+        +respond-to($tablet-landscape)
+          grid-column: 1 / span 12
 
+    .block-stagger-right
       .studio-img
         +respond-to($tablet-landscape)
           grid-column: 3 / span 9
-
       h3
         +respond-to($tablet-landscape)
           grid-column: 4 / span 8
