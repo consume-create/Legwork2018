@@ -30,8 +30,8 @@
               <path d="M21.5,7c1.1,0,2-0.9,2-2s-0.9-2-2-2h-2.7l-1.8,4H21.5z"/>
             </svg>
             <span>PowerList</span>
+            <span id="power-list-count">3</span>
           </router-link>
-          <span id="power-list-count">3</span>
         </li>
       </ul>
     </div>
@@ -74,6 +74,9 @@
 export default {
   name: 'power-tools-view',
   computed: {
+    scroll() {
+      return this.$store.state.appScroll;
+    },
     breakpoint() {
       return this.$store.state.appSize.breakpoint;
     },
@@ -125,12 +128,14 @@ export default {
       grid-row: 1
       width: 100%
       padding-top: 14px
+      line-height: 20px
 
       li
         display: inline-block
         width: 20px
         height: 20px
         margin-right: 24px
+        line-height: 20px
 
         a
           text-decoration: none
@@ -143,11 +148,16 @@ export default {
 
       li#power-list-btn
         position: relative
-        width: auto
+        width: 116px
         margin-right: 0px
 
         a
-          padding: 0px 23px 0px 27px
+          display: block
+          position: absolute
+          top: 0px
+          right: 0px
+          bottom: 0px
+          left: 0px
 
           svg
             position: absolute
@@ -157,24 +167,30 @@ export default {
             stroke: none
 
           span
+            position: absolute
+            display: inline-block
+            top: 3px
+            left: 56px
             font-size: 14px
-            line-height: 20px
             color: $slight_white
+            line-height: 14px
+            transform: translate(-50%, 0%)
 
-        #power-list-count
-          position: absolute
-          display: block
-          width: 16px
-          height: 16px
-          top: 2px
-          right: 0px
-          border-radius: 8px
-          background-color: $burn_out
-          color: $slight_white
-          font-size: 11px
-          line-height: 17px
-          font-weight: $bold
-          text-align: center
+          #power-list-count
+            position: absolute
+            display: block
+            width: 16px
+            height: 16px
+            top: 1px
+            left: auto
+            right: 0px
+            border-radius: 8px
+            background-color: $burn_out
+            color: $slight_white
+            font-size: 11px
+            line-height: 17px
+            font-weight: $bold
+            text-align: center
 
 +respond-to($tablet-landscape)
   #power-tools

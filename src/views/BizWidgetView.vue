@@ -29,17 +29,19 @@ export default {
       this.$store.dispatch('SET_BIZ_POSITION', { pos: pos, delay: 0 });
 
       // mask
-      // TODO: other event namespaces
+      // TODO: animation event namespaces?
       if(pos === '') {
         setTimeout(() => this.updateMask(0), 333);
       } else {
         let iteration = 1;
-        this._$biz_widget_mask.off('webkitAnimationIteration').on('webkitAnimationIteration', (e) => {
+        this._$biz_widget_mask.off('animationstart').on('animationstart', (e) => {
+          this.updateMask(0);
+        });
+        this._$biz_widget_mask.off('animationiteration').on('animationiteration', (e) => {
           this.updateMask(iteration);
           iteration += 1;
         });
-        this._$biz_widget_mask.off('webkitAnimationEnd').on('webkitAnimationEnd', (e) => {
-          // TODO: turn mask off?
+        this._$biz_widget_mask.off('animationend').on('animationend', (e) => {
           this.updateMask(30);
         });
       }
@@ -61,7 +63,21 @@ export default {
     },
 
     updateMask(step) {
-      this._$biz_widget.css('mask-position', `0% ${step * 3.333}%`);
+      switch(step) {
+        case 0:
+          this._$biz_widget
+            .css({
+              'mask-image': 'url(/images/cool-tear-mask.png)',
+              'mask-position': '0% 0%'
+            });
+          break;
+        case 30:
+          this._$biz_widget.css('mask-image', 'none');
+          break;
+        default:
+          this._$biz_widget.css('mask-position', `0% ${step * 3.333}%`);
+          break;
+      }
     }
   },
   /*
@@ -94,7 +110,6 @@ export default {
   height: 100%
   color: $grandpas-office
   overflow: hidden
-  mask: url(/images/cool-tear-mask.png)
   mask-repeat: no-repeat
   mask-size: 100% 3100%
   opacity: 0
@@ -107,7 +122,7 @@ export default {
     visibility: visible
 
     #biz-widget-mask
-      animation: mask-proxy 75ms linear 30
+      animation: biz-mask-proxy 75ms linear 30
 
   #biz-inner
     box-sizing: border-box
@@ -124,7 +139,7 @@ export default {
     visibility: hidden
     transform: translate3d(0px, 0px, 0)
 
-@keyframes mask-proxy
+@keyframes biz-mask-proxy
   100%
-    transform: translate3d(1px, 0px, 0)
+    transform: translateZ(0)
 </style>

@@ -126,8 +126,8 @@ export default {
       });
 
       // cache minimized height
-      // 86px = minimized desktop height
-      this._minimized_height = (this.$store.state.header.height - 86);
+      // 84px = minimized desktop height
+      this._minimized_height = (this.$store.state.header.height - 84);
     },
 
     /*
@@ -529,6 +529,7 @@ header
       display: inline-block
       width: 107px
       height: 16px
+      line-height: 1em
 
       svg
         width: 100%
@@ -644,12 +645,14 @@ header
       #header-nav
         grid-column: 13 / span 10
         grid-row: 1
+        height: 24px
 
         ul
           display: flex
           flex-direction: row
           justify-content: flex-end
           width: 100%
+          height: 24px
 
           // NOTE: hang 'studio' button halfway over last grid col
           transform: translate(50px, 0px)
@@ -657,6 +660,7 @@ header
           li
             display: inline-block
             margin-left: 50px
+            line-height: 24px
             transition: opacity $fast linear, visibility 0ms linear 0ms
 
             a
