@@ -21,7 +21,9 @@ export default {
   |
   | hero:object
   ------------------------------------------ */
-  props: [],
+  props: [
+    'video-id'
+  ],
   data: function() {
     return {
       'hero_type': '',

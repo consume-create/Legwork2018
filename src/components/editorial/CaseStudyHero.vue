@@ -1,7 +1,7 @@
 <template>
   <div class="case-study-hero">
     <!-- if video-id use vimdeo video embed -->
-    <div class="hero-image"></div>
+    <div class="hero-image" v-if="project.hero_type = 'image'"><img :src="project.hero_image.url" /></div>
     <!-- else load up an image -->
   </div>
 </template>
@@ -16,14 +16,8 @@ export default {
   | hero:object
   ------------------------------------------ */
   props: [
-    ],
-  data: function() {
-    return {
-      'hero_type': '',
-      'hero_image': '',
-      'vimeo_id': '',
-    }
-  }
+    'project'
+  ],
 }
 </script>
 
@@ -37,6 +31,9 @@ export default {
 
   .hero-image
     grid-column: 1 / span 20
-    background: $gray
+    // background: $gray
+
+    img
+      width: 100%
 
 </style>
