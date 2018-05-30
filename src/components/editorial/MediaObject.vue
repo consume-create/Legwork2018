@@ -1,23 +1,50 @@
 <template>
-  <div> <!-- wrapping in a root for build out sake -->
+  <div class="media-wrapper"
+  :data-media-type="media.acf_fc_layout"
+  :data-fullscreen="media.fullscreen"
+  :data-position="media.position">
 
-    <div class="media-wrapper" data-position="" data-fullscreen="false">
+    <div v-if="media.acf_fc_layout === 'media_gallery'" class="media">
+      <vue-flickity ref="flickity" :options="flickityOptions">
+        <div class="carousel-cell" v-for="cell in media.media">
+          <picture-comp v-if="cell.type === 'image'" :imageProps="cell.image"></picture-comp>
+          <!-- <video-component v-if="cell.type === 'video'" :video-id="cell.vimeo_id"></video-component> -->
+        </div>
+      </vue-flickity>
+    </div>
+
+    <div v-if="media.acf_fc_layout === 'media_gallery_with_copy'" class="media-with-copy">
+      <div class="media-copy">
+        <h3>{{media.title}}</h3>
+        <p>{{media.copy}}</p>
+      </div>
+      <div v-if="media.media.length > 1" class="media">
+        <vue-flickity ref="flickity" :options="flickityOptions">
+          <div class="carousel-cell" v-for="cell in media.media">
+            <picture-comp v-if="cell.type === 'image'" :imageProps="cell.image"></picture-comp>
+          </div>
+        </vue-flickity>
+      </div>
+      <div v-else class="media">
+        <picture-comp :imageProps="media.image.url"></picture-comp>
+      </div>
+    </div>
+
+    <!-- <div v-if="media.acf_fc_layout === 'pull_quote'" class="media">
+      pull quote
+    </div>
+
+    <div v-if="media.acf_fc_layout === 'process_scrubber'">
+      scrubber
+    </div> -->
+
+  </div>
+
+    <!-- <div class="media-wrapper" data-position="" data-fullscreen="false">
       <div class="media">
         <div class="video">
           <video-component></video-component>
         </div>
-      </div>
-    </div>
-
-    <div class="media-wrapper" data-position="" data-fullscreen="false">
-      <div class="media">
-        <vue-flickity ref="flickity" :options="flickityOptions" >
-          <div class="carousel-cell"><picture-comp :srcPath="project[0].media[0].image.sizes"></picture-comp></div>
-          <div class="carousel-cell"><video-component></video-component></div>
-          <div class="carousel-cell"><picture-comp :srcPath="project[0].media[0].image.sizes"></picture-comp></div>
-          <div class="carousel-cell"><picture-comp :srcPath="project[0].media[0].image.sizes"></picture-comp></div>
-          <div class="carousel-cell"><picture-comp :srcPath="project[0].media[0].image.sizes"></picture-comp></div>
-        </vue-flickity>
       </div>
     </div>
 
@@ -59,9 +86,7 @@
           <picture-comp :srcPath="project[0].media[0].image.sizes"></picture-comp>
         </div>
       </div>
-    </div>
-
-  </div>
+    </div> -->
 </template>
 
 <script>
@@ -87,51 +112,20 @@ export default {
   | hero:object
   ------------------------------------------ */
   props: [
-    ],
+    'media'
+  ],
   data() {
-        return {
-            flickityOptions: {
-                initialIndex: 0,
-                prevNextButtons: false,
-                pageDots: true,
-                wrapAround: true,
-                resize: true,
-                dragThreshold: 30,
-            },
-            'project': [
-                {
-                  'acf_fc_layout': 'media_gallery_with_copy',
-                  'title': 'Sample Gallery',
-                  'copy': 'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Phasellus tincidunt magna nec bibendum sagittis. Aliquam ligula quam, aliquam nec sodales non, sagittis sit amet sapien. Suspendisse ut velit at lorem vulputate sodales in sit amet eros. Fusce sagittis odio vel lacus aliquet, vel sagittis metus aliquam. Sed non pellentesque mauris. Donec accumsan ut tellus ut vestibulum. ',
-                  'position': 'left',
-                  'fullscreen': 'false',
-                  'media': [
-                    {
-                      'type': 'image',
-                      'image': {
-                        'tile': 'main-1',
-                        'caption': '',
-                        'sizes': {
-                          'thumbnail': 'https://assets.legwork.studio/20171106224501/main-1-150x150.jpg',
-                          'thumbnail-width': 150,
-                          'thumbnail-height': 150,
-                          'medium': 'https://assets.legwork.studio/20171106224501/main-1-300x169.jpg',
-                          'medium-width': 300,
-                          'medium-height': 169,
-                          'medium_large': 'https://assets.legwork.studio/20171106224501/main-1-768x432.jpg',
-                          'medium_large-width': 768,
-                          'medium_large-height': 432,
-                          'large': 'https://assets.legwork.studio/20171106224501/main-1-1024x576.jpg',
-                          'large-width': 1024,
-                          'large-height': 576
-                        }
-                      }
-                    }
-                  ],
-                },
-              ],
-        }
-    },
+    return {
+      flickityOptions: {
+        initialIndex: 0,
+        prevNextButtons: false,
+        pageDots: true,
+        wrapAround: true,
+        resize: true,
+        dragThreshold: 30,
+      },
+    }
+  },
 }
 </script>
 

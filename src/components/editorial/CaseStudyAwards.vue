@@ -2,11 +2,15 @@
   <div class="case-study-awards">
     <div class="case-study-impact">
       <h3>Impact</h3>
-      <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Doloribus, ex magni nesciunt consequuntur voluptate, nulla quam impedit illo eius nihil aliquid incidunt reiciendis voluptatem numquam iure esse? Aliquid, vero officiis.</p>
+      <div v-html="project.impact"></div>
     </div>
     <div class="case-study-recognition">
       <h3>Recognition</h3>
-      <div class="awards-box"></div>
+      <ul class="awards-box" v-if="project.awards.length">
+        <li v-for="award in project.awards">
+          <div v-html="award.logo_svg"></div>
+        </li>
+      </ul>
     </div>
   </div>
 </template>
@@ -22,6 +26,7 @@ export default {
   | hero:object
   ------------------------------------------ */
   props: [
+    'project'
     ],
 }
 </script>
@@ -49,10 +54,11 @@ export default {
     margin-bottom: 75px
 
     .awards-box
-      background: $gray
-      width: 225%
-      height: 100px
-      margin-left: -125%
+      display: flex
+      flex-basis: 25%
+
+      li
+        width: 25%
 
   +respond-to($tablet-landscape)
     .case-study-awards

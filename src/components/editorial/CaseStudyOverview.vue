@@ -1,13 +1,13 @@
 <template>
   <div class='case-study-overview'>
     <div class='overview-header'>
-      <text-header :text='project_name'></text-header>
+      <text-header :text="project.project_name"></text-header>
     </div>
     <div class='link'>
-      <link-comp :href='link_url' :class='link_variant'>{{link_text}}</link-comp>
+      <link-comp :link="project.url" :text="project.url"></link-comp>
     </div>
-    <text-list :services='services'></text-list>
-    <text-body v-html='overview_description'></text-body>
+    <text-list :services='project.services_provided'></text-list>
+    <text-body v-html='project.overview_description'></text-body>
   </div>
 </template>
 
@@ -20,22 +20,6 @@ import TextBody from 'components/shared/TextBody.vue';
 
 export default {
   name: 'case-study-overview',
-
-  data: function() {
-    return {
-      'project_name': 'Project Title',
-      'link_url': 'http://google.com',
-      'link_variant': 'link-play',
-      'link_text': 'Watch Video',
-      'services': [
-        'Strategy',
-        'UX',
-        'Design',
-        'Development'
-      ],
-      'overview_description': '<p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Phasellus tincidunt magna nec bibendum sagittis. Aliquam ligula quam, aliquam nec sodales non, sagittis sit amet sapien. Suspendisse ut velit at lorem vulputate sodales in sit amet eros. Fusce sagittis odio vel lacus aliquet, vel sagittis metus aliquam. Sed non pellentesque mauris. Donec accumsan ut tellus ut vestibulum.</p>',
-    }
-  },
 
   components: {
     TextHeader,
@@ -51,6 +35,7 @@ export default {
   | overview:object
   ------------------------------------------ */
   props: [
+    'project'
   ],
 }
 </script>
