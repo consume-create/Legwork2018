@@ -141,8 +141,9 @@ export default {
   /deep/ .flickity-viewport
     overflow: hidden
     position: relative
-    padding-bottom: 23%
-    height: 0
+    transition: height 0.2s
+    // padding-bottom: 23%
+    // height: 0
 
   /deep/ .flickity-slider
     position: absolute
@@ -197,5 +198,5 @@ export default {
 .flickity-enabled
   /deep/ .carousel-cell
     width: 100%
-    height: 430px
+    // height: 430px
 </style>
