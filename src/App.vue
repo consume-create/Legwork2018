@@ -331,8 +331,11 @@ body.locked
 h1,
 .h1,
 .big-type
-  font-size: 60px
+  font-size: 55px
   letter-spacing: 1.6px
+
+  +respond-to($tablet-landscape)
+    font-size: 60px
 
 h2,
 .h2,
