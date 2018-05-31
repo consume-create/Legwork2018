@@ -30,6 +30,9 @@ export default {
   },
   methods: {
 
+  },
+  mounted() {
+    console.log(PIXI);
   }
 };
 </script>
