@@ -665,6 +665,7 @@ header
 
 +respond-to($tablet-landscape)
   header
+    height: auto
     transition: none
 
     &.studio, &.project, &.overlay
