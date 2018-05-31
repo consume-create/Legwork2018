@@ -2,7 +2,7 @@
   <div class="project-block" :data-block-type="block.acf_fc_layout">
 
     <div class="block-container" v-if="block.acf_fc_layout === 'media_gallery'"
-    :data-fullscreen="block.Fullscreen"
+    :data-fullscreen="block.fullscreen"
     :data-position="block.position">
       <div class="project-media" v-if="block.media.length > 1">
         <vue-flickity ref="flickity" :options="flickityOptions">
@@ -20,7 +20,7 @@
 
 
     <div class="block-container" v-if="block.acf_fc_layout === 'media_gallery_with_copy'"
-    :data-fullscreen="block.Fullscreen"
+    :data-fullscreen="block.fullscreen"
     :data-position="block.position" >
       <div class="project-media" v-if="block.media.length > 1">
         <vue-flickity ref="flickity" :options="flickityOptions">
@@ -96,6 +96,7 @@ export default {
         wrapAround: true,
         resize: true,
         dragThreshold: 30,
+        adaptiveHeight: true
       },
     }
   },
@@ -114,13 +115,22 @@ export default {
     grid-auto-flow: dense
     +grid
 
-    .project-media
+    .project-media,
+    .project-copy
       grid-column: 3 / span 16
 
       img
         width: 100%
         display: block
 
+      h3
+        margin-bottom: 25px
+
+      p
+        margin-bottom: 40px
+
+    .project-media + .project-copy
+      margin-top: 40px
 
   &[data-block-type="media_gallery"]
     .block-container
@@ -128,60 +138,88 @@ export default {
         .project-media
           grid-column: 1 / span 20
 
-      &[data-position="left"]
-        .project-media
-          grid-column: 10 / span 11
 
-      &[data-position="right"]
-        .project-media
-          grid-column: 3 / span 11
-
-  &[data-block-type="media_gallery_with_copy"]
-    .block-container
-      &[data-fullscreen="true"]
-        .project-media
-          grid-column: 1 / span 20
-
-      &[data-position="left"]
-        .project-copy
-          grid-column: 3 / span 6
-
-        .project-media
-          grid-column: 10 / span 11
-
-      &[data-position="right"]
-        .project-copy
-          grid-column: 15 / span 6
-
-        .project-media
-          grid-column: 3 / span 11
-
-
-  &[data-block-type="copy_block"]
-    .block-container
-      &[data-position="left"]
-        .project-copy
-          grid-column: 3 / span 6
-
-      &[data-position="right"]
-        .project-copy
-          grid-column: 15 / span 6
-
-
-  &[data-block-type="pull_quote"]
-    .block-container
-      &[data-position="left"]
-        .project-copy
-          grid-column: 3 / span 6
-
-      &[data-position="right"]
-        .project-copy
-          grid-column: 15 / span 6
 
 +respond-to($tablet-landscape)
+  .project-block
+    margin-bottom: 195px
+
+    .block-container
+      .project-media,
+      .project-copy
+        grid-column: 3 / span 16
+
+        h3
+          margin-bottom: 50px
+
+        p
+          margin-bottom: 0px
+
+      .project-media + .project-copy
+        margin-top: 0px
+
+
+    &[data-block-type="media_gallery"]
+      .block-container
+        &[data-fullscreen="true"]
+          .project-media
+            grid-column: 1 / span 20
+
+        &[data-position="left"]
+          .project-media
+            grid-column: 10 / span 11
+
+        &[data-position="right"]
+          .project-media
+            grid-column: 3 / span 11
+
+    &[data-block-type="media_gallery_with_copy"]
+      .block-container
+        &[data-fullscreen="true"]
+          .project-media
+            grid-column: 1 / span 20
+
+        &[data-position="left"]
+          .project-copy
+            grid-column: 3 / span 6
+
+          .project-media
+            grid-column: 10 / span 11
+
+        &[data-position="right"]
+          .project-copy
+            grid-column: 15 / span 6
+
+          .project-media
+            grid-column: 3 / span 11
+
+
+    &[data-block-type="copy_block"]
+      .block-container
+        &[data-position="left"]
+          .project-copy
+            grid-column: 3 / span 6
+
+        &[data-position="right"]
+          .project-copy
+            grid-column: 15 / span 6
+
+
+    &[data-block-type="pull_quote"]
+      .block-container
+        &[data-position="left"]
+          .project-copy
+            grid-column: 3 / span 6
+
+        &[data-position="right"]
+          .project-copy
+            grid-column: 15 / span 6
 
 
 +respond-to($largest-screens)
+  .project-block
+    margin-bottom: 300px
+
 
 </style>
 
