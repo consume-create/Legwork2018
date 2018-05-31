@@ -11,6 +11,7 @@
         <div id="mobile-studio-wrap">
           <studio-about></studio-about>
         </div>
+        <div id="mobile-menu-mask"></div>
       </div>
       <div id="header-bar" :style="headerTranslate">
         <router-link to="/" id="header-logo" :event="section === 'overlay' ? '' : 'click'">
@@ -275,11 +276,55 @@ export default {
         // menu
         let menu = this.$store.state.header.menu === 'open' ? '' : 'open';
 
+        // mask
+        // TODO: animation event namespaces?
+        if(menu === '') {
+          setTimeout(() => this.updateMask(0), 333);
+        } else {
+          let iteration = 1;
+          $('#mobile-menu-mask').off('animationstart').on('animationstart', (e) => {
+            this.updateMask(0);
+          });
+          $('#mobile-menu-mask').off('animationiteration').on('animationiteration', (e) => {
+            this.updateMask(iteration);
+            iteration += 1;
+          });
+          $('#mobile-menu-mask').off('animationend').on('animationend', (e) => {
+            this.updateMask(30);
+          });
+        }
+
         // set it
         this.$store.dispatch('SET_HEADER', {
           settings: {menu},
           delay: 0
         });
+      }
+    },
+
+    /*
+    ------------------------------------------
+    | updateMask:void
+    |
+    | step:number - frame
+    |
+    | Update mask position / frame.
+    ------------------------------------------ */
+    updateMask(step) {
+      switch(step) {
+        case 0:
+          $('#mobile-menu')
+            .css({
+              'mask-image': 'url(/images/cool-tear-mask.png)',
+              'mask-position': '0% 0%'
+            });
+          break;
+        case 30:
+          $('#mobile-menu').css('mask-image', 'none');
+          break;
+        default:
+          $('#mobile-menu').css('mask-position', `0% ${step * 3.333}%`);
+          break;
       }
     },
 
@@ -392,7 +437,9 @@ header
   top: 0px
   left: 0px
   width: 100%
+  height: 88px
   z-index: 100
+  transition: height 0ms linear $fast
 
   &.transform-fast
     #header-bar
@@ -419,11 +466,17 @@ header
           fill: $grandpas-office
 
   &.open
+    transition: height 0ms linear 0ms
     height: 100%
 
     #header-inner
       #mobile-menu
+        transition: opacity 0ms linear 0ms, visibility 0ms linear 0ms
+        opacity: 1
         visibility: visible
+
+        #mobile-menu-mask
+          animation: menu-mask-proxy 75ms linear 30
 
   &.open, &.project, &.overlay
     #header-bar
@@ -463,7 +516,11 @@ header
       width: 100%
       height: 100%
       background-color: $white
+      mask-repeat: no-repeat
+      mask-size: 100% 3100%
+      opacity: 0
       visibility: hidden
+      transition: opacity $fast linear 0ms, visibility 0ms linear $fast
       overflow: scroll
       -webkit-overflow-scrolling: touch
 
@@ -502,6 +559,13 @@ header
       #mobile-studio-wrap
         width: 100%
         background-color: $white
+
+      #mobile-menu-mask
+        position: fixed
+        top: -100px
+        left: 0px
+        visibility: hidden
+        transform: translate3d(0px, 0px, 0)
 
   #header-bar
     +grid
@@ -595,8 +659,14 @@ header
           width: 8px
           transform: translate3d(0px, 6px, 0)
 
+@keyframes menu-mask-proxy
+  100%
+    transform: translateZ(0)
+
 +respond-to($tablet-landscape)
   header
+    transition: none
+
     &.studio, &.project, &.overlay
       #header-bar
         #header-nav
@@ -712,5 +782,4 @@ header
     background-position-y: 0px
   100%
     background-position-y: -294px
-
 </style>
