@@ -3,7 +3,7 @@
     <div id="case-study-content">
       <case-study-hero :project="project"></case-study-hero>
       <case-study-overview :project="project"></case-study-overview>
-      <project-block :block="block" v-for="block in project.project_blocks"></project-block>
+      <project-block :block="block" v-for="block in project.project_blocks" :key="block.id"></project-block>
       <case-study-awards :project="project"></case-study-awards>
       <case-study-related-projects :project="project"></case-study-related-projects>
     </div>
