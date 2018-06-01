@@ -6,9 +6,10 @@
           <div class="scrubber-image" v-for="(slide, index) in scrubberProps" :class='{ active: index == sliderVal  }'>
             <picture-comp :imageProps="slide.image"></picture-comp>
           </div>
-        </div>
-        <div class="scrubber-controls">
-          <input type="range" min=0 :max="scrubberProps.length -1" id="rangevalue" v-on:change="sliderChange" v-model="sliderVal">
+
+          <div class="scrubber-controls">
+            <input type="range" min=0 :max="scrubberProps.length -1" id="rangevalue" v-on:change="sliderChange" v-model="sliderVal">
+          </div>
         </div>
     </div>
 </template>
@@ -82,10 +83,46 @@ export default {
         transition: opacity 144ms ease-in
 
   .scrubber-controls
-    width: 100%
+    width: 300px
     height: 50px
+    left: 0
+    right: 0
+    margin: 0 auto
     position: absolute
     bottom: 0
+
+/// Scrubber Overrides
+input[type=range]
+  -webkit-appearance: none
+  width: 100%
+
+
+input[type=range]::-webkit-slider-runnable-track
+    width: 500px
+    height: 86px
+    background: $darkerGray
+    border: none
+    border-radius: 0
+
+
+input[type=range]::-webkit-slider-thumb
+    -webkit-appearance: none
+    border: none
+    height: 56px
+    width: 56px
+    border-radius: 50%
+    background: white
+    margin-top: -10px
+    cursor: grab
+    position: relative
+
+input[type=range]:focus
+    outline: none
+
+
+input[type=range]:focus::-webkit-slider-runnable-track
+    background: $darkerGray
+
 
 +respond-to($tablet-landscape)
   .process-scrubber
