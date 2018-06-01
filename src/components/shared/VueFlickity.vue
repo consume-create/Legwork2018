@@ -133,6 +133,8 @@ export default {
 </script>
 
 <style lang="sass" scoped>
+@import "src/styles/global"
+
 .flickity-enabled
   position: relative
   &:focus
@@ -175,6 +177,9 @@ export default {
     list-style: none
     text-align: center
     line-height: 1
+    display: flex
+    justify-content: center
+    align-items: center
 
 
   /deep/ .flickity-rtl .flickity-page-dots
@@ -183,20 +188,37 @@ export default {
 
   /deep/ .flickity-page-dots .dot
     display: inline-block
-    width: 10px
-    height: 10px
+    width: 7px
+    height: 7px
     margin: 0 8px
-    background: #333
+    background: #000
     border-radius: 50%
-    opacity: 0.25
+    opacity: 0.35
     cursor: pointer
+    transition: opacity 0.144s ease-in, transform 0.144s ease-in
+
     &.is-selected
       opacity: 1
+      transform: scale(1.8)
+      transform-origin: center center
+      transition: opacity 0.144s ease-in, transform 0.144s ease-in
+      position: relative
+      z-index: 2
 
 //////////////////////////////
 
 .flickity-enabled
   /deep/ .carousel-cell
-    width: 100%
-    // height: 430px
+    width: 95%
+    margin: 0
+    opacity: 0.75
+    transition: opacity 0.333s ease-in
+
+    +respond-to($tablet-landscape)
+      width: 100%
+
+  /deep/ .is-selected
+    opacity: 1.0
+    transition: opacity 0.333s ease-in
+
 </style>
