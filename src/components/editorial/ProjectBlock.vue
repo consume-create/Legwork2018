@@ -7,7 +7,7 @@
       <div class="project-media" v-if="block.media.length > 1">
         <vue-flickity ref="flickity" :options="flickityOptions">
           <div class="carousel-cell" v-for="cell in block.media">
-          <picture-comp v-if="cell.type = 'image'" :imageProps="cell.image"></picture-comp>
+            <picture-comp v-if="cell.type = 'image'" :imageProps="cell.image"></picture-comp>
           </div>
         </vue-flickity>
       </div>
@@ -24,7 +24,7 @@
     :data-position="block.position" >
       <div class="project-media" v-if="block.media.length > 1">
         <vue-flickity ref="flickity" :options="flickityOptions">
-          <div class="carousel-cell" v-for="cell in block.media">
+            <div class="carousel-cell" v-for="cell in block.media">
           <picture-comp v-if="cell.type = 'image'" :imageProps="cell.image"></picture-comp>
           </div>
         </vue-flickity>
@@ -58,7 +58,13 @@
     </div>
 
     <div class="block-container" v-if="block.acf_fc_layout === 'process_scrubber'">
-      Scrubber
+      <process-scrubber :scrubberProps="block.images">
+        <div class="scrubber-copy">
+          <h3>{{block.title}}</h3>
+          <p>{{block.description}}</p>
+        </div>
+
+      </process-scrubber>
     </div>
   </div>
 </template>
@@ -67,6 +73,7 @@
 import VueFlickity from 'components/shared/VueFlickity.vue';
 import VideoComponent from 'components/shared/VideoComponent.vue';
 import PictureComp from 'components/shared/PictureComp.vue';
+import ProcessScrubber from 'components/shared/ProcessScrubber.vue';
 
 export default {
 
@@ -75,7 +82,8 @@ export default {
   components: {
       VueFlickity,
       VideoComponent,
-      PictureComp
+      PictureComp,
+      ProcessScrubber
     },
 
   /*
@@ -96,7 +104,12 @@ export default {
         wrapAround: true,
         resize: true,
         dragThreshold: 30,
-        adaptiveHeight: true
+        adaptiveHeight: true,
+        imagesLoaded: true,
+
+        if () {
+          cellAlign: 'left'
+        }
       },
     }
   },
@@ -134,11 +147,18 @@ export default {
 
   &[data-block-type="media_gallery"]
     .block-container
-      &[data-fullscreen="true"]
-        .project-media
-          grid-column: 1 / span 20
+      .project-media
+        grid-column: 1 / span 20
 
+  &[data-block-type="process_scrubber"]
+    .block-container
+      background: $darkerGray
+      color: $white
+      padding: 86px 0 0
 
+      .scrubber-copy,
+      .scrubber-slider
+        grid-column: 1 / span 16
 
 +respond-to($tablet-landscape)
   .project-block
@@ -161,6 +181,8 @@ export default {
 
     &[data-block-type="media_gallery"]
       .block-container
+        .project-media
+          grid-column: 3 / span 16
         &[data-fullscreen="true"]
           .project-media
             grid-column: 1 / span 20
@@ -213,8 +235,19 @@ export default {
 
         &[data-position="right"]
           .project-copy
-            grid-column: 15 / span 6
+            grid-column: 11 / span 6
 
+    &[data-block-type="process_scrubber"]
+      .block-container
+        padding: 114px 0 150px 0
+
+        .scrubber-copy
+          grid-column: 14 / span 5
+          grid-row: 1
+
+        .scrubber-slider
+          grid-column: 1 / span 10
+          grid-row: 1
 
 +respond-to($largest-screens)
   .project-block
