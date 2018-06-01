@@ -62,6 +62,14 @@ export default {
       this.$store.dispatch('SET_STUDIO_SCROLL', {offset});
     },
 
+    /*
+    ------------------------------------------
+    | updateMask:void
+    |
+    | step:number - frame
+    |
+    | Update mask position / frame.
+    ------------------------------------------ */
     updateMask(step) {
       switch(step) {
         case 0:
