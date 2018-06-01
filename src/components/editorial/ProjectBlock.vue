@@ -6,13 +6,13 @@
     :data-position="block.position">
       <div class="project-media" v-if="block.media.length > 1">
         <vue-flickity ref="flickity" :options="flickityOptions">
-          <div class="carousel-cell" v-for="cell in block.media">
+          <div class="carousel-cell" v-for="cell in block.media" :key="cell.id">
             <picture-comp v-if="cell.type = 'image'" :imageProps="cell.image"></picture-comp>
           </div>
         </vue-flickity>
       </div>
       <div v-else class="project-media">
-        <div class="media-container" v-for="cell in block.media">
+        <div class="media-container" v-for="cell in block.media" :key="cell.id">
           <picture-comp v-if="cell.type = 'image'" :imageProps="cell.image"></picture-comp>
         </div>
       </div>
@@ -24,13 +24,13 @@
     :data-position="block.position" >
       <div class="project-media" v-if="block.media.length > 1">
         <vue-flickity ref="flickity" :options="flickityOptions">
-            <div class="carousel-cell" v-for="cell in block.media">
+            <div class="carousel-cell" v-for="cell in block.media" :key="cell.id">
           <picture-comp v-if="cell.type = 'image'" :imageProps="cell.image"></picture-comp>
           </div>
         </vue-flickity>
       </div>
       <div v-else class="project-media">
-        <div class="media-container" v-for="cell in block.media">
+        <div class="media-container" v-for="cell in block.media" :key="cell.id">
           <picture-comp v-if="cell.type = 'image'" :imageProps="cell.image"></picture-comp>
         </div>
       </div>

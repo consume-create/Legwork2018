@@ -1,17 +1,15 @@
 <template>
-    <div class="process-scrubber">
-        <slot></slot>
-
-        <div class="scrubber-slider"  @change-slide="sliderChange" :class="`slide-` + sliderVal">
-          <div class="scrubber-image" v-for="(slide, index) in scrubberProps" :class='{ active: index == sliderVal  }'>
-            <picture-comp :imageProps="slide.image"></picture-comp>
-          </div>
-
-          <div class="scrubber-controls">
-            <input type="range" min=0 :max="scrubberProps.length -1" id="rangevalue" v-on:change="sliderChange" v-model="sliderVal">
-          </div>
+  <div class="process-scrubber">
+      <slot></slot>
+      <div class="scrubber-slider"  @change-slide="sliderChange">
+        <div class="scrubber-image" v-for="(slide, index) in scrubberProps" :key="slide.id" :class="{active: index == sliderVal}">
+          <picture-comp :imageProps="slide.image"></picture-comp>
         </div>
-    </div>
+        <div class="scrubber-controls">
+          <input type="range" min=0 :max="scrubberProps.length -1" id="rangevalue" v-on:change="sliderChange" v-model="sliderVal">
+        </div>
+      </div>
+  </div>
 </template>
 
 <script>
@@ -19,11 +17,9 @@ import PictureComp from 'components/shared/PictureComp.vue';
 
 export default {
     name: 'process-scrubber',
-
     components: {
       PictureComp,
     },
-
     props: [
       'scrubberProps'
     ],
