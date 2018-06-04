@@ -92,9 +92,16 @@
         </div>
 
 
-        <div class="studio-wide-block">
-          <h3 class="med-type">Locate</h3>
+        <div class="studio-wide-block studio-map-block">
           <div class="studio-map"></div>
+          <div class="map-text">
+            <h3 class="med-type">Locate</h3>
+            <div>
+              2854 Larimer St. <br />
+              Denver, CO 80205
+            </div>
+          </div>
+
         </div>
 
         <div class="studio-wide-block">
@@ -106,8 +113,31 @@
 </template>
 
 <script>
+import VueFlickity from 'components/shared/VueFlickity.vue';
+import PictureComp from 'components/shared/PictureComp.vue';
+
 export default {
   name: 'studio-about',
+
+  components: {
+    VueFlickity,
+    PictureComp
+  },
+
+  data() {
+    return {
+      flickityOptions: {
+        initialIndex: 0,
+        prevNextButtons: false,
+        pageDots: true,
+        wrapAround: true,
+        resize: true,
+        dragThreshold: 30,
+        adaptiveHeight: true,
+        imagesLoaded: true,
+      },
+    }
+  },
 }
 </script>
 
@@ -120,7 +150,7 @@ export default {
   width: 100%
 
   .studio-narrow-col
-    grid-column: 4 / span 13
+    grid-column: 3 / span 16
     margin-bottom: 45px
     position: relative
 
@@ -150,7 +180,7 @@ export default {
 
 
   .studio-wide-col
-    grid-column: 4 / span 13
+    grid-column: 3 / span 16
 
     +respond-to($tablet-landscape)
       grid-column: 10 / span 12
@@ -214,10 +244,6 @@ export default {
         width: 100%
         padding-bottom: 75%
 
-      .studio-map
-        +respond-to($tablet-landscape)
-          grid-column: 1 / span 12
-
     .block-stagger-right
       .studio-img
         +respond-to($tablet-landscape)
@@ -235,4 +261,15 @@ export default {
           grid-column: 6 / span 8
         +respond-to($average-desktop)
           grid-column: 6 / span 6
+
+    .studio-map-block
+      display: none
+      +respond-to($tablet-landscape)
+        display: grid
+
+      .studio-map
+        grid-column: 1 / span 7
+
+      .map-text
+        grid-column: 9 / span 3
 </style>
