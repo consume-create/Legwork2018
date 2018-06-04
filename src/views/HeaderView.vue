@@ -463,7 +463,7 @@ header
 
       #header-logo
         svg
-          fill: $grandpas-office
+          fill: $faded
 
   &.open
     transition: height 0ms linear 0ms
@@ -633,14 +633,14 @@ header
         left: 19px
         width: 12px
         height: 2px
-        background-color: $grandpas-office
+        background-color: $faded
 
         .home &
-          background-color: $grandpas-office
+          background-color: $faded
 
           &:before,
           &:after
-            background-color: $grandpas-office
+            background-color: $faded
 
         &:before,
         &:after
@@ -649,7 +649,7 @@ header
           top: 0px
           left: 0px
           height: 2px
-          background-color: $grandpas-office
+          background-color: $faded
 
         &:before
           width: 12px
@@ -761,7 +761,7 @@ header
               top: 50%
               width: 100%
               padding: 12px 0px
-              color: $grandpas-office
+              color: $faded
               text-align: center
               transform: translate(0%, -50%)
               opacity: 1

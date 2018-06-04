@@ -120,7 +120,7 @@ export default {
     +grid
     width: 100%
     height: 100%
-    background-color: $darkGray
+    background-color: $dark-gray
 
     ul
       display: flex
@@ -144,7 +144,7 @@ export default {
             width: 20px
             hieght: 20px
             fill: none
-            stroke: $slight_white
+            stroke: $slight-white
 
       li#power-list-btn
         position: relative
@@ -163,7 +163,7 @@ export default {
             position: absolute
             top: 0px
             left: 0px
-            fill: $slight_white
+            fill: $slight-white
             stroke: none
 
           span
@@ -172,7 +172,7 @@ export default {
             top: 3px
             left: 56px
             font-size: 14px
-            color: $slight_white
+            color: $slight-white
             line-height: 14px
             transform: translate(-50%, 0%)
 
@@ -185,8 +185,8 @@ export default {
             left: auto
             right: 0px
             border-radius: 8px
-            background-color: $burn_out
-            color: $slight_white
+            background-color: $burn-out
+            color: $slight-white
             font-size: 11px
             line-height: 17px
             font-weight: $bold
@@ -265,8 +265,8 @@ export default {
           top: 0px
           right: 0px
           border-radius: 8px
-          background-color: $burn_out
-          color: $slight_white
+          background-color: $burn-out
+          color: $slight-white
           font-size: 11px
           line-height: 17px
           font-weight: $bold

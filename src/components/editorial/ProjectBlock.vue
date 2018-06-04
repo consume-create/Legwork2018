@@ -152,7 +152,7 @@ export default {
 
   &[data-block-type="process_scrubber"]
     .block-container
-      background: $darkerGray
+      background: $grandpas-basement
       color: $white
       padding: 86px 0 0
 

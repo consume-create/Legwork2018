@@ -314,7 +314,7 @@ html, body
   height: 100%
 
 body
-  background-color: $grandpas-office
+  background-color: $faded
   color: $color-text
   -webkit-font-smoothing: antialiased
   -webkit-text-size-adjust: none

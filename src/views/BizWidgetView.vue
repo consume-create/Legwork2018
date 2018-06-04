@@ -116,7 +116,7 @@ export default {
   left: 0px
   width: 100%
   height: 100%
-  color: $grandpas-office
+  color: $faded
   overflow: hidden
   mask-repeat: no-repeat
   mask-size: 100% 3100%
@@ -137,7 +137,7 @@ export default {
     width: 100%
     height: 100%
     padding-top: span(3, 24)
-    background-color: $darkerGray
+    background-color: $grandpas-basement
     overflow: scroll
 
   #biz-widget-mask

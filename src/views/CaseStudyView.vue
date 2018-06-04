@@ -54,7 +54,7 @@ export default {
   top: 0px
   left: 0px
   background:
-    color: $grandpas-office
+    color: $faded
   height: 100vh
   width: 100vw
   z-index: 1

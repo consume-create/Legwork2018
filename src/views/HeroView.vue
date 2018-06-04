@@ -45,25 +45,25 @@ export default {
   height: 100%
 
   .home &
-    background-color: $grandpas-office
+    background-color: $faded
 
     #hero-inner
       background-image: url(/images/hero-home-test.png)
 
   .animation &
-    background-color: $grandpas-office
+    background-color: $faded
 
     #hero-inner
       background-image: url(/images/hero-animation-test.png)
 
   .interactive &
-    background-color: $grandpas-office
+    background-color: $faded
 
     #hero-inner
       background-image: url(/images/hero-interactive-test.png)
 
   .search &
-    background-color: $grandpas-office
+    background-color: $faded
 
   #hero-inner
     +grid
