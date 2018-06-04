@@ -151,12 +151,12 @@ export default {
 
   .studio-narrow-col
     grid-column: 3 / span 16
-    margin-bottom: 45px
+    margin: 45px 0px
     position: relative
 
     +respond-to($tablet-landscape)
       grid-column: 3 / span 4
-      margin-bottom: 0
+      margin: 0
 
     .studio-narrow-sticky
       .studio-narrow-block
@@ -170,9 +170,9 @@ export default {
 
         .social-icon
           display: inline-block
+          height: 24px
           margin-right: 20px
           width: 24px
-          height: 24px
 
           svg
             height: 100%
