@@ -146,7 +146,7 @@ export default {
 
           svg
             height: 100%
-            fill: $grandpas-office
+            fill: $faded
 
 
   .studio-wide-col

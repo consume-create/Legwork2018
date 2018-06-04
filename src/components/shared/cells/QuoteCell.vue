@@ -95,6 +95,6 @@ export default {
     margin-top: 24px
     width: 26px
     height: 4px
-    background: #000
+    background: $black
 
 </style>

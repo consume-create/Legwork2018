@@ -191,7 +191,7 @@ export default {
     width: 7px
     height: 7px
     margin: 0 8px
-    background: #000
+    background: $black
     border-radius: 50%
     opacity: 0.35
     cursor: pointer

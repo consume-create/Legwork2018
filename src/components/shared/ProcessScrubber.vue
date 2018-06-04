@@ -96,7 +96,7 @@ input[type=range]
 input[type=range]::-webkit-slider-runnable-track
     width: 500px
     height: 86px
-    background: $darkerGray
+    background: $grandpas-basement
     border: none
     border-radius: 0
 
@@ -117,7 +117,7 @@ input[type=range]:focus
 
 
 input[type=range]:focus::-webkit-slider-runnable-track
-    background: $darkerGray
+    background: $grandpas-basement
 
 
 +respond-to($tablet-landscape)

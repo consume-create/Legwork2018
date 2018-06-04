@@ -107,7 +107,7 @@ export default {
       margin-right: 10px
 
     .sg-note
-      background: darken($grandpas-office, 20%)
+      background: darken($faded, 20%)
       padding: 1em
 
       pre
@@ -115,6 +115,6 @@ export default {
         display: inline-block
         padding: 5px 10px
         font-weight: bold
-        background: darken($grandpas-office, 40%)
+        background: darken($faded, 40%)
 
 </style>

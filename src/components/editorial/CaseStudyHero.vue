@@ -31,7 +31,6 @@ export default {
 
   .hero-image
     grid-column: 1 / span 20
-    // background: $gray
 
     img
       width: 100%

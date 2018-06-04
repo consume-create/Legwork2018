@@ -155,7 +155,7 @@ export default {
         .grid-inner
           width: 100%
           padding-bottom: 56.25%
-          background-color: $darkGray
+          background-color: $dark-gray
           cursor: pointer
           opacity: 1
           transition: opacity 333ms linear
