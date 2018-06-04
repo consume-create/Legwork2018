@@ -340,9 +340,12 @@ h1,
 h2,
 .h2,
 .med-type
-  font-size: 45px
+  font-size: 26px
   font-weight: 700
   letter-spacing: 3.4px
+
+  +respond-to($tablet-landscape)
+    font-size: 45px
 
 h3,
 .h3,
