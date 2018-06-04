@@ -546,7 +546,7 @@ header
       #mobile-nav
         position: relative
         width: 100%
-        height: 66%
+        height: 60%
 
         ul
           position: absolute
@@ -556,28 +556,23 @@ header
 
           li
             width: 100%
-            text-align: center
 
             a
               display: inline-block
               position: relative
-              padding: 26px 0
-              font: normal normal $bold 18px/18px $base-font
+              padding: 26px 34px 46px 34px
+              font: normal normal $bold 40px/18px $base-font
               color: $white
               text-decoration: none
+              opacity: 0.2
 
-              &.router-link-exact-active:after
-                content: ""
-                position: absolute
-                top: 50px
-                left: 0px
-                width: 100%
-                height: 4px
-                background-color: $black
+              &.router-link-exact-active
+                opacity: 1.0
 
       #mobile-studio-wrap
         width: 100%
         background-color: $grandpas-basement
+        color: $faded
 
       #mobile-menu-mask
         position: fixed
