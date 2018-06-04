@@ -478,6 +478,20 @@ header
         #mobile-menu-mask
           animation: menu-mask-proxy 75ms linear 30
 
+    #header-bar
+      #header-logo
+        svg
+          fill: $faded
+      #bacon-double-che
+        &:after
+          background-color: $faded
+        #burg-meat
+          background-color: $grandpas-basement
+          &:before
+            background-color: $grandpas-basement
+
+
+
   &.open, &.project, &.overlay
     #header-bar
       #bacon-double-che
@@ -490,15 +504,20 @@ header
           &:after
             visibility: hidden
 
-  &.minimized, &.open, &.overlay
+  &.minimized, &.overlay
     #header-bar
-      #bacon-double-che
-        #burg-meat
-          background-color: $white !important
+      #header-logo
+        svg
+          fill: $grandpas-basement
 
+      #bacon-double-che
+        &:after
+          background-color: $grandpas-basement
+        #burg-meat
+          background-color: $white
           &:before,
           &:after
-            background-color: $white !important
+            background-color: $white
 
   &.overlay
     #header-bar
@@ -515,7 +534,7 @@ header
       left: 0px
       width: 100%
       height: 100%
-      background-color: $white
+      background-color: $grandpas-basement
       mask-repeat: no-repeat
       mask-size: 100% 3100%
       opacity: 0
@@ -544,7 +563,7 @@ header
               position: relative
               padding: 26px 0
               font: normal normal $bold 18px/18px $base-font
-              color: $black
+              color: $white
               text-decoration: none
 
               &.router-link-exact-active:after
@@ -558,7 +577,7 @@ header
 
       #mobile-studio-wrap
         width: 100%
-        background-color: $white
+        background-color: $grandpas-basement
 
       #mobile-menu-mask
         position: fixed
