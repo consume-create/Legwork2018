@@ -465,6 +465,12 @@ header
         svg
           fill: $faded
 
+    &.minimized
+      #header-bar
+        #header-logo
+          svg
+            fill: $faded
+
   &.open
     transition: height 0ms linear 0ms
     height: 100%
