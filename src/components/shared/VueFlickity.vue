@@ -127,6 +127,7 @@ export default {
         once (eventName, listener) {
             this.flickity.once(eventName, listener);
         }
+
     },
 
 };
@@ -144,8 +145,6 @@ export default {
     overflow: hidden
     position: relative
     transition: height 0.2s
-    // padding-bottom: 23%
-    // height: 0
 
   /deep/ .flickity-slider
     position: absolute
@@ -211,7 +210,7 @@ export default {
   /deep/ .carousel-cell
     width: 95%
     margin: 0
-    opacity: 0.75
+    opacity: 0.50
     transition: opacity 0.333s ease-in
 
     +respond-to($tablet-landscape)
