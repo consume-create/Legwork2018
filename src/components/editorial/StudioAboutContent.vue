@@ -50,8 +50,6 @@
                 <div class="carousel-cell"><div class="content">Cell 2</div></div>
                 <div class="carousel-cell"><div class="content">Cell 3</div></div>
                 <div class="carousel-cell"><div class="content">Cell 4</div></div>
-                <div class="carousel-cell"><div class="content">Cell 5</div></div>
-                <div class="carousel-cell"><div class="content">Cell 6</div></div>
               </vue-flickity>
           </div>
         </div>
@@ -91,11 +89,11 @@
           <h3 class="med-type">Careers</h3>
           <div class="block-sub-career-list">
             <ul>
-              <li>Motion Designer</li>
-              <li>Interactive Designer</li>
-              <li>Interactive Designer</li>
-              <li>Junior Animatior</li>
-              <li>3D Modeler</li>
+              <li><a href="#">Motion Designer</a></li>
+              <li><a href="#">Interactive Designer</a></li>
+              <li><a href="#">Interactive Designer</a></li>
+              <li><a href="#">Junior Animatior</a></li>
+              <li><a href="#">3D Modeler</a></li>
             </ul>
           </div>
         </div>
@@ -146,7 +144,6 @@ export default {
         imagesLoaded: true,
         cellAlign: 'left'
       },
-
     }
   },
 }
@@ -246,8 +243,40 @@ export default {
               font-size: 30px
               font-weight: bold
               line-height: 40px
-              padding: 0 40px 80px 0
+              padding: 0 170px 80px 0
               width: 33%
+
+            a
+              color: $white
+              opacity: 0.2
+              text-decoration: none
+              position: relative
+              overflow: hidden
+              transition: all $fast $evil-ease
+
+              &:hover
+                opacity: 1.0
+
+                &:after
+                  transform: translateX(0%)
+                  opacity: 1.0
+                  transition: all $fast $evil-ease
+
+              &:after
+                content: ""
+                position: absolute
+                background: url('data:image/svg+xml;base64,PD94bWwgdmVyc2lvbj0iMS4wIiBlbmNvZGluZz0iVVRGLTgiPz4KPHN2ZyB3aWR0aD0iMjZweCIgaGVpZ2h0PSIxOHB4IiB2aWV3Qm94PSIwIDAgMjYgMTgiIHZlcnNpb249IjEuMSIgeG1sbnM9Imh0dHA6Ly93d3cudzMub3JnLzIwMDAvc3ZnIiB4bWxuczp4bGluaz0iaHR0cDovL3d3dy53My5vcmcvMTk5OS94bGluayI+CiAgICA8IS0tIEdlbmVyYXRvcjogU2tldGNoIDQ3LjEgKDQ1NDIyKSAtIGh0dHA6Ly93d3cuYm9oZW1pYW5jb2RpbmcuY29tL3NrZXRjaCAtLT4KICAgIDx0aXRsZT5Hcm91cCAxMjwvdGl0bGU+CiAgICA8ZGVzYz5DcmVhdGVkIHdpdGggU2tldGNoLjwvZGVzYz4KICAgIDxkZWZzPjwvZGVmcz4KICAgIDxnIGlkPSJQYWdlLTEiIHN0cm9rZT0ibm9uZSIgc3Ryb2tlLXdpZHRoPSIxIiBmaWxsPSJub25lIiBmaWxsLXJ1bGU9ImV2ZW5vZGQiPgogICAgICAgIDxnIGlkPSJVSS1LSVQiIHRyYW5zZm9ybT0idHJhbnNsYXRlKC02MDcuMDAwMDAwLCAtNjE4MS4wMDAwMDApIiBzdHJva2U9IiMwMDAwMDAiIHN0cm9rZS13aWR0aD0iNCI+CiAgICAgICAgICAgIDxnIGlkPSJHcm91cC0xMiIgdHJhbnNmb3JtPSJ0cmFuc2xhdGUoNjA5LjAwMDAwMCwgNjE4My4wMDAwMDApIj4KICAgICAgICAgICAgICAgIDxnIGlkPSJHcm91cC04IiB0cmFuc2Zvcm09InRyYW5zbGF0ZSgwLjAwMDAwMCwgNy4wMDAwMDApIiBzdHJva2UtbGluZWNhcD0ic3F1YXJlIj4KICAgICAgICAgICAgICAgICAgICA8cGF0aCBkPSJNMTcuNjg0OTM1OSwwIEwwLjAzMzEwNTUxOSwwIiBpZD0iTGluZS1Db3B5LTMwIj48L3BhdGg+CiAgICAgICAgICAgICAgICA8L2c+CiAgICAgICAgICAgICAgICA8cG9seWxpbmUgaWQ9IlBhdGgtMyIgcG9pbnRzPSIxNCAwIDIxIDcgMTQuMTM0NTg5NCAxMy44NjU0MTA2Ij48L3BvbHlsaW5lPgogICAgICAgICAgICA8L2c+CiAgICAgICAgPC9nPgogICAgPC9nPgo8L3N2Zz4=')
+                filter: invert(100%)
+                background-position: center right
+                background-repeat: no-repeat
+                width: 50px
+                height: 30px
+                bottom: 0
+                opacity: 0
+                transform: translateX(-100%)
+                transition: all $fast $evil-ease
+
+
 
       .studio-map
         background: #ddd
