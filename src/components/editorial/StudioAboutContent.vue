@@ -43,8 +43,17 @@
           <h2 class="studio-big-blurb med-type">We are an independent creative studio creating animated and interactive work for brands and agencies around the world</h2>
         </div>
 
-        <div class="studio-wide-block block-stagger-right">
-          <div class="studio-img"></div>
+        <div class="studio-wide-block block-stagger-right studio-slider">
+          <div class="studio-slider-wrap">
+              <vue-flickity ref="flickity" :options="flickityOptions">
+                <div class="carousel-cell">
+                  <div class="content">
+                  </div>
+                </div>
+                <div class="carousel-cell"><div class="content">Cell</div></div>
+                <div class="carousel-cell"><div class="content">Cell</div></div>
+              </vue-flickity>
+          </div>
         </div>
 
 
@@ -129,13 +138,15 @@ export default {
       flickityOptions: {
         initialIndex: 0,
         prevNextButtons: false,
-        pageDots: true,
+        pageDots: false,
         wrapAround: true,
         resize: true,
         dragThreshold: 30,
         adaptiveHeight: true,
         imagesLoaded: true,
+        cellAlign: 'left'
       },
+
     }
   },
 }
@@ -238,16 +249,12 @@ export default {
               padding: 0 40px 80px 0
               width: 33%
 
-      .studio-img,
       .studio-map
         background: #ddd
         width: 100%
         padding-bottom: 75%
 
     .block-stagger-right
-      .studio-img
-        +respond-to($tablet-landscape)
-          grid-column: 3 / span 9
       h3
         +respond-to($tablet-landscape)
           grid-column: 4 / span 8
@@ -261,6 +268,19 @@ export default {
           grid-column: 6 / span 8
         +respond-to($average-desktop)
           grid-column: 6 / span 6
+
+    .studio-slider
+      .studio-slider-wrap
+        grid-column: 1 / span 13
+
+        +respond-to($tablet-landscape)
+          grid-column: 3 / span 13
+          margin-left: -50px
+
+        .carousel-cell
+          @include aspect-ratio(300, 167)
+          width: 85%
+          background: pink
 
     .studio-map-block
       display: none
