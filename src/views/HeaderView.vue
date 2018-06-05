@@ -43,7 +43,6 @@
 <script>
 import StudioAbout from 'components/editorial/StudioAboutContent.vue';
 
-
 export default {
   name: 'header-view',
   components: {
@@ -274,7 +273,8 @@ export default {
         this.$router.push(url);
       } else {
         // menu
-        let menu = this.$store.state.header.menu === 'open' ? '' : 'open';
+        let menu = this.$store.state.header.menu === 'open' ? '' : 'open',
+            theme = menu === 'open' ? 'light' : 'dark';
 
         // mask
         // TODO: animation event namespaces?
@@ -296,7 +296,7 @@ export default {
 
         // set it
         this.$store.dispatch('SET_HEADER', {
-          settings: {menu},
+          settings: {theme, menu},
           delay: 0
         });
       }
@@ -465,11 +465,29 @@ header
         svg
           fill: $faded
 
-    &.minimized
-      #header-bar
-        #header-logo
-          svg
-            fill: $faded
+      #bacon-double-che
+        &:after
+          background-color: $white
+
+        #burg-meat
+          background-color: $grandpas-basement
+
+          &:before,
+          &:after
+            background-color: $grandpas-basement
+
+  &.minimized.light
+    #header-bar
+      #bacon-double-che
+        &:after
+          background-color: $white
+
+        #burg-meat
+          background-color: $black
+
+          &:before,
+          &:after
+            background-color: $black
 
   &.open
     transition: height 0ms linear 0ms
@@ -484,24 +502,10 @@ header
         #mobile-menu-mask
           animation: menu-mask-proxy 75ms linear 30
 
-    #header-bar
-      #header-logo
-        svg
-          fill: $faded
-      #bacon-double-che
-        &:after
-          background-color: $faded
-        #burg-meat
-          background-color: $grandpas-basement
-          &:before
-            background-color: $grandpas-basement
-
-
-
   &.open, &.project, &.overlay
     #header-bar
       #bacon-double-che
-        transform: translate3d(6px, 0px, 0) rotate(45deg)
+        transform: translate3d(17px, 0px, 0) rotate(45deg)
 
         #burg-meat
           &:before
@@ -509,21 +513,6 @@ header
 
           &:after
             visibility: hidden
-
-  &.minimized, &.overlay
-    #header-bar
-      #header-logo
-        svg
-          fill: $grandpas-basement
-
-      #bacon-double-che
-        &:after
-          background-color: $grandpas-basement
-        #burg-meat
-          background-color: $white
-          &:before,
-          &:after
-            background-color: $white
 
   &.overlay
     #header-bar
@@ -552,7 +541,7 @@ header
       #mobile-nav
         position: relative
         width: 100%
-        height: 60%
+        height: 66%
 
         ul
           position: absolute
@@ -626,7 +615,7 @@ header
       position: relative
       width: 50px
       height: 16px
-      transform: translate3d(6px, 0px, 0)
+      transform: translate3d(17px, 0px, 0)
 
       &:before,
       &:after
@@ -645,6 +634,7 @@ header
         height: 38px
         border-radius: 100%
         background-color: $black
+        transition: background-color $fast linear
         z-index: -1
 
       #burg-meat
@@ -654,13 +644,7 @@ header
         width: 12px
         height: 2px
         background-color: $faded
-
-        .home &
-          background-color: $faded
-
-          &:before,
-          &:after
-            background-color: $faded
+        transition: background-color $fast linear
 
         &:before,
         &:after
@@ -670,6 +654,7 @@ header
           left: 0px
           height: 2px
           background-color: $faded
+          transition: background-color $fast linear
 
         &:before
           width: 12px
