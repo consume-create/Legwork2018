@@ -46,12 +46,12 @@
         <div class="studio-wide-block block-stagger-right studio-slider">
           <div class="studio-slider-wrap">
               <vue-flickity ref="flickity" :options="flickityOptions">
-                <div class="carousel-cell">
-                  <div class="content">
-                  </div>
-                </div>
-                <div class="carousel-cell"><div class="content">Cell</div></div>
-                <div class="carousel-cell"><div class="content">Cell</div></div>
+                <div class="carousel-cell"><div class="content">Cell 1</div></div>
+                <div class="carousel-cell"><div class="content">Cell 2</div></div>
+                <div class="carousel-cell"><div class="content">Cell 3</div></div>
+                <div class="carousel-cell"><div class="content">Cell 4</div></div>
+                <div class="carousel-cell"><div class="content">Cell 5</div></div>
+                <div class="carousel-cell"><div class="content">Cell 6</div></div>
               </vue-flickity>
           </div>
         </div>
@@ -138,7 +138,7 @@ export default {
       flickityOptions: {
         initialIndex: 0,
         prevNextButtons: false,
-        pageDots: false,
+        pageDots: true,
         wrapAround: true,
         resize: true,
         dragThreshold: 30,
@@ -269,9 +269,11 @@ export default {
         +respond-to($average-desktop)
           grid-column: 6 / span 6
 
+
+
     .studio-slider
       .studio-slider-wrap
-        grid-column: 1 / span 13
+        grid-column: 1 / span 12
 
         +respond-to($tablet-landscape)
           grid-column: 3 / span 13
@@ -281,6 +283,11 @@ export default {
           @include aspect-ratio(300, 167)
           width: 85%
           background: pink
+
+        .flickity-page-dots .dot
+          background: $white
+
+
 
     .studio-map-block
       display: none
