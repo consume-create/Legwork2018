@@ -243,8 +243,11 @@ export default {
               font-size: 30px
               font-weight: bold
               line-height: 40px
-              padding: 0 170px 80px 0
+              padding: 0 95px 80px 0
               width: 33%
+
+            +respond-to($retina-macbook)
+              padding: 0 170px 80px 0
 
             a
               color: $white
