@@ -400,6 +400,7 @@ export default {
     this._direction_change_y = 0;
     this._last_t = 0;
     this._transform_to = 0;
+    this.updateMask(0);
   },
 
   /*
