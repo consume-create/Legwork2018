@@ -78,9 +78,11 @@ export default {
               'mask-image': 'url(/images/cool-tear-mask.png)',
               'mask-position': '0% 0%'
             });
+          this._$biz_inner.css('overflow', 'hidden');
           break;
         case 30:
           this._$biz_widget.css('mask-image', 'none');
+          this._$biz_inner.css('overflow', 'scroll');
           break;
         default:
           this._$biz_widget.css('mask-position', `0% ${step * 3.333}%`);
@@ -97,7 +99,9 @@ export default {
   mounted() {
     // class vars
     this._$biz_widget = $('#biz-widget');
+    this._$biz_inner = $('#biz-inner');
     this._$biz_widget_mask = $('#biz-widget-mask');
+    this.updateMask(0);
   },
   ssrInit ({ store, route }) {
     // biz position
@@ -138,7 +142,7 @@ export default {
     height: 100%
     padding-top: span(3, 24)
     background-color: $grandpas-basement
-    overflow: scroll
+    overflow: hidden
 
   #biz-widget-mask
     position: fixed
