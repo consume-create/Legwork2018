@@ -3,7 +3,7 @@
     <div class='overview-header'>
       <text-header :text="project.project_name"></text-header>
     </div>
-    <div class='link'>
+    <div class='link-container'>
       <link-comp :link="project.url" :text="project.url"></link-comp>
     </div>
     <text-list :services='project.services_provided'></text-list>
@@ -32,7 +32,7 @@ export default {
   ------------------------------------------
   | props:void (-)
   |
-  | overview:object
+  | overview:objectin
   ------------------------------------------ */
   props: [
     'project'
@@ -52,7 +52,7 @@ export default {
     margin-bottom: 50px
     margin-left: -4px
 
-  .link
+  .link-container
     grid-column: 3 / span 16
     margin-bottom: 70px
 
@@ -71,7 +71,7 @@ export default {
       grid-column: 7 / span 14
       margin-bottom: 115px
 
-    .link
+    .link-container
       grid-column: 3 / span 3
       margin-bottom: 0
 

@@ -2,7 +2,7 @@
   <div class="text-list">
     <h3 class="list-header">Services</h3>
     <ul >
-      <li v-for="service in services">{{ service }}</li>
+      <li v-for="service in services" :key="service.id">{{ service }}</li>
     </ul>
   </div>
 </template>
