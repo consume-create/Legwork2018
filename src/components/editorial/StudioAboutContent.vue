@@ -162,11 +162,8 @@ export default {
     margin: 45px 0px
     position: relative
 
-    +respond-to($tablet-landscape)
-      grid-column: 3 / span 4
-      margin: 0
-
     .studio-narrow-sticky
+
       .studio-narrow-block
         margin-bottom: 50px
 
@@ -186,12 +183,8 @@ export default {
             height: 100%
             fill: $faded
 
-
   .studio-wide-col
     grid-column: 3 / span 16
-
-    +respond-to($tablet-landscape)
-      grid-column: 10 / span 12
 
     .studio-wide-block
       +subgrid(12)
@@ -200,29 +193,16 @@ export default {
       h3
         grid-column: 1 / span 12
         margin-bottom: 15px
-        +respond-to($tablet-landscape)
-          grid-column: 1 / span 11
-          margin-bottom: 45px
 
       .block-sub-services
         grid-column: 1 / span 12
         margin-bottom: 24px
-        +respond-to($tablet-landscape)
-          grid-column: 1 / span 2
-          margin-bottom: 0
 
       .block-sub-copy
         grid-column: 1 / span 12
-        +respond-to($tablet-landscape)
-          grid-column: 3 / span 8
-        +respond-to($average-desktop)
-          grid-column: 3 / span 6
-
 
       .studio-big-blurb
-        grid-column: 1 / span 12
-        +respond-to($tablet-landscape)
-          margin-top: -20px
+        grid-column: 1 / span 11
 
       .block-sub-career-list
         grid-column: 1 / span 12
@@ -239,96 +219,147 @@ export default {
             padding: 0 20px 30px 0
             width: 100%
 
-            +respond-to($tablet-landscape)
-              font-size: 30px
-              font-weight: bold
-              line-height: 40px
-              padding: 0 95px 80px 0
-              width: 33%
-
-            +respond-to($retina-macbook)
-              padding: 0 170px 80px 0
-
             a
               color: $white
               opacity: 0.2
-              text-decoration: none
-              position: relative
               overflow: hidden
+              position: relative
+              text-decoration: none
               transition: all $fast $evil-ease
+
+              &:after
+                background-position: center right
+                background-repeat: no-repeat
+                background: url('data:image/svg+xml;base64,PD94bWwgdmVyc2lvbj0iMS4wIiBlbmNvZGluZz0iVVRGLTgiPz4KPHN2ZyB3aWR0aD0iMjZweCIgaGVpZ2h0PSIxOHB4IiB2aWV3Qm94PSIwIDAgMjYgMTgiIHZlcnNpb249IjEuMSIgeG1sbnM9Imh0dHA6Ly93d3cudzMub3JnLzIwMDAvc3ZnIiB4bWxuczp4bGluaz0iaHR0cDovL3d3dy53My5vcmcvMTk5OS94bGluayI+CiAgICA8IS0tIEdlbmVyYXRvcjogU2tldGNoIDQ3LjEgKDQ1NDIyKSAtIGh0dHA6Ly93d3cuYm9oZW1pYW5jb2RpbmcuY29tL3NrZXRjaCAtLT4KICAgIDx0aXRsZT5Hcm91cCAxMjwvdGl0bGU+CiAgICA8ZGVzYz5DcmVhdGVkIHdpdGggU2tldGNoLjwvZGVzYz4KICAgIDxkZWZzPjwvZGVmcz4KICAgIDxnIGlkPSJQYWdlLTEiIHN0cm9rZT0ibm9uZSIgc3Ryb2tlLXdpZHRoPSIxIiBmaWxsPSJub25lIiBmaWxsLXJ1bGU9ImV2ZW5vZGQiPgogICAgICAgIDxnIGlkPSJVSS1LSVQiIHRyYW5zZm9ybT0idHJhbnNsYXRlKC02MDcuMDAwMDAwLCAtNjE4MS4wMDAwMDApIiBzdHJva2U9IiMwMDAwMDAiIHN0cm9rZS13aWR0aD0iNCI+CiAgICAgICAgICAgIDxnIGlkPSJHcm91cC0xMiIgdHJhbnNmb3JtPSJ0cmFuc2xhdGUoNjA5LjAwMDAwMCwgNjE4My4wMDAwMDApIj4KICAgICAgICAgICAgICAgIDxnIGlkPSJHcm91cC04IiB0cmFuc2Zvcm09InRyYW5zbGF0ZSgwLjAwMDAwMCwgNy4wMDAwMDApIiBzdHJva2UtbGluZWNhcD0ic3F1YXJlIj4KICAgICAgICAgICAgICAgICAgICA8cGF0aCBkPSJNMTcuNjg0OTM1OSwwIEwwLjAzMzEwNTUxOSwwIiBpZD0iTGluZS1Db3B5LTMwIj48L3BhdGg+CiAgICAgICAgICAgICAgICA8L2c+CiAgICAgICAgICAgICAgICA8cG9seWxpbmUgaWQ9IlBhdGgtMyIgcG9pbnRzPSIxNCAwIDIxIDcgMTQuMTM0NTg5NCAxMy44NjU0MTA2Ij48L3BvbHlsaW5lPgogICAgICAgICAgICA8L2c+CiAgICAgICAgPC9nPgogICAgPC9nPgo8L3N2Zz4=')
+                bottom: 0
+                content: ""
+                filter: invert(100%)
+                height: 30px
+                opacity: 0
+                position: absolute
+                transform: translateX(-100%)
+                transition: all $fast $evil-ease
+                width: 50px
 
               &:hover
                 opacity: 1.0
 
                 &:after
-                  transform: translateX(0%)
                   opacity: 1.0
+                  transform: translateX(0%)
                   transition: all $fast $evil-ease
-
-              &:after
-                content: ""
-                position: absolute
-                background: url('data:image/svg+xml;base64,PD94bWwgdmVyc2lvbj0iMS4wIiBlbmNvZGluZz0iVVRGLTgiPz4KPHN2ZyB3aWR0aD0iMjZweCIgaGVpZ2h0PSIxOHB4IiB2aWV3Qm94PSIwIDAgMjYgMTgiIHZlcnNpb249IjEuMSIgeG1sbnM9Imh0dHA6Ly93d3cudzMub3JnLzIwMDAvc3ZnIiB4bWxuczp4bGluaz0iaHR0cDovL3d3dy53My5vcmcvMTk5OS94bGluayI+CiAgICA8IS0tIEdlbmVyYXRvcjogU2tldGNoIDQ3LjEgKDQ1NDIyKSAtIGh0dHA6Ly93d3cuYm9oZW1pYW5jb2RpbmcuY29tL3NrZXRjaCAtLT4KICAgIDx0aXRsZT5Hcm91cCAxMjwvdGl0bGU+CiAgICA8ZGVzYz5DcmVhdGVkIHdpdGggU2tldGNoLjwvZGVzYz4KICAgIDxkZWZzPjwvZGVmcz4KICAgIDxnIGlkPSJQYWdlLTEiIHN0cm9rZT0ibm9uZSIgc3Ryb2tlLXdpZHRoPSIxIiBmaWxsPSJub25lIiBmaWxsLXJ1bGU9ImV2ZW5vZGQiPgogICAgICAgIDxnIGlkPSJVSS1LSVQiIHRyYW5zZm9ybT0idHJhbnNsYXRlKC02MDcuMDAwMDAwLCAtNjE4MS4wMDAwMDApIiBzdHJva2U9IiMwMDAwMDAiIHN0cm9rZS13aWR0aD0iNCI+CiAgICAgICAgICAgIDxnIGlkPSJHcm91cC0xMiIgdHJhbnNmb3JtPSJ0cmFuc2xhdGUoNjA5LjAwMDAwMCwgNjE4My4wMDAwMDApIj4KICAgICAgICAgICAgICAgIDxnIGlkPSJHcm91cC04IiB0cmFuc2Zvcm09InRyYW5zbGF0ZSgwLjAwMDAwMCwgNy4wMDAwMDApIiBzdHJva2UtbGluZWNhcD0ic3F1YXJlIj4KICAgICAgICAgICAgICAgICAgICA8cGF0aCBkPSJNMTcuNjg0OTM1OSwwIEwwLjAzMzEwNTUxOSwwIiBpZD0iTGluZS1Db3B5LTMwIj48L3BhdGg+CiAgICAgICAgICAgICAgICA8L2c+CiAgICAgICAgICAgICAgICA8cG9seWxpbmUgaWQ9IlBhdGgtMyIgcG9pbnRzPSIxNCAwIDIxIDcgMTQuMTM0NTg5NCAxMy44NjU0MTA2Ij48L3BvbHlsaW5lPgogICAgICAgICAgICA8L2c+CiAgICAgICAgPC9nPgogICAgPC9nPgo8L3N2Zz4=')
-                filter: invert(100%)
-                background-position: center right
-                background-repeat: no-repeat
-                width: 50px
-                height: 30px
-                bottom: 0
-                opacity: 0
-                transform: translateX(-100%)
-                transition: all $fast $evil-ease
-
-
 
       .studio-map
         background: #ddd
-        width: 100%
         padding-bottom: 75%
-
-    .block-stagger-right
-      h3
-        +respond-to($tablet-landscape)
-          grid-column: 4 / span 8
-
-      .block-sub-services
-        +respond-to($tablet-landscape)
-          grid-column: 4 / span 2
-
-      .block-sub-copy
-        +respond-to($tablet-landscape)
-          grid-column: 6 / span 8
-        +respond-to($average-desktop)
-          grid-column: 6 / span 6
-
-
+        width: 100%
 
     .studio-slider
       .studio-slider-wrap
         grid-column: 1 / span 12
 
-        +respond-to($tablet-landscape)
-          grid-column: 3 / span 13
-          margin-left: -50px
-
         .carousel-cell
           @include aspect-ratio(300, 167)
-          width: 85%
           background: pink
+          width: 85%
+
+        .flickity-page-dots
+          width: 100%
 
         .flickity-page-dots .dot
           background: $white
 
-
-
     .studio-map-block
       display: none
-      +respond-to($tablet-landscape)
+
+
+// Tablet View
++respond-to($tablet-landscape)
+  #studio-inner
+    .studio-narrow-col
+      grid-column: 3 / span 4
+      margin: 0
+
+    .studio-wide-col
+      grid-column: 10 / span 12
+
+      .studio-wide-block
+        h3
+          grid-column: 1 / span 11
+          margin-bottom: 45px
+
+        .block-sub-services
+            grid-column: 1 / span 2
+            margin-bottom: 0
+
+        .block-sub-copy
+          grid-column: 3 / span 8
+
+        .studio-big-blurb
+          margin-top: -20px
+
+        .block-sub-career-list
+          ul
+            li
+              font-size: 30px
+              font-weight: bold
+              line-height: 40px
+              padding: 0 95px 80px 0
+              width: 33.3%
+
+      .block-stagger-right
+        h3
+          grid-column: 4 / span 8
+
+        .block-sub-services
+          grid-column: 4 / span 2
+
+        .block-sub-copy
+          grid-column: 6 / span 8
+
+      .studio-slider
+        .studio-slider-wrap
+          grid-column: 2 / span 14
+
+          .carousel-cell
+            @include aspect-ratio(300, 167)
+            width: 70%
+            background: pink
+
+          .flickity-page-dots
+            width: 70%
+
+      .studio-map-block
         display: grid
 
-      .studio-map
-        grid-column: 1 / span 7
+        .studio-map
+          grid-column: 1 / span 7
 
-      .map-text
-        grid-column: 9 / span 3
+        .map-text
+          grid-column: 9 / span 3
+
++respond-to($average-desktop)
+  #studio-inner
+    .studio-wide-col
+      .studio-wide-block
+        .block-sub-copy
+          grid-column: 3 / span 6
+
+      .block-stagger-right
+        .block-sub-copy
+          grid-column: 6 / span 6
+
+
+// Very specific overide for larger displays and the text wrapping
+// on these smaller grid items. Could likely improve this
++respond-to($retina-macbook)
+  #studio-inner
+    .studio-wide-col
+      .studio-wide-block
+        .block-sub-career-list
+          ul
+            li
+              padding: 0 175px 80px 0
+
+
 </style>
