@@ -60,23 +60,23 @@ export default {
       li
         width: 25%
 
-  +respond-to($tablet-landscape)
-    .case-study-awards
++respond-to($tablet-landscape)
+  .case-study-awards
+    margin-bottom: 0
+
+    h3
+      margin-bottom: 50px
+
+    p
       margin-bottom: 0
 
-      h3
-        margin-bottom: 50px
+  .case-study-impact
+    grid-column: 9 / span 11
+    margin-bottom: 0
 
-      p
-        margin-bottom: 0
-
-    .case-study-impact
-      grid-column: 9 / span 11
-      margin-bottom: 0
-
-    .case-study-recognition
-      grid-column: 3 / span 4
-      margin-bottom: 0
+  .case-study-recognition
+    grid-column: 3 / span 4
+    margin-bottom: 0
 
 
 
