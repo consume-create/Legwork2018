@@ -1,10 +1,13 @@
 <template>
   <div class='case-study-related-projects'>
-    <div class="project-header">Similar Projects</div>
-    <ul>
-      <li v-for="project in projects" :key="project.id" class="section-header">{{ project }}</li>
-    </ul>
-    <div class="gallery-link">Back to Gallery</div>
+    <div class="next-project-image"></div>
+    <div class="project-header">Next Project</div>
+    <router-link :to="project.next_project.post_name" >
+      <span class="big-type">{{project.next_project.post_title}}</span>
+    </router-link>
+    <router-link :to="project.type" >
+      <div class="gallery-link">Back to Animation</div>
+    </router-link>
   </div>
 </template>
 
@@ -13,16 +16,6 @@
 export default {
   name: 'case-study-related-projects',
 
-  data: function() {
-    return {
-      'projects': [
-        'Einstein Brothers Twist n\' Dip',
-        'Allstate Homeowners',
-        'Nissan Zero Gravity'
-      ],
-    }
-  },
-
   /*
   ------------------------------------------
   | props:void (-)
@@ -30,6 +23,7 @@ export default {
   | overview:object
   ------------------------------------------ */
   props: [
+    'project'
   ],
 }
 </script>
@@ -44,19 +38,21 @@ export default {
   padding: span(2, 20) 0
 
   .project-header
+    font-size: 24px
+    font-weight: 700
     grid-column: 3 / span 16
     margin-bottom: span(2, 20)
     opacity: 0.5
 
-  ul
+  a
+    color: $white
+    font-weight: 700
     grid-column: 3 / span 16
+    line-height: 80px
     margin-bottom: span(2, 20)
-
-    li
-      padding-bottom: 32px
-
-      &:last-of-type
-        padding-bottom: 0
+    max-width: 500px
+    padding-bottom: 32px
+    text-decoration: none
 
   .gallery-link
     grid-column: 3 / span 16
