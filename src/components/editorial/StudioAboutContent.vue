@@ -89,11 +89,11 @@
           <h3 class="med-type">Careers</h3>
           <div class="block-sub-career-list">
             <ul>
-              <li><a href="#">Motion Designer</a></li>
-              <li><a href="#">Interactive Designer</a></li>
-              <li><a href="#">Interactive Designer</a></li>
-              <li><a href="#">Junior Animatior</a></li>
-              <li><a href="#">3D Modeler</a></li>
+              <li><a href="#">Motion Designer <i class="arrow"><svg width="31" height="20" xmlns="http://www.w3.org/2000/svg"><g stroke="#F8F7F3" stroke-width="3" fill="none" fill-rule="evenodd" stroke-linecap="square"><path d="M26 10H2M21.14 3L28 9.93 21 17"/></g></svg></i></a></li>
+              <li><a href="#">Interactive Designer <i class="arrow"><svg width="31" height="20" xmlns="http://www.w3.org/2000/svg"><g stroke="#F8F7F3" stroke-width="3" fill="none" fill-rule="evenodd" stroke-linecap="square"><path d="M26 10H2M21.14 3L28 9.93 21 17"/></g></svg></i></a></li>
+              <li><a href="#">Interactive Designer <i class="arrow"><svg width="31" height="20" xmlns="http://www.w3.org/2000/svg"><g stroke="#F8F7F3" stroke-width="3" fill="none" fill-rule="evenodd" stroke-linecap="square"><path d="M26 10H2M21.14 3L28 9.93 21 17"/></g></svg></i></a></li>
+              <li><a href="#">Junior Animatior <i class="arrow"><svg width="31" height="20" xmlns="http://www.w3.org/2000/svg"><g stroke="#F8F7F3" stroke-width="3" fill="none" fill-rule="evenodd" stroke-linecap="square"><path d="M26 10H2M21.14 3L28 9.93 21 17"/></g></svg></i></a></li>
+              <li><a href="#">3D Modeler <i class="arrow"><svg width="31" height="20" xmlns="http://www.w3.org/2000/svg"><g stroke="#F8F7F3" stroke-width="3" fill="none" fill-rule="evenodd" stroke-linecap="square"><path d="M26 10H2M21.14 3L28 9.93 21 17"/></g></svg></i></a></li>
             </ul>
           </div>
         </div>
@@ -227,26 +227,21 @@ export default {
               text-decoration: none
               transition: all $fast $evil-ease
 
-              &:after
-                background-position: center right
-                background-repeat: no-repeat
-                background: url('data:image/svg+xml;base64,PD94bWwgdmVyc2lvbj0iMS4wIiBlbmNvZGluZz0iVVRGLTgiPz4KPHN2ZyB3aWR0aD0iMjZweCIgaGVpZ2h0PSIxOHB4IiB2aWV3Qm94PSIwIDAgMjYgMTgiIHZlcnNpb249IjEuMSIgeG1sbnM9Imh0dHA6Ly93d3cudzMub3JnLzIwMDAvc3ZnIiB4bWxuczp4bGluaz0iaHR0cDovL3d3dy53My5vcmcvMTk5OS94bGluayI+CiAgICA8IS0tIEdlbmVyYXRvcjogU2tldGNoIDQ3LjEgKDQ1NDIyKSAtIGh0dHA6Ly93d3cuYm9oZW1pYW5jb2RpbmcuY29tL3NrZXRjaCAtLT4KICAgIDx0aXRsZT5Hcm91cCAxMjwvdGl0bGU+CiAgICA8ZGVzYz5DcmVhdGVkIHdpdGggU2tldGNoLjwvZGVzYz4KICAgIDxkZWZzPjwvZGVmcz4KICAgIDxnIGlkPSJQYWdlLTEiIHN0cm9rZT0ibm9uZSIgc3Ryb2tlLXdpZHRoPSIxIiBmaWxsPSJub25lIiBmaWxsLXJ1bGU9ImV2ZW5vZGQiPgogICAgICAgIDxnIGlkPSJVSS1LSVQiIHRyYW5zZm9ybT0idHJhbnNsYXRlKC02MDcuMDAwMDAwLCAtNjE4MS4wMDAwMDApIiBzdHJva2U9IiMwMDAwMDAiIHN0cm9rZS13aWR0aD0iNCI+CiAgICAgICAgICAgIDxnIGlkPSJHcm91cC0xMiIgdHJhbnNmb3JtPSJ0cmFuc2xhdGUoNjA5LjAwMDAwMCwgNjE4My4wMDAwMDApIj4KICAgICAgICAgICAgICAgIDxnIGlkPSJHcm91cC04IiB0cmFuc2Zvcm09InRyYW5zbGF0ZSgwLjAwMDAwMCwgNy4wMDAwMDApIiBzdHJva2UtbGluZWNhcD0ic3F1YXJlIj4KICAgICAgICAgICAgICAgICAgICA8cGF0aCBkPSJNMTcuNjg0OTM1OSwwIEwwLjAzMzEwNTUxOSwwIiBpZD0iTGluZS1Db3B5LTMwIj48L3BhdGg+CiAgICAgICAgICAgICAgICA8L2c+CiAgICAgICAgICAgICAgICA8cG9seWxpbmUgaWQ9IlBhdGgtMyIgcG9pbnRzPSIxNCAwIDIxIDcgMTQuMTM0NTg5NCAxMy44NjU0MTA2Ij48L3BvbHlsaW5lPgogICAgICAgICAgICA8L2c+CiAgICAgICAgPC9nPgogICAgPC9nPgo8L3N2Zz4=')
-                bottom: 0
-                content: ""
-                filter: invert(100%)
-                height: 30px
+              i
+                bottom: -5px
                 opacity: 0
                 position: absolute
-                transform: translateX(-100%)
+                right: 0
+                transform: translateX(0%)
                 transition: all $fast $evil-ease
                 width: 50px
 
               &:hover
                 opacity: 1.0
 
-                &:after
+                i
                   opacity: 1.0
-                  transform: translateX(0%)
+                  transform: translateX(120%)
                   transition: all $fast $evil-ease
 
       .studio-map
