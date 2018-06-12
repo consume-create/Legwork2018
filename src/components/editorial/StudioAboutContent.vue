@@ -89,11 +89,11 @@
           <h3 class="med-type">Careers</h3>
           <div class="block-sub-career-list">
             <ul>
-              <li><a href="#">Motion Designer <i class="arrow"><svg width="31" height="20" xmlns="http://www.w3.org/2000/svg"><g stroke="#F8F7F3" stroke-width="3" fill="none" fill-rule="evenodd" stroke-linecap="square"><path d="M26 10H2M21.14 3L28 9.93 21 17"/></g></svg></i></a></li>
-              <li><a href="#">Interactive Designer <i class="arrow"><svg width="31" height="20" xmlns="http://www.w3.org/2000/svg"><g stroke="#F8F7F3" stroke-width="3" fill="none" fill-rule="evenodd" stroke-linecap="square"><path d="M26 10H2M21.14 3L28 9.93 21 17"/></g></svg></i></a></li>
-              <li><a href="#">Interactive Designer <i class="arrow"><svg width="31" height="20" xmlns="http://www.w3.org/2000/svg"><g stroke="#F8F7F3" stroke-width="3" fill="none" fill-rule="evenodd" stroke-linecap="square"><path d="M26 10H2M21.14 3L28 9.93 21 17"/></g></svg></i></a></li>
-              <li><a href="#">Junior Animatior <i class="arrow"><svg width="31" height="20" xmlns="http://www.w3.org/2000/svg"><g stroke="#F8F7F3" stroke-width="3" fill="none" fill-rule="evenodd" stroke-linecap="square"><path d="M26 10H2M21.14 3L28 9.93 21 17"/></g></svg></i></a></li>
-              <li><a href="#">3D Modeler <i class="arrow"><svg width="31" height="20" xmlns="http://www.w3.org/2000/svg"><g stroke="#F8F7F3" stroke-width="3" fill="none" fill-rule="evenodd" stroke-linecap="square"><path d="M26 10H2M21.14 3L28 9.93 21 17"/></g></svg></i></a></li>
+              <li><a href="#">Motion <br />Designer <i class="arrow"><svg width="31" height="20" xmlns="http://www.w3.org/2000/svg"><g stroke="#F8F7F3" stroke-width="3" fill="none" fill-rule="evenodd" stroke-linecap="square"><path d="M26 10H2M21.14 3L28 9.93 21 17"/></g></svg></i></a></li>
+              <li><a href="#">Interactive <br />Designer <i class="arrow"><svg width="31" height="20" xmlns="http://www.w3.org/2000/svg"><g stroke="#F8F7F3" stroke-width="3" fill="none" fill-rule="evenodd" stroke-linecap="square"><path d="M26 10H2M21.14 3L28 9.93 21 17"/></g></svg></i></a></li>
+              <li><a href="#">Interactive <br />Designer <i class="arrow"><svg width="31" height="20" xmlns="http://www.w3.org/2000/svg"><g stroke="#F8F7F3" stroke-width="3" fill="none" fill-rule="evenodd" stroke-linecap="square"><path d="M26 10H2M21.14 3L28 9.93 21 17"/></g></svg></i></a></li>
+              <li><a href="#">Junior <br />Animatior <i class="arrow"><svg width="31" height="20" xmlns="http://www.w3.org/2000/svg"><g stroke="#F8F7F3" stroke-width="3" fill="none" fill-rule="evenodd" stroke-linecap="square"><path d="M26 10H2M21.14 3L28 9.93 21 17"/></g></svg></i></a></li>
+              <li><a href="#">3D <br />Modeler <i class="arrow"><svg width="31" height="20" xmlns="http://www.w3.org/2000/svg"><g stroke="#F8F7F3" stroke-width="3" fill="none" fill-rule="evenodd" stroke-linecap="square"><path d="M26 10H2M21.14 3L28 9.93 21 17"/></g></svg></i></a></li>
             </ul>
           </div>
         </div>
@@ -216,7 +216,7 @@ export default {
             font-size: 30px
             font-weight: bold
             line-height: 40px
-            padding: 0 20px 30px 0
+            padding-bottom: 30px
             width: 100%
 
             a
@@ -299,7 +299,7 @@ export default {
               font-size: 30px
               font-weight: bold
               line-height: 40px
-              padding: 0 95px 80px 0
+              padding-bottom: 80px
               width: 33.3%
 
       .block-stagger-right
