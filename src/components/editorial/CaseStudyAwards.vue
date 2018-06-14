@@ -62,7 +62,7 @@ export default {
 
 +respond-to($tablet-landscape)
   .case-study-awards
-    margin-bottom: 0
+    margin-bottom: 150px
 
     h3
       margin-bottom: 50px
@@ -70,13 +70,13 @@ export default {
     p
       margin-bottom: 0
 
-  .case-study-impact
-    grid-column: 9 / span 11
-    margin-bottom: 0
+    .case-study-impact
+      grid-column: 9 / span 11
+      margin-bottom: 0
 
-  .case-study-recognition
-    grid-column: 3 / span 4
-    margin-bottom: 0
+    .case-study-recognition
+      grid-column: 3 / span 4
+      margin-bottom: 0
 
 
 
