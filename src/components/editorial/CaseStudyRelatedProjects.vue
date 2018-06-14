@@ -1,5 +1,5 @@
 <template>
-  <div class='case-study-related-projects'>
+  <div class='case-study-related-projects' v-if="project.next_project">
     <div class="next-project-image"></div>
     <div class="project-header">Next Project</div>
     <router-link :to="project.next_project.post_name" class="next-project-link">
