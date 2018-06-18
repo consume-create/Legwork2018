@@ -360,7 +360,7 @@ export default {
 
       // overlay
       if(typeof this.$route.query.overlay !== 'undefined') {
-        theme = 'light';
+        theme = 'dark';
         section = 'overlay';
       }
 
@@ -426,7 +426,7 @@ export default {
 
     // overlay
     if(typeof route.query.overlay !== 'undefined') {
-      theme = 'light';
+      theme = 'dark';
       section = 'overlay';
     }
 

@@ -1,11 +1,30 @@
 <template>
   <div id="overlay" :class="[shown, kind]" @scroll="onOverlayScroll">
+    <search-overlay v-if="kind === 'search'"></search-overlay>
+    <watch-overlay v-if="kind === 'watch'"></watch-overlay>
+    <powerlist-overlay v-if="kind === 'powerlist'"></powerlist-overlay>
   </div>
 </template>
 
 <script>
+import SearchOverlay from 'components/SearchOverlay.vue';
+import WatchOverlay from 'components/WatchOverlay.vue';
+import PowerlistOverlay from 'components/PowerlistOverlay.vue';
+
+
 export default {
   name: 'overlay-view',
+
+  /*
+  ------------------------------------------
+  | components:void (-)
+  ------------------------------------------ */
+  components: {
+    SearchOverlay,
+    WatchOverlay,
+    PowerlistOverlay
+  },
+
   computed: {
     shown() {
       return this.$store.state.overlay.shown ? 'shown' : '';
