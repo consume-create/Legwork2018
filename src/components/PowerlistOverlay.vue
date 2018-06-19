@@ -131,7 +131,7 @@ export default {
         border-radius: 25px
         color: #7C745D
         display: block
-        font-size: 11px
+        font-size: 12px
         padding: 2px 10px
 
       .powerlist-copy
@@ -141,7 +141,7 @@ export default {
         display: inline-block
         font-weight: bold
         margin: 10px auto
-        padding: 8px 16px
+        padding: 2px 16px
 
 +respond-to($tablet-landscape)
   #powerlist-overlay
