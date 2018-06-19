@@ -1,12 +1,14 @@
 <template>
   <div id="search-overlay">
     <div class="search-container">
-      <input type="search" class="search-input big-type" placeholder="Search..."/>
+      <input type="search" class="search-input big-type" placeholder="Search..." v-model="projectSearch" />
       <div class="search-results big-type">
         <ul>
-          <li>Celebrate!</li>
-          <li>Cellulite</li>
-          <li>Cells</li>
+          <li class="result" v-for="result in searchResults">
+            <a v-bind:href="result.link" target="_blank">
+              {{ result.project_name }}
+            </a>
+          </li>
         </ul>
       </div>
     </div>
@@ -17,14 +19,30 @@
 export default {
   name: 'search-overlay',
 
-  /*
-  ------------------------------------------
-  | props:void (-)
-  |
-  | Project:object
-  ------------------------------------------ */
-  props: [
-  ],
+  data: function(){
+    return {
+      projectSearch: ''
+    }
+  },
+
+  computed: {
+    // TODO: test this more thouroughly with actual data and not crappy tag terms like 'egg' and 'eggs'
+    searchResults() {
+      return this.$store.getters.projects.filter(result => {
+        // First check if project search input has a value from the user and 
+        // if the object has project tags (if not, it's a quote or job opening)
+        if (this.projectSearch !== '' && result.project_tags) {
+          // project_tags is an array of objects within a project result
+          // so we look at the `slug` value inside that object and see if it
+          // is inlcuded in our project search term
+          let containsTag = result.project_tags.findIndex((tag) => {
+            return tag.slug.includes(this.projectSearch.toLowerCase())
+          })
+          return containsTag > -1
+        }
+      })
+    }
+  }
 }
 </script>
 
