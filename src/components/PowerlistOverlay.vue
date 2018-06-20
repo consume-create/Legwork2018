@@ -23,7 +23,7 @@
           <div class="item-delete-btn">
             <div class="btn-container">
               <svg version="1.1" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 36 36"><g stroke="#E9654D" stroke-width="3" fill="none" fill-rule="evenodd"><path d="M14.436 14.142l8.128 8.128M22.276 13.853l-8.129 8.128" stroke-linecap="square"/><path d="M34.351 18.029C34.351 9.176 26.837 2 18 2S2 9.176 2 18.029c0 8.852 7.163 16.028 16 16.028s16.351-7.176 16.351-16.028z"/></g></svg>
-            </div>          
+            </div>
           </div>
           <div class="item-thumbnail">
             <img src="https://gradientjoy.com/122x122" />
@@ -37,7 +37,7 @@
           <div class="item-delete-btn">
             <div class="btn-container">
               <svg version="1.1" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 36 36"><g stroke="#E9654D" stroke-width="3" fill="none" fill-rule="evenodd"><path d="M14.436 14.142l8.128 8.128M22.276 13.853l-8.129 8.128" stroke-linecap="square"/><path d="M34.351 18.029C34.351 9.176 26.837 2 18 2S2 9.176 2 18.029c0 8.852 7.163 16.028 16 16.028s16.351-7.176 16.351-16.028z"/></g></svg>
-            </div>          
+            </div>
           </div>
           <div class="item-thumbnail">
             <img src="https://gradientjoy.com/122x122" />
@@ -122,7 +122,7 @@ export default {
           font-size: 18px
           font-weight: bold
           padding-left: 20px
-        
+
     .powerlist-grabber
       grid-column: 3 / span 16
 
@@ -178,7 +178,7 @@ export default {
             font-size: 36px
             line-height: 40px
             padding-left: 43px
-          
+
       .powerlist-grabber
         display: flex
         align-items: center
