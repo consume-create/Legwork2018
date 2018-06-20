@@ -4,10 +4,10 @@
       <input type="search" class="search-input big-type" placeholder="Search..." v-model="projectSearch" />
       <div class="search-results big-type">
         <ul>
-          <li class="result" v-for="result in searchResults">
-            <a v-bind:href="result.path">
-              {{ result.project_name }}
-            </a>
+          <li class="result" v-for="result in searchResults" :key="result.id">
+            <router-link :to="result.path">
+              <span @click="onProjectClick">{{result.project_name }}</span>
+            </router-link>
           </li>
         </ul>
       </div>
@@ -28,8 +28,9 @@ export default {
   computed: {
     // TODO: test this more thouroughly with actual data and not crappy tag terms like 'egg' and 'eggs'
     searchResults() {
+      // get all the projects that we've got from the CMS
       return this.$store.getters.projects.filter(result => {
-        // First check if project search input has a value from the user and 
+        // First check if project search input has a value from the user and
         // if the object has project tags (if not, it's a quote or job opening)
         if (this.projectSearch !== '' && result.project_tags) {
 
@@ -43,6 +44,15 @@ export default {
         }
       })
     }
+  },
+  methods: {
+    /*
+    ------------------------------------------
+    | onProjectClick:void (-)
+    ------------------------------------------ */
+    onProjectClick () {
+      this.$store.dispatch("TRANSITION", "project-grid");
+    },
   }
 }
 </script>
