@@ -1,11 +1,20 @@
 <template>
   <div id="watch-overlay">
-
+    <div class="video-container">
+      <video-component></video-component>
+    </div>
   </div>
 </template>
 <script>
+
+import VideoComponent from 'components/shared/VideoComponent.vue';
+
 export default {
   name: 'watch-overlay',
+
+  components: {
+    VideoComponent
+  },
 
   /*
   ------------------------------------------
@@ -26,5 +35,15 @@ export default {
   height: 100%
   background: $color-bg-body
   text: $faded
+  +grid
+
+  .video-container
+    grid-column: 3 / span 16
+    align-self: center
+
++respond-to($tablet-landscape)
+  #watch-overlay
+    .video-container
+      grid-column: 4 / span 18
 
 </style>
