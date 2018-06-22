@@ -3,13 +3,21 @@
     <div class="search-container">
       <input type="search" class="search-input big-type" placeholder="Search..." v-model="projectSearch" />
       <div class="search-results big-type">
-        <ul>
-          <li class="result" v-for="result in searchResults" :key="result.id">
+        <transition-group
+          name="staggered-fade"
+          tag="ul"
+          v-bind:css="false"
+          v-on:before-enter="beforeEnter"
+          v-on:enter="enter"
+          v-on:leave="leave"
+          v-on:after-leave="afterLeave"
+        >
+          <li class="result" v-for="(result, index) in searchResults" v-bind:key="index" v-bind:data-index="index">
             <router-link :to="result.path">
               <span @click="onProjectClick">{{result.project_name }}</span>
             </router-link>
           </li>
-        </ul>
+        </transition-group>
       </div>
     </div>
   </div>
@@ -21,6 +29,7 @@ export default {
 
   data: function(){
     return {
+      el: '.search-container',
       projectSearch: ''
     }
   },
@@ -53,6 +62,25 @@ export default {
     onProjectClick () {
       this.$store.dispatch("TRANSITION", "project-grid");
     },
+
+    beforeEnter: function (el) {
+      el.classList = "";
+    },
+    enter: function (el) {
+      var delay = el.dataset.index * 120
+      setTimeout(function () {
+        el.classList.add("list-fade");
+      }, delay)
+    },
+    leave: function (el, done) {
+      el.classList = "list-fade-bye";
+      setTimeout(function () {
+        done();
+      }, 333);
+    },
+    afterLeave: function(el) {
+      el.remove();
+    }
   }
 }
 </script>
@@ -63,7 +91,7 @@ export default {
 #search-overlay
   width: 100%
   height: 100%
-  background: $color-bg-body
+  background: $case-files
   text: $color-text
 
   .search-container
@@ -88,19 +116,32 @@ export default {
 
         li
           font-weight: bold
+          opacity: 0
+          transform: translateY(-10px)
+          transition: all $fast $evil-ease
 
           &:nth-of-type(1)
-            opacity: 0.25
+            a
+              color: #B0AFA9
 
           &:nth-of-type(2)
-            opacity: 0.10
-
-          &:nth-of-type(3)
-            opacity: 0.05
+            a
+              color: #D3D1CB
 
           a
-            color: $black
+            color: #DFDDD6
             text-decoration: none
+
+        .list-fade
+          opacity: 1
+          transform: translateY(0)
+          transition: all $fast $evil-ease
+
+        .list-fade-bye
+          opacity: 0
+          transform: translateY(-10px)
+          transition: all $fast $evil-ease
+
 
 
 
