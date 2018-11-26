@@ -9,6 +9,8 @@
 docker-compose up
 ```
 
+The site will be served at <http://localhost:8080>.
+
 ## Under the hood
 We are using Server Side Rendering and prefetching all data to ensure speedy delivery of the site and content.
 
