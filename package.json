@@ -36,7 +36,8 @@
     "vue-server-renderer": "^2.4.4",
     "vue-vimeo-player": "0.0.6",
     "vuex": "^2.4.0",
-    "vuex-router-sync": "^4.3.2"
+    "vuex-router-sync": "^4.3.2",
+    "vue-no-ssr": "^0.2.0"
   },
   "devDependencies": {
     "autoprefixer": "^7.1.4",

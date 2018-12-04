@@ -725,7 +725,14 @@ header
           li:last-child
             a
               color: $black !important
-              background-position-x: 0px
+              // background: $grandpas-office
+
+        .minimized &
+          #header-nav
+            li:last-child
+              a
+                color: $grandpas-office
+                background: $black
 
     #header-bar
       position: relative
