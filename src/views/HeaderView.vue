@@ -726,6 +726,7 @@ header
             a
               color: $black !important
               // background: $grandpas-office
+
         .minimized &
           #header-nav
             li:last-child
