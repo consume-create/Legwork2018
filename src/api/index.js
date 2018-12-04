@@ -15,7 +15,7 @@ export function init(){
 
     return new Promise( (resolve, reject) => {
       request({
-        url: 'http://assets.legwork.studio/data/' + _url,
+        url: 'http://d8pghywiq8stv.cloudfront.net/data/' + _url,
         json: true
       }, function (error, response, body) {
         if (!error && response.statusCode === 200) {
