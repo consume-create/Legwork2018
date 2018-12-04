@@ -1,12 +1,11 @@
 version: '2'
 services:  
-  builder:
-    build:
-      context: .
-      dockerfile: docker/Dockerfile.builder
-    ports:
-      - 8080:8080
+  app:
+    container_name: legsite_app
+    build: .
+    command: /bin/bash -c "npm run dev"
     volumes:
       - ./:/app
       - /app/node_modules
-    command: /bin/bash -c "npm run dev"
+    ports:
+      - 8080:8080
