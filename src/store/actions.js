@@ -142,25 +142,5 @@ export default {
   ------------------------------------------ */
   TRANSITION: ({commit}, origin) => {
     commit('TRANSITION_ORIGIN', origin);
-  },
-
-  /*
-  ------------------------------------------
-  | ADD_COMPONENT_TO_RENDER_QUEUE:void (-)
-  |
-  | Add a component to the render queue
-  ------------------------------------------ */
-  ADD_COMPONENT_TO_RENDER_QUEUE({commit}, component){
-    commit('ADD_TO_RENDERER', component);
-  },
-
-  /*
-  ------------------------------------------
-  | REMOVE_COMONENT_FROM_RENDER_QUEUE:void (-)
-  |
-  | Remove a component from the render queue
-  ------------------------------------------ */
-  REMOVE_COMONENT_FROM_RENDER_QUEUE({ commit}, component){
-    commit('REMOVE_FROM_RENDERER', component);
   }
 };

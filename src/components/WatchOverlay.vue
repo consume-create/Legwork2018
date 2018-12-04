@@ -33,7 +33,6 @@ export default {
 #watch-overlay
   width: 100%
   height: 100%
-  background: $case-files
   text: $faded
   +grid
 

@@ -112,9 +112,6 @@ export default {
 
     // ensure initial scroll is triggered after resize
     _.defer(() => this._$wn.trigger('scroll'));
-
-    // Animation
-    this.animate();
   },
 
   watch: {
@@ -156,16 +153,6 @@ export default {
     ------------------------------------------ */
     '$route.query.overlay': {
       handler: 'onActiveScrollChange'
-    },
-
-    /*
-    ------------------------------------------
-    | $state.animationQueue:void (-)
-    |
-    | Watch for the animation Queue To change
-    ------------------------------------------ */
-    '$store.state.animationQueue': {
-      handler: 'onAnimationQueueUpdate'
     },
 
     /*
@@ -230,30 +217,6 @@ export default {
         ratio: this._$wn.height() / this._$wn.width(),
         breakpoint: (this._$wn.width() >= 768 && this._$wn.width() > this._$wn.height()) ? 'tablet-up' : 'mobile'
       });
-    },
-
-    /*
-    ------------------------------------------
-    | animate:void (-)
-    |
-    | A request Animation loop
-    ------------------------------------------ */
-    animate() {
-      _.each( this.animationLoop, (component) => {
-        component.update();
-      });
-
-      requestAnimationFrame( () => { this.animate() });
-    },
-
-    /*
-    ------------------------------------------
-    | onAnimationQueueUpdate:void (-)
-    |
-    | When the animation queue updates, update our cached objects.
-    ------------------------------------------ */
-    onAnimationQueueUpdate(){
-      this.animationLoop = this.$store.state.animationQueue;
     },
 
     /*
