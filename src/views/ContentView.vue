@@ -70,19 +70,11 @@
         </div>
       </div>
       <!--/pattern set 3 -->
-
-      <!-- for later -->
-      <!--
-      <div id='content-cells'>
-        <content-cell-view v-for="content in projects" :key="content.slug" :discipline="discipline" :content="content"></content-cell-view>
-      </div>
-      -->
     </div>
   </div>
 </template>
 
 <script>
-import ContentCellView from 'components/content-view/ContentCellView.vue';
 
 export default {
   name: 'content-view',
@@ -92,7 +84,6 @@ export default {
   | components:void (-)
   ------------------------------------------ */
   components: {
-    ContentCellView
   },
 
   /*

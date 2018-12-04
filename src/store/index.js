@@ -26,7 +26,6 @@ export function createStore () {
           offset: 0
         }
       },
-      animationQueue: [],
       activeScroll: 'win',
       appSize: {
         width: 0,

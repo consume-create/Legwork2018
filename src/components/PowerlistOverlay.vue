@@ -74,7 +74,6 @@ export default {
 @import "src/styles/global"
 
 #powerlist-overlay
-  background: $case-files
   height: 100%
   overflow-y: scroll
   text: $color-text

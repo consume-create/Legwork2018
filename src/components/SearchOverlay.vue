@@ -91,7 +91,6 @@ export default {
 #search-overlay
   width: 100%
   height: 100%
-  background: $case-files
   text: $color-text
 
   .search-container
