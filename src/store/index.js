@@ -4,6 +4,8 @@ import getters from './getters'
 
 export const STORE = {
   state: {
+    data: {}, // this is for protosite
+
     appScroll: {
       win: {
         offset: 0,

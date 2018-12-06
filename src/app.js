@@ -1,4 +1,4 @@
-import Vue from 'vue'
+import Vue from 'vue/dist/vue.js'
 import Vuex from 'vuex'
 import VueRouter from 'vue-router'
 import VueProtosite from '@legwork/vue-protosite'
@@ -32,7 +32,12 @@ if (process.env.NODE_ENV !== 'production') {
 }
 
 // setup protosite
-const protosite = new VueProtosite({ store, router, logger: () => null })
+async function createInterface(Vue, opts) {
+  // TODO: this is what's used to create the admin interface, which isn't used on this project
+  // const Protosite = await import(/* webpackChunkName: "protosite" */ '@legwork/vue-protosite')
+  // Protosite.Interface(Vue, opts)
+}
+const protosite = new VueProtosite({ store, router, interface: false, logger: () => null })
 
 export function createApp() {
   // create the app instance
