@@ -1,41 +1,48 @@
-import Vue from 'vue';
-import App from './App.vue';
-import { createStore } from './store';
-import { createRouter } from './router';
-import { sync } from 'vuex-router-sync';
-import titleMixin from './util/title';
-import * as filters from './util/filters';
+import Vue from 'vue/dist/vue.js'
+import Vuex from 'vuex'
+import VueRouter from 'vue-router'
+import VueProtosite from '@legwork/vue-protosite'
 
-// mixin for handling title
-Vue.mixin(titleMixin);
+import {STORE} from './store'
+import {ROUTES} from './util/routes'
+import * as mixins from './util/mixins'
+import * as filters from './util/filters'
 
-// register global utility filters.
-Object.keys(filters).forEach(key => {
-  Vue.filter(key, filters[key]);
-});
+import App from './App.vue'
+import StyleGuide from './views/StyleGuide.vue'
 
-// Expose a factory function that creates a fresh set of store, router,
-// app instances on each call (which is called for each SSR request)
-export function createApp () {
-  // create store and router instances
-  const store = createStore();
-  const router = createRouter();
+// tell vue what to use
+Vue.use(Vuex)
+Vue.use(VueRouter)
+Vue.use(VueProtosite)
 
-  // sync the router with the vuex store.
-  // this registers `store.state.route`
-  sync(store, router);
+// register global utility mixins
+Object.keys(mixins).forEach((key) => Vue.mixin(mixins[key]))
 
-  // create the app instance.
-  // here we inject the router, store and ssr context to all child components,
-  // making them available everywhere as `this.$router` and `this.$store`.
-  const app = new Vue({
-    router,
-    store,
-    render: h => h(App)
-  });
+// register global utility filters
+Object.keys(filters).forEach(key => Vue.filter(key, filters[key]))
 
-  // expose the app, the router and the store.
-  // note we are not mounting the app here, since bootstrapping will be
-  // different depending on whether we are in a browser or on the server.
-  return { app, router, store };
+// setup vuex
+const store = new Vuex.Store(STORE)
+
+// setup the router
+const router = new VueRouter(ROUTES)
+if (process.env.NODE_ENV !== 'production') {
+  router.addRoutes([{ path: '/style', component: StyleGuide, props: true }])
+}
+
+// setup protosite
+async function createInterface(Vue, opts) {
+  // TODO: this is what's used to create the admin interface, which isn't used on this project
+  // const Protosite = await import(/* webpackChunkName: "protosite" */ '@legwork/vue-protosite')
+  // Protosite.Interface(Vue, opts)
+}
+const protosite = new VueProtosite({ store, router, interface: false, logger: () => null })
+
+export function createApp() {
+  // create the app instance
+  const app = new Vue({ router, store, protosite, render: (h) => h(App) })
+
+  // expose the app, the router and the store
+  return { app, router, store }
 }
