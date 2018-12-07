@@ -6,7 +6,8 @@
       "data": {
         "id": "error_404",
         "slug": "404",
-        "sort": 0
+        "sort": 0,
+        "title": "404 - Where the hell am I?"
       },
       "pages": []
     },
@@ -16,7 +17,8 @@
       "data": {
         "id": "studio",
         "slug": "studio",
-        "sort": 1
+        "sort": 1,
+        "title": "Studio"
       },
       "pages": []
     },
@@ -24,9 +26,10 @@
       "id": "home",
       "slug": "",
       "data": {
-        "template": "scroll",
+        "type": "scroll",
         "slug": "",
         "sort": 2,
+        "title": "Home",
         "components": [
           {
             "type": "hero",
@@ -40,20 +43,21 @@
       "pages": [
         {
           "id": "animation",
-          "slug": "animation-protosite",
+          "slug": "animation",
           "data": {
-            "template": "scroll",
-            "slug": "animation-protosite",
-            "sort": 0
+            "type": "scroll",
+            "slug": "animation",
+            "sort": 0,
+            "title": "Animation"
           },
           "pages": [
             {
               "id": "einstein-bros-twist-dip",
               "slug": "einstein-bros-twist-dip",
               "data": {
-                "template": "project",
-                "title": "Einstein Bros' - Twist Dip",
+                "type": "project",
                 "slug": "einstein-bros-twist-dip",
+                "title": "Einstein Bros' - Twist Dip",
                 "client": "Einstein Bros'",
                 "project_name": "Twist Dip",
                 "project_primary_color": "#dd9933",
@@ -319,11 +323,12 @@
         },
         {
           "id": "interactive",
-          "slug": "interactive-protosite",
+          "slug": "interactive",
           "data": {
             "template": "scroll",
-            "slug": "interactive-protosite",
-            "sort": 1
+            "slug": "interactive",
+            "sort": 1,
+            "title": "Interactive"
           },
           "pages": []
         }

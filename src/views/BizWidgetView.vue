@@ -102,11 +102,11 @@ export default {
     this._$biz_widget_mask = $('#biz-widget-mask');
     this.updateMask(0);
   },
-  ssrInit ({ store, route }) {
-    // biz position
-    let pos = typeof route.query.slide === 'undefined' ? '' : route.query.slide;
-    return store.dispatch('SET_BIZ_POSITION', { pos: pos, delay: 0 });
-  }
+  // ssrInit ({ store, route }) {
+  //   // biz position
+  //   let pos = typeof route.query.slide === 'undefined' ? '' : route.query.slide;
+  //   return store.dispatch('SET_BIZ_POSITION', { pos: pos, delay: 0 });
+  // }
 }
 </script>
 

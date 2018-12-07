@@ -142,7 +142,7 @@ export default {
 
           svg
             width: 20px
-            hieght: 20px
+            height: 20px
             fill: none
             stroke: $slight-white
 

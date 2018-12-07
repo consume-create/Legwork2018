@@ -5,6 +5,7 @@ import getters from './getters'
 export const STORE = {
   state: {
     data: {}, // this is for protosite
+    resolver: {},
 
     appScroll: {
       win: {
@@ -32,7 +33,7 @@ export const STORE = {
       breakpoint: '',
     },
     header: {
-      hieght: 0,
+      height: 0,
       transform: 0,
       mode: '',
       theme: 'dark',

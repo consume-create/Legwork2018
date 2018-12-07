@@ -41,9 +41,9 @@ export default {
       this.$store.dispatch('SET_PROJECT_SCROLL', {offset});
     }
   },
-  ssrInit({ store, route}) {
-
-  }
+  // ssrInit({ store, route}) {
+  //
+  // }
 };
 </script>
 

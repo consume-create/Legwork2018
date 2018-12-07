@@ -109,17 +109,6 @@ export default {
       return this.$route.params.discipline;
     }
   },
-
-  /*
-  ------------------------------------------
-  | ssrInit:void (-)
-  |
-  | Fetch the projects and fill the store
-  | This happens serverside.
-  ------------------------------------------ */
-  ssrInit ({ store, route }) {
-    return store.dispatch('FETCH_PROJECTS');
-  }
 };
 </script>
 

@@ -22,24 +22,30 @@ Object.keys(mixins).forEach((key) => Vue.mixin(mixins[key]))
 // register global utility filters
 Object.keys(filters).forEach(key => Vue.filter(key, filters[key]))
 
-// setup vuex
-const store = new Vuex.Store(STORE)
-
-// setup the router
-const router = new VueRouter(ROUTES)
-if (process.env.NODE_ENV !== 'production') {
-  router.addRoutes([{ path: '/style', component: StyleGuide, props: true }])
-}
-
 // setup protosite
 async function createInterface(Vue, opts) {
   // TODO: this is what's used to create the admin interface, which isn't used on this project
   // const Protosite = await import(/* webpackChunkName: "protosite" */ '@legwork/vue-protosite')
   // Protosite.Interface(Vue, opts)
 }
-const protosite = new VueProtosite({ store, router, interface: false, logger: () => null })
 
-export function createApp() {
+export function createApp(preload) {
+
+  // setup vuex
+  const store = new Vuex.Store(STORE)
+
+  // setup the router
+  const router = new VueRouter(ROUTES)
+  if (process.env.NODE_ENV !== 'production') {
+    router.addRoutes([{ path: '/style', component: StyleGuide, props: true }])
+  }
+
+  // let the entry point hook into things
+  if (preload) preload({ router, store })
+
+  // setup protosite
+  const protosite = new VueProtosite({ store, router, interface: false, logger: () => null })
+
   // create the app instance
   const app = new Vue({ router, store, protosite, render: (h) => h(App) })
 

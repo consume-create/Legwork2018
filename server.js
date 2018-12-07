@@ -76,7 +76,7 @@ app.use('/manifest.json', serve('./manifest.json', true))
 // headers.
 // 1-second microcache.
 // https://www.nginx.com/blog/benefits-of-microcaching-nginx/
-app.use(microcache.cacheSeconds(1, req => useMicroCache && req.originalUrl))
+// app.use(microcache.cacheSeconds(1, req => useMicroCache && req.originalUrl))
 
 function render(req, res) {
   const s = Date.now()

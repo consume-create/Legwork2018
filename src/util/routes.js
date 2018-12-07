@@ -15,11 +15,11 @@ export const ROUTES = {
     else return false
   },
   routes: [
-    {
-      path: '/',
-      props: true,
-      components: { HeaderView, ContentView, BizWidgetView, FooterView, HeroView, },
-    },
+    // {
+    //   path: '/',
+    //   props: true,
+    //   components: { HeaderView, ContentView, BizWidgetView, FooterView, HeroView, },
+    // },
     // {
     //   path: '/search',
     //   props: true,

@@ -403,39 +403,39 @@ export default {
     this.updateMask(0);
   },
 
-  /*
-  ------------------------------------------
-  | ssrInit:void
-  |
-  | Handle server side init.
-  ------------------------------------------ */
-  ssrInit ({ store, route }) {
-    let theme = 'dark', section = '';
-
-    // studio
-    if(typeof route.query.slide !== 'undefined') {
-      theme = 'light';
-      section = 'studio';
-    }
-
-    // project
-    if(typeof route.params.project !== 'undefined') {
-      theme = 'dark';
-      section = 'project';
-    }
-
-    // overlay
-    if(typeof route.query.overlay !== 'undefined') {
-      theme = 'dark';
-      section = 'overlay';
-    }
-
-    // set it
-    return store.dispatch('SET_HEADER', {
-      settings: {theme, section},
-      delay: 0
-    });
-  }
+  // /*
+  // ------------------------------------------
+  // | ssrInit:void
+  // |
+  // | Handle server side init.
+  // ------------------------------------------ */
+  // ssrInit ({ store, route }) {
+  //   let theme = 'dark', section = '';
+  //
+  //   // studio
+  //   if(typeof route.query.slide !== 'undefined') {
+  //     theme = 'light';
+  //     section = 'studio';
+  //   }
+  //
+  //   // project
+  //   if(typeof route.params.project !== 'undefined') {
+  //     theme = 'dark';
+  //     section = 'project';
+  //   }
+  //
+  //   // overlay
+  //   if(typeof route.query.overlay !== 'undefined') {
+  //     theme = 'dark';
+  //     section = 'overlay';
+  //   }
+  //
+  //   // set it
+  //   return store.dispatch('SET_HEADER', {
+  //     settings: {theme, section},
+  //     delay: 0
+  //   });
+  // }
 }
 </script>
 

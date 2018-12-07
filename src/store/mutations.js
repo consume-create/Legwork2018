@@ -39,10 +39,6 @@ export default {
     Object.assign(state.overlay, settings)
   },
 
-  PROJECTS: (state, projects) => {
-    state.pages = projects
-  },
-
   TRANSITION_ORIGIN: (state, origin) => {
     state.transitionOrigin = origin
   },
