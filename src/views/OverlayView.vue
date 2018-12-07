@@ -11,7 +11,6 @@ import SearchOverlay from 'components/SearchOverlay.vue';
 import WatchOverlay from 'components/WatchOverlay.vue';
 import PowerlistOverlay from 'components/PowerlistOverlay.vue';
 
-
 export default {
   name: 'overlay-view',
 

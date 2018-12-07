@@ -1,6 +1,6 @@
 import Vue from 'vue/dist/vue.js';
 import 'es6-promise/auto';
-import { createApp } from './app';
+import { createApp } from './application';
 
 // Client side plugins
 import vueVimeoPlayer from 'vue-vimeo-player';

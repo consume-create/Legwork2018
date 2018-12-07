@@ -10,17 +10,18 @@ export default {
    ------------------------------------------ */
   FETCH_PROJECTS: ({ commit }) => {
     let _projects = []
+    return _projects
 
-    return init()
-      .then((projects) => {
-        _.each(projects, (projects, key) => {
-          _projects.push({
-            title: key,
-            projects: projects,
-          })
-        })
-        commit('PROJECTS', _projects)
-      })
+    // return init()
+    //   .then((projects) => {
+    //     _.each(projects, (projects, key) => {
+    //       _projects.push({
+    //         title: key,
+    //         projects: projects,
+    //       })
+    //     })
+    //     commit('PROJECTS', _projects)
+    //   })
   },
 
   /*

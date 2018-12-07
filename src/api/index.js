@@ -9,6 +9,8 @@ const writer = new streams.WritableStream()
  | Method Notes
  ------------------------------------------ */
 export function init() {
+  console.trace()
+
   if (writer.toString() === '' || process.env.NODE_ENV === 'development') {
     return new Promise((resolve) => {
       let rawdata = fs.readFileSync('public/data.json')

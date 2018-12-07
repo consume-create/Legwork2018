@@ -3,7 +3,7 @@
     <header-view></header-view>
     <hero-view></hero-view>
     <content-view></content-view>
-    <router-view v-if="environment === 'development'"></router-view>
+    <router-view></router-view>
     <footer-view></footer-view>
     <biz-widget-view></biz-widget-view>
     <power-tools-view></power-tools-view>
@@ -14,14 +14,14 @@
 
 <script>
 import { disableBodyScroll, enableBodyScroll, clearAllBodyScrollLocks } from 'body-scroll-lock';
-import HeaderView from './views/HeaderView.vue';
-import ContentView from './views/ContentView.vue';
-import HeroView from './views/HeroView.vue';
-import BizWidgetView from './views/BizWidgetView.vue';
-import PowerToolsView from './views/PowerToolsView.vue';
-import FooterView from './views/FooterView.vue';
-import CaseStudyView from './views/CaseStudyView.vue';
-import OverlayView from './views/OverlayView.vue';
+import HeaderView from './HeaderView.vue';
+import ContentView from './ContentView.vue';
+import HeroView from './HeroView.vue';
+import BizWidgetView from './BizWidgetView.vue';
+import PowerToolsView from './PowerToolsView.vue';
+import FooterView from './FooterView.vue';
+import CaseStudyView from './CaseStudyView.vue';
+import OverlayView from './OverlayView.vue';
 
 export default {
   name: 'app',

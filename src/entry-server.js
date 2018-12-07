@@ -1,4 +1,5 @@
-import { createApp } from './app';
+// import { createApp } from './application';
+import { createApp } from './application';
 
 const isDev = process.env.NODE_ENV !== 'production';
 
@@ -7,10 +8,12 @@ const isDev = process.env.NODE_ENV !== 'production';
 // state of our application before actually rendering it.
 // Since data fetching is async, this function is expected to
 // return a Promise that resolves to the app instance.
-export default context => {
+export default (context) => {
   return new Promise((resolve, reject) => {
     const s = isDev && Date.now();
     const { app, router, store } = createApp();
+
+    // store.replaceState();
 
     const { url } = context;
     const { fullPath } = router.resolve(url).route;
@@ -47,6 +50,8 @@ export default context => {
         // store to pick-up the server-side state without having to duplicate
         // the initial data fetching on the client.
         context.state = store.state;
+
+        console.log("!!!!!!!!!!!!!!!", store.state)
         resolve(app);
       }).catch(reject);
     }, reject);

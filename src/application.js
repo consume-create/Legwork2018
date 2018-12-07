@@ -8,7 +8,7 @@ import {ROUTES} from './util/routes'
 import * as mixins from './util/mixins'
 import * as filters from './util/filters'
 
-import App from './App.vue'
+import App from './views/AppNew.vue'
 import StyleGuide from './views/StyleGuide.vue'
 
 // tell vue what to use

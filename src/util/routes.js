@@ -20,25 +20,25 @@ export const ROUTES = {
       props: true,
       components: { HeaderView, ContentView, BizWidgetView, FooterView, HeroView, },
     },
-    {
-      path: '/:discipline',
-      props: true,
-      components: { HeaderView, ContentView, BizWidgetView, FooterView, HeroView, },
-    },
-    {
-      path: '/:discipline/:project',
-      props: true,
-      components: { HeaderView, ContentView, BizWidgetView, FooterView, HeroView, CaseStudyView, },
-    },
-    {
-      path: '/search',
-      props: true,
-      components: { HeaderView, ContentView, BizWidgetView, FooterView, HeroView, },
-    },
-    {
-      path: '/search/:project_search',
-      props: true,
-      components: { HeaderView, ContentView, BizWidgetView, FooterView, HeroView, },
-    },
+    // {
+    //   path: '/search',
+    //   props: true,
+    //   components: { HeaderView, ContentView, BizWidgetView, FooterView, HeroView, },
+    // },
+    // {
+    //   path: '/search/:project_search',
+    //   props: true,
+    //   components: { HeaderView, ContentView, BizWidgetView, FooterView, HeroView, },
+    // },
+    // {
+    //   path: '/:discipline',
+    //   props: true,
+    //   components: { HeaderView, ContentView, BizWidgetView, FooterView, HeroView, },
+    // },
+    // {
+    //   path: '/:discipline/:project',
+    //   props: true,
+    //   components: { HeaderView, ContentView, BizWidgetView, FooterView, HeroView, CaseStudyView, },
+    // },
   ],
 }
