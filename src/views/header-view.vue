@@ -49,7 +49,10 @@
     methods: {
       studioOrClose() {
         if (this.page.id === 'studio' || this.$route.query.overlay) {
-          if (this.$store.state.route.from) {
+          // This is technically incorrect; a better way would be to track
+          // route changes and keep a running count to determine if it's our
+          // site that we would be going back to. This is a quick fix though.
+          if (window.history.length > 2) {
             return this.$router.go(-1)
           } else {
             this.$router.push('/')

@@ -18,7 +18,7 @@
       timeout = setTimeout(() => {
         disableBodyScroll(this.$el)
         this.$el.style.overflowY = 'auto'
-      }, 333)
+      }, this.$parent.transitionSpeed)
     }
   }
 </script>

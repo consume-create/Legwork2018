@@ -6,9 +6,7 @@
     </transition>
     <transition name="overlay">
       <keep-alive>
-        <search-overlay v-if="overlay === 'search'"/>
-        <watch-overlay v-if="overlay === 'watch'"/>
-        <powerlist-overlay v-if="overlay === 'powerlist'"/>
+        <component ref="overlay" :is="overlay"/>
       </keep-alive>
     </transition>
   </section>
@@ -37,7 +35,8 @@
     },
     computed: {
       overlay() {
-        return this.$route.query.overlay
+        const overlay = this.$route.query.overlay
+        return overlay ? `${overlay}-overlay` : null
       },
     },
     methods: {
