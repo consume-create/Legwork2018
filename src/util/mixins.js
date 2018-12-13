@@ -9,7 +9,7 @@ let title = {
   created() {
     const title = getTitle(this)
     if (title) {
-      this.$ssrContext.title = `Vue HN 2.0 | ${title}`
+      this.$ssrContext.title = `Legwork Studio / ${title}`
     }
   },
 }
@@ -18,7 +18,7 @@ if (process.env.VUE_ENV !== 'server') {
     mounted() {
       const title = getTitle(this)
       if (title) {
-        document.title = `Vue HN 2.0 | ${title}`
+        document.title = `Legwork Studio / ${title}`
       }
     },
   }

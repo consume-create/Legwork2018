@@ -10,9 +10,9 @@ import {RESOLVER} from './util/resolver'
 import * as mixins from './util/mixins'
 import * as filters from './util/filters'
 
-import App from './views/new/app.vue'
-import Page from './views/components/page.vue'
-import StyleGuide from './views/StyleGuide.vue'
+import App from './views/app.vue'
+import Page from './components/page.vue'
+import StyleGuide from './views/style-guide.vue'
 
 // tell vue what to use
 Vue.use(Vuex)

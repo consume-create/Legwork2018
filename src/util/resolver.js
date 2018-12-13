@@ -1,10 +1,10 @@
-import Hero from '../views/components/hero.vue'
-import MobileNav from '../views/components/mobile-nav.vue'
-import Powertools from '../views/components/powertools.vue'
-import ProjectGrid from '../views/components/project-grid.vue'
-import ScrollToNav from '../views/components/scroll-to-nav.vue'
-import StudioContent from '../views/components/studio-content.vue'
-import TitleAndText from '../views/components/title-and-text.vue'
+import Hero from '../components/hero.vue'
+import MobileNav from '../components/mobile-nav.vue'
+import Powertools from '../components/powertools.vue'
+import ProjectGrid from '../components/project-grid.vue'
+import ScrollToNav from '../components/scroll-to-nav.vue'
+import StudioContent from '../components/studio-content.vue'
+import TitleAndText from '../components/title-and-text.vue'
 
 export const RESOLVER = {
   'hero': Hero,

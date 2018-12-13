@@ -48,11 +48,9 @@
 </script>
 
 <style lang="sass">
-  @import 'src/styles/fonts'
   @import 'src/styles/reset'
   @import 'src/styles/global'
   @import 'src/styles/animations'
-  @import 'src/styles/utils'
   @import 'src/styles/types'
 
   html,
