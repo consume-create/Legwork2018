@@ -1,13 +1,15 @@
 <template>
-  <section id="app" class="application">
+  <section id="app" class="application" :class="{overlay}">
     <header-view/>
     <transition name="page">
       <router-view :key="$route.path"/>
     </transition>
     <transition name="overlay">
-      <search-overlay v-if="overlay === 'search'"/>
-      <watch-overlay v-if="overlay === 'watch'"/>
-      <powerlist-overlay v-if="overlay === 'powerlist'"/>
+      <keep-alive>
+        <search-overlay v-if="overlay === 'search'"/>
+        <watch-overlay v-if="overlay === 'watch'"/>
+        <powerlist-overlay v-if="overlay === 'powerlist'"/>
+      </keep-alive>
     </transition>
   </section>
 </template>
@@ -18,10 +20,18 @@
   import WatchOverlay from './watch-overlay.vue'
   import PowerlistOverlay from './powerlist-overlay.vue'
 
+  let timeout = null
+
   export default {
     name: 'App',
     components: { HeaderView, SearchOverlay, WatchOverlay, PowerlistOverlay },
+    data() {
+      return {
+        transitionSpeed: 333,
+      }
+    },
     mounted() {
+      this.$router.options.scrollBehavior = this.scrollBehavior
       window.addEventListener('resize', this.windowResize())
       window.addEventListener('scroll', this.windowScroll())
     },
@@ -42,6 +52,15 @@
         const x = window.pageXOffset
         this.$store.commit('scrollPos', { x, y })
         return this.windowScroll
+      },
+      scrollBehavior(to, from, savedPosition) {
+        const position = savedPosition || { x: 0, y: 0 }
+        if (to.query.overlay) return false
+        return new Promise((resolve) => {
+          const delay = from.query.overlay ? 15 : this.transitionSpeed
+          timeout && clearTimeout(timeout)
+          timeout = this.delay(delay, () => resolve(position))
+        })
       },
     },
   }
@@ -66,9 +85,6 @@
     -webkit-font-smoothing: antialiased
     -webkit-text-size-adjust: none
     font: normal normal 18px/1.8 "neuzeit-grotesk", san-serif
-
-  body.locked
-    overflow: hidden
 
   section#app.application
     width: 100%
@@ -107,7 +123,6 @@
     padding-top: 100px
     box-sizing: border-box
     background-color: $faded
-    overflow: scroll
 
   // article transition
   article.overlay-enter

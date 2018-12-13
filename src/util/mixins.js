@@ -5,7 +5,7 @@ function getTitle(vm) {
   }
 }
 
-let title = {
+let titleObj = {
   created() {
     const title = getTitle(this)
     if (title) {
@@ -14,7 +14,7 @@ let title = {
   },
 }
 if (process.env.VUE_ENV !== 'server') {
-  title = {
+  titleObj = {
     mounted() {
       const title = getTitle(this)
       if (title) {
@@ -24,4 +24,32 @@ if (process.env.VUE_ENV !== 'server') {
   }
 }
 
-export const titleMixin = title
+export const title = titleObj
+
+export const delay = {
+  methods: {
+    delay(time, callback) {
+      if (time > 0) {
+        return setTimeout(callback, time)
+      } else {
+        callback()
+        return setTimeout(() => {
+        }, time)
+      }
+    },
+  },
+}
+
+export const autofocus = {
+  mounted() {
+    this.focusAutoFocusable()
+  },
+  activated() {
+    this.focusAutoFocusable()
+  },
+  methods: {
+    focusAutoFocusable() {
+      if (this.$refs['autofocus']) this.$refs['autofocus'].focus()
+    }
+  }
+}

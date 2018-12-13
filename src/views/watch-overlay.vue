@@ -5,8 +5,11 @@
 </template>
 
 <script>
+  import BaseOverlay from './base-overlay.vue'
+
   export default {
     name: 'WatchOverlay',
+    extends: BaseOverlay
   }
 </script>
 

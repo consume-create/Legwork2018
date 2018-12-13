@@ -14,12 +14,17 @@ export const ROUTES = {
   fallback: false,
   // TODO: scroll behavior isn't fully baked and needs to change to using an animation event.
   scrollBehavior(to, from, savedPosition) {
-    if (to.query.overlay || from.query.overlay) return false
     const position = savedPosition || { x: 0, y: 0 }
+    let delay = 333
+
+    if (to.query.overlay) return false
+    if (from.query.overlay) delay = 15
+
     return new Promise((resolve, reject) => {
+      // console.log(position)
       timeout && clearTimeout(timeout)
       // the timing of this is based on page transition time
-      timeout = setTimeout(() => resolve(position), 333)
+      timeout = setTimeout(() => resolve(position), delay)
     })
   },
   routes: [

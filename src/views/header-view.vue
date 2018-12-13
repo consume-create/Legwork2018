@@ -59,10 +59,69 @@
         }
       },
       onResize() {
-        // console.log('onResize')
+        // set header height in the store
+        // let height = this.$el.offsetHeight;
+        // this.$store.commit('headerDim', { height })
+
+        // cache minimized height
+        // 84px = minimized desktop height
+        // this._minimized_height = (this.$store.state.header.height - 84);
       },
       onScroll() {
-        // console.log('onScroll')
+        // let mode = '',
+        //   y = Math.max(this.scroll[this.$store.state.activeScroll].offset, 0),
+        //   direction = y < this._last_scroll ? 'up' : 'down',
+        //   transform = 0
+        //
+        // // direction change?
+        // if (direction !== this._last_direction) {
+        //   this._direction_change_y = this._initial ? 0 : y
+        //   this._direction_change_t = this._last_t
+        // }
+        //
+        // // calculate style / position
+        // if (y <= 0) {
+        //   mode = 'top'
+        //   transform = 0
+        // } else {
+        //   if (((y <= (this.$store.state.header.height + 1)) && direction === 'down') || (y <= this._minimized_height && direction === 'up')) {
+        //     mode = 'transitioning'
+        //   } else {
+        //     mode = 'minimized'
+        //   }
+        //
+        //   // on the way up, at the top, on desktop
+        //   if (this.size.breakpoint === 'tablet-up' && mode === 'transitioning' && this._last_mode === 'minimized') {
+        //     this._direction_change_y = this._minimized_height
+        //     this._direction_change_t = -this._minimized_height
+        //   }
+        //
+        //   // calculate reveal
+        //   let scroll = this._direction_change_y - y,
+        //     reveal = this._direction_change_t + scroll
+        //
+        //   // limit desktop reveal when minimized
+        //   if (this.size.breakpoint === 'tablet-up' && mode === 'minimized') {
+        //     reveal = Math.min(reveal, -this._minimized_height)
+        //   }
+        //
+        //   // limit transform
+        //   transform = Math.ceil(Math.min(0, Math.max(reveal, -(this.$store.state.header.height + 1))))
+        // }
+        //
+        // // set it
+        // this.$store.dispatch('SET_HEADER', {
+        //   settings: { mode, transform },
+        //   delay: 0,
+        // })
+        //
+        // this._last_scroll = y
+        // this._last_direction = direction
+        // this._last_t = transform
+        // this._last_mode = mode
+        //
+        // // initial flag
+        // this._initial = false
       },
     },
   }
@@ -101,7 +160,7 @@
       color: $white
 
   header.overlaid,
-  header.over-studio-page,
+  header.over-studio-page
     a.discipline
       visibility: hidden
 
