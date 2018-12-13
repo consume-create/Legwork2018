@@ -5,16 +5,19 @@ import VueProtosite from '@legwork/vue-protosite'
 
 import {STORE} from './store'
 import {ROUTES} from './util/routes'
+import {RESOLVER} from './util/resolver'
+
 import * as mixins from './util/mixins'
 import * as filters from './util/filters'
 
-import App from './views/AppNew.vue'
+import App from './views/new/app.vue'
+import Page from './views/components/page.vue'
 import StyleGuide from './views/StyleGuide.vue'
 
 // tell vue what to use
 Vue.use(Vuex)
 Vue.use(VueRouter)
-Vue.use(VueProtosite)
+Vue.use(VueProtosite, { resolver: RESOLVER, pageComponent: Page })
 
 // register global utility mixins
 Object.keys(mixins).forEach((key) => Vue.mixin(mixins[key]))
@@ -30,9 +33,8 @@ async function createInterface(Vue, opts) {
 }
 
 export function createApp(preload) {
-
   // setup vuex
-  const store = new Vuex.Store(STORE)
+  const store = new Vuex.Store(Object.assign({}, STORE))
 
   // setup the router
   const router = new VueRouter(ROUTES)
@@ -44,7 +46,7 @@ export function createApp(preload) {
   if (preload) preload({ router, store })
 
   // setup protosite
-  const protosite = new VueProtosite({ store, router, interface: false, logger: () => null })
+  const protosite = new VueProtosite({ store, router, logger: () => null })
 
   // create the app instance
   const app = new Vue({ router, store, protosite, render: (h) => h(App) })

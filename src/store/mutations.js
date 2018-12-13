@@ -1,4 +1,7 @@
 export default {
+  windowDim: (state, obj) => Object.assign(state.windowDim, obj),
+  scrollPos: (state, obj) => Object.assign(state.scrollPos, obj),
+
   WIN_SCROLL: (state, obj) => {
     Object.assign(state.appScroll.win, obj)
   },

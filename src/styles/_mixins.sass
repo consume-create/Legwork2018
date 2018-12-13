@@ -3,9 +3,7 @@
   @media all and #{$mq}
     @content
 
-
 /* Fonts */
-
 @mixin font-NeuzeitGrot($size: false, $color: false, $weight: false,  $lh: false)
   font-family: $base-font
   @if $size
@@ -16,7 +14,6 @@
     font-weight: $weight
   @if $lh
     line-height: $lh
-
 
 @mixin aspect-ratio($width, $height)
   position: relative

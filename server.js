@@ -20,10 +20,10 @@ function createRenderer(bundle, options) {
   // https://github.com/vuejs/vue/blob/dev/packages/vue-server-renderer/README.md#why-use-bundlerenderer
   return createBundleRenderer(bundle, Object.assign(options, {
     // for component caching
-    cache: LRU({
-      max: 10000,
-      maxAge: 100000 * 60 * 15,
-    }),
+    // cache: LRU({
+    //   max: 10000,
+    //   maxAge: 100000 * 60 * 15,
+    // }),
     // this is only needed when vue-server-renderer is npm-linked
     basedir: resolve('./dist'),
     // recommended for performance
@@ -84,16 +84,19 @@ function render(req, res) {
   res.setHeader('Content-Type', 'text/html')
   res.setHeader('Server', serverInfo)
 
-  const handleError = err => {
+  const handleError = (err) => {
     if (err.url) {
       res.redirect(err.url)
+      return true
     } else if (err.code === 404) {
-      res.status(404).send('404 | Page Not Found')
+      res.status(404)
+      return false
     } else {
       // Render Error Page or Redirect
       res.status(500).send('500 | Internal Server Error')
       console.error(`error during render : ${req.url}`)
       console.error(err.stack)
+      return true
     }
   }
 
@@ -102,13 +105,9 @@ function render(req, res) {
     url: req.url,
   }
   renderer.renderToString(context, (err, html) => {
-    if (err) {
-      return handleError(err)
-    }
+    if (err && handleError(err)) return
     res.send(html)
-    if (!isProd) {
-      console.log(`whole request: ${Date.now() - s}ms`)
-    }
+    if (!isProd) console.log(`whole request: ${Date.now() - s}ms`)
   })
 }
 

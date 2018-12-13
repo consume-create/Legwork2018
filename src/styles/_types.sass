@@ -1,0 +1,27 @@
+::selection
+  background: $black
+  text-shadow: none
+
+h1, .h1, .big-type
+  font-size: 55px
+  letter-spacing: 1.6px
+
+h2, .h2, .med-type
+  font-size: 26px
+  font-weight: 700
+  letter-spacing: 3.4px
+
+h3, .h3, .section-header
+  font-size: 34px
+  letter-spacing: 2.0px
+
+h4, .h4, .list-header
+  font-size: 18px
+  font-weight: 700
+
++respond-to($tablet-landscape)
+  h1, .h1, .big-type
+    font-size: 60px
+
+  h2, .h2, .med-type
+    font-size: 45px

@@ -4,21 +4,18 @@
       "id": "error_404",
       "slug": "404",
       "data": {
+        "type": "error",
         "id": "error_404",
         "slug": "404",
         "sort": 0,
-        "title": "404 - Where the hell am I?"
-      },
-      "pages": []
-    },
-    {
-      "id": "studio",
-      "slug": "studio",
-      "data": {
-        "id": "studio",
-        "slug": "studio",
-        "sort": 1,
-        "title": "Studio"
+        "title": "404 - Where the hell am I?",
+        "components": [
+          {
+            "type": "title-and-text",
+            "title": "404 - Where the hell am I?",
+            "text": "Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. It has survived not only five centuries."
+          }
+        ]
       },
       "pages": []
     },
@@ -26,17 +23,24 @@
       "id": "home",
       "slug": "",
       "data": {
-        "type": "scroll",
         "slug": "",
         "sort": 2,
         "title": "Home",
         "components": [
           {
             "type": "hero",
-            "text": "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Aenean at auctor tortor.",
-            "link.url": "http://cnn.com",
-            "link.text": "CNN.com",
-            "style": "default"
+            "style": "faded",
+            "media": {
+              "url": "/images/hero-home-test.png",
+              "mimetype": "image/png"
+            }
+          },
+          {
+            "type": "mash-babies-together"
+          },
+          {
+            "type": "scroll-to-nav",
+            "page_id": "animation"
           }
         ]
       },
@@ -45,10 +49,29 @@
           "id": "animation",
           "slug": "animation",
           "data": {
-            "type": "scroll",
             "slug": "animation",
             "sort": 0,
-            "title": "Animation"
+            "title": "Animation",
+            "components": [
+              {
+                "type": "hero",
+                "style": "faded",
+                "media": {
+                  "url": "/images/hero-animation-test.png",
+                  "mimetype": "image/png"
+                }
+              },
+              {
+                "type": "powertools"
+              },
+              {
+                "type": "project-grid"
+              },
+              {
+                "type": "scroll-to-nav",
+                "page_id": "interactive"
+              }
+            ]
           },
           "pages": [
             {
@@ -95,7 +118,7 @@
                 ],
                 "components": [
                   {
-                    "type": "media_gallery",
+                    "type": "media-gallery",
                     "fullscreen": false,
                     "media": [
                       {
@@ -144,7 +167,7 @@
                     ]
                   },
                   {
-                    "type": "media_gallery_with_copy",
+                    "type": "media-gallery-with-copy",
                     "copy": "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Quisque dolor mi, malesuada sit amet lorem ac, consectetur dapibus augue. Morbi nibh ex, consectetur a sapien non, tincidunt ornare odio. Vestibulum et metus mi. Sed gravida odio et porta pellentesque. Suspendisse vitae orci augue.",
                     "media": [
                       {
@@ -165,7 +188,7 @@
                     "position": "right"
                   },
                   {
-                    "type": "media_gallery_with_copy",
+                    "type": "media-gallery-with-copy",
                     "copy": "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Quisque dolor mi, malesuada sit amet lorem ac, consectetur dapibus augue. Morbi nibh ex, consectetur a sapien non, tincidunt ornare odio. Vestibulum et metus mi. Sed gravida odio et porta pellentesque. Suspendisse vitae orci augue.",
                     "media": [
                       {
@@ -214,12 +237,12 @@
                     "position": "left"
                   },
                   {
-                    "type": "copy_block",
+                    "type": "copy-block",
                     "copy": "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Quisque dolor mi, malesuada sit amet lorem ac, consectetur dapibus augue. Morbi nibh ex, consectetur a sapien non, tincidunt ornare odio. Vestibulum et metus mi. Sed gravida odio et porta pellentesque. Suspendisse vitae orci augue.",
                     "position": "left"
                   },
                   {
-                    "type": "media_gallery",
+                    "type": "media-gallery",
                     "fullscreen": true,
                     "media": [
                       {
@@ -240,12 +263,12 @@
                     ]
                   },
                   {
-                    "type": "copy_block",
+                    "type": "copy-block",
                     "copy": "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Quisque dolor mi, malesuada sit amet lorem ac, consectetur dapibus augue. Morbi nibh ex, consectetur a sapien non, tincidunt ornare odio. Vestibulum et metus mi. Sed gravida odio et porta pellentesque. Suspendisse vitae orci augue.",
                     "position": "right"
                   },
                   {
-                    "type": "media_gallery",
+                    "type": "media-gallery",
                     "fullscreen": false,
                     "media": [
                       {
@@ -266,19 +289,19 @@
                     ]
                   },
                   {
-                    "type": "pull_quote",
+                    "type": "pull-quote",
                     "quote": "This was the raddest project ever",
                     "quote_author": "",
                     "position": "left"
                   },
                   {
-                    "type": "pull_quote",
+                    "type": "pull-quote",
                     "quote": "This project was okay. Not great. Not good. ",
                     "quote_author": "",
                     "position": "right"
                   },
                   {
-                    "type": "process_scrubber",
+                    "type": "process-scrubber",
                     "images": [
                       {
                         "image": {
@@ -325,12 +348,162 @@
           "id": "interactive",
           "slug": "interactive",
           "data": {
-            "template": "scroll",
             "slug": "interactive",
             "sort": 1,
-            "title": "Interactive"
+            "title": "Interactive",
+            "components": [
+              {
+                "type": "hero",
+                "style": "faded",
+                "media": {
+                  "url": "/images/hero-interactive-test.png",
+                  "mimetype": "image/png"
+                }
+              },
+              {
+                "type": "powertools"
+              },
+              {
+                "type": "project-grid"
+              },
+              {
+                "type": "scroll-to-nav",
+                "page_id": "animation"
+              }
+            ]
           },
           "pages": []
+        },
+        {
+          "id": "studio",
+          "slug": "studio",
+          "data": {
+            "type": "studio",
+            "id": "studio",
+            "slug": "studio",
+            "sort": 1,
+            "title": "Studio",
+            "theme": "dark",
+            "components": [
+              {
+                "type": "mobile-nav"
+              },
+              {
+                "type": "contact-details",
+                "instagram": "legworkstudio",
+                "vimeo": "legworkstudio",
+                "items": [
+                  {
+                    "title": "Locate",
+                    "line1": "2854 Larimer St",
+                    "line2": "Denver, CO 80205"
+                  },
+                  {
+                    "title": "New Business",
+                    "line1": "303.333.3333",
+                    "line2": "hotleads@legworkstudio.com"
+                  },
+                  {
+                    "title": "Careers",
+                    "line1": "303.333.3333",
+                    "line2": "jobs@legworkstudio.com"
+                  }
+                ]
+              },
+              {
+                "type": "copy-block",
+                "text": "We are an independent creative studio creating animated and interactive work for brands and agencies around the world",
+                "style": "title"
+              },
+              {
+                "type": "carousel",
+                "items": [
+                  {
+                    "content": "Slide 1"
+                  },
+                  {
+                    "content": "Slide 2"
+                  },
+                  {
+                    "content": "Slide 3"
+                  },
+                  {
+                    "content": "Slide 4"
+                  }
+                ]
+              },
+              {
+                "type": "disciplines",
+                "items": [
+                  {
+                    "title": "Animation",
+                    "copy": "We have a versitile group of animators on staff with capabilities that range from 3D and 2D, to cel and stop motion, eth experience developing for TV, web, projection and interactive installations.",
+                    "skills": [
+                      "2D",
+                      "3D / CG",
+                      "Stop Motion",
+                      "Cel"
+                    ]
+                  },
+                  {
+                    "title": "Interactive",
+                    "copy": "In addition to our content creators, we have a team of UI designers and progressive developers who build everything from micro-sites and installations, to mobile games and brand platforms.",
+                    "skills": [
+                      "Websites",
+                      "Kiosks",
+                      "Games",
+                      "Mobile"
+                    ]
+                  }
+                ]
+              },
+              {
+                "type": "careers"
+              },
+              {
+                "type": "map",
+                "copy": "2854 Larimer St.\nDenver, CO 80205"
+              },
+              {
+                "type": "awards"
+              }
+            ]
+          },
+          "pages": [
+            {
+              "id": "motion_designer",
+              "slug": "motion-designer",
+              "data": {
+                "type": "job",
+                "id": "motion_designer",
+                "slug": "motion-designer",
+                "sort": 0,
+                "title": "Motion Designer"
+              }
+            },
+            {
+              "id": "interactive_designer",
+              "slug": "interactive-designer",
+              "data": {
+                "type": "job",
+                "id": "interactive_designer",
+                "slug": "interactive-designer",
+                "sort": 0,
+                "title": "Interactive Designer"
+              }
+            },
+            {
+              "id": "3d_modeler",
+              "slug": "3d-modeler",
+              "data": {
+                "type": "job",
+                "id": "3d_modeler",
+                "slug": "3d-modeler",
+                "sort": 0,
+                "title": "3D Modeler"
+              }
+            }
+          ]
         }
       ]
     }
