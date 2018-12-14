@@ -1,10 +1,10 @@
 <template>
   <section id="app" class="application" :class="{overlay}">
     <header-view/>
-    <transition name="page">
+    <transition name="page" @afterLeave="resolveScroll">
       <router-view :key="$route.path"/>
     </transition>
-    <transition name="overlay">
+    <transition name="overlay" @afterEnter="disableScroll" @beforeLeave="enableScroll">
       <keep-alive>
         <component ref="overlay" :is="overlay"/>
       </keep-alive>
@@ -13,21 +13,17 @@
 </template>
 
 <script>
+  import { disableBodyScroll, enableBodyScroll } from 'body-scroll-lock';
   import HeaderView from './header-view.vue'
   import SearchOverlay from './search-overlay.vue'
   import WatchOverlay from './watch-overlay.vue'
   import PowerlistOverlay from './powerlist-overlay.vue'
 
-  let timeout = null
+  let resolveScroll = null
 
   export default {
     name: 'App',
     components: { HeaderView, SearchOverlay, WatchOverlay, PowerlistOverlay },
-    data() {
-      return {
-        transitionSpeed: 333,
-      }
-    },
     mounted() {
       this.$router.options.scrollBehavior = this.scrollBehavior
       window.addEventListener('resize', this.windowResize())
@@ -52,14 +48,22 @@
         this.$store.commit('scrollPos', { x, y })
         return this.windowScroll
       },
+      disableScroll(el) {
+        disableBodyScroll(el)
+        el.style.overflowY = 'auto'
+      },
+      enableScroll(el) {
+        enableBodyScroll(el)
+        el.style.overflowY = 'hidden'
+        this.delay(1, this.resolveScroll)
+      },
+      resolveScroll() {
+        if (resolveScroll) resolveScroll()
+        resolveScroll = null
+      },
       scrollBehavior(to, from, savedPosition) {
         const position = savedPosition || { x: 0, y: 0 }
-        if (to.query.overlay) return false
-        return new Promise((resolve) => {
-          const delay = from.query.overlay ? 15 : this.transitionSpeed
-          timeout && clearTimeout(timeout)
-          timeout = this.delay(delay, () => resolve(position))
-        })
+        return new Promise((resolve) => resolveScroll = () => resolve(position))
       },
     },
   }

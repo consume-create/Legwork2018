@@ -48,11 +48,8 @@
 </template>
 
 <script>
-  import BaseOverlay from './base-overlay.vue'
-
   export default {
     name: 'SearchOverlay',
-    extends: BaseOverlay
   }
 </script>
 

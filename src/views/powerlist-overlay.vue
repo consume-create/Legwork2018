@@ -5,11 +5,8 @@
 </template>
 
 <script>
-  import BaseOverlay from './base-overlay.vue'
-
   export default {
     name: 'PowerlistOverlay',
-    extends: BaseOverlay
   }
 </script>
 
