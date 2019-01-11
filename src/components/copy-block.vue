@@ -1,27 +1,22 @@
 <template>
   <div class="copy-block" :class='classes'>
-    <h3>{{headline}}</h3>
-    <p>{{copy}}</p>
+    <h3 v-html='headline'></h3>
+    <p v-html='copy'></p>
     <slot name="protosite" :schema="schema"/>
   </div>
 </template>
 
 <script>
 /*
-*
 * Copy Block 
-* - displays headline copy pair
-* @param headline - main text
-* @param copy - copy text
-*
+* - displays headline copy pair, supports raw html. 
+* @prop headline - main text
+* @prop copy - copy text
 */
 
 export default {
   name: "CopyBlock",
   props: ["headline","copy"],
-  data() {
-    return { schema };
-  },
   computed: { 
     classes() {
       if(this.data) {
@@ -32,12 +27,6 @@ export default {
       }
     },
   }
-};
-
-const schema = {
-  type: "object",
-  required: [],
-  properties: {}
 };
 
 </script>
@@ -60,6 +49,5 @@ const schema = {
   +respond-to($tablet-landscape)
     .copy-block
       margin: 100px 0
-      // grid-column: 3 / span 8
 
 </style>

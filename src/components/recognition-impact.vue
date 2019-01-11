@@ -50,7 +50,6 @@ const schema = {
         impact: {
             type: "string",
             default: "Lorem ipsum dolor sit amet, consectetur adipiscing elit.",
-            enum: ["faded", "default"],
             attrs: {
                 placeholder: "Children everywhere speak of what we've achieved.",
                 title: "Project Impact"
@@ -59,7 +58,7 @@ const schema = {
         recognition: {
             type: "array",
             title: "Awards",
-            items: { $ref: "#/definitions/award" },
+            items: { $ref: "#/definitions/award"},
             additionalItems: false,
         },
     },
@@ -96,8 +95,9 @@ const schema = {
             flex-wrap: wrap
             flex-basis: 25%
             li
-                width: 25%
-                fill: $awards-yeti-turq-blue
+              padding-right: 10px
+              width: 25%
+              fill: $awards-yeti-turq-blue
 
 +respond-to($tablet-landscape)
     .content

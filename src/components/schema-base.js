@@ -44,5 +44,14 @@ export default {
       "type": "string",
       "pattern": "^<svg.+</svg>$"
     },
+    "headline": {
+      "title" : "Headline",
+      "type": "string",
+    },
+    "copy": {
+      "title": "Copy",
+      "type": "string",
+      "description": "Copy that goes beneath the headline, alongside a media gallery or in a caption."
+    }
   }
 }

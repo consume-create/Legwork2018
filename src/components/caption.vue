@@ -8,6 +8,10 @@
 </template>
 
 <script>
+/*
+* Caption Component 
+* - extends a copy block to a full width component. 
+*/
 import CopyBlock from './copy-block.vue'
 
 export default {
@@ -23,8 +27,11 @@ export default {
 
 const schema = {
   type: "object",
-  required: [],
-  properties: {}
+  properties: {
+    "headline": {"$ref": "#/definitions/headline"},
+    "copy": {"$ref": "#/definitions/copy"},
+  },
+  required: ["headline", "copy"],
 };
 
 </script>
@@ -35,7 +42,7 @@ const schema = {
   article
     +grid
     .content
-      grid-column: 2 / span 12
+      grid-column: 3 / span 16
       margin-bottom: span(3,24)
       h3
         margin-bottom: 40px

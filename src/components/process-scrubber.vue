@@ -56,18 +56,8 @@ export default {
 const schema = {
     type: 'object',
     properties: {
-      headline: {
-        type: 'string',
-        title: 'Headline',
-        default: 'Headline',
-        enum: ['faded', 'default'],
-      },
-      copy: {
-        type: 'string',
-        title: 'Copy',
-        default: 'Lorem ipsum dolor sit amet, consectetur adipiscing elit.',
-        enum: ['faded', 'default'],
-      },
+      headline: {"$ref": "#/definitions/headline"},
+      copy: {"$ref": "#/definitions/copy"},
       images: {
         type: 'array',
         items: {"$ref": "#/definitions/image"},
@@ -107,8 +97,6 @@ article.process-scrubber
   article.process-scrubber
     padding-top: 0
     overflow: hidden
-    // height: 0
-    // padding-bottom: calc(9 / 16 * 100%)
     .content
       .copy-block
         grid-column: 17 / span 4

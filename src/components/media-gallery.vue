@@ -2,7 +2,7 @@
   <article class="media-gallery">
     <div class="content">
       <carousel-component :items='data.media' :selectedIndex='activeMediaIndex'></carousel-component>
-      <div class="mediaSelectors" v-if="mediaCount > 1" :style='selectorsWidth'>
+      <div class="mediaSelectors" v-if="mediaCount > 1">
         <label 
           v-for="(mediaItem, index) in data.media" 
           class='mediaSelector'
@@ -20,7 +20,6 @@
 
 <script>
 import CarouselComponent from './carousel-component.vue';
-const dotSpacing = 20; 
 
 export default {
   name: "MediaGallery",
@@ -29,22 +28,8 @@ export default {
     return {
       activeMediaIndex: 0,
       mediaCount: this.data.media.length, 
-      selectorsWidth: {"width": `${(this.data.media.length + 1) * 20}px`},
       schema,
     }
-  },
-  methods: {
-    // mediaButtonSelect(event, value) {
-      //   this.activeMediaIndex = event.currentTarget.value;
-    // },
-    nextMediaItem() {
-      let newIndex = this.activeMediaIndex < this.mediaCount ? this.activeMediaIndex++ : 0
-      this.activeMediaIndex = newIndex + 1;
-    },
-    prevMediaItem() {
-      let newIndex = this.activeMediaIndex > 0 ? this.activeMediaIndex-- : this.mediaCount
-      this.activeMediaIndex = newIndex - 1;
-    },
   },
   components: {
     CarouselComponent
@@ -56,12 +41,12 @@ const schema = {
   properties: {
     media: {
       type: 'array',
-      items: {"$ref": "#/definitions/media"},
+      items: [{"$ref": "#/definitions/image"}, {"$ref": "#/definitions/video"}],
       additionalItems: false,
       minItems: 1,
     },
   },
-  required: ['images'],
+  required: ['media'],
 }
 
 </script>
@@ -78,68 +63,53 @@ const schema = {
   @mixin circle($r)
     width: $r * 2
     height: $r * 2
-    border-radius: 100%
+    border-radius: 50%
 
   article
     +grid
     padding-top: 80px
-    padding-bottom: 10px
+    padding-bottom: 80px
     .content
       grid-column: 1 / span 20
       .carousel-component
         +aspect-ratio(16, 9)
       .mediaSelectors
-        grid-column: 1 / span 20
-        height: 80px
+        height: 0px
+        transform: translate(0, 40px) // Keeps container height consistent with or without selectors
         margin: auto
         display: flex
-        justify-content: space-between
+        justify-content: center
         align-items: center
         user-select: none
         max-width: 100%
         label
-          width: $dot-radius
-          height: $dot-radius
+          +circle($dot-radius * 4)
           cursor: pointer
           position: relative
           input
-            appearance: none
+            +circle($dot-radius)
+            position: absolute
+            top: 50%
+            left: 50%
+            transform: translate(-50%, -50%)
+            background: $dot-inactive
+            margin: 0
             outline: none
+            appearance: none
             cursor: pointer
-            &:after 
-              content: ""
-              position: absolute
-              top: 50%
-              left: 50%
-              +circle($dot-radius)
-              margin-top: -$dot-radius / 10
-              margin-left: -$dot-radius / 10
-              background: $dot-inactive
-              transition: transform 666ms ease, color 100ms ease
-              cursor: pointer
-          &:hover
-            input:after
+            transition: transform 666ms ease, color 100ms ease
+            &:hover
               background: $dot-hover
-              transform: scale(1.5)
-          &.selected
-            input:after
-              background: $dot-selected
-              transform: scale(2)
-
-    .image
-      background: grey
-      width: 100%
-
-    .video
-      width: 100%
-
-    .radio
+              transform: translate(-50%, -50%) scale(1.4)
+          &.selected input 
+            background: $dot-selected
+            transform: translate(-50%, -50%) scale(1.8)
       
   +respond-to($tablet-landscape)  
     article
       +grid
       padding-top: 80px
-      padding-bottom: 50px
+      padding-bottom: 120px
       .content
         display: block
         grid-column: 5 / span 14
@@ -154,46 +124,5 @@ const schema = {
         display: flex
         justify-content: center
         user-select: none
-        label
-          width: $dot-radius
-          height: $dot-radius
-          outline: none
-          cursor: pointer
-          position: relative
-          input
-            appearance: none
-            outline: none
-            cursor: pointer
-            &:after 
-              content: ""
-              position: absolute
-              top: 50%
-              left: 50%
-              width: $dot-radius / 5
-              height: $dot-radius / 5
-              margin-top: -$dot-radius / 10
-              margin-left: -$dot-radius / 10
-              background: $dot-inactive
-              border-radius: 100%
-              transition: transform 666ms ease, color 100ms ease
-              cursor: pointer
-          &:hover
-            input:after
-              background: $dot-hover
-              transform: scale(1.5)
-          &.selected
-            input:after
-              background: $dot-selected
-              transform: scale(2)
-
-      .image
-        background: grey
-        width: 100%
-
-      .video
-        width: 100%
-
-      .radio
-
 
 </style>

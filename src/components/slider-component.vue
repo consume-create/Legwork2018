@@ -44,7 +44,7 @@
 *
 * Slider Component 
 * - style overriden html slider, used by process-scrubber
-* @param numItems - index to show
+* @prop numItems - index to show
 * @emits sliderChange event captured by component parent
 *
 */
@@ -79,12 +79,6 @@ export default {
   }
 };
 
-const schema = {
-  type: "object",
-  theme: "string",
-  required: [],
-  properties: {}
-};
 </script>
 
 <style lang="sass" scoped>
@@ -100,7 +94,7 @@ $slider-height: 100px
 @mixin circle($r)
   width: $r * 2
   height: $r * 2
-  border-radius: 100%
+  border-radius: 50%
 
 .slider-component
   box-sizing: border-box
@@ -224,6 +218,8 @@ input[type=range]
       .handle-arrow
         fill: $gray
     
-    
+  input[type=range]
+    height: 60px
+    top: -20px
 
 </style>
