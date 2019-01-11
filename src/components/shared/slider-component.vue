@@ -5,37 +5,39 @@
 // 
 
 <template>
-  <div class="slider-component" :style='sliderWidth'>
-    <span class="slider-dots">
-        <span
-          v-for="index in numItems" 
-          :key="`dot${index-1}`"
-          class="slider-dot"
-          :class="{active: index-1 == sliderVal}"
-          :style="dotOpacity(index-1)"
-        >
-        </span>
-    </span>
-    <div class="svg-container">
-      <span class="svg-thumb" :style="thumbPos">
-        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 310.3 100.01">
-          <path class="handle-lump" d="M.65,41H310.3a34.39,34.39,0,0,0-.15-3.91c-134-.59-116-36.59-155-37.09s-21,36.5-155,37.09A29.32,29.32,0,0,0,0,41Z"/>
-          <circle class="handle-circle" cx="155.15" cy="61.01" r="39"/>
-          <polygon class="handle-arrow" points="137.41 61.01 145.18 53.23 141.65 49.69 133.87 57.47 130.33 61.01 133.87 64.54 141.65 72.32 145.18 68.78 137.41 61.01"/>
-          <polygon class="handle-arrow" points="173.89 61.01 166.11 68.78 169.65 72.32 177.43 64.54 180.96 61.01 177.43 57.47 169.65 49.69 166.11 53.23 173.89 61.01"/>
-        </svg>
+  <div class="slider-component" >
+    <div class="slider-content" :style='sliderWidth'>
+      <span class="slider-dots">
+          <span
+            v-for="index in numItems" 
+            :key="`dot${index-1}`"
+            class="slider-dot"
+            :class="{active: index-1 == sliderVal}"
+            :style="dotOpacity(index-1)"
+          >
+          </span>
       </span>
+      <div class="svg-container">
+        <span class="svg-thumb" :style="thumbPos">
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 310.3 100.01">
+            <path class="handle-lump" d="M.65,41H310.3a34.39,34.39,0,0,0-.15-3.91c-134-.59-116-36.59-155-37.09s-21,36.5-155,37.09A29.32,29.32,0,0,0,0,41Z"/>
+            <circle class="handle-circle" cx="155.15" cy="61.01" r="39"/>
+            <polygon class="handle-arrow" points="137.41 61.01 145.18 53.23 141.65 49.69 133.87 57.47 130.33 61.01 133.87 64.54 141.65 72.32 145.18 68.78 137.41 61.01"/>
+            <polygon class="handle-arrow" points="173.89 61.01 166.11 68.78 169.65 72.32 177.43 64.54 180.96 61.01 177.43 57.47 169.65 49.69 166.11 53.23 173.89 61.01"/>
+          </svg>
+        </span>
+      </div>
+      <input
+        class="slider-range"
+        id="rangevalue"
+        type="range"
+        min="0"
+        :max="numItems-1"
+        v-model="sliderVal"
+        v-on:change="sliderChange"
+        v-on:input="sliderChange"
+      >
     </div>
-    <input
-      class="slider-range"
-      id="rangevalue"
-      type="range"
-      min="0"
-      :max="numItems-1"
-      v-model="sliderVal"
-      v-on:change="sliderChange"
-      v-on:input="sliderChange"
-    >
   </div>
 </template>
 
@@ -97,55 +99,59 @@ $slider-height: 100px
   border-radius: 50%
 
 .slider-component
-  box-sizing: border-box
-  max-width: 100%
-  height: 100px
-  left: 50%
-  transform: translate(-50%, 50px)
-  // width: 100%  Use this if stretching of dots is preffered. Right now uses computed width to equally space dots. 
-  // height: 100px
-  // left: 0
-  // transform: translate(0, 50px)
-  .slider-dots
-    height: 50px
-    display: flex
-    justify-content: space-between
-    align-items: center
+  width: 100%
+  height: 200px
+  transform: translateY(50%)
+  overflow: hidden
+  background: transparent
+  .slider-content
+    position: absolute
     box-sizing: border-box
-    padding: 0 ($thumb-radius / 2 - $dot-radius / 2)
-    .slider-dot
-      +circle($dot-radius)
-      background: $dot-color
-      transition: transform $fast ease-in, opacity $fast ease-in
-      transform: scale(1)
-      &.active
-        transition: transform $fast ease-out, opacity $fast ease-out
-        transform: translate(0, -28px) scale(1.8)
-
-  $svg-width: 218px
-
-  .svg-container
-    height: 10px
-    position: relative
-    box-sizing: border-box
+    max-width: 80%
+    height: 100px
     top: 0
-    left: 0
-    margin: 0 $thumb-radius / 2
-    .svg-thumb
-      width: $svg-width
-      margin: 0
-      padding: 0
-      position: absolute
-      top: -26px
-      transform: translate(-50%, 0)
-      transition: left $fast ease
-      svg
-        .handle-lump
-          fill: $faded
-        .handle-dot
-          fill: $grandpas-basement
-        .handle-arrow
-          fill: white
+    left: 50%
+    transform: translate(-50%, 50%)
+    .slider-dots
+      height: 50px
+      display: flex
+      justify-content: space-between
+      align-items: center
+      box-sizing: border-box
+      padding: 0 ($thumb-radius / 2 - $dot-radius / 2)
+      .slider-dot
+        +circle($dot-radius)
+        background: $dot-color
+        transition: transform $fast ease-in, opacity $fast ease-in
+        transform: scale(1)
+        &.active
+          transition: transform $fast ease-out, opacity $fast ease-out
+          transform: translate(0, -28px) scale(1.8)
+
+    $svg-width: 218px
+
+    .svg-container
+      height: 10px
+      position: relative
+      box-sizing: border-box
+      top: 0
+      left: 0
+      margin: 0 $thumb-radius / 2
+      .svg-thumb
+        width: $svg-width
+        margin: 0
+        padding: 0
+        position: absolute
+        top: -26px
+        transform: translate(-50%, 0)
+        transition: left $fast ease
+        svg
+          .handle-lump
+            fill: $faded
+          .handle-dot
+            fill: $grandpas-basement
+          .handle-arrow
+            fill: white
 
 // Slider Reset
 input[type=range]
@@ -199,24 +205,24 @@ input[type=range]
   
 +respond-to($tablet-landscape)  
   .slider-component
-    transform: translate(0, 0)
-    margin: auto
-    .slider-dots
-      width: 100%
-      height: 36px
-      position: absolute
-      top: 0
-      left: 0
-      .slider-dot.active
-        transform: translate(0, 0) scale(1)
+    transform: none
+    .slider-content
+      .slider-dots
+        width: 100%
+        height: 36px
+        position: absolute
+        top: 0
+        left: 0
+        .slider-dot.active
+          transform: translate(0, 0) scale(1)
 
-    .svg-container .svg-thumb svg
-      .handle-lump
-        display: none
-      .handle-circle
-        fill: $white
-      .handle-arrow
-        fill: $gray
+      .svg-container .svg-thumb svg
+        .handle-lump
+          display: none
+        .handle-circle
+          fill: $white
+        .handle-arrow
+          fill: $gray
     
   input[type=range]
     height: 60px

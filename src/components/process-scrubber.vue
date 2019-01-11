@@ -73,25 +73,28 @@ const schema = {
 @import "src/styles/global"
 
 article.process-scrubber
+  position: relative
   padding-top: 86px
   &.dark-theme
     background: $grandpas-basement
   .content
     +grid
-    .copy-block, .scrubber-container
+    .copy-block
       grid-column: 3 / span 16
       margin-bottom: 72px
 
     .scrubber-container
-      position: relative
-      width: 100%
-      height: 100%
-      margin-bottom: 100px
+      grid-column: 1 / span 20
+      +grid
+      .carousel-component
+        grid-column: 3 / span 16
+        position: relative
+        height: 100%
+        margin-bottom: 100px
 
       .slider-component
         position: absolute
-        bottom: 0
-        
+        bottom: 0px
   
 +respond-to($tablet-landscape)  
   article.process-scrubber
@@ -102,16 +105,20 @@ article.process-scrubber
         grid-column: 17 / span 6
         grid-row: 1
         align-self: center
+
       .scrubber-container
+        display: block
         margin: 0
         margin-top: 114px
         grid-column: 3 / span 9
         grid-row: 1
+
+        .carousel-component
+          width: 100%
+
         .slider-component
-          position: unset
+          position: relative
           margin: auto
-          margin-top: 67px
-          margin-bottom: 60px
 
 +respond-to($desktop) 
   article.process-scrubber
