@@ -8,7 +8,7 @@
 </template>
 
 <script>
-import FormSchema from '@formschema/native'
+// import FormSchema from '@formschema/native'
 import schemaBase from './schema-base.js'
 
 export default {
