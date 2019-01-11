@@ -1,0 +1,128 @@
+<template>
+  <article class="process-scrubber" :class="classes">
+    <div class="content">
+      <copy-block :headline='data.headline' :copy='data.copy'></copy-block>
+      <div class="scrubber-container" @change-slide="onSliderChange">
+        <carousel-component :items='data.images' :selectedIndex='sliderVal'></carousel-component>
+        <slider-component :numItems="data.images.length" @sliderChange='onSliderChange'></slider-component>
+      </div>
+    </div>
+    <slot name="protosite" :schema="schema"/>
+  </article>
+</template>
+
+<script>
+/*
+*
+* Process Scrubber 
+* - style overriden html slider, used by process-scrubber
+* @param data - object containing an array of images. 
+*
+*/
+
+import CopyBlock from "./copy-block.vue";
+import CarouselComponent from './carousel-component.vue';
+import SliderComponent from "./slider-component.vue"
+
+export default {
+  name: "ProcessScrubber",
+  components: {
+    CarouselComponent,
+    CopyBlock,
+    SliderComponent, 
+  },
+  props: ["data"],
+  data: function() {
+    return {
+      sliderVal: 0,
+      schema
+    };
+  },
+  methods: {
+    onSliderChange(value) {
+      this.sliderVal = value
+    },
+  },
+  computed: {
+    classes() {
+      return {
+        "light-theme": this.data.theme === "light",
+        "dark-theme": this.data.theme === "dark"
+      };
+    },
+  }
+};
+
+const schema = {
+    type: 'object',
+    properties: {
+      headline: {
+        type: 'string',
+        title: 'Headline',
+        default: 'Headline',
+        enum: ['faded', 'default'],
+      },
+      copy: {
+        type: 'string',
+        title: 'Copy',
+        default: 'Lorem ipsum dolor sit amet, consectetur adipiscing elit.',
+        enum: ['faded', 'default'],
+      },
+      images: {
+        type: 'array',
+        items: {"$ref": "#/definitions/image"},
+        additionalItems: false,
+        minItems: 1,
+      },
+    },
+    required: ['headline', 'copy', 'images'],
+  }
+</script>
+
+<style lang="sass" scoped>
+@import "src/styles/global"
+
+article.process-scrubber
+  padding-top: 86px
+  &.dark-theme
+    background: $grandpas-basement
+  .content
+    +grid
+    .copy-block, .scrubber-container
+      grid-column: 3 / span 16
+      margin-bottom: 72px
+
+    .scrubber-container
+      position: relative
+      width: 100%
+      height: 100%
+      margin-bottom: 100px
+
+      .slider-component
+        position: absolute
+        bottom: 0
+        
+  
++respond-to($tablet-landscape)  
+  article.process-scrubber
+    padding-top: 0
+    overflow: hidden
+    // height: 0
+    // padding-bottom: calc(9 / 16 * 100%)
+    .content
+      .copy-block
+        grid-column: 17 / span 4
+        grid-row: 1
+        align-self: center
+      .scrubber-container
+        margin: 0
+        margin-top: 114px
+        grid-column: 3 / span 9
+        grid-row: 1
+        .slider-component
+          position: unset
+          margin: auto
+          margin-top: 67px
+          margin-bottom: 60px
+
+</style>
