@@ -13,6 +13,7 @@
 * @param selectedIndex - index to show
 * @param items - media items to display 
 * -legacy (unfinished, need to defined approach to video assets)
+*
 */
 
 import NoSSR from 'vue-no-ssr';

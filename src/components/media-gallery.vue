@@ -20,6 +20,7 @@
 
 <script>
 import CarouselComponent from './carousel-component.vue';
+const dotSpacing = 20; 
 
 export default {
   name: "MediaGallery",
@@ -28,7 +29,7 @@ export default {
     return {
       activeMediaIndex: 0,
       mediaCount: this.data.media.length, 
-      selectorsWidth: {"width": `${this.data.media.length * 64}px`},
+      selectorsWidth: {"width": `${(this.data.media.length + 1) * 20}px`},
       schema,
     }
   },
@@ -70,9 +71,9 @@ const schema = {
 
   $aspect: 16 / 9
   $dot-radius: 5px
-  $buttonInactiveColor: grey
-  $buttonHoverColor: black
-  $buttonSelectedColor: black
+  $dot-inactive: grey
+  $dot-hover: black
+  $dot-selected: black
 
   @mixin circle($r)
     width: $r * 2
@@ -113,16 +114,16 @@ const schema = {
               +circle($dot-radius)
               margin-top: -$dot-radius / 10
               margin-left: -$dot-radius / 10
-              background: $buttonInactiveColor
+              background: $dot-inactive
               transition: transform 666ms ease, color 100ms ease
               cursor: pointer
           &:hover
             input:after
-              background: $buttonHoverColor
+              background: $dot-hover
               transform: scale(1.5)
           &.selected
             input:after
-              background: $buttonSelectedColor
+              background: $dot-selected
               transform: scale(2)
 
     .image
@@ -172,17 +173,17 @@ const schema = {
               height: $dot-radius / 5
               margin-top: -$dot-radius / 10
               margin-left: -$dot-radius / 10
-              background: $buttonInactiveColor
+              background: $dot-inactive
               border-radius: 100%
               transition: transform 666ms ease, color 100ms ease
               cursor: pointer
           &:hover
             input:after
-              background: $buttonHoverColor
+              background: $dot-hover
               transform: scale(1.5)
           &.selected
             input:after
-              background: $buttonSelectedColor
+              background: $dot-selected
               transform: scale(2)
 
       .image

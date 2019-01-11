@@ -97,7 +97,7 @@ const schema = {
             flex-basis: 25%
             li
                 width: 25%
-                fill: $awards-yeti-turq-series-blue
+                fill: $awards-yeti-turq-blue
 
 +respond-to($tablet-landscape)
     .content
