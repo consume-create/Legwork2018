@@ -6,7 +6,7 @@
 </template>
 
 <script>
-import PictureComponent from './picture-component.vue'
+import PictureComponent from './shared/picture-component.vue'
 
 export default {
   name: "BleedImage",

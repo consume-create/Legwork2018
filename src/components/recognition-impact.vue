@@ -26,7 +26,7 @@
 </template>
 
 <script>
-import FormComponent from './form-component.vue'
+import FormComponent from './shared/form-component.vue'
 
 export default {
   name: "RecognitionImpact",

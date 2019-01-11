@@ -1,6 +1,5 @@
 <template>
   <article class="pull-quote">
-    <!-- pull quote -->
     <slot name="protosite" :schema="schema"/>
   </article>
 </template>

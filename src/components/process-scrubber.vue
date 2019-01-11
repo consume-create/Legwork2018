@@ -20,9 +20,9 @@
 *
 */
 
-import CopyBlock from "./copy-block.vue";
-import CarouselComponent from './carousel-component.vue';
-import SliderComponent from "./slider-component.vue"
+import CopyBlock from "./shared/copy-block.vue";
+import CarouselComponent from './shared/carousel-component.vue';
+import SliderComponent from "./shared/slider-component.vue"
 
 export default {
   name: "ProcessScrubber",
@@ -99,7 +99,7 @@ article.process-scrubber
     overflow: hidden
     .content
       .copy-block
-        grid-column: 17 / span 4
+        grid-column: 17 / span 6
         grid-row: 1
         align-self: center
       .scrubber-container
@@ -112,5 +112,11 @@ article.process-scrubber
           margin: auto
           margin-top: 67px
           margin-bottom: 60px
+
++respond-to($desktop) 
+  article.process-scrubber
+    .content
+      .copy-block
+        grid-column: 17 / span 4
 
 </style>

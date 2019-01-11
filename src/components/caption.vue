@@ -12,7 +12,7 @@
 * Caption Component 
 * - extends a copy block to a full width component. 
 */
-import CopyBlock from './copy-block.vue'
+import CopyBlock from './shared/copy-block.vue'
 
 export default {
   name: "Caption",
