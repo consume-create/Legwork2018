@@ -1,18 +1,23 @@
 <template>
-  <picture class="picture-component" :class='classes'>
-    <source :srcset="srcImageSmall" media="(max-width: 639px)" alt=''>
-    <source :srcset="srcImageMed" media="(min-width: 640px) and (max-width: 1023px)" alt=''>
-    <source :srcset="srcImageLarge" media="(min-width: 1024px)" alt=''>
-    <img :src="srcImageLarge"/>
-  </picture>
+  <transition name="fadeIn">
+    <picture class="picture-component" :class='classes' v-show='loaded'>
+      <source :srcset="srcImageSmall" media="(max-width: 639px)" alt=''>
+      <source :srcset="srcImageMed" media="(min-width: 640px) and (max-width: 1023px)" alt=''>
+      <source :srcset="srcImageLarge" media="(min-width: 1024px)" alt=''>
+      <img :src="srcImageLarge" v-on:load='onImageLoad'/>
+    </picture>
+  </transition>
 </template>
 
 <script>
 export default {
   name: "PictureComponent",
-  props: ["data", "aspect"],
+  props: ["data", "aspect", "lazy", "fadeIn"],
   data() {
-    return { schema };
+    return { 
+      schema,
+      loaded: false,
+    };
   },
   computed: {
     srcImageSmall () {
@@ -29,10 +34,15 @@ export default {
     },
     classes() {
       return {
-        "16-9": this.data.aspect === '16-9'
+        "16-9": this.data.aspect === '16-9',
       }
     }
   },
+  methods: {
+    onImageLoad() {
+      this.loaded = true
+    }
+  }
 };
 
 const schema = {
@@ -50,5 +60,14 @@ const schema = {
     img 
       +aspect-ratio(16, 9)
       width: 100%
+  
+  .fadeIn-enter-active 
+    transition: opacity 666ms ease-in-out
+
+  .fadeIn-enter-to 
+    opacity: 1
+
+  .fadeIn-enter 
+    opacity: 0
 
 </style>

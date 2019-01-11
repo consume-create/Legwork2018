@@ -1,16 +1,11 @@
 <template>
   <div class="carousel-component">
-    <span 
-      v-for="(mediaItem, index) in items"
-      :key="`${mediaItem.type}-item-${index}`"
-    >
-      <picture-component 
-        v-if="mediaItem.type === 'image'"
+    <span v-for="(mediaItem, index) in items" :key="`${mediaItem.type}-item-${index}`" class="carousel-cell" >
+      <picture-component v-if="mediaItem.type === 'image'"
         :data="mediaItem"
         :class="{active: index == selectedIndex}"
       ></picture-component>
-      <video-component
-        v-else-if="mediaItem.type === 'video'"
+      <video-component v-else-if="mediaItem.type === 'video'"
         :video-id='mediaItem.videoId'
       ></video-component>
     </span> 
@@ -26,7 +21,6 @@
 * @param items - media items to display 
 *
 */
-
 import PictureComponent from "./picture-component.vue";
 import VideoComponent from "./picture-component.vue";
 

@@ -2,7 +2,6 @@
   <div class="copy-block" :class='classes'>
     <h3 v-html='headline'></h3>
     <p v-html='copy'></p>
-    <slot name="protosite" :schema="schema"/>
   </div>
 </template>
 
