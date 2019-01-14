@@ -121,6 +121,7 @@
                     "type": "media-gallery",
                     "theme": "light",
                     "fullscreen": false,
+                    "position": "left",                    
                     "media": [
                       {
                         "type": "image",
@@ -163,8 +164,9 @@
                   },
                   {
                     "type": "media-gallery-with-copy",
-                    "title": "Headline",
                     "theme": "dark", 
+                    "position": "right",                    
+                    "headline": "Headline",
                     "copy": "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Integer sollicitudin quis urna sed condimentum. Mauris tincidunt lacus vel magna mattis, quis tincidunt. Lorem",
                     "media": [
                       {
@@ -179,15 +181,14 @@
                         "background_color": "light",
                         "vimeo_id": ""
                       }
-                    ],
-                    "position": "right"
+                    ]
                   },
                   {
                     "type": "media-gallery-with-copy",
-                    "title": "Headline",
+                    "headline": "Headline",
                     "theme": "dark", 
                     "copy": "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Integer sollicitudin quis urna sed condimentum. Mauris tincidunt lacus vel magna mattis, quis tincidunt. Lorem",
-                    "background_color": "grey", 
+                    "position": "left",
                     "media": [
                       {
                         "type": "image",
@@ -225,22 +226,7 @@
                         "background_color": "light",
                         "vimeo_id": ""
                       }
-                    ],
-                    "position": "left"
-                  },
-                  {
-                    "type": "bleed-image",
-                    "sizes": {
-                      "small": "https://assets.legwork.studio/20171025214838/main-2.jpg",
-                      "medium": "https://assets.legwork.studio/20171025214838/main-2.jpg",
-                      "large": "https://assets.legwork.studio/20171025214838/main-2.jpg"
-                    },
-                    "filename": "main-31.jpg",
-                    "url": "https://assets.legwork.studio/20171025214838/main-2.jpg",
-                    "date": "2017-11-06 22:45:05",
-                    "mime_type": "image/jpeg",
-                    "width": 2560,
-                    "height": 1440
+                    ]
                   },
                   {
                     "type": "caption",
@@ -251,6 +237,7 @@
                   {
                     "type": "media-gallery",
                     "fullscreen": true,
+                    "position": "full",
                     "media": [
                       {
                         "type": "image",
@@ -270,6 +257,7 @@
                   {
                     "type": "media-gallery",
                     "fullscreen": false,
+                    "position": "right",
                     "media": [
                       {
                         "type": "image",
@@ -305,16 +293,11 @@
                     ]
                   },
                   {
-                    "type": "recognition-impact",
-                    "impact": "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Integer sollicitudin quis urna sed condimentum. Mauris tincidunt lacus vel magna mattis, quis tincidunt. Lorem ipsum dolor.sit a ipsum dolor sit a ipsum dolor sit a ipsum dolor sit a ipsum dolor sit a ipsum dolor sit a ipsum dolor sit amet, conInte quis urna sed co quis urna sed condimentum. Mauris tincidunt lacus vel magna mattis, quis tincidunt elit sagittis.",
-                    "awards": [
-                    ]
-                  },
-                  {
                     "type": "process-scrubber",
                     "headline": "Headline",
                     "copy": "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Integer sollicitudin quis urna sed condimentum. Mauris tincidunt lacus vel magna mattis, quis tincidunt. Lorem",
                     "theme": "dark",
+                    "position": "right",
                     "images": [
                       {
                         "filename": "550293704_12803.jpg",

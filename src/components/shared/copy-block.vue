@@ -15,16 +15,13 @@
 
 export default {
   name: "CopyBlock",
-  props: ["headline","copy"],
+  props: ["headline","copy","theme"],
   computed: { 
     classes() {
-      if(this.data) {
-        return {
-          'light-theme': this.data.theme === 'light',
-          'dark-theme': this.data.theme === 'dark', 
-        }
-      }
-    },
+      return [
+        `${this.theme || 'light'}-theme`,
+      ]
+    }
   }
 };
 

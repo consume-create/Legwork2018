@@ -1,7 +1,7 @@
 <template>
   <article class="process-scrubber" :class="classes">
-    <div class="content">
-      <copy-block :headline='data.headline' :copy='data.copy'></copy-block>
+    <div class="content" :data-position="data.position">
+      <copy-block :headline='data.headline' :copy='data.copy' :theme='data.theme'></copy-block>
       <div class="scrubber-container" @change-slide="onSliderChange">
         <carousel-component :items='data.images' :selectedIndex='sliderVal'></carousel-component>
         <slider-component :numItems="data.images.length" @sliderChange='onSliderChange'></slider-component>
@@ -10,16 +10,14 @@
     <slot name="protosite" :schema="schema"/>
   </article>
 </template>
-
 <script>
 /*
 *
 * Process Scrubber 
-* - style overriden html slider, used by process-scrubber
+* - an image carousel that scrubs through process images, unlike a flickity carousel. 
 * @param data - object containing an array of images. 
 *
 */
-
 import CopyBlock from "./shared/copy-block.vue";
 import CarouselComponent from './shared/carousel-component.vue';
 import SliderComponent from "./shared/slider-component.vue"
@@ -45,10 +43,7 @@ export default {
   },
   computed: {
     classes() {
-      return {
-        "light-theme": this.data.theme === "light",
-        "dark-theme": this.data.theme === "dark"
-      };
+      return [`${this.data.theme || "light"}-theme`];
     },
   }
 };
@@ -58,6 +53,20 @@ const schema = {
     properties: {
       headline: {"$ref": "#/definitions/headline"},
       copy: {"$ref": "#/definitions/copy"},
+      theme: {
+        type: "string",
+        title: "Theme",
+        default: "light",
+        description: "Theme of component. Is it a dark or light background.",
+        enum: ["light", "dark"]
+      },
+      position: {
+        type: "string",
+        title: "Style",
+        default: "left",
+        description: "Position of Scrubber",
+        enum: ["left", "right"]
+      },
       images: {
         type: 'array',
         items: {"$ref": "#/definitions/image"},
@@ -102,7 +111,6 @@ article.process-scrubber
     overflow: hidden
     .content
       .copy-block
-        grid-column: 17 / span 6
         grid-row: 1
         align-self: center
 
@@ -110,7 +118,6 @@ article.process-scrubber
         display: block
         margin: 0
         margin-top: 114px
-        grid-column: 3 / span 9
         grid-row: 1
 
         .carousel-component
@@ -120,10 +127,28 @@ article.process-scrubber
           position: relative
           margin: auto
 
+      &[data-position='left']
+        .copy-block
+          grid-column: 17 / span 6
+        .scrubber-container
+          grid-column: 3 / span 9
+
+      &[data-position='right'] 
+        .copy-block
+          grid-column: 3 / span 6
+        .scrubber-container
+          grid-column: 13 / span 9
+
 +respond-to($desktop) 
   article.process-scrubber
     .content
-      .copy-block
-        grid-column: 17 / span 4
+      &[data-position='left']
+        .copy-block
+          grid-column: 17 / span 4
+
+      &[data-position='right'] 
+        .copy-block
+          grid-column: 3 / span 4
+
 
 </style>

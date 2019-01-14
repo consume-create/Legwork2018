@@ -1,7 +1,7 @@
 <template>
   <article class="caption">
-    <div class="content">
-      <copy-block :headline='data.headline' :copy='data.copy'></copy-block>
+    <div class="content" :data-position='data.position'>
+      <copy-block :headline='data.headline' :copy='data.copy' :theme='data.theme'></copy-block>
     </div>
     <slot name="protosite" :schema="schema"/>
   </article>
@@ -31,6 +31,13 @@ const schema = {
     "headline": {"$ref": "#/definitions/headline"},
     "copy": {"$ref": "#/definitions/copy"},
   },
+  theme: {
+    type: "string",
+    title: "Theme",
+    default: "light",
+    description: "Theme of component. Is it a dark or light background.",
+    enum: ["light", "dark"]
+  },
   required: ["headline", "copy"],
 };
 
@@ -40,6 +47,7 @@ const schema = {
   @import "src/styles/global"
 
   article
+    padding: 80px 0
     +grid
     .content
       grid-column: 3 / span 16
@@ -55,6 +63,11 @@ const schema = {
     article
       .content
         margin: 100px 0
-        grid-column: 3 / span 7
+
+        &[data-position="left"]
+          grid-column: 3 / span 7
+
+        &[data-position="right"]
+          grid-column: 14 / span 7
 
 </style>

@@ -1,5 +1,7 @@
 <template>
-  <article class="pull-quote">
+  <article class="pull-quote" :data-position="data.position">
+    <!-- <h3>{{data.quote}}</h3>
+    <p>{{data.quote_author}}</p> -->
     <slot name="protosite" :schema="schema"/>
   </article>
 </template>
@@ -22,7 +24,13 @@
 </script>
 
 <style scoped lang="sass">
-  @import "src/styles/global"
+@import "src/styles/global"
 
-  article.pull-quote
+.pull-quote
+  &[data-position="left"]
+    grid-column: 3 / span 6
+
+  &[data-position="right"]
+    grid-column: 15 / span 6
+
 </style>
