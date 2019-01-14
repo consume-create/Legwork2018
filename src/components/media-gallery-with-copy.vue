@@ -1,18 +1,18 @@
 <template>
   <article class="media-gallery-with-copy" :class="classes">
     <div class="content" :data-position="data.position">
-      <copy-block :headline="data.headline" :copy="data.copy" :theme="data.theme"></copy-block>
-      <span class="media" v-if='mediaCount > 1'>
-        <vue-flickity :class='classes' ref="flickity" :options="flickityOptions">
+      <copy-block :data="data"></copy-block>
+      <span class="media" v-if="mediaCount > 1">
+        <vue-flickity :class="classes" ref="flickity" :options="flickityOptions">
           <div v-for="(mediaItem, index) in mediaItems" class="carousel-cell" :key="`${mediaItem.type}-${index}`">  
             <picture-component v-if="mediaItem.type === 'image'" :data="mediaItem"></picture-component>
-            <!-- <video-component v-else-if="mediaItem.type === 'video'" :video-id='mediaItem.videoId'></video-component> -->
+            <!-- <video-component v-else-if="mediaItem.type === 'video'" :video-id="mediaItem.videoId"></video-component> -->
           </div> 
         </vue-flickity>
       </span>
       <span v-else class="media">
         <picture-component v-if="mediaItems[0].type === 'image'" :data="mediaItems[0]"></picture-component>
-        <!-- <video-component v-else-if="mediaItems[0].type === 'video'" :video-id='mediaItems[0].videoId'></video-component> -->
+        <!-- <video-component v-else-if="mediaItems[0].type === 'video'" :video-id="mediaItems[0].videoId"></video-component> -->
       </span>
     </div>
     <slot name="protosite" :schema="schema"/>
@@ -24,7 +24,7 @@
 *
 * Media Gallery with Copy
 * - a flickity carousel potentially displaying multimedia, with a copy block alongside
-* @param data - object containing an array of images, theme (light or dark), and positioning of carousel.
+* @prop data - object containing an array of images, theme (light or dark), and positioning of carousel.
 *
 */
 import CopyBlock from "./shared/copy-block.vue";
@@ -101,7 +101,7 @@ const schema = {
 <style scoped lang="sass">
 @import "src/styles/global"
 
-article
+article.media-gallery-with-copy
   padding-top: 80px
   padding-bottom: 120px
   &.dark-theme
@@ -122,7 +122,7 @@ article
 
 // Responsive styles
 +respond-to($tablet-landscape)  
-  article
+  article.media-gallery-with-copy
     .content
       .copy-block, .media
         grid-row: 1
@@ -140,7 +140,7 @@ article
           grid-column: 10 / span 11
 
 +respond-to($tablet-landscape)  
-  article
+  article.media-gallery-with-copy
     .content
       .copy-block, .media
         grid-row: 1

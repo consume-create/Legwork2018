@@ -1,7 +1,7 @@
 <template>
   <article class="caption">
-    <div class="content" :data-position='data.position'>
-      <copy-block :headline='data.headline' :copy='data.copy' :theme='data.theme'></copy-block>
+    <div class="content" :data-position="data.position">
+      <copy-block :data="data"></copy-block>
     </div>
     <slot name="protosite" :schema="schema"/>
   </article>
@@ -15,8 +15,8 @@
 import CopyBlock from './shared/copy-block.vue'
 
 export default {
-  name: "Caption",
-  props: ["data"],
+  name: 'Caption',
+  props: ['data'],
   components: {
     CopyBlock
   },
@@ -26,19 +26,26 @@ export default {
 };
 
 const schema = {
-  type: "object",
+  type: 'object',
   properties: {
-    "headline": {"$ref": "#/definitions/headline"},
-    "copy": {"$ref": "#/definitions/copy"},
+    'headline': {'$ref': '#/definitions/headline'},
+    'copy': {'$ref': '#/definitions/copy'},
+    position: {
+      type: 'string',
+      title: 'Style',
+      default: 'left',
+    description: 'Position of copy block',
+      enum: ['left', 'right']
+    },
+    theme: {
+      type: 'string',
+      title: 'Theme',
+      default: 'light',
+      description: 'Theme of component. Is it a dark or light background.',
+      enum: ['light', 'dark']
+    },
   },
-  theme: {
-    type: "string",
-    title: "Theme",
-    default: "light",
-    description: "Theme of component. Is it a dark or light background.",
-    enum: ["light", "dark"]
-  },
-  required: ["headline", "copy"],
+  required: ['headline', 'copy'],
 };
 
 </script>
@@ -46,7 +53,7 @@ const schema = {
 <style scoped lang="sass">
   @import "src/styles/global"
 
-  article
+  article.caption
     padding: 80px 0
     +grid
     .content
@@ -60,7 +67,7 @@ const schema = {
         line-height: 32px
 
   +respond-to($tablet-landscape)
-    article
+    article.caption
       .content
         margin: 100px 0
 

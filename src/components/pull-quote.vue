@@ -26,7 +26,7 @@
 <style scoped lang="sass">
 @import "src/styles/global"
 
-.pull-quote
+article.pull-quote
   &[data-position="left"]
     grid-column: 3 / span 6
 

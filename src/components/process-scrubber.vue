@@ -1,8 +1,8 @@
 <template>
   <article class="process-scrubber" :class="classes">
     <div class="content" :data-position="data.position">
-      <copy-block :headline='data.headline' :copy='data.copy' :theme='data.theme'></copy-block>
-      <div class="scrubber-container" @change-slide="onSliderChange">
+      <copy-block :data='data'></copy-block>
+      <div class="scrubber-container">
         <carousel-component :items='data.images' :selectedIndex='sliderVal'></carousel-component>
         <slider-component :numItems="data.images.length" @sliderChange='onSliderChange'></slider-component>
       </div>
@@ -18,18 +18,18 @@
 * @param data - object containing an array of images. 
 *
 */
-import CopyBlock from "./shared/copy-block.vue";
+import CopyBlock from './shared/copy-block.vue';
 import CarouselComponent from './shared/carousel-component.vue';
-import SliderComponent from "./shared/slider-component.vue"
+import SliderComponent from './shared/slider-component.vue'
 
 export default {
-  name: "ProcessScrubber",
+  name: 'ProcessScrubber',
   components: {
     CarouselComponent,
     CopyBlock,
     SliderComponent, 
   },
-  props: ["data"],
+  props: ['data'],
   data: function() {
     return {
       sliderVal: 0,
@@ -43,7 +43,7 @@ export default {
   },
   computed: {
     classes() {
-      return [`${this.data.theme || "light"}-theme`];
+      return [`${this.data.theme || 'light'}-theme`];
     },
   }
 };
@@ -51,25 +51,25 @@ export default {
 const schema = {
     type: 'object',
     properties: {
-      headline: {"$ref": "#/definitions/headline"},
-      copy: {"$ref": "#/definitions/copy"},
+      headline: {'$ref': '#/definitions/headline'},
+      copy: {'$ref': '#/definitions/copy'},
       theme: {
-        type: "string",
-        title: "Theme",
-        default: "light",
-        description: "Theme of component. Is it a dark or light background.",
-        enum: ["light", "dark"]
+        type: 'string',
+        title: 'Theme',
+        default: 'light',
+        description: 'Theme of component. Is it a dark or light background.',
+        enum: ['light', 'dark']
       },
       position: {
-        type: "string",
-        title: "Style",
-        default: "left",
-        description: "Position of Scrubber",
-        enum: ["left", "right"]
+        type: 'string',
+        title: 'Style',
+        default: 'left',
+        description: 'Position of Scrubber',
+        enum: ['left', 'right']
       },
       images: {
         type: 'array',
-        items: {"$ref": "#/definitions/image"},
+        items: {'$ref': '#/definitions/image'},
         additionalItems: false,
         minItems: 1,
       },

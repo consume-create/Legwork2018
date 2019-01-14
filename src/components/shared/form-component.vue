@@ -12,8 +12,8 @@
 import schemaBase from './schema-base.js'
 
 export default {
-  name: "FormComponent",
-  props: ["schema"],
+  name: 'FormComponent',
+  props: ['schema'],
   data() {
     console.log(Object.assign({}, schemaBase, schema))
     return {
@@ -33,7 +33,7 @@ export default {
 
 </script>
 
-<style scoped lang='sass'>
+<style scoped lang="sass">
 @import "src/styles/global"
 
 </style>

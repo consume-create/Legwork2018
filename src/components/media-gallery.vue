@@ -26,13 +26,13 @@
 * @props data - object containing an array of images, theme (light or dark), and positioning of carousel.  
 * 
 */
-import VueFlickity from "./shared/vue-flickity.vue";
-import PictureComponent from "./shared/picture-component.vue";
-import VideoComponent from "./shared/picture-component.vue";
+import VueFlickity from './shared/vue-flickity.vue';
+import PictureComponent from './shared/picture-component.vue';
+import VideoComponent from './shared/picture-component.vue';
 
 export default {
-  name: "MediaGallery",
-  props: ["data"],
+  name: 'MediaGallery',
+  props: ['data'],
   data() {
     return {
       activeMediaIndex: 0,
@@ -90,7 +90,7 @@ const schema = {
 <style scoped lang="sass">
   @import "src/styles/global"
 
-  article
+  article.media-gallery
     padding-top: 80px
     padding-bottom: 120px
     &.dark-theme
@@ -109,7 +109,7 @@ const schema = {
 
   // Responsive styles
   +respond-to($tablet-landscape)  
-    article
+    article.media-gallery
       .content
         &[data-position='left'] .media
           grid-column: 3 / span 11

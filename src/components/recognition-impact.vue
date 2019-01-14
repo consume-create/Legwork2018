@@ -26,11 +26,11 @@
 </template>
 
 <script>
-import FormComponent from './shared/form-component.vue'
+import FormComponent from './shared/form-component.vue';
 
 export default {
-  name: "RecognitionImpact",
-  props: ["data"],
+  name: 'RecognitionImpact',
+  props: ['data'],
   data() {
     return { schema };
   },
@@ -40,81 +40,82 @@ export default {
     },
     getAwards() {
       return this.data.awards;
-    },
+    }
   },
-	components: { FormComponent }
+  components: { FormComponent }
 };
 
 const schema = {
-    properties: {
-        impact: {
-            type: "string",
-            default: "Lorem ipsum dolor sit amet, consectetur adipiscing elit.",
-            attrs: {
-                placeholder: "Children everywhere speak of what we've achieved.",
-                title: "Project Impact"
-            }
-        },
-        recognition: {
-            type: "array",
-            title: "Awards",
-            items: { $ref: "#/definitions/award"},
-            additionalItems: false,
-        },
+  properties: {
+    impact: {
+      type: 'string',
+      default: 'Lorem ipsum dolor sit amet, consectetur adipiscing elit.',
+      attrs: {
+        placeholder: 'Children everywhere speak of what we\'ve achieved.',
+        title: 'Project Impact'
+      }
     },
-    required: ["recognition", "impact"],
+    recognition: {
+      type: 'array',
+      title: 'Awards',
+      items: { $ref: '#/definitions/award' },
+      additionalItems: false
+    }
+  },
+  required: ['recognition', 'impact']
 };
-
 </script>
 
 <style scoped lang='sass'>
 @import "src/styles/global"
 
-.content
+article.recognition-impact
+  .content
     +grid
     margin-bottom: span(3,24)
     h3
-        margin-bottom: 30px
+      margin-bottom: 30px
 
     .impact
-        grid-column: 3 / span 16
-        margin-bottom: 30px
+      grid-column: 3 / span 16
+      margin-bottom: 30px
 
     .recognition
-        grid-column: 3 / span 16
-        margin-bottom: 70px
+      grid-column: 3 / span 16
+      margin-bottom: 70px
 
-        .awards-tumble-weed
-            width: 100%
-            height: 100px
-            svg
-                height: 100%
+      .awards-tumble-weed
+        width: 100%
+        height: 100px
+        svg
+          height: 100%
 
-        .awards-box
-            display: flex
-            flex-wrap: wrap
-            flex-basis: 25%
-            li
-              padding-right: 10px
-              width: 25%
-              fill: $awards-yeti-turq-blue
+      .awards-box
+        display: flex
+        flex-wrap: wrap
+        flex-basis: 25%
+        li
+          padding-right: 10px
+          width: 25%
+          fill: $awards-yeti-turq-blue
 
 +respond-to($tablet-landscape)
+  article.recognition-impact
     .content
-        margin-bottom: 150px
+      margin-bottom: 150px
 
-        .impact
-            grid-row: 1 / span 1
-            grid-column: 9 / span 11
-            margin-bottom: 0
+      .impact
+        grid-row: 1 / span 1
+        grid-column: 9 / span 11
+        margin-bottom: 0
 
-        .recognition
-            grid-row: 1 / span 1
-            grid-column: 3 / span 4
-            margin-bottom: 0
-            .awards-tumble-weed
-                width: 100%
-                height: 100px
+      .recognition
+        grid-row: 1 / span 1
+        grid-column: 3 / span 4
+        margin-bottom: 0
+        .awards-tumble-weed
+          width: 100%
+          height: 100px
 
 // +respond-to($largest-screens)
  

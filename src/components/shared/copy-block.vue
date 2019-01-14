@@ -1,26 +1,23 @@
 <template>
-  <div class="copy-block" :class='classes'>
-    <h3 v-html='headline'></h3>
-    <p v-html='copy'></p>
-  </div>
+  <article class="copy-block" :class="classes">
+    <h3 v-html="data.headline"></h3>
+    <p v-html="data.copy"></p>
+  </article>
 </template>
 
 <script>
 /*
 * Copy Block 
 * - displays headline copy pair, supports raw html. 
-* @prop headline - main text
-* @prop copy - copy text
+* @prop data - object containing headline, copy, and theme (light or dark)
+*
 */
-
 export default {
-  name: "CopyBlock",
-  props: ["headline","copy","theme"],
-  computed: { 
+  name: 'CopyBlock',
+  props: ['data'],
+  computed: {
     classes() {
-      return [
-        `${this.theme || 'light'}-theme`,
-      ]
+      return [`${this.data.theme || 'light'}-theme`]
     }
   }
 };
@@ -30,7 +27,7 @@ export default {
 <style scoped lang="sass">
   @import "src/styles/global"
 
-  .copy-block
+  article.copy-block
     margin-bottom: span(3,24)
     color: $black
     .dark-theme &
@@ -43,7 +40,7 @@ export default {
       line-height: 32px
 
   +respond-to($tablet-landscape)
-    .copy-block
+    article.copy-block
       margin: 100px 0
 
 </style>
