@@ -34,8 +34,8 @@ export default {
     },
     classes() {
       return {
-        "16-9": this.data.aspect === '16-9',
-      }
+
+}
     }
   },
   methods: {
@@ -58,7 +58,6 @@ const schema = {
 
   picture
     img 
-      +aspect-ratio(16, 9)
       width: 100%
   
   .fadeIn-enter-active 

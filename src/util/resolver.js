@@ -11,7 +11,6 @@ import PullQuote from '../components/pull-quote.vue'
 import ProcessScrubber from '../components/process-scrubber.vue'
 import Caption from '../components/caption.vue'
 import RecognitionImpact from '../components/recognition-impact.vue'
-import BleedImage from '../components/bleed-image.vue'
 
 export const RESOLVER = {
   'hero': Hero,
@@ -27,5 +26,4 @@ export const RESOLVER = {
   'process-scrubber': ProcessScrubber,
   'caption': Caption, 
   'recognition-impact': RecognitionImpact, 
-  'bleed-image': BleedImage, 
 }
