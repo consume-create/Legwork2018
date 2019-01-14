@@ -1,29 +1,17 @@
 <template>
   <article class="media-gallery" :class='classes'>
-    <div class="content">
-      <vue-flickity ref="flickity" v-if='mediaCount > 1' :options="flickityOptions">
-        <div 
-          v-for="(mediaItem, index) in mediaItems" 
-          class="carousel-cell" 
-          :key="`${mediaItem.type}-item-${index}`"
-        >  
-          <picture-component v-if="mediaItem.type === 'image'" 
-            :data="mediaItem"
-            :key='`picture-${mediaItem.type}-item-${index}`'
-          ></picture-component>
-          <video-component v-else-if="mediaItem.type === 'video'"
-            :video-id='mediaItem.videoId'
-          ></video-component>
-        </div> 
-      </vue-flickity>
-      <span v-else>
-        <picture-component v-if="mediaItems[0].type === 'image'"  
-          :data="mediaItems[0]"
-          :key='`picture-${mediaItems[0].type}-item-${index}`'
-        ></picture-component>
-        <video-component v-else-if="mediaItems[0].type === 'video'"
-          :video-id='mediaItems[0].videoId'
-        ></video-component>
+    <div class="content" :data-position='data.position'>
+      <span class="media" v-if='mediaCount > 1'>
+        <vue-flickity :class='classes' ref="flickity" :options="flickityOptions">
+          <div v-for="(mediaItem, index) in mediaItems" class="carousel-cell" :key="`${mediaItem.type}-${index}`">  
+            <picture-component v-if="mediaItem.type === 'image'" :data="mediaItem"></picture-component>
+            <!-- <video-component v-else-if="mediaItem.type === 'video'" :video-id='mediaItem.videoId'></video-component> -->
+          </div> 
+        </vue-flickity>
+      </span>
+      <span v-else class="media">
+        <picture-component v-if="mediaItems[0].type === 'image'" :data="mediaItems[0]"></picture-component>
+        <!-- <video-component v-else-if="mediaItems[0].type === 'video'" :video-id='mediaItems[0].videoId'></video-component> -->
       </span>
     </div>
     <slot name="protosite" :schema="schema"/>
@@ -31,6 +19,13 @@
 </template>
 
 <script>
+/*
+*
+* Media Gallery
+* - a flickity carousel potentially displaying multimedia. 
+* @props data - object containing an array of images, theme (light or dark), and positioning of carousel.  
+* 
+*/
 import VueFlickity from "./shared/vue-flickity.vue";
 import PictureComponent from "./shared/picture-component.vue";
 import VideoComponent from "./shared/picture-component.vue";
@@ -74,6 +69,12 @@ export default {
 const schema = {
   type: 'object',
   properties: {
+    position: {
+      type: 'string',
+      title: 'Style',
+      default: 'left',
+      enum: ['full', 'left', 'right'],
+    },
     media: {
       type: 'array',
       items: [{"$ref": "#/definitions/image"}, {"$ref": "#/definitions/video"}],
@@ -89,82 +90,35 @@ const schema = {
 <style scoped lang="sass">
   @import "src/styles/global"
 
-  $dot-radius: 4px
-
-  @mixin circle($r)
-    width: $r * 2
-    height: $r * 2
-    border-radius: 50%
-
   article
-    +grid
     padding-top: 80px
-    padding-bottom: 80px
+    padding-bottom: 120px
+    &.dark-theme
+      background: $grandpas-basement
     .content
-      grid-column: 1 / span 20
-      .flickity-enabled
-        /deep/ .flickity-viewport
-          padding-bottom: calc(9 / 16 * 95%)
-          background: $grandpas-basement
-          overflow: hidden
-          .flickity-slider 
-            height: 100%
+      +grid
+      .media
+        grid-column: 1 / span 20
+        .flickity-enabled
+          /deep/ .flickity-viewport
+            padding-bottom: calc(9 / 16 * 95%)
+            background: $grandpas-basement
+            overflow: hidden
+            .flickity-slider 
+              height: 100%
 
-  /deep/ .flickity-page-dots
-    width: 100%
-    height: 50px
-    position: absolute
-    bottom: -70px
-    list-style: none
-    text-align: center
-    line-height: 1
-    margin: auto
-    display: flex
-    justify-content: center
-    align-items: center
-    user-select: none
-
-  /deep/ .flickity-rtl .flickity-page-dots
-    direction: rtl
-
-  /deep/ .flickity-page-dots .dot
-    display: block
-    +circle($dot-radius * 5)
-    cursor: pointer
-    position: relative
-
-    &::after
-      background: black
-      .dark-theme &
-        background: white
-      content: ""
-      position: absolute
-      top: 50%
-      left: 50%
-      transform: translate(-50%, -50%)
-      +circle($dot-radius)
-      opacity: 0.5
-      transition: opacity 0.144s ease-in, transform 0.144s ease-in
-
-    &:hover::after
-      opacity: 0.75
-      transform: translate(-50%, -50%) scale(1.4)
-
-    &.is-selected::after
-      opacity: 1
-      transform: translate(-50%, -50%) scale(1.8)
-      transform-origin: center center
-      transition: opacity 0.144s ease-in, transform 0.144s ease-in
-
+  // Responsive styles
   +respond-to($tablet-landscape)  
     article
-      +grid
-      padding-top: 80px
-      padding-bottom: 120px
-
       .content
-        display: block
-        grid-column: 5 / span 14
+        &[data-position='left'] .media
+          grid-column: 3 / span 11
+
+        &[data-position='right'] .media
+          grid-column: 12 / span 11
+          
+        &[data-position="full"] .media
+          grid-column: 1 / span 24
 
         .flickity-enabled
           /deep/ .flickity-viewport

@@ -164,6 +164,60 @@ export default {
       cursor: -webkit-grabbing
       cursor: grabbing
 
+// Flickity Dot Styles
+$dot-radius: 4px
+
+@mixin circle($r)
+	width: $r * 2
+	height: $r * 2
+	border-radius: 50%
+	
+/deep/ .flickity-page-dots
+	width: 100%
+	height: 50px
+	position: absolute
+	bottom: -70px
+	list-style: none
+	text-align: center
+	line-height: 1
+	margin: auto
+	display: flex
+	justify-content: center
+	align-items: center
+	user-select: none
+
+/deep/ .flickity-rtl .flickity-page-dots
+	direction: rtl
+
+/deep/ .flickity-page-dots .dot
+	display: block
+	+circle($dot-radius * 5)
+	cursor: pointer
+	position: relative
+
+	&::after
+		background: black
+		.dark-theme &
+			background: white
+		content: ""
+		position: absolute
+		top: 50%
+		left: 50%
+		transform: translate(-50%, -50%)
+		+circle($dot-radius)
+		opacity: 0.5
+		transition: opacity 0.144s ease-in, transform 0.144s ease-in
+
+	&:hover::after
+		opacity: 0.75
+		transform: translate(-50%, -50%) scale(1.4)
+
+	&.is-selected::after
+		opacity: 1
+		transform: translate(-50%, -50%) scale(1.8)
+		transform-origin: center center
+		transition: opacity 0.144s ease-in, transform 0.144s ease-in
+
 //////////////////////////////
 
 .flickity-enabled
